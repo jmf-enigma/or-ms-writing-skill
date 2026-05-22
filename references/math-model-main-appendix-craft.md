@@ -81,6 +81,8 @@ The appendix gives the missing algebra between these levels. Do not write five p
 
 A main-text proof sketch should not be a miniature appendix. It should contain the proof's job.
 
+Before writing a proof paragraph, decide whether the body is giving a complete proof or only a credibility bridge. If it is complete and short, it may appear directly under the theorem or proposition with the label `Proof.`. If it is only a sketch, do not label it `Proof.`; write a normal paragraph that explains the proof move and points to the appendix.
+
 - Name the object constructed or reduced to.
 - Name the hard term, constraint, or error source.
 - State why the mathematical move controls it.

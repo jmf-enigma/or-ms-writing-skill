@@ -114,7 +114,7 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Proof idea",
             "Main text summary plus appendix",
-            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Put formal details in the appendix.",
+            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Do not label it Proof unless it is complete. Put formal details in the appendix.",
         )
     if any(term in lower for term in {"theorem", "proposition", "corollary"}):
         return (
@@ -132,7 +132,7 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Proof idea",
             "Main text summary plus appendix",
-            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Put formal details in the appendix.",
+            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Do not label it Proof unless it is complete. Put formal details in the appendix.",
         )
     if has_any(lower, INTERPRETATION):
         return (
@@ -215,7 +215,7 @@ def main() -> int:
         ("Formal result", "State the theorem or proposition that carries the contribution."),
         ("Derivation checkpoint", "Show start point, key move, and resulting object if the result depends on a transformation."),
         ("Interpretation", "Translate the result into the decision, benchmark, mechanism, and condition."),
-        ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it; keep routine proof ideas to one precise sentence."),
+        ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it; keep routine proof ideas to one precise sentence and reserve the label Proof for complete proofs."),
         ("Validity support", "Summarize only validity-critical robustness or feasibility checks."),
     ]
     print("Select only the modules needed for first-pass trust; do not treat this as paragraph order.")
@@ -228,6 +228,9 @@ def main() -> int:
     print("- Sentence before display: tell the reader what the display defines, relaxes, decomposes, or bounds.")
     print("- Sentence after display: translate the central variables and say why the display is used next.")
     print("- Appendix displays: use for algebra, constants, KKT checks, concentration steps, case splits, and auxiliary lemma proofs.")
+    print("\nProof label rule")
+    print("- Use `Proof.` under a theorem or proposition only for a complete short proof in the body.")
+    print("- For a proof idea, use ordinary prose after the result and point to the appendix for the complete proof.")
 
     print("\nAppendix modules")
     appendix_items = [note for note, role, _, _ in rows if role in {"Verification detail", "Derivation checkpoint", "Proof idea", "Validity support"}]

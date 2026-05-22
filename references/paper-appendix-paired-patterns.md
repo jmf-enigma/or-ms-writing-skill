@@ -33,6 +33,8 @@ The handoff should not become a visible template. Write it as ordinary prose nea
 
 A body proof idea is not a miniature appendix and not a dramatic story. It is a credibility bridge.
 
+Do not put the label `Proof.` above a credibility bridge. Reserve `Proof.` for a complete proof. If the body gives only the move and sends details to an appendix, write an unheaded paragraph after the theorem or proposition.
+
 Use one to four plain sentences unless the proof technique is itself the contribution:
 
 1. Fix the object, reduction, or simplifying comparison.

@@ -105,6 +105,76 @@ For structural results, the post-theorem paragraph should say:
 - which parameter or state determines the regime;
 - what decision implication follows.
 
+## Proof Placement After A Theorem Or Proposition
+
+There is no single MS/OR rule that every proposition must be followed by a formal proof in the body. Choose among four patterns.
+
+### Pattern 1: Proposition, Complete Short Proof, Interpretation
+
+Use this when the proof is short, self-contained, and helps the reader see the mechanism.
+
+```text
+Proposition 1.
+[Formal statement.]
+
+Proof.
+[Two to four short paragraphs or displays that prove the claim.]
+
+[Interpretation paragraph that explains what the result means for the model, benchmark, or decision.]
+```
+
+This pattern is common in compact theory sections and simple analytical models. The proof under `Proof.` must be a real proof, not only intuition. It should not rely on long hidden lemmas, repeated cases, or constants that belong in an appendix.
+
+### Pattern 2: Proposition, Interpretation, Appendix Pointer
+
+Use this when the theorem is important but the proof is routine, algebraic, or long.
+
+```text
+Proposition 1.
+[Formal statement.]
+
+[Interpretation paragraph: what the proposition characterizes, which condition matters, and how it differs from the benchmark.] The proof is in Appendix A.
+```
+
+This is often the cleanest Management Science style because the body keeps result meaning and the appendix carries verification.
+
+### Pattern 3: Proposition, Proof Idea, Appendix Proof
+
+Use this when the proof technique is part of the contribution or the result would otherwise feel like a black box.
+
+```text
+Proposition 1.
+[Formal statement.]
+
+[One short paragraph explaining the constructed object, hard term, and proof move.] Appendix A gives the complete proof.
+```
+
+Do not label this paragraph `Proof.` unless it is complete. Usually do not label it `Proof idea` either; write it as normal prose after the result.
+
+### Pattern 4: Technical OR Body Proof
+
+Use this in focused OR theory or algorithm papers when proof logic is the paper's main contribution and the journal expects technical development in the body.
+
+```text
+Theorem 1.
+[Formal statement.]
+
+Proof.
+[Full proof, possibly with lemmas, but still signposted.]
+```
+
+Even here, auxiliary algebra, constants, and repeated cases can move to a regular appendix if the body proof gives the main argument.
+
+## What Feels Weird
+
+Proof placement often feels wrong when the label and content do not match.
+
+- `Proof.` followed by intuition only: rename it as ordinary explanatory prose or complete the proof.
+- Proposition followed immediately by appendix pointer with no interpretation: add a result paragraph before the pointer.
+- Long appendix proof copied into the body: keep the theorem, one proof move, and interpretation; move verification out.
+- Body proof idea after every proposition: use it only when reviewer trust needs it.
+- Interpretation appears only after the appendix pointer: move the interpretation before the reader is sent away.
+
 ## Body Proof Sketch Layout
 
 A body proof sketch should be short and load-bearing.
