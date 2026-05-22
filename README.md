@@ -1,0 +1,180 @@
+# OR/MS Writing Skill
+
+Idiomatic, reviewer-calibrated academic writing support for Operations Research, Management Science, M&SOM, and adjacent empirical, theoretical, algorithmic, policy, and business analytics work.
+
+This repository contains a Codex skill. It is designed to help draft, rewrite, diagnose, and organize OR/MS research prose at many granularities: one sentence, one paragraph, a model description, a theorem interpretation, a proof idea, a response to a referee, or a full paper section.
+
+## English
+
+### What This Skill Does
+
+`or-ms-writing` helps Codex write like a careful OR/MS researcher rather than a generic academic assistant. It focuses on:
+
+- precise claim, evidence, and boundary control;
+- Management Science and OR/MS style without imitating any living author's personal voice;
+- model narration, notation setup, theorem interpretation, proof exposition, and appendix placement;
+- reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
+- language repair for passages that feel translated, generic, overclaimed, or too AI-like.
+
+### Best For
+
+Use this skill for:
+
+- abstracts, introductions, contribution paragraphs, related work, and discussion sections;
+- model setup, assumptions, formulations, theorem statements, result interpretations, and proof ideas;
+- deciding what belongs in the main text, appendix, online appendix, or replication package;
+- polishing Management Science, Operations Research, M&SOM, OM, mechanism design, empirical, learning, platform, healthcare, supply chain, policy, and business analytics writing;
+- rewriting rough Chinese or mixed-language notes into natural academic English while preserving the original mathematical and empirical claims.
+
+### Writing Principles
+
+The skill is built around a few nonnegotiable writing principles:
+
+- Every major claim needs nearby evidence and a clear boundary.
+- Stronger prose should not mean stronger unsupported claims.
+- A model should be introduced as a decision environment, not as a collection of symbols.
+- Proof ideas should name the load-bearing mathematical move, not hide behind "by algebra."
+- The main text must let a reviewer understand and trust the contribution without opening the appendix.
+- References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
+
+### Installation
+
+Clone this repository into your Codex skills directory under the skill name `or-ms-writing`:
+
+```bash
+mkdir -p ~/.codex/skills
+git clone https://github.com/jmf-enigma/or-ms-writing-skill.git ~/.codex/skills/or-ms-writing
+```
+
+If the skill is already installed and you want to update it:
+
+```bash
+git -C ~/.codex/skills/or-ms-writing pull
+```
+
+### Example Prompts
+
+```text
+Use $or-ms-writing to rewrite this model paragraph in Management Science style.
+```
+
+```text
+Use $or-ms-writing to turn these proof notes into a main-text proof idea and an appendix proof skeleton.
+```
+
+```text
+Use $or-ms-writing to decide which of these results should be in the body versus the appendix.
+```
+
+```text
+Use $or-ms-writing to make this abstract more native, less generic, and more precise about evidence and boundary conditions.
+```
+
+### Repository Structure
+
+```text
+.
+├── SKILL.md                 # Main skill instructions and routing logic
+├── agents/openai.yaml       # Codex UI metadata
+├── references/              # Detailed OR/MS writing, model, proof, and paper-style references
+├── scripts/                 # Lightweight planning and diagnostic scripts
+└── templates/               # Reusable planning templates
+```
+
+### Useful Scripts
+
+```bash
+python3 scripts/plan_section.py --section abstract --target "Management Science" --topic "data-driven pricing"
+```
+
+```bash
+python3 scripts/plan_math_split.py --target "Management Science" < proof_notes.txt
+```
+
+```bash
+python3 scripts/check_paragraph.py --section results --fail-on-ai-scent < draft.txt
+```
+
+### Boundaries
+
+This skill does not invent missing theory, data, causal identification, robustness, numerical magnitude, or empirical significance. It improves wording, structure, reader order, and reviewer calibration while preserving the supplied evidence. If a proof is missing rather than rough, use a proof-discovery workflow before asking this skill to polish it.
+
+## 中文
+
+### 这是什么
+
+`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
+
+它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
+
+### 适合做什么
+
+适合用它来处理:
+
+- abstract、introduction、contribution、related work、discussion；
+- model setup、assumption、formulation、theorem statement、result interpretation；
+- proof idea、proof sketch、appendix proof、正文和附录的数学分工；
+- Management Science 风格的语言、用词、句子节奏和故事逻辑；
+- 同一个 model / data 下更好的表达，而不是更强的、不被支持的结论；
+- 中文 rough notes 到自然英文论文段落的转换。
+
+### 写作内核
+
+这个 skill 的核心判断很简单，但执行时很严格:
+
+- 一个大 claim 附近必须有 evidence。
+- 一个强 claim 附近必须有 boundary。
+- 语言可以更地道，但结论不能被偷偷加强。
+- model 要先让读者知道谁在什么信息下做什么决定，再进入符号。
+- proof idea 要说清楚真正承重的数学动作，比如 relaxation、coupling、decomposition、KKT、concentration、fixed point、exchange argument。
+- 正文要让审稿人第一遍就理解贡献和可信度，附录负责完整验证、长证明、重复 robustness、implementation details。
+
+### 安装
+
+把这个 repo clone 到 Codex 的 skills 目录，并把文件夹命名为 `or-ms-writing`:
+
+```bash
+mkdir -p ~/.codex/skills
+git clone https://github.com/jmf-enigma/or-ms-writing-skill.git ~/.codex/skills/or-ms-writing
+```
+
+已经安装过的话，更新即可:
+
+```bash
+git -C ~/.codex/skills/or-ms-writing pull
+```
+
+### 使用示例
+
+```text
+Use $or-ms-writing to polish this proof idea for a Management Science paper.
+```
+
+```text
+Use $or-ms-writing to rewrite this model setup so the notation is earned before the display.
+```
+
+```text
+Use $or-ms-writing to decide which results, proofs, and robustness checks belong in the body versus the appendix.
+```
+
+```text
+Use $or-ms-writing to make this paragraph more native, less translated, and more reviewer-calibrated.
+```
+
+### 文件结构
+
+```text
+.
+├── SKILL.md                 # skill 主入口和 reference routing
+├── agents/openai.yaml       # Codex 展示信息
+├── references/              # MS/OR 语言、结构、模型、证明、附录分工等参考
+├── scripts/                 # 规划和诊断脚本
+└── templates/               # 可复用的规划模板
+```
+
+### 注意边界
+
+这个 skill 不会替论文发明定理、数据、显著性、因果识别、robustness 或数值大小。它能做的是把已有内容写得更清楚、更地道、更像 OR/MS 论文，并且让 claim、evidence、assumption、benchmark、policy class、data regime 这些东西放在审稿人需要的位置。
+
+如果证明本身还没有成立，应该先做 proof discovery 或 proof debugging；如果证明已经有了，只是写得粗糙，这个 skill 才适合把它变成正文 proof idea 和附录 proof。
