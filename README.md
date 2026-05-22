@@ -100,6 +100,10 @@ python3 scripts/check_paragraph.py --section results --fail-on-ai-scent < draft.
 
 This skill does not invent missing theory, data, causal identification, robustness, numerical magnitude, or empirical significance. It improves wording, structure, reader order, and reviewer calibration while preserving the supplied evidence. If a proof is missing rather than rough, use a proof-discovery workflow before asking this skill to polish it.
 
+### License
+
+MIT License. See [LICENSE](LICENSE).
+
 ## 中文
 
 ### 这是什么
@@ -180,3 +184,7 @@ Use $or-ms-writing to make this paragraph more native, less translated, and more
 这个 skill 不会替论文发明定理、数据、显著性、因果识别、robustness 或数值大小。它能做的是把已有内容写得更清楚、更地道、更像 OR/MS 论文，并且让 claim、evidence、assumption、benchmark、policy class、data regime 这些东西放在审稿人需要的位置。
 
 如果证明本身还没有成立，应该先做 proof discovery 或 proof debugging；如果证明已经有了，只是写得粗糙，这个 skill 才适合把它变成正文 proof idea 和附录 proof。
+
+### License
+
+MIT License。见 [LICENSE](LICENSE)。
