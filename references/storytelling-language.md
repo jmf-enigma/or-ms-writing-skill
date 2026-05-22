@@ -27,6 +27,8 @@ If a paragraph lacks actor + decision + friction, it will read abstract and life
 - Avoid machine-like cadence. Do not lean on "not only ... but also," "this underscores," "this highlights," "it is worth noting," or repeated "by doing so" transitions.
 - Avoid colon, semicolon, and dash scaffolding. If a sentence has the shape "The implication is ..." followed by a punctuation reveal, rewrite it as a direct sentence with a subject and verb.
 - Avoid "This enables/allows/ensures" openings unless the previous sentence gives a precise antecedent. Prefer naming the actor or mechanism.
+- Avoid itinerary cadence such as "we first..., we then..., finally..." unless the passage is a roadmap. In abstracts and result interpretation, name the decision object, formal result, benchmark, or mechanism instead of narrating the author's sequence of work.
+- Avoid weak `which allows/enables` clauses. If the relative clause points to an entire sentence, rewrite with the actual subject: the theorem, estimator, field design, decomposition, or policy comparison.
 - Avoid everything as bullets. Use bullets only when the reader needs to compare parallel items. In introductions and result interpretation, prose usually reads better.
 
 ## Sentence Moves That Work
@@ -49,6 +51,8 @@ If a paragraph lacks actor + decision + friction, it will read abstract and life
 - Puffery: replace "crucial, pivotal, robust, cutting-edge, seamless" with the exact theorem, estimate, or operational effect.
 - Empty "-ing" phrase: replace "highlighting the importance of X" with "X changes Y when Z holds."
 - "This enables" sentence: name what enables what and why.
+- Itinerary prose: replace the author's work order with the reader's logic. A paragraph should not sound like a project-management update unless it is a roadmap.
+- Weak "which allows" clause: name the mechanism or formal object rather than letting "which" carry the argument.
 - Over-parallel list: vary the rhythm or turn the list into a sentence if the items are not truly comparable.
 - Passive abstraction: replace "it is shown that" with "Proposition 1 shows" or "the model shows."
 

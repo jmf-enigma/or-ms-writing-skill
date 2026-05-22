@@ -43,6 +43,7 @@ The skill is built around a few nonnegotiable writing principles:
 - Proof ideas should name the load-bearing mathematical move, not hide behind "by algebra."
 - Proof ideas should be proportional: a routine proof may need one precise sentence; a surprising result may need a short proof checkpoint.
 - Polished prose should avoid colon-led roadmaps such as "Key insight:", "Result:", or "Managerial implication:" unless the mark is required by a formal label, table, definition, theorem condition, or venue format.
+- Avoid itinerary prose such as "we first..., we then..., finally..." and weak links such as "This enables..." or ", which allows..." unless the antecedent is precise.
 - The main text must let a reviewer understand and trust the contribution without opening the appendix, and appendix pointers should first say what the appendix verifies, preserves, or changes.
 - References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
 
@@ -149,6 +150,7 @@ MIT License. See [LICENSE](LICENSE).
 - proof idea 要说清楚真正承重的数学动作，比如 relaxation、coupling、decomposition、KKT、concentration、fixed point、exchange argument。
 - proof idea 要按难度写：routine proof 可以一句话说清楚；surprising theorem 才需要更明确的 proof checkpoint。
 - 少用冒号式的 AI 节奏，比如 `Key insight:`、`Result:`、`Managerial implication:`。除非是 definition、assumption、table、theorem condition 或期刊格式需要，成稿里应改成自然句子。
+- 避免 `we first..., we then..., finally...` 这种流水账，也避免没有明确 antecedent 的 `This enables...` 或 `which allows...`。
 - 正文要让审稿人第一遍就理解贡献和可信度；附录负责完整验证、长证明、重复 robustness、implementation details。正文提到附录前，要先说清楚附录验证、保留或改变了什么。
 
 ### 安装

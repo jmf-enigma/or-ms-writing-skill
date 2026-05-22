@@ -57,6 +57,8 @@ Treat the following as diagnostic, not as a banned-word list. A word may stay if
 - Empty "-ing" pivots: highlighting, showcasing, underscoring, leveraging, utilizing, ensuring.
 - Generic contribution shells: "This paper contributes to the literature by...", "Our framework provides insights...", "The results have important managerial implications..."
 - Punctuation scaffolding: colon-led labels such as "Key insight:", "The implication is:", "Contribution:", "Result:", "Proof idea:", and "Takeaway:"; semicolon chains; dash pivots that create a reveal instead of a logical relation.
+- Itinerary prose: repeated "we first," "we then," "we next," and "finally" when the paragraph should be organized by objects, results, or evidence.
+- Weak antecedent links: "This enables/allows..." and ", which enables/allows..." when "this" or "which" points to an entire previous sentence rather than a named mechanism, theorem, design, or data feature.
 
 Replacement rule:
 
@@ -65,6 +67,7 @@ Replacement rule:
 - Replace "valuable insights" with the action and condition.
 - Replace "comprehensive framework" with the model primitives or data design.
 - Replace colon-led labels with direct syntax. For example, write "This comparison shows when the threshold policy improves profit relative to the myopic benchmark" rather than "Key implication: the threshold policy improves profit."
+- Replace itinerary prose with research-object prose. "We first model the platform, then analyze equilibrium, and finally discuss implications" usually becomes a sentence about the platform's decision, the equilibrium object, and the condition that changes the implication.
 
 ## Reviewer-Readable Anti-AI Pass
 
@@ -75,6 +78,8 @@ Before finalizing, ask:
 - Does the paragraph rely on a polished transition instead of a logical relation?
 - Does the prose contain clusters of LLM-associated words?
 - Does the prose rely on colons, semicolons, or dash pivots to create artificial structure?
+- Does the paragraph move like a table of contents rather than an argument?
+- Does a `This` or `which` clause have a precise antecedent?
 - Does the last sentence teach a mechanism, boundary condition, or implication?
 - Can a reviewer identify the actor, decision, friction, evidence, and validity condition without searching elsewhere?
 

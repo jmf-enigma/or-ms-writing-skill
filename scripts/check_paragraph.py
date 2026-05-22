@@ -31,6 +31,7 @@ DECISIONS = {
     "train", "monitor", "comply", "explore", "exploit",
     "acquire", "accept", "refer", "share", "invite", "engage",
     "sourcing", "ordering", "order", "procure", "procurement",
+    "disclosure",
 }
 FRICTIONS = {
     "fairness", "uncertain", "ambiguity", "capacity", "churn", "disengagement",
@@ -64,7 +65,7 @@ BENCHMARKS = {
     "current practice", "status quo", "fluid", "lp relaxation", "complete information",
     "no information", "unconstrained", "offline optimum", "clairvoyant", "baseline",
     "existing ranking", "existing algorithm", "current algorithm", "incumbent policy",
-    "current policy",
+    "incumbent algorithm", "incumbent rule", "current policy",
 }
 RESULT_TYPES = {
     "existence", "unique", "uniqueness", "threshold", "comparative static",
@@ -372,6 +373,19 @@ WEAK_THIS_VERBS = {
     "demonstrates",
 }
 
+ROADMAP_MARKERS = {
+    "we first",
+    "we then",
+    "we next",
+    "we finally",
+    "finally, we",
+    "first, we",
+    "second, we",
+    "third, we",
+    "in the first step",
+    "in the second step",
+}
+
 COLON_ROADMAP_LABELS = {
     "approach",
     "contribution",
@@ -502,11 +516,44 @@ def weak_this_sentences(text: str) -> list[str]:
     hits = []
     sentences = re.split(r"(?<=[.!?])\s+", text.strip())
     pattern = re.compile(r"^\s*This\s+(" + "|".join(sorted(WEAK_THIS_VERBS)) + r")\b", flags=re.I)
-    for sentence in sentences:
+    precise_antecedents = ACTORS | DECISIONS | EVIDENCE | FORMAL_OBJECTS | BENCHMARKS | MATH_MOVES
+    for idx, sentence in enumerate(sentences):
         match = pattern.search(sentence)
         if match:
-            hits.append(match.group(1).lower())
+            previous = sentences[idx - 1] if idx else ""
+            if not previous or not contains_term(previous, precise_antecedents):
+                hits.append(match.group(1).lower())
     return hits
+
+
+def roadmap_rhythm_warnings(text: str, section: str) -> list[str]:
+    normalized_section = normalize_section(section)
+    if normalized_section in {"roadmap", "outline", "response", "referee-response"}:
+        return []
+    lower = text.lower()
+    hits = sorted(marker for marker in ROADMAP_MARKERS if marker in lower)
+    warnings = []
+    if len(hits) >= 2:
+        warnings.append(
+            "itinerary rhythm detected: "
+            + ", ".join(f"`{hit}`" for hit in hits)
+            + ". In polished prose, organize by research objects, evidence, benchmarks, or mechanisms rather than the author's work order."
+        )
+    if re.search(r"\bfirst\b.*\bsecond\b.*\bthird\b", lower, flags=re.S) and normalized_section not in {"roadmap", "outline"}:
+        warnings.append("numbered rhetorical sequence detected; use only when the reader needs an explicit roadmap.")
+    return warnings
+
+
+def weak_relative_clause_warnings(text: str) -> list[str]:
+    warnings = []
+    weak_which = re.findall(
+        r",\s*which\s+(?:allows|enables|helps|ensures|highlights|underscores|demonstrates)\b",
+        text,
+        flags=re.I,
+    )
+    if weak_which:
+        warnings.append("weak `which` clause; name the theorem, estimator, design, comparison, or mechanism that allows/enables the next claim.")
+    return warnings
 
 
 def passive_scent(text: str) -> int:
@@ -915,6 +962,14 @@ def main() -> int:
     for warning in overloaded_sentence_warnings(text):
         print(f"- naturalness: {warning}")
 
+    roadmap_scent = roadmap_rhythm_warnings(text, args.section)
+    for warning in roadmap_scent:
+        print(f"- naturalness: {warning}")
+
+    weak_relative_scent = weak_relative_clause_warnings(text)
+    for warning in weak_relative_scent:
+        print(f"- naturalness: {warning}")
+
     this_hits = weak_this_sentences(text)
     if this_hits:
         verbs = ", ".join(sorted(set(this_hits)))
@@ -981,7 +1036,7 @@ def main() -> int:
     else:
         print("- sentence length: ok")
 
-    if args.fail_on_ai_scent and (punctuation or llm_scent):
+    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or this_hits):
         return 2
 
     return 0
