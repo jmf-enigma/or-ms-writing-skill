@@ -51,7 +51,7 @@ BLUEPRINTS = {
     ],
     "proof": [
         "If the input is rough proof notes, run plan_math_split.py before drafting.",
-        "Plain proof idea with the constructed object, hard term, and load-bearing mathematical move.",
+        "Plain proof idea with the constructed object, hard term, and load-bearing mathematical move; use one sentence if the proof is routine.",
         "Reduction, coupling, relaxation, or key lemma.",
         "Main inequality, optimality, fixed-point, concentration, or exchange argument.",
         "Cases or induction if needed.",
@@ -62,7 +62,7 @@ BLUEPRINTS = {
         "Mark which items support the headline claim, which protect validity, and which only verify or stress-test.",
         "Assign each item to body, regular appendix, online appendix/e-companion, or replication package.",
         "For mathematical material, keep the model object, theorem statement, interpretation, and central derivation checkpoint in the body.",
-        "Write the body cross-reference for each appendix item.",
+        "Write the body cross-reference for each appendix item only after the body states what the appendix verifies, preserves, or changes.",
         "Check that the body still lets a reviewer understand the contribution without opening the appendix.",
     ],
     "managerial": [

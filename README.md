@@ -34,7 +34,8 @@ The skill is built around a few nonnegotiable writing principles:
 - Stronger prose should not mean stronger unsupported claims.
 - A model should be introduced as a decision environment, not as a collection of symbols.
 - Proof ideas should name the load-bearing mathematical move, not hide behind "by algebra."
-- The main text must let a reviewer understand and trust the contribution without opening the appendix.
+- Proof ideas should be proportional: a routine proof may need one precise sentence; a surprising result may need a short proof checkpoint.
+- The main text must let a reviewer understand and trust the contribution without opening the appendix, and appendix pointers should first say what the appendix verifies, preserves, or changes.
 - References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
 
 ### Installation
@@ -127,7 +128,8 @@ This skill does not invent missing theory, data, causal identification, robustne
 - 语言可以更地道，但结论不能被偷偷加强。
 - model 要先让读者知道谁在什么信息下做什么决定，再进入符号。
 - proof idea 要说清楚真正承重的数学动作，比如 relaxation、coupling、decomposition、KKT、concentration、fixed point、exchange argument。
-- 正文要让审稿人第一遍就理解贡献和可信度，附录负责完整验证、长证明、重复 robustness、implementation details。
+- proof idea 要按难度写：routine proof 可以一句话说清楚；surprising theorem 才需要更明确的 proof checkpoint。
+- 正文要让审稿人第一遍就理解贡献和可信度；附录负责完整验证、长证明、重复 robustness、implementation details。正文提到附录前，要先说清楚附录验证、保留或改变了什么。
 
 ### 安装
 

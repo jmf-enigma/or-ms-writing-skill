@@ -110,6 +110,12 @@ def classify(note: str) -> tuple[str, str, str]:
             "Main text",
             "Use to establish agents, timing, information, actions, objective, constraints, assumptions, and benchmark.",
         )
+    if any(term in lower for term in {"proof idea", "proof sketch", "proof roadmap", "roadmap"}):
+        return (
+            "Proof idea",
+            "Main text summary plus appendix",
+            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Put formal details in the appendix.",
+        )
     if any(term in lower for term in {"theorem", "proposition", "corollary"}):
         return (
             "Formal result",
@@ -126,7 +132,7 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Proof idea",
             "Main text summary plus appendix",
-            "Keep the constructed object, hard term, and load-bearing move in the body. Put formal details in the appendix.",
+            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Put formal details in the appendix.",
         )
     if has_any(lower, INTERPRETATION):
         return (
@@ -209,7 +215,7 @@ def main() -> int:
         ("Formal result", "State the theorem or proposition that carries the contribution."),
         ("Derivation checkpoint", "Show start point, key move, and resulting object if the result depends on a transformation."),
         ("Interpretation", "Translate the result into the decision, benchmark, mechanism, and condition."),
-        ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it."),
+        ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it; keep routine proof ideas to one precise sentence."),
         ("Validity support", "Summarize only validity-critical robustness or feasibility checks."),
     ]
     for role, advice in skeleton:
