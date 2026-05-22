@@ -47,6 +47,11 @@ FRICTIONS = {
     "demand shift", "demand shifts", "misspecification",
 }
 MECHANISM_MARKERS = {"because", "therefore", "thus", "when", "whereas", "while", "however"}
+ELEGANCE_HINGES = {
+    "although", "but", "because", "despite", "however", "instead", "otherwise",
+    "rather than", "relative to", "compared with", "consistent with", "whereas",
+    "while", "when", "yet",
+}
 EVIDENCE = {
     "theorem", "proposition", "lemma", "model", "simulation", "experiment", "data",
     "estimate", "result", "proof", "benchmark", "case study", "numerical",
@@ -755,6 +760,33 @@ def ms_storycraft_warnings(text: str, section: str) -> list[str]:
     return warnings
 
 
+def elegance_warnings(text: str, section: str) -> list[str]:
+    normalized_section = normalize_section(section)
+    if normalized_section in {
+        "phrase", "sentence", "title", "micro", "micro-rewrite",
+        "proof", "proof-exposition", "appendix-proof", "placement",
+    }:
+        return []
+    lower = text.lower()
+    sentences = [sentence for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence]
+    if len(sentences) < 2:
+        return []
+    has_research_object = (
+        contains_term(text, ACTORS | DECISIONS | FRICTIONS | FORMAL_OBJECTS | BENCHMARKS)
+        or contains_any(text, EVIDENCE | RESULT_TYPES)
+    )
+    has_method_or_result = (
+        contains_any(text, EVIDENCE | RESULT_TYPES)
+        or re.search(r"\bwe (?:study|develop|introduce|estimate|show|find|characterize|derive|propose|evaluate|compare)\b", lower)
+    )
+    has_hinge = any(marker in lower for marker in ELEGANCE_HINGES)
+    if has_research_object and has_method_or_result and not has_hinge:
+        return [
+            "story feels flat; add one real hinge that explains the turn from old object to friction, method to result, benchmark to comparison, or result to boundary."
+        ]
+    return []
+
+
 def language_model_math_warnings(text: str, section: str) -> list[str]:
     lower = text.lower()
     normalized_section = section.lower().replace("_", "-")
@@ -986,6 +1018,9 @@ def main() -> int:
 
     for warning in ms_storycraft_warnings(text, args.section):
         print(f"- MS whole-paper storycraft: {warning}")
+
+    for warning in elegance_warnings(text, args.section):
+        print(f"- MS elegance: {warning}")
 
     for warning in language_model_math_warnings(text, args.section):
         print(f"- MS/OR language-model-math: {warning}")

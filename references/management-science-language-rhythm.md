@@ -21,6 +21,8 @@ MS prose is usually plain, exact, and relation-heavy. It does not need ornate ve
 
 The most useful connecting words are ordinary: `where`, `whereas`, `when`, `otherwise`, `relative to`, `compared with`, `under`, `because`, `allowing`, `which`, and `thereby`. Use them to express mathematical, empirical, or managerial relations. Do not use them to decorate a sentence that lacks a clear object.
 
+Elegant MS prose often has one quiet hinge. The hinge tells the reader why the next object enters: a benchmark fails, a standard intuition misses a friction, an algorithm optimizes the wrong metric, a theorem applies only in a regime, or a design separates one mechanism from another. If a paragraph has no hinge, it may sound clean but inert.
+
 ## Native Story Wording
 
 In MS, the story is usually carried by local nouns and exact relations, not by words such as "story," "narrative," or "insight." A paragraph sounds native when the reader can follow the decision logic without being told that the paper is telling a compelling story.
@@ -31,6 +33,7 @@ Prefer story moves like these:
 - Policy -> consequence -> condition: `The adjusted critical-fractile heuristic matters when the signal is noisy; otherwise, the classic newsvendor rule is close to optimal.`
 - Algorithm objective -> distributional effect: `The existing ranking maximizes total connections but repeatedly exposes the same opportunities. The redesign changes the access metric without sacrificing total connections.`
 - Data relation -> decision implication: `Related data help only when the pooling rule preserves the decision structure of the focal system.`
+- Method default -> decision mismatch: `Pooling data improves aggregate fit, but it can choose a policy that is poor for an individual subsystem.`
 
 Distrust story-like words unless the sentence immediately names the object:
 

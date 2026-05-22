@@ -61,6 +61,27 @@ Recent full-text MS papers reinforce that storytelling is reviewer persuasion, n
 
 Across these lanes, the introduction usually answers three reviewer questions before listing results: why this setting matters, why the standard view or method is insufficient, and what feature of the model, data, or design makes the claim credible.
 
+## Elegance As Reader Turns
+
+Recent MS papers that read well do not simply list problem, method, result, and implication. They create small turns that let the next object feel necessary.
+
+- A platform-algorithm paper can move from the platform's original efficiency objective to the distributional harm that objective creates, and then to a ranking redesign that preserves total connections while changing access.
+- A workplace field-experiment paper can move from the general puzzle of slow practice adoption to the specific collaboration failure between managers and workers, and then to an intervention that separates coordination from cooperation.
+- A limited-data ODA paper can move from transfer learning and pooling as natural statistical defaults to the decision problem those defaults fail to protect, and then to co-learning as a decision-aligned alternative.
+- A technical inventory paper can move from known single-product guarantees to the unresolved backlog-assignment problem in networks, and then to a lower-bound construction that makes a simple policy provably credible.
+
+This is the kind of elegance to imitate at the field level. The paragraph should not sound dramatic; it should make the reader feel that the next sentence is the natural answer to the previous one.
+
+Useful turns:
+
+- **Old object -> missing feature**: what the standard model, policy, or literature assumes away.
+- **Objective -> unintended consequence**: what the current algorithm, contract, or practice optimizes and what it distorts.
+- **Method default -> decision mismatch**: why a familiar statistical or optimization tool is not enough for this decision.
+- **Formal result -> operating condition**: when the theorem, estimate, or algorithm matters and when a simpler benchmark is enough.
+- **Mechanism -> alternative mechanism**: why the result is attributed to one channel rather than a nearby explanation.
+
+Do not overuse contrast markers. A single well-placed `but`, `whereas`, `when`, `because`, or `relative to` can do more than a paragraph of polished transitions.
+
 ## Do Not Overfit The Story
 
 Different MS papers earn trust in different ways. Choose the entry point that matches the evidence, not the most complete-looking arc.

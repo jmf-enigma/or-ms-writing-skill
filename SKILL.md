@@ -38,6 +38,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Put old or contextual information before new information. Keep the grammatical subject close to the verb. Prefer two clean sentences to one sentence that carries setting, gap, model, result, mechanism, and implication.
 - Keep punctuation quiet in polished prose. Do not use colons as a default way to announce claims, contributions, implications, proof ideas, or takeaways. Turn `The implication is: ...` and `Key result: ...` into ordinary sentences with a subject, verb, object, condition, and benchmark. Preserve colons only when they serve formal notation, definitions, assumptions, proof labels, tables, or venue-required structure.
 - Avoid itinerary prose. Do not default to `we first...`, `we then...`, `finally...`, or perfectly parallel contribution sentences unless the section is explicitly a roadmap. In polished prose, let the order follow the research objects: setting, friction, method, result, mechanism, boundary, or benchmark.
+- Make the story elegant by giving the reader a turn, not by adding flourish. A good MS paragraph often moves from an existing practice, belief, model, or benchmark to the friction that changes the question, then to the method or result that resolves that friction. Use quiet hinges such as `but`, `whereas`, `when`, `because`, `relative to`, `rather than`, and `consistent with` only when they express a real relation.
 - For translated-English drafts, rebuild the English logic: decision or object, friction, method or formal move, evidence, condition, implication.
 - Let the story come from exact nouns and relations, not from story-like language. Avoid empty phrases such as "important implications," "novel framework," "rapidly evolving landscape," "underscores," "delve," and slogan-like final sentences.
 - Preserve useful plain words. `Study`, `show`, `use`, `choose`, `price`, `bound`, and `compare` are often better than ornate substitutes.
@@ -136,6 +137,7 @@ Run `plan_section.py` only for section-level or structurally unclear tasks; use 
 7. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
 8. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
 9. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
+10. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
 
 ## If The Draft Feels Weird
 
@@ -145,6 +147,7 @@ Repair by simplifying the operating logic, not by adding more genre markers.
 - If it uses colon-led labels such as `Contribution:`, `Key insight:`, `Result:`, `Proof idea:`, or `Implication:`, rewrite them as ordinary manuscript sentences or section headings only when the journal style truly calls for a heading.
 - If it moves by `we first`, `we then`, and `finally`, replace the itinerary with the objects being studied, compared, or proved. Use roadmaps only when the reader needs navigation across a long section.
 - If it starts with `This enables`, `This allows`, or a `which allows` clause, name the mechanism, theorem, design, or data object that does the work.
+- If it becomes dry after removing AI-scent, do not add polish words. Add a precise turn: old belief versus new friction, benchmark versus result, mechanism versus alternative mechanism, or condition versus boundary.
 - If it sounds like a grant pitch, replace praise with the decision, metric, theorem, estimate, mechanism, or condition.
 - If it sounds translated, rebuild the sentence around the English subject and verb rather than polishing word by word.
 - If the proof idea sounds stylized, replace metaphor and suspense with the constructed object, hard term, and proof move.

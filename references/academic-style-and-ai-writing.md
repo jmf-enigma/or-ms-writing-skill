@@ -68,6 +68,7 @@ Replacement rule:
 - Replace "comprehensive framework" with the model primitives or data design.
 - Replace colon-led labels with direct syntax. For example, write "This comparison shows when the threshold policy improves profit relative to the myopic benchmark" rather than "Key implication: the threshold policy improves profit."
 - Replace itinerary prose with research-object prose. "We first model the platform, then analyze equilibrium, and finally discuss implications" usually becomes a sentence about the platform's decision, the equilibrium object, and the condition that changes the implication.
+- If removing AI-scent makes the paragraph flat, add a real hinge rather than a style word. The hinge should name a contrast, condition, mechanism, benchmark, or boundary.
 
 ## Reviewer-Readable Anti-AI Pass
 
@@ -80,6 +81,7 @@ Before finalizing, ask:
 - Does the prose rely on colons, semicolons, or dash pivots to create artificial structure?
 - Does the paragraph move like a table of contents rather than an argument?
 - Does a `This` or `which` clause have a precise antecedent?
+- Does the paragraph have a reason for moving from one object to the next?
 - Does the last sentence teach a mechanism, boundary condition, or implication?
 - Can a reviewer identify the actor, decision, friction, evidence, and validity condition without searching elsewhere?
 

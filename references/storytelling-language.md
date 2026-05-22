@@ -21,6 +21,7 @@ If a paragraph lacks actor + decision + friction, it will read abstract and life
 - Prefer verbs with actors: "a platform learns," "a seller chooses," "a regulator restricts," "customers leave."
 - Translate every formal object once: "the fairness parameter controls how similar prices must be across groups."
 - Use "because" sentences for mechanism. Use "when" sentences for conditions.
+- Give the paragraph one live turn when the local job needs story: old belief to missing friction, current objective to unintended consequence, method default to decision mismatch, result to boundary, or mechanism to alternative mechanism.
 - Keep one technical noun stack per sentence at most. If a sentence has three stacked concepts, split it.
 - Avoid empty connective tissue: "In today's fast-paced world," "plays a crucial role," "is of great importance."
 - Replace vague "insight" with the actual implication.
@@ -38,6 +39,8 @@ If a paragraph lacks actor + decision + friction, it will read abstract and life
 - `The model isolates this force by [abstraction].`
 - `The result is conditional. When [condition], [policy] improves [metric]. Otherwise, it can backfire.`
 - `The finding therefore changes the managerial question from [old question] to [new question].`
+- `The standard benchmark captures [object], but it misses [friction], which is the force the paper studies.`
+- `The design is useful because it separates [mechanism] from [nearby alternative].`
 
 ## Rewrite Patterns For Banned Punctuation
 
