@@ -4,6 +4,10 @@ Idiomatic, reviewer-calibrated academic writing support for Operations Research,
 
 This repository contains a Codex skill. It is designed to help draft, rewrite, diagnose, and organize OR/MS research prose at many granularities: one sentence, one paragraph, a model description, a theorem interpretation, a proof idea, a response to a referee, or a full paper section.
 
+## About
+
+`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes claim-evidence-boundary control, Management Science and Operations Research language, model and theorem narration, proof exposition, and main-text versus appendix placement.
+
 ## English
 
 ### What This Skill Does
@@ -105,6 +109,10 @@ This skill does not invent missing theory, data, causal identification, robustne
 MIT License. See [LICENSE](LICENSE).
 
 ## 中文
+
+### 简介
+
+`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 claim、evidence、boundary、model/proof 叙述，以及正文和附录的分工。
 
 ### 这是什么
 
