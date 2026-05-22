@@ -136,6 +136,22 @@ MS sentences often use clauses to specify conditions and contrasts.
 
 If the sentence has more than two clauses, split it unless it is a theorem statement or formal condition.
 
+## Quiet Punctuation
+
+Polished MS prose rarely needs colon-led announcements. A colon can be natural in a definition, assumption, theorem condition, table note, or formal field. It sounds generated when it turns a sentence into a label plus slogan.
+
+Avoid:
+
+- `Key insight: the policy works because demand is uncertain.`
+- `Managerial implication: platforms should reduce disclosure.`
+- `Proof idea: we use a coupling argument.`
+
+Prefer ordinary sentence structure:
+
+- `The policy is valuable when demand is uncertain because the first-stage order preserves flexibility.`
+- `Platforms should reduce disclosure only when additional precision intensifies congestion more than it improves matching.`
+- `The proof couples the original process with a monotone benchmark and then bounds the gap between the two value functions.`
+
 ## Chinese-To-MS Rewrite Moves
 
 - Chinese draft: "This paper mainly studies..."  
@@ -158,3 +174,4 @@ Before finalizing MS prose, check:
 3. Does every result sentence name a metric, comparator, condition, or theorem object when needed?
 4. Are `where`, `whereas`, `when`, and `otherwise` expressing real logical relations?
 5. Can any abstract noun be replaced by the paper's local noun?
+6. Are colons, semicolons, and dash pivots genuinely formal, or are they hiding a checklist rhythm?

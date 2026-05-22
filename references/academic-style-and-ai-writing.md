@@ -56,6 +56,7 @@ Treat the following as diagnostic, not as a banned-word list. A word may stay if
 - Template phrases: rapidly evolving landscape, it is important to note, this highlights, this underscores, by leveraging, not only ... but also, valuable insights, practical implications, improve decision-making, enhance performance.
 - Empty "-ing" pivots: highlighting, showcasing, underscoring, leveraging, utilizing, ensuring.
 - Generic contribution shells: "This paper contributes to the literature by...", "Our framework provides insights...", "The results have important managerial implications..."
+- Punctuation scaffolding: colon-led labels such as "Key insight:", "The implication is:", "Contribution:", "Result:", "Proof idea:", and "Takeaway:"; semicolon chains; dash pivots that create a reveal instead of a logical relation.
 
 Replacement rule:
 
@@ -63,6 +64,7 @@ Replacement rule:
 - Replace "this underscores" with the specific object that changes the reader's belief.
 - Replace "valuable insights" with the action and condition.
 - Replace "comprehensive framework" with the model primitives or data design.
+- Replace colon-led labels with direct syntax. For example, write "This comparison shows when the threshold policy improves profit relative to the myopic benchmark" rather than "Key implication: the threshold policy improves profit."
 
 ## Reviewer-Readable Anti-AI Pass
 
@@ -72,6 +74,7 @@ Before finalizing, ask:
 - Does a claim use a field-loaded term without a definition or benchmark?
 - Does the paragraph rely on a polished transition instead of a logical relation?
 - Does the prose contain clusters of LLM-associated words?
+- Does the prose rely on colons, semicolons, or dash pivots to create artificial structure?
 - Does the last sentence teach a mechanism, boundary condition, or implication?
 - Can a reviewer identify the actor, decision, friction, evidence, and validity condition without searching elsewhere?
 

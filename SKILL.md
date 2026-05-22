@@ -36,6 +36,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Use exact evidence verbs: `characterize` for policy forms or equilibrium regions, `establish` for theorems and guarantees, `bound` for approximation or regret, `estimate` for empirical designs, `identify` only when the design or model supports identification, and `validate` for numerical, empirical, or out-of-sample evidence.
 - Keep formal adjectives attached to an object and a condition. Terms such as `optimal`, `robust`, `tractable`, `adaptive`, `finite-sample`, `data-driven`, and `near-optimal` need a benchmark, metric, policy class, or assumption nearby.
 - Put old or contextual information before new information. Keep the grammatical subject close to the verb. Prefer two clean sentences to one sentence that carries setting, gap, model, result, mechanism, and implication.
+- Keep punctuation quiet in polished prose. Do not use colons as a default way to announce claims, contributions, implications, proof ideas, or takeaways. Turn `The implication is: ...` and `Key result: ...` into ordinary sentences with a subject, verb, object, condition, and benchmark. Preserve colons only when they serve formal notation, definitions, assumptions, proof labels, tables, or venue-required structure.
 - For translated-English drafts, rebuild the English logic: decision or object, friction, method or formal move, evidence, condition, implication.
 - Let the story come from exact nouns and relations, not from story-like language. Avoid empty phrases such as "important implications," "novel framework," "rapidly evolving landscape," "underscores," "delve," and slogan-like final sentences.
 - Preserve useful plain words. `Study`, `show`, `use`, `choose`, `price`, `bound`, and `compare` are often better than ornate substitutes.
@@ -133,13 +134,14 @@ Run `plan_section.py` only for section-level or structurally unclear tasks; use 
 6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
 7. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
 8. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
-9. Run the naturalness pass: split overloaded sentences, remove checklist residue, use exact verb-object pairs, and delete filler.
+9. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps and dash pivots, use exact verb-object pairs, and delete filler.
 
 ## If The Draft Feels Weird
 
 Repair by simplifying the operating logic, not by adding more genre markers.
 
 - If it sounds like a checklist, remove one beat and make the paragraph do one job.
+- If it uses colon-led labels such as `Contribution:`, `Key insight:`, `Result:`, `Proof idea:`, or `Implication:`, rewrite them as ordinary manuscript sentences or section headings only when the journal style truly calls for a heading.
 - If it sounds like a grant pitch, replace praise with the decision, metric, theorem, estimate, mechanism, or condition.
 - If it sounds translated, rebuild the sentence around the English subject and verb rather than polishing word by word.
 - If the proof idea sounds stylized, replace metaphor and suspense with the constructed object, hard term, and proof move.

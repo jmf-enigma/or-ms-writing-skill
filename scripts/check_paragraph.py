@@ -372,6 +372,23 @@ WEAK_THIS_VERBS = {
     "demonstrates",
 }
 
+COLON_ROADMAP_LABELS = {
+    "approach",
+    "contribution",
+    "finding",
+    "implication",
+    "intuition",
+    "key finding",
+    "key implication",
+    "key insight",
+    "key result",
+    "managerial implication",
+    "mechanism",
+    "proof idea",
+    "result",
+    "takeaway",
+}
+
 STORYCRAFT_SHELLS = {
     "this paper provides insights",
     "our study provides insights",
@@ -826,16 +843,31 @@ def llm_style_warnings(text: str) -> list[str]:
 
 def punctuation_scent(text: str, allow_structured: bool = False) -> list[str]:
     warnings = []
+    lower = text.lower()
     colon_count = text.count(":")
     em_dash_count = text.count("\u2014")
     en_dash_count = text.count("\u2013")
     double_dash_count = text.count(" -- ")
     spaced_hyphen_count = len(re.findall(r"\s-\s", text))
     semicolon_count = text.count(";")
+    colon_labels = sorted(
+        label for label in COLON_ROADMAP_LABELS
+        if re.search(rf"\b{re.escape(label)}\b\s*:", lower)
+    )
+    formal_colons = len(re.findall(
+        r"\b(?:assumption|definition|lemma|proposition|theorem|corollary|proof|case|step|table|figure|appendix)\s*(?:[A-Z]|\d+(?:\.\d+)*)?\s*:",
+        lower,
+    ))
+    if colon_labels:
+        warnings.append(
+            "colon-led roadmap label(s) "
+            + ", ".join(f"`{label}:`" for label in colon_labels)
+            + "; rewrite as ordinary prose unless this is an actual section heading."
+        )
     if colon_count and not allow_structured:
-        warnings.append(f"{colon_count} colon(s); check whether this is a colon-led roadmap. Keep it only for theorem titles, definitions, assumptions, proof labels, displays, tables, or other formal writing.")
-    elif colon_count > 1:
-        warnings.append(f"{colon_count} colon(s); keep at most one in structured text.")
+        warnings.append(f"{colon_count} colon(s); rewrite as ordinary manuscript sentences unless the colon marks a definition, assumption, proof label, display, table, or venue-required structure.")
+    elif colon_count > max(1, formal_colons + 1):
+        warnings.append(f"{colon_count} colon(s); keep structured punctuation rare, even when formal material is allowed.")
     if em_dash_count or en_dash_count or double_dash_count or spaced_hyphen_count:
         warnings.append("dash pivot detected; replace with a period, comma, parenthesis, or direct causal sentence.")
     if semicolon_count and not allow_structured:
