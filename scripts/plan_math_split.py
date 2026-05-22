@@ -231,6 +231,7 @@ def main() -> int:
     print("\nProof label rule")
     print("- Use `Proof.` under a theorem or proposition only for a complete short proof in the body.")
     print("- For a proof idea, use ordinary prose after the result and point to the appendix for the complete proof.")
+    print("- Keep theorem/proposition captions short; put the meaning in the prose before and after the statement.")
 
     print("\nAppendix modules")
     appendix_items = [note for note, role, _, _ in rows if role in {"Verification detail", "Derivation checkpoint", "Proof idea", "Validity support"}]

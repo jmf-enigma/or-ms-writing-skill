@@ -105,6 +105,42 @@ For structural results, the post-theorem paragraph should say:
 - which parameter or state determines the regime;
 - what decision implication follows.
 
+## Theorem And Proposition Captions
+
+The result label should not do the work of the result paragraph.
+
+- Default to bare labels: `Proposition 1.`, `Theorem 1.`, `Lemma 1.`.
+- Use short parenthetical captions only when they help navigation across many results: `Theorem 1 (Approximation Guarantee)`, `Lemma 2 (One-Step Improvement)`, `Proposition 3 (Platform Revenue)`.
+- Keep captions noun-like. They should name a result type, object, or mechanism, not state the whole claim.
+- Do not use long colon titles after propositions. The claim belongs in the formal statement and the interpretation paragraph.
+- Do not add a subheading between a proposition and its interpretation unless the paper has a repeated, long structure that makes the heading necessary.
+
+Good local shape:
+
+```text
+The next proposition characterizes the platform's optimal disclosure rule when sellers are symmetric.
+
+Proposition 1.
+[Formal statement.]
+
+The proposition shows that disclosure becomes less precise as seller congestion increases. The condition matters because...
+```
+
+Also acceptable in a result-heavy technical section:
+
+```text
+Theorem 2 (Regret Bound).
+[Formal statement.]
+```
+
+Avoid:
+
+```text
+Proposition 1: The Platform Should Reduce Disclosure Because Congestion Dominates Information Benefits
+Key Insight.
+[Interpretation.]
+```
+
 ## Proof Placement After A Theorem Or Proposition
 
 There is no single MS/OR rule that every proposition must be followed by a formal proof in the body. Choose among four patterns.

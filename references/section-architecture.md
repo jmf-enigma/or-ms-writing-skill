@@ -186,6 +186,19 @@ Prefer noun phrases that identify objects: `Data Sources`, `Variable Constructio
 
 Avoid exposing scaffolding: `Story`, `Problem`, `Why It Matters`, `Trust Device`, `Reviewer Concern`, `Contribution 1`, `Proof Idea`. These can be internal planning labels, not manuscript headings.
 
+### Theorem, Proposition, And Proof Local Headings
+
+Around formal results, headings should be even plainer than section headings.
+
+- Main-text theorem/proposition labels are usually bare: `Proposition 1.`, `Theorem 2.`, `Lemma 3.`, or `Corollary 1.`.
+- If a descriptor is useful, keep it short and object-like: `Proposition 1 (Threshold Policy)`, `Theorem 2 (Regret Bound)`, or `Lemma 1 (Monotonicity)`. Avoid full-sentence labels such as `Proposition 1: Our Policy Is Better When Demand Is High`.
+- Use the paragraph before the result to say what the result does. This is more natural than turning the proposition label into a mini-abstract.
+- After the result, interpret in ordinary prose. Do not create tiny headings such as `Intuition`, `Key Insight`, `Takeaway`, `Proof Idea`, or `Managerial Meaning` unless the paper has several long parallel blocks that require navigation.
+- Use `Proof.` only for a complete proof. If the paragraph only explains the proof move and points to an appendix, leave it unheaded.
+- Appendix and e-companion headings can be functional and direct: `A.1. Proof of Theorem 1`, `Proof of Proposition 2`, `Auxiliary Lemmas`, `Additional Robustness Checks`, `Data Construction`.
+
+Observed MS/OR papers use these local headings sparingly. A Management Science field-theory paper can put `Proof.` directly under a proposition when the proof is short and then continue with interpretation. A Management Science decision-theory paper can state lemmas, give short body explanations, and reserve `Proof of Lemma 5` for the appendix. A technical Operations Research paper can use headings such as `Proof of Theorem 1`, `Matrix Notation and Bellman Equations`, and `Analysis: Conservative Model-Based Planning` because these labels name proof objects rather than rhetorical moves.
+
 ### Subheading Rhythm By Section
 
 - **Introduction**: usually no subheadings in Management Science unless the introduction contains a separate related-work/contributions architecture or the paper is very technical. Do not split the first-page story with miniature headings.
