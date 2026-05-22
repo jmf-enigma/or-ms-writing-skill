@@ -68,6 +68,14 @@ BLUEPRINTS = {
         "Write the body cross-reference for each appendix item only after the body states what the appendix verifies, preserves, or changes.",
         "Check that the body still lets a reviewer understand the contribution without opening the appendix.",
     ],
+    "headings": [
+        "Classify the evidence lane before choosing section depth.",
+        "Use a top-level heading when the paper moves to a new reader task: setting, data, model, results, robustness, computation, or discussion.",
+        "Use a subsection when the object, construct, model component, result family, algorithm, benchmark, or validity threat changes.",
+        "Avoid a subheading for a transition, one-paragraph intuition, local caveat, or second piece of evidence for the same claim.",
+        "Use third-level headings only for parallel items a reviewer may need to locate independently.",
+        "Name objects, not scaffolding: Data Sources, Variable Construction, Alternative Measurement, Benchmark Policies, Numerical Experiments.",
+    ],
     "managerial": [
         "Decision maker and observable condition.",
         "Recommended action.",
@@ -97,6 +105,7 @@ REFS = {
     "results": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
     "proof": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "math-and-proof-style.md", "math-proof-writing for complete proofs", "theory-proof-workbench for missing proofs"],
     "placement": ["main-text-appendix-placement.md", "paper-appendix-paired-patterns.md", "math-model-main-appendix-craft.md", "reviewer-calibration.md"],
+    "headings": ["section-architecture.md", "management-science-whole-paper-storycraft.md", "msor-paper-craft.md"],
     "managerial": ["management-science-language-rhythm.md", "msor-paper-craft.md", "storytelling-language.md"],
     "discussion": ["paragraph-style.md", "storytelling-language.md"],
     "conclusion": ["paragraph-style.md", "storytelling-language.md"],
@@ -144,7 +153,7 @@ def topic_lens(topic: str) -> str:
             {"trust", "framing", "incentive", "expert advice", "human", "advice"},
         ),
         "algorithm": (
-            {"algorithm", "approximation algorithm", "online algorithm", "dynamic programming", "lagrangian relaxation", "computational study"},
+            {"algorithm", "approximation algorithm", "online algorithm", "dynamic programming", "lagrangian relaxation", "computational study", "numerical experiments", "computational experiments"},
             {"online", "matching", "scheduling", "routing", "lp"},
         ),
         "mechanism": (
@@ -186,6 +195,8 @@ def topic_lens(topic: str) -> str:
     matched_names = {name for name, _ in matches}
     if {"human_ai", "data_driven_rm"} & matched_names:
         matches = [(name, lens) for name, lens in matches if name != "algorithm"]
+    if "algorithm" in matched_names and ("numerical experiment" in lower or "computational experiment" in lower):
+        matches = [(name, lens) for name, lens in matches if name != "empirical"]
     return " ".join(lens for _, lens in matches[:2])
 
 QUALITY = {
@@ -196,6 +207,7 @@ QUALITY = {
     "results": "formal result, benchmark intuition, derivation checkpoint when needed, mechanism, condition, implication",
     "proof": "setup, plain proof idea, constructed object, hard term, mathematical move, key lemma or inequality, validity condition, conclusion mapped back; avoid stylized proof language",
     "placement": "body for first-pass contribution, model object, theorem statement, interpretation, and central derivation checkpoint; appendix for verification, robustness, implementation, and replication",
+    "headings": "section depth follows reader task; subheadings mark new objects, result families, model components, or validity threats",
     "managerial": "decision maker, observable condition, action, mechanism, caveat, metric",
     "discussion": "established claim, limitation, robustness, next question",
     "conclusion": "two takeaways and one restrained future direction",
@@ -225,7 +237,7 @@ def has_keyword(text: str, keyword: str) -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--section", required=True, help="abstract, introduction, related, model, results, proof, placement, managerial, discussion, conclusion")
+    parser.add_argument("--section", required=True, help="abstract, introduction, related, model, results, proof, placement, headings, managerial, discussion, conclusion")
     parser.add_argument("--target", default="working paper", help="Management Science, Operations Research, M&SOM, or working paper")
     parser.add_argument("--topic", default="", help="optional paper topic for a topic-specific story lens")
     args = parser.parse_args()
@@ -239,6 +251,8 @@ def main() -> int:
         section = "managerial"
     if section in {"appendix", "online appendix", "e-companion", "supplement", "supplemental", "result placement", "results placement"}:
         section = "placement"
+    if section in {"heading", "subheading", "subheadings", "section headings", "sectioning", "structure"}:
+        section = "headings"
     if section not in BLUEPRINTS:
         raise SystemExit(f"Unknown section: {args.section}")
 
@@ -269,7 +283,7 @@ def main() -> int:
         print("\nManagement Science comparable-design lane:")
         print(textwrap.fill("Apply the always-on MS core first as a diagnostic, not a template: decision, belief, friction, method, result, mechanism, condition, consequence. Then match the paper to field experiment, human-algorithm, data-driven revenue management, analytical platform model, hybrid algorithm-field implementation, operational-data transfer/cross-learning, service queueing, behavioral experiment, or theory/algorithm with management applications.", width=88))
     print("\nArchitecture note:")
-    print(textwrap.fill("MS/OR papers do not share one universal skeleton. Choose headings that name the paper object, such as Research Setting, Data and Methods, The Model, Empirical Strategy, Main Results, Algorithm, Numerical Experiments, Robustness Tests, or Discussion and Conclusion.", width=88))
+    print(textwrap.fill("MS/OR papers do not share one universal skeleton. Choose headings that name the paper object, such as Research Setting, Data and Methods, The Model, Empirical Strategy, Main Results, Algorithm, Numerical Experiments, Robustness Tests, or Discussion and Conclusion. Add subheadings only when the reader job, evidence object, model component, theorem family, or validity threat changes.", width=88))
     print("\nDiagnostic signals:")
     print(textwrap.fill(QUALITY.get(section, "actor, decision, friction, method, result, consequence"), width=88))
     print("\nOR/MS spine:")

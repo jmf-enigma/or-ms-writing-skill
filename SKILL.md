@@ -57,7 +57,7 @@ Use the register that matches the requested unit. These are flexible patterns, n
 
 - **Micro rewrite**: Fix object, verb, qualifier, and rhythm. Return one to three polished options only when alternatives are useful.
 - **Abstract**: Move quickly from setting and decision to friction, model/data/design, headline result, validation or implication. Avoid broad hooks and generic final managerial sentences.
-- **Section architecture**: Do not assume one MS/OR skeleton. First classify the paper lane, then choose headings that name the object: `Research Setting`, `Data and Methods`, `The Model`, `Empirical Strategy`, `Main Results`, `Algorithm`, `Numerical Experiments`, `Robustness Tests`, or `Discussion and Conclusion`.
+- **Section architecture**: Do not assume one MS/OR skeleton. First classify the paper lane, then choose headings that name the object: `Research Setting`, `Data and Methods`, `The Model`, `Empirical Strategy`, `Main Results`, `Algorithm`, `Numerical Experiments`, `Robustness Tests`, or `Discussion and Conclusion`. Add subheadings only when the reader job, evidence object, construct, model component, theorem family, or validity threat changes.
 - **Introduction**: Start from the entry point the lane needs: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct. Order the modules so each paragraph answers the reviewer's next question; a roadmap is optional.
 - **MS storycraft**: Treat story as persuasion order, not a fixed arc. Make the decision, standard view, friction, trust device, result, mechanism, and boundary recoverable across the manuscript without forcing every paragraph to carry the whole chain.
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.
@@ -125,7 +125,7 @@ Run `plan_section.py` only for section-level or structurally unclear tasks. Run 
 
 1. Identify the requested unit and write at that granularity.
 2. Choose one reference bundle only if the task needs it.
-3. For full sections or manuscripts, classify the evidence lane before choosing headings or paragraph order.
+3. For full sections or manuscripts, classify the evidence lane before choosing headings, subheadings, or paragraph order.
 4. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
 5. Draft ordinary OR/MS prose. Do not expose prewriting labels.
 6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
@@ -155,7 +155,7 @@ Before finalizing, check only what the requested unit needs:
 - Technical terms use field-accepted meanings and are defined when overloaded.
 - Model passages make agents, timing, information, actions, objective, constraints, assumptions, benchmark, and solution concept clear when relevant.
 - Result and proof passages state the formal object, result type, assumption or benchmark, interpretation, and proof idea at the right depth.
-- Headings and paragraph order match the paper lane and the reader's persuasion path, not a generic MS/OR outline.
+- Headings, subheadings, and paragraph order match the paper lane and the reader's persuasion path, not a generic MS/OR outline.
 - Body/appendix placement lets a reviewer understand and evaluate the contribution without opening the appendix, while leaving routine verification out of the body.
 - The language is concrete, calm, and insertable. It does not expose scaffolding, overuse colon-led roadmaps, semicolon chains, dash pivots, AI-associated filler, or perfectly symmetric list rhythm.
 

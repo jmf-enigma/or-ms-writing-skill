@@ -135,6 +135,66 @@ Avoid:
 - A separate `Managerial Implications` section when the implications are short and would read better in the result interpretation or conclusion.
 - A separate `Related Literature` section when the target paper's lane naturally integrates literature into the introduction, unless the journal or field expects a standalone section.
 
+## Heading Depth And When To Use Subheadings
+
+Use a heading when it changes the reader's task. Do not use a heading merely because the writer has a new thought.
+
+### No Subheading
+
+Keep material in ordinary paragraphs when:
+
+- The passage is a short transition, local intuition, or one robustness sentence.
+- The same claim continues with a second piece of evidence.
+- A theorem, estimate, figure, or table only needs interpretation, not a new evidence job.
+- The paragraph is a bridge between two subsections.
+
+Example: after a theorem statement, the intuition paragraph usually stays under the same result heading. Do not create `Intuition` unless the paper has several long intuition blocks or the target journal commonly separates them.
+
+### Use A Subsection
+
+Use a subsection when the reader should recognize a new object or credibility task:
+
+- A new construct or measure: `Managerial Intensity`, `Decentralization`, `Demand Measures`.
+- A new data or design component: `Data Sources`, `Sample Construction`, `Experimental Design`, `Estimation Strategy`.
+- A new result family: `Main Treatment Effects`, `Mechanism`, `Heterogeneity`, `Alternative Explanations`.
+- A new mathematical component: `System Model`, `Unit Models`, `Lagrangian Relaxation`, `Optimality Conditions`, `Price Models`.
+- A new algorithm or computational task: `Algorithm`, `Implementation`, `Benchmark Policies`, `Simulation Design`.
+- A new validity threat: `Alternative Specifications`, `Alternative Measurement`, `Placebo Tests`, `Pretreatment Trends`.
+
+Recent full texts use subheadings this way. A Management Science DID/construct paper breaks robustness into `Alternative Specifications`, `Alternative Measurement`, and `Alternative Explanations` because each answers a different reviewer threat. An Operations Research applied DP paper separates `The System Model`, `Lagrangian Relaxations`, unit-level model properties, policies, and numerical experiments because each changes the mathematical object the reader must track.
+
+### Use A Subsubsection Sparingly
+
+Use a third-level heading only when the subsection contains parallel pieces that a reviewer may need to locate independently.
+
+Good uses:
+
+- Different dependent variables, outcomes, or mechanisms inside one results section.
+- Different unit types, constraints, or basis functions inside one model section.
+- Different datasets, operationalizations, or estimation samples inside one data section.
+- Different policy benchmarks or scenarios inside one computational study.
+
+Bad uses:
+
+- `Motivation`, `Intuition`, `Discussion`, `Takeaway`, or `Interesting Result` as tiny headings.
+- One-paragraph subsubsections that would read better as topic sentences.
+- Symmetric heading stacks that make all material appear equally important when only one result is central.
+
+### Heading Names
+
+Prefer noun phrases that identify objects: `Data Sources`, `Variable Construction`, `Treatment and Control Firms`, `The System Model`, `Benchmark Policies`, `Numerical Experiments`. Use claim-like subheadings only when the paper's style already supports them and the claim is narrow enough to be true.
+
+Avoid exposing scaffolding: `Story`, `Problem`, `Why It Matters`, `Trust Device`, `Reviewer Concern`, `Contribution 1`, `Proof Idea`. These can be internal planning labels, not manuscript headings.
+
+### Subheading Rhythm By Section
+
+- **Introduction**: usually no subheadings in Management Science unless the introduction contains a separate related-work/contributions architecture or the paper is very technical. Do not split the first-page story with miniature headings.
+- **Related work**: subheadings are useful when streams are genuinely distinct; otherwise use paragraphs with clear opening sentences.
+- **Data/methods**: subheadings are often helpful because readers need to locate data sources, sample construction, variable definitions, design, and estimation.
+- **Model/theory**: subheadings should follow the formal object: environment, assumptions, benchmark, equilibrium/optimization, extensions.
+- **Results**: subheadings should follow evidence jobs, not table order. Use them for main effect, mechanism, heterogeneity, validation, robustness, and alternative explanations.
+- **Appendix/e-companion**: subheadings should follow proof dependency, table family, data documentation, robustness family, or implementation component.
+
 ## Paragraph Jobs
 
 Each paragraph should usually perform one job. Choose the job that fits the section.
