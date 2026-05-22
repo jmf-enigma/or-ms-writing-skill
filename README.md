@@ -6,7 +6,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 ## About
 
-`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes claim-evidence-boundary control, Management Science and Operations Research language, model and theorem narration, proof exposition, and main-text versus appendix placement.
+`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
 
 ## English
 
@@ -16,6 +16,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 - precise claim, evidence, and boundary control;
 - Management Science and OR/MS style without imitating any living author's personal voice;
+- lane-specific paper structure, heading depth, and subheading decisions;
 - model narration, notation setup, theorem interpretation, proof exposition, and appendix placement;
 - reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
 - language repair for passages that feel translated, generic, overclaimed, or too AI-like.
@@ -25,6 +26,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 Use this skill for:
 
 - abstracts, introductions, contribution paragraphs, related work, and discussion sections;
+- section architecture, headings, subheadings, and paragraph order;
 - model setup, assumptions, formulations, theorem statements, result interpretations, and proof ideas;
 - deciding what belongs in the main text, appendix, online appendix, or replication package;
 - polishing Management Science, Operations Research, M&SOM, OM, mechanism design, empirical, learning, platform, healthcare, supply chain, policy, and business analytics writing;
@@ -64,7 +66,7 @@ Use $or-ms-writing to rewrite this model paragraph in Management Science style.
 ```
 
 ```text
-Use $or-ms-writing to turn these proof notes into a main-text proof idea and an appendix proof skeleton.
+Use $or-ms-writing to turn these proof notes into a main-text proof idea and an appendix proof plan.
 ```
 
 ```text
@@ -89,7 +91,7 @@ Use $or-ms-writing to make this abstract more native, less generic, and more pre
 ### Useful Scripts
 
 ```bash
-python3 scripts/plan_section.py --section abstract --target "Management Science" --topic "data-driven pricing"
+python3 scripts/plan_section.py --section headings --target "Management Science" --topic "DID construct validation"
 ```
 
 ```bash
@@ -112,19 +114,20 @@ MIT License. See [LICENSE](LICENSE).
 
 ### 简介
 
-`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 claim、evidence、boundary、model/proof 叙述，以及正文和附录的分工。
+`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 claim、evidence、boundary、section architecture、小标题层级、model/proof 叙述，以及正文和附录的分工。
 
 ### 这是什么
 
 `or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
 
-它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
+它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、判断正文小标题、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
 
 ### 适合做什么
 
 适合用它来处理:
 
 - abstract、introduction、contribution、related work、discussion；
+- section architecture、headings/subheadings、paragraph order；
 - model setup、assumption、formulation、theorem statement、result interpretation；
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；

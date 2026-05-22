@@ -109,7 +109,7 @@ For structural results, the post-theorem paragraph should say:
 
 A body proof sketch should be short and load-bearing.
 
-Useful sequence:
+Useful moves:
 
 1. State what object is decomposed, relaxed, coupled, or bounded.
 2. Show one displayed decomposition or inequality if the reader must see it.

@@ -201,7 +201,7 @@ def topic_lens(topic: str) -> str:
 
 QUALITY = {
     "abstract": "decision, friction, method, result, implication, boundary; avoid jargon before the problem is clear",
-    "introduction": "lane-specific entry point, decision or formal object, contrast, friction, trust device, findings, boundary, contribution; roadmap only if useful",
+    "introduction": "lane-specific entry point, decision or formal object, contrast, friction, credibility support, findings, boundary, contribution; roadmap only if useful",
     "related": "stream, limitation, this paper's difference; no citation dumping",
     "model": "agents, timing, information, actions, primitives, objective, constraints, assumptions, benchmark, solution concept, and translated formulation display",
     "results": "formal result, benchmark intuition, derivation checkpoint when needed, mechanism, condition, implication",

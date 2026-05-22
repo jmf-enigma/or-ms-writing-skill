@@ -209,8 +209,8 @@ def main() -> int:
     for note, role, placement, reason in rows:
         print(f"| {note} | {role} | {placement} | {reason} |")
 
-    print("\nMain-text skeleton")
-    skeleton = [
+    print("\nMain-text modules")
+    modules = [
         ("Model object", "Open with the decision environment and the formal object."),
         ("Formal result", "State the theorem or proposition that carries the contribution."),
         ("Derivation checkpoint", "Show start point, key move, and resulting object if the result depends on a transformation."),
@@ -218,7 +218,8 @@ def main() -> int:
         ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it; keep routine proof ideas to one precise sentence."),
         ("Validity support", "Summarize only validity-critical robustness or feasibility checks."),
     ]
-    for role, advice in skeleton:
+    print("Select only the modules needed for first-pass trust; do not treat this as paragraph order.")
+    for role, advice in modules:
         marker = "present" if role in seen else "missing"
         print(f"- {role}: {marker}. {advice}")
 
@@ -228,7 +229,7 @@ def main() -> int:
     print("- Sentence after display: translate the central variables and say why the display is used next.")
     print("- Appendix displays: use for algebra, constants, KKT checks, concentration steps, case splits, and auxiliary lemma proofs.")
 
-    print("\nAppendix skeleton")
+    print("\nAppendix modules")
     appendix_items = [note for note, role, _, _ in rows if role in {"Verification detail", "Derivation checkpoint", "Proof idea", "Validity support"}]
     if appendix_items:
         for note in appendix_items:

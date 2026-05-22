@@ -31,7 +31,7 @@ Treat every reference, script, and blueprint as a reader test, not a template. D
 Use this kernel by default, but keep it invisible in the final prose.
 
 - Start from what the paper actually proves, estimates, simulates, or demonstrates; then choose only the motivation and contrast needed to make that contribution legible.
-- Make the paper's trust device visible before leaning on the claim: experiment, institutional variation, theorem, identification argument, equilibrium characterization, approximation guarantee, construct validation, simulation benchmark, or robustness logic.
+- Make the paper's source of credibility visible before leaning on the claim: experiment, institutional variation, theorem, identification argument, equilibrium characterization, approximation guarantee, construct validation, simulation benchmark, or robustness logic.
 - Make decisions, mechanisms, and formal objects concrete. Prefer "the platform chooses disclosure precision" to "disclosure precision is considered."
 - Use exact evidence verbs: `characterize` for policy forms or equilibrium regions, `establish` for theorems and guarantees, `bound` for approximation or regret, `estimate` for empirical designs, `identify` only when the design or model supports identification, and `validate` for numerical, empirical, or out-of-sample evidence.
 - Keep formal adjectives attached to an object and a condition. Terms such as `optimal`, `robust`, `tractable`, `adaptive`, `finite-sample`, `data-driven`, and `near-optimal` need a benchmark, metric, policy class, or assumption nearby.
@@ -59,7 +59,7 @@ Use the register that matches the requested unit. These are flexible patterns, n
 - **Abstract**: Move quickly from setting and decision to friction, model/data/design, headline result, validation or implication. Avoid broad hooks and generic final managerial sentences.
 - **Section architecture**: Do not assume one MS/OR skeleton. First classify the paper lane, then choose headings that name the object: `Research Setting`, `Data and Methods`, `The Model`, `Empirical Strategy`, `Main Results`, `Algorithm`, `Numerical Experiments`, `Robustness Tests`, or `Discussion and Conclusion`. Add subheadings only when the reader job, evidence object, construct, model component, theorem family, or validity threat changes.
 - **Introduction**: Start from the entry point the lane needs: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct. Order the modules so each paragraph answers the reviewer's next question; a roadmap is optional.
-- **MS storycraft**: Treat story as persuasion order, not a fixed arc. Make the decision, standard view, friction, trust device, result, mechanism, and boundary recoverable across the manuscript without forcing every paragraph to carry the whole chain.
+- **MS storycraft**: Treat story as persuasion order, not a fixed arc. Make the decision, standard view, friction, credibility support, result, mechanism, and boundary recoverable across the manuscript without forcing every paragraph to carry the whole chain.
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.
 - **Related work**: End each stream with the difference that matters: setting, information, constraint, performance criterion, proof technique, data source, or decision logic.
 - **Model setup**: Describe the decision environment before dense notation. Introduce agents, timing, information, actions or policy class, objective, constraints, assumptions, benchmark, and solution concept or estimand in the order the paper lane requires.
@@ -119,7 +119,7 @@ python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_math_split.
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/check_paragraph.py --fail-on-ai-scent < draft.txt
 ```
 
-Run `plan_section.py` only for section-level or structurally unclear tasks. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
+Run `plan_section.py` only for section-level or structurally unclear tasks; use `--section headings` when deciding section depth or subheading names. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
 
 ## Stable Procedure
 

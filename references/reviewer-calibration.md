@@ -6,16 +6,16 @@ Use this for cross-field OR/MS writing, referee-facing revisions, and passages w
 
 Assume one reviewer is an expert in the closest technical field and another is an expert in the application or empirical setting. Each may be unfamiliar with the other field's conventions. The prose must let both reviewers understand the object, claim, evidence, and boundary of the claim.
 
-## Trust Device
+## Source Of Credibility
 
-For MS-style papers, identify the trust device before drafting a persuasive section. The trust device is the part of the paper that makes a skeptical reviewer willing to believe the main claim.
+For MS-style papers, identify the source of credibility before drafting a persuasive section. This is the part of the paper that makes a skeptical reviewer willing to believe the main claim.
 
 - Theory: theorem statement, proof move, equilibrium characterization, approximation guarantee, or benchmark comparison.
 - Empirical: randomization, institutional variation, DID/event timing, instrument, matching/balance, measurement validation, or placebo logic.
 - Structural or ML: identification argument, excluded variation, model fit, out-of-sample validation, simulation recovery, or counterfactual discipline.
 - Applied model: base model that isolates the mechanism, calibration that maps data to primitives, and benchmark policy that makes performance meaningful.
 
-Make the trust device visible near the claim it supports. Do not let it appear only in the appendix, footnote, or robustness list if the main claim depends on it.
+Make the source of credibility visible near the claim it supports. Do not let it appear only in the appendix, footnote, or robustness list if the main claim depends on it.
 
 ## Overloaded Terms
 

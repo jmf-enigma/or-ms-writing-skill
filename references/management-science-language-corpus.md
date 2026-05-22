@@ -71,7 +71,7 @@ Before writing, match the user's paper to the closest Management Science lane. I
 
 Use for retail, gig, warehouse, chatbot, advertising, platform launch, and operational intervention papers.
 
-Writing order:
+Local rhythm:
 
 1. Start with a managerial practice or adoption problem.
 2. Say what managers believe or what existing evidence misses.
@@ -94,7 +94,7 @@ Native MS move:
 
 Use for algorithm aversion, worker discretion, forecast overrides, chatbot design, and AI-assisted decisions.
 
-Writing order:
+Local rhythm:
 
 1. Algorithms are available, but human adoption or discretion determines realized value.
 2. The paper separates algorithm quality from human response.
@@ -116,7 +116,7 @@ Native MS move:
 
 Use for pricing, assortment, newsvendor, transaction data, limited data, misspecification, and model-free methods.
 
-Writing order:
+Local rhythm:
 
 1. Name the classical decision problem.
 2. State what information is missing or unreliable.
@@ -139,7 +139,7 @@ Native MS move:
 
 Use for platforms, marketplaces, information disclosure, promotion, pricing, dispute resolution, certification, matching, and consumer surplus.
 
-Writing order:
+Local rhythm:
 
 1. Name the platform's control and its objective.
 2. Explain how sellers, buyers, users, or workers respond.
@@ -162,7 +162,7 @@ Native MS move:
 
 Use for outpatient care, appointments, walk-ins, staffing, scheduling, congestion, capacity, and access channels.
 
-Writing order:
+Local rhythm:
 
 1. Start with the access or capacity choice faced by the provider.
 2. Explain the customer's strategic choice or operational tradeoff.
@@ -184,7 +184,7 @@ Native MS move:
 
 Use for online experiments, lab experiments, hiring algorithms, discrimination, disclosure, trust, incentives, framing, and decision aid adoption.
 
-Writing order:
+Local rhythm:
 
 1. State the behavioral puzzle or managerial belief.
 2. Name participant roles and the decision they make.
@@ -205,7 +205,7 @@ Native MS move:
 
 Use for reinforcement learning, bandits, algorithms, optimization, and technical data science papers submitted to MS.
 
-Writing order:
+Local rhythm:
 
 1. Motivate with management or OR applications.
 2. Define the technical setting or a small illustrative example.
@@ -227,7 +227,7 @@ Native MS move:
 
 Use for platform algorithms, equitable access, display ranking, search, matching, and nonprofit or marketplace collaborations.
 
-Writing order:
+Local rhythm:
 
 1. Name the partner's existing algorithm and the metric it optimizes.
 2. Explain the undesirable distributional or access consequence of that metric.
@@ -250,7 +250,7 @@ Native MS move:
 
 Use for ODA, transfer learning, data pooling, limited data, related systems, and nonparametric operational decisions.
 
-Writing order:
+Local rhythm:
 
 1. Start with the decision under limited data.
 2. State the tempting statistical response, such as transfer learning or pooling.

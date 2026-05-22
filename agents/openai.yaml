@@ -1,6 +1,6 @@
 interface:
   display_name: "OR/MS Writing"
-  short_description: "Idiomatic OR/MS research prose"
-  default_prompt: "Use $or-ms-writing to polish a sentence, model paragraph, result interpretation, or referee-facing passage in idiomatic OR/MS style."
+  short_description: "Reviewer-calibrated OR/MS prose and structure"
+  default_prompt: "Use $or-ms-writing to polish prose, structure sections, choose headings, split body/appendix material, or revise model, result, proof, and referee-facing passages in idiomatic OR/MS style."
 policy:
   allow_implicit_invocation: true

@@ -46,7 +46,7 @@ Avoid opening with importance alone. A sentence such as "X is increasingly impor
 
 Use a compact, result-forward style. OR readers tolerate technical objects early, but only after the operational problem is visible.
 
-Typical order:
+Typical modules:
 
 1. Application class or operational system.
 2. Decision controls and objective.
@@ -65,7 +65,7 @@ Use "we propose" for an algorithm or policy, not for an implication. Use "we sho
 
 Use a broader management frame. The prose should make a manager, executive, platform operator, regulator, consumer, worker, investor, or organization visible.
 
-Typical order:
+Typical modules:
 
 1. Managerial or organizational phenomenon.
 2. Tension in practice.
@@ -83,7 +83,7 @@ Management Science abstracts often read naturally when magnitudes are concrete, 
 
 Use decision-centered structure and operational nouns. Structured abstracts often make the prose clearer even when the final target is not M&SOM.
 
-Typical order:
+Typical modules:
 
 1. Problem definition. Name the operational decision and the choice set.
 2. Methodology/results. Name the model or empirical design and the two or three results that matter.

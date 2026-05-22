@@ -37,25 +37,27 @@ Use this pass after the paragraph has the right logic.
 - Put emphasis at the end of the sentence. End on the decision, mechanism, condition, or result rather than a filler phrase.
 - Vary sentence openings. Do not start three consecutive sentences with "This," "We," or "Our."
 
-## Fixed Paragraph Blueprints
+## Paragraph Repair Patterns
 
-### Motivation
+Use these only when a paragraph is missing a local job. They are repair patterns, not final paragraph templates.
+
+### Motivation Pattern
 
 `[Phenomenon] creates a decision problem for [decision maker], who must [choice]. The difficulty is that [tradeoff/mechanism]. This tradeoff is especially salient in [setting] because [institutional reason]. We study this problem by [model/method], which allows us to isolate [core mechanism].`
 
-### Gap
+### Gap Pattern
 
 `The closest literature examines [stream]. However, this work typically treats [object] as [standard assumption], leaving open how [missing mechanism] changes [decision/outcome]. Our paper addresses this gap by [specific departure], which is central in [application].`
 
-### Contribution
+### Contribution Pattern
 
 `Our first contribution is to [characterize/identify/establish] [result]. This result shows that [mechanism], rather than [alternative explanation], drives [outcome]. A second contribution is [comparative statics/extension], which clarifies when [policy/managerial action] improves [metric].`
 
-### Result Interpretation
+### Result Interpretation Pattern
 
 `Proposition X shows that [formal result in words]. The intuition is that [mechanism]. When [condition], this force dominates [opposing force], leading to [comparative static/threshold]. Thus, [decision maker] should [action] only when [condition].`
 
-### Managerial Implication
+### Managerial Implication Pattern
 
 `The result has a direct implication for [manager/policymaker/platform]. If [observable condition], then [action] improves [metric] because [mechanism]. Conversely, when [condition fails], the same action may [negative consequence], so [recommended guardrail].`
 

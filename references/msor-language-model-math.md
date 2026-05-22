@@ -134,7 +134,7 @@ For nonstandard definitions, examples are part of the argument. A good example s
 
 ## Result And Theorem Language
 
-Strong result paragraphs use this order:
+Strong result paragraphs usually draw from these moves. The local result decides the order and depth:
 
 1. Local setup and condition.
 2. The formal statement.

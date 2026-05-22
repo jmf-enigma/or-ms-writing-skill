@@ -37,7 +37,7 @@ Use this reference when a passage still sounds generic after applying the core O
 - Applied OM papers often keep the base model parsimonious in the body, then move partner-specific estimation, extra scenarios, and calibration details to appendices. The body says which real features the abstraction keeps and why that is enough for the main result.
 - Theory papers with baseline and general models often analyze the baseline in the body and put the general model in an appendix. This is acceptable only when the body explains why the baseline carries the main mechanism and how the general model changes or preserves it.
 - Papers with many theorem variants often state the theorem, give a comment or observation, and then move proof details to the online appendix. The body still names the hard step or stronger result when reviewer trust depends on it.
-- Reviewer persuasion is usually built into the order of exposition. Strong papers do not append caveats only at the end; they introduce the trust device before the claim: a randomization, institutional delay, equilibrium condition, local-improvement argument, construct validation, matching design, approximation guarantee, or placebo logic.
+- Reviewer persuasion is usually built into the order of exposition. Strong papers do not append caveats only at the end; they introduce the source of credibility before the claim: a randomization, institutional delay, equilibrium condition, local-improvement argument, construct validation, matching design, approximation guarantee, or placebo logic.
 
 ## Section Moves
 
@@ -62,7 +62,7 @@ Strong introductions draw from these modules. Their order depends on the lane an
 - Define the decision environment in plain operational language.
 - State the standard model, policy, belief, or literature default when the contrast matters.
 - Explain the practical or technical feature that breaks the default.
-- Name the trust device: the model feature, institutional variation, algorithmic guarantee, experiment, or construct validation that can answer the friction.
+- Name the credibility support: the model feature, institutional variation, algorithmic guarantee, experiment, or construct validation that can answer the friction.
 - State the paper's formal object, method, or empirical design after the reader understands the question it answers.
 - Group contributions by type rather than chronology.
 - Close each literature stream with the exact departure.

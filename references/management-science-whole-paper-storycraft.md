@@ -50,7 +50,7 @@ The path should be visible across the manuscript, not crammed into every sentenc
 
 ## Recent MS Persuasion Patterns
 
-Recent full-text MS papers reinforce that storytelling is reviewer persuasion, not decoration. The paper first turns a broad topic into a reviewable object, then makes the trust device visible.
+Recent full-text MS papers reinforce that storytelling is reviewer persuasion, not decoration. The paper first turns a broad topic into a reviewable object, then makes the source of credibility visible.
 
 - **Human-AI and algorithmic-advice papers** separate tool quality from human reliance. They introduce the managerial decision, the behavioral friction, the experimental manipulation, and then interpret reliance, performance, incentives, or framing as distinct outcomes.
 - **Revenue management and empirical pricing papers** move from the canonical pricing problem to an identification obstacle. They explain why ordinary demand estimation is hard, then show how an institutional behavior, such as delayed responses to recommendations, creates usable variation.
@@ -72,7 +72,7 @@ Different MS papers earn trust in different ways. Choose the entry point that ma
 - **Behavioral field experiments** can start from a platform feature or interface affordance, then explain the competing mechanisms and identify which mechanism dominates. Results may be narrated as behavior, outcome, mechanism, subgroup, and quality rather than as a single headline effect.
 - **Short theory papers** may have a compressed abstract and no long empirical-style story. Their native rhythm is received view, missing incentive or information channel, model, characterization, and conceptual implication.
 
-The writer should therefore ask: What is the paper's trust device? It may be randomization, a theorem, an approximation guarantee, a calibrated model, a field implementation, a construct definition, or a decomposition. The section order should make that trust device legible.
+The writer should therefore ask what makes the paper's main claim credible. It may be randomization, a theorem, an approximation guarantee, a calibrated model, a field implementation, a construct definition, or a decomposition. The section order should make that source of credibility legible.
 
 ## First-Page Logic
 
@@ -194,7 +194,7 @@ For MS model writing, the model is persuasive when it is introduced as the answe
 - If the concern is **behavioral interpretation**, separate the model's mechanical prediction from the behavioral mechanism that the data can test.
 - If the concern is **implementation**, say what the algorithm, policy, or estimator takes as input, what it outputs, and what benchmark makes its performance meaningful.
 
-Do not make the model paragraph a list of primitives. A strong MS model paragraph says why these primitives are the right abstraction for the paper's trust device.
+Do not make the model paragraph a list of primitives. A strong MS model paragraph says why these primitives are the right abstraction for the paper's source of credibility.
 
 ## Empirical And Field-Experiment Sections
 
