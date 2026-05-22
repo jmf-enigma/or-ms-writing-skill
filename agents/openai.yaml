@@ -1,6 +1,6 @@
 interface:
   display_name: "OR/MS Writing"
-  short_description: "Reviewer-calibrated OR/MS prose and structure"
-  default_prompt: "Use $or-ms-writing to polish prose, structure sections, choose headings, split body/appendix material, or revise model, result, proof, and referee-facing passages in idiomatic OR/MS style."
+  short_description: "Reviewer-calibrated OR/MS prose, micro-wording, and structure"
+  default_prompt: "Use $or-ms-writing to polish micro-wording, prose, section structure, headings, body/appendix placement, or model, result, proof, and referee-facing passages in idiomatic OR/MS style."
 policy:
   allow_implicit_invocation: true

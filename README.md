@@ -16,6 +16,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 - precise claim, evidence, and boundary control;
 - Management Science and OR/MS style without imitating any living author's personal voice;
+- micro-level wording, sentence hinges, verb-object choices, and relation words such as `when`, `whereas`, `relative to`, `without`, and `consistent with`;
 - lane-specific paper structure, heading depth, and subheading decisions;
 - model narration, notation setup, theorem/proposition captions, proof exposition, and appendix placement;
 - reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
@@ -136,6 +137,7 @@ MIT License. See [LICENSE](LICENSE).
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
+- 很细的 expression 和 sentence move，比如 `when` 写 regime、`relative to` 写 benchmark、`without reducing` 写 tradeoff、`consistent with` 写机制证据；
 - 同一个 model / data 下更好的表达，而不是更强的、不被支持的结论；
 - 中文 rough notes 到自然英文论文段落的转换。
 

@@ -39,6 +39,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Keep punctuation quiet in polished prose. Do not use colons as a default way to announce claims, contributions, implications, proof ideas, or takeaways. Turn `The implication is: ...` and `Key result: ...` into ordinary sentences with a subject, verb, object, condition, and benchmark. Preserve colons only when they serve formal notation, definitions, assumptions, proof labels, tables, or venue-required structure.
 - Avoid itinerary prose. Do not default to `we first...`, `we then...`, `finally...`, or perfectly parallel contribution sentences unless the section is explicitly a roadmap. In polished prose, let the order follow the research objects: setting, friction, method, result, mechanism, boundary, or benchmark.
 - Make the story elegant by giving the reader a turn, not by adding flourish. A good MS paragraph often moves from an existing practice, belief, model, or benchmark to the friction that changes the question, then to the method or result that resolves that friction. Use quiet hinges such as `but`, `whereas`, `when`, `because`, `relative to`, `rather than`, and `consistent with` only when they express a real relation.
+- For native phrasing requests, lean on original-paper close reading, not only abstract-frequency patterns. Use broad corpus signals to avoid odd wording, but let original introductions, model sections, theorem passages, and appendices decide the order, depth, and proof placement.
 - For translated-English drafts, rebuild the English logic: decision or object, friction, method or formal move, evidence, condition, implication.
 - Let the story come from exact nouns and relations, not from story-like language. Avoid empty phrases such as "important implications," "novel framework," "rapidly evolving landscape," "underscores," "delve," and slogan-like final sentences.
 - Preserve useful plain words. `Study`, `show`, `use`, `choose`, `price`, `bound`, and `compare` are often better than ornate substitutes.
@@ -103,14 +104,14 @@ Decide placement by reader job, not by length alone.
 
 Load the smallest bundle that can solve the request. One bundle is the default; add another only when the task crosses language, story, math/proof, placement, or reviewer-calibration boundaries.
 
-- **Native wording**: `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
+- **Native wording and micro-phrasing**: `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
 - **Whole-section story**: `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
 - **Model, theorem, equation, proof**: `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md`.
 - **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
 - **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
 - **Paper-lane flavor**: `references/management-science-20x-lane-style.md` or `references/article-corpus-style-notes.md` only for difficult lane matching, complete sections, or requests to make a passage feel closer to recent MS/OR papers without copying personal style.
 - **General story or unfamiliar topics**: `references/general-topic-story-engine.md`, `references/storytelling-language.md`, and `references/paragraph-style.md`.
-- **Detailed corpus/style archives**: `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, or AI-scent repair.
+- **Detailed corpus/style archives**: `references/msor-micro-phrasing.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, micro-wording, or AI-scent repair.
 - **Xiao Lei / digital platform / pricing / social operations flavor**: `references/xiao-lei-patterns.md` plus a topic/story or language bundle, while avoiding personal-style imitation.
 
 ## Script Use

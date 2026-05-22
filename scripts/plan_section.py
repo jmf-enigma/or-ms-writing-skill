@@ -100,15 +100,15 @@ BLUEPRINTS = {
 }
 
 REFS = {
-    "abstract": ["management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
-    "introduction": ["management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "abstract": ["msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "introduction": ["msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
     "related": ["section-architecture.md", "paragraph-style.md", "citation-tools when exact citations matter"],
     "model": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
-    "results": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
+    "results": ["msor-micro-phrasing.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
     "proof": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "math-and-proof-style.md", "math-proof-writing for complete proofs", "theory-proof-workbench for missing proofs"],
     "placement": ["main-text-appendix-placement.md", "paper-appendix-paired-patterns.md", "math-model-main-appendix-craft.md", "reviewer-calibration.md"],
     "headings": ["section-architecture.md", "management-science-whole-paper-storycraft.md", "msor-paper-craft.md"],
-    "managerial": ["management-science-language-rhythm.md", "msor-paper-craft.md", "storytelling-language.md"],
+    "managerial": ["msor-micro-phrasing.md", "management-science-language-rhythm.md", "msor-paper-craft.md", "storytelling-language.md"],
     "discussion": ["paragraph-style.md", "storytelling-language.md"],
     "conclusion": ["paragraph-style.md", "storytelling-language.md"],
 }
