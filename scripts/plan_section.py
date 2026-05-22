@@ -87,16 +87,16 @@ BLUEPRINTS = {
 }
 
 REFS = {
-    "abstract": ["or-ms-disciplinary-spine.md", "msor-paper-craft.md", "msor-language-model-math.md", "management-science-language-rhythm.md for MS sentence rhythm", "management-science-whole-paper-storycraft.md for MS full-paper continuity", "general-topic-story-engine.md", "section-architecture.md", "storytelling-language.md", "expanded-or-ms-language-corpus.md", "article-corpus-style-notes.md"],
-    "introduction": ["or-ms-disciplinary-spine.md", "msor-paper-craft.md", "msor-language-model-math.md", "management-science-language-rhythm.md for MS sentence rhythm", "management-science-whole-paper-storycraft.md for MS story logic", "general-topic-story-engine.md", "section-architecture.md", "storytelling-language.md", "expanded-or-ms-language-corpus.md", "article-corpus-style-notes.md"],
-    "related": ["or-ms-disciplinary-spine.md", "section-architecture.md", "paragraph-style.md", "expanded-or-ms-language-corpus.md", "citation-tools when exact citations matter"],
-    "model": ["or-ms-disciplinary-spine.md", "math-model-main-appendix-craft.md", "management-science-model-proof-equation-layout.md for MS body formula layout", "msor-paper-craft.md", "msor-language-model-math.md", "management-science-language-rhythm.md for MS model wording", "management-science-whole-paper-storycraft.md for MS section continuity", "section-architecture.md", "math-and-proof-style.md", "storytelling-language.md"],
-    "results": ["or-ms-disciplinary-spine.md", "math-model-main-appendix-craft.md", "management-science-model-proof-equation-layout.md for theorem and proof-sketch displays", "msor-paper-craft.md", "msor-language-model-math.md", "management-science-language-rhythm.md for MS result language", "management-science-whole-paper-storycraft.md for MS result narration", "section-architecture.md", "math-and-proof-style.md", "storytelling-language.md", "expanded-or-ms-language-corpus.md"],
-    "proof": ["or-ms-disciplinary-spine.md", "math-model-main-appendix-craft.md", "management-science-model-proof-equation-layout.md for body-vs-appendix proof layout", "msor-paper-craft.md", "msor-language-model-math.md", "math-and-proof-style.md", "math-proof-writing for complete proofs", "theory-proof-workbench for missing proofs"],
-    "placement": ["main-text-appendix-placement.md", "math-model-main-appendix-craft.md", "management-science-model-proof-equation-layout.md for equation placement", "section-architecture.md", "math-and-proof-style.md", "reviewer-calibration.md"],
-    "managerial": ["or-ms-disciplinary-spine.md", "msor-paper-craft.md", "msor-language-model-math.md", "management-science-language-rhythm.md for MS implication wording", "management-science-whole-paper-storycraft.md for MS implication logic", "general-topic-story-engine.md", "section-architecture.md", "storytelling-language.md", "expanded-or-ms-language-corpus.md", "article-corpus-style-notes.md"],
-    "discussion": ["or-ms-disciplinary-spine.md", "section-architecture.md", "paragraph-style.md", "storytelling-language.md", "expanded-or-ms-language-corpus.md"],
-    "conclusion": ["or-ms-disciplinary-spine.md", "section-architecture.md", "paragraph-style.md", "storytelling-language.md", "expanded-or-ms-language-corpus.md"],
+    "abstract": ["management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "introduction": ["management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "related": ["section-architecture.md", "paragraph-style.md", "citation-tools when exact citations matter"],
+    "model": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "msor-language-model-math.md"],
+    "results": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "msor-language-model-math.md"],
+    "proof": ["management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "math-and-proof-style.md", "math-proof-writing for complete proofs", "theory-proof-workbench for missing proofs"],
+    "placement": ["main-text-appendix-placement.md", "math-model-main-appendix-craft.md", "reviewer-calibration.md"],
+    "managerial": ["management-science-language-rhythm.md", "msor-paper-craft.md", "storytelling-language.md"],
+    "discussion": ["paragraph-style.md", "storytelling-language.md"],
+    "conclusion": ["paragraph-style.md", "storytelling-language.md"],
 }
 
 TOPIC_LENSES = {
@@ -198,9 +198,7 @@ TARGET_NOTES = {
     "working paper": "Use journal-neutral OR/MS style; make contribution and evidence explicit.",
 }
 
-TARGET_REFS = {
-    "management science": ["Management Science Always-On Core in SKILL.md", "management-science-language-corpus.md", "management-science-language-rhythm.md", "management-science-whole-paper-storycraft.md", "management-science-20x-lane-style.md"],
-}
+TARGET_REFS = {}
 
 
 def normalize(value: str) -> str:
@@ -249,6 +247,7 @@ def main() -> int:
     for i, item in enumerate(BLUEPRINTS[section], 1):
         print(f"{i}. {item}")
     print("\nRecommended references:")
+    print("- Load one bundle by default; add another only if the draft still has a specific language, story, math, placement, or reviewer problem.")
     seen_refs = set()
     for ref in TARGET_REFS.get(target, []) + REFS.get(section, []):
         ref_key = ref.split(" for ", 1)[0]
