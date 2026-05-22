@@ -17,7 +17,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 - precise claim, evidence, and boundary control;
 - Management Science and OR/MS style without imitating any living author's personal voice;
 - lane-specific paper structure, heading depth, and subheading decisions;
-- model narration, notation setup, theorem interpretation, proof exposition, and appendix placement;
+- model narration, notation setup, theorem/proposition captions, proof exposition, and appendix placement;
 - reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
 - language repair for passages that feel translated, generic, overclaimed, or too AI-like.
 
@@ -27,7 +27,7 @@ Use this skill for:
 
 - abstracts, introductions, contribution paragraphs, related work, and discussion sections;
 - section architecture, headings, subheadings, and paragraph order;
-- model setup, assumptions, formulations, theorem statements, result interpretations, and proof ideas;
+- model setup, assumptions, formulations, theorem/proposition statements, local proof placement, result interpretations, and proof ideas;
 - deciding what belongs in the main text, appendix, online appendix, or replication package;
 - polishing Management Science, Operations Research, M&SOM, OM, mechanism design, empirical, learning, platform, healthcare, supply chain, policy, and business analytics writing;
 - rewriting rough Chinese or mixed-language notes into natural academic English while preserving the original mathematical and empirical claims.
@@ -39,6 +39,7 @@ The skill is built around a few nonnegotiable writing principles:
 - Every major claim needs nearby evidence and a clear boundary.
 - Stronger prose should not mean stronger unsupported claims.
 - A model should be introduced as a decision environment, not as a collection of symbols.
+- Theorem and proposition captions should stay spare; the paper should explain the result in the surrounding prose.
 - Proof ideas should name the load-bearing mathematical move, not hide behind "by algebra."
 - Proof ideas should be proportional: a routine proof may need one precise sentence; a surprising result may need a short proof checkpoint.
 - The main text must let a reviewer understand and trust the contribution without opening the appendix, and appendix pointers should first say what the appendix verifies, preserves, or changes.
@@ -114,7 +115,7 @@ MIT License. See [LICENSE](LICENSE).
 
 ### 简介
 
-`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 claim、evidence、boundary、section architecture、小标题层级、model/proof 叙述，以及正文和附录的分工。
+`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 claim、evidence、boundary、section architecture、小标题层级、model/proof 叙述、theorem/proposition caption，以及正文和附录的分工。
 
 ### 这是什么
 
@@ -128,8 +129,9 @@ MIT License. See [LICENSE](LICENSE).
 
 - abstract、introduction、contribution、related work、discussion；
 - section architecture、headings/subheadings、paragraph order；
-- model setup、assumption、formulation、theorem statement、result interpretation；
+- model setup、assumption、formulation、theorem/proposition statement、result interpretation；
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
+- proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
 - 同一个 model / data 下更好的表达，而不是更强的、不被支持的结论；
 - 中文 rough notes 到自然英文论文段落的转换。
@@ -142,6 +144,7 @@ MIT License. See [LICENSE](LICENSE).
 - 一个强 claim 附近必须有 boundary。
 - 语言可以更地道，但结论不能被偷偷加强。
 - model 要先让读者知道谁在什么信息下做什么决定，再进入符号。
+- theorem/proposition 的标题要克制，通常只用编号或很短的 object label；真正的意思放在前后正文里讲清楚。
 - proof idea 要说清楚真正承重的数学动作，比如 relaxation、coupling、decomposition、KKT、concentration、fixed point、exchange argument。
 - proof idea 要按难度写：routine proof 可以一句话说清楚；surprising theorem 才需要更明确的 proof checkpoint。
 - 正文要让审稿人第一遍就理解贡献和可信度；附录负责完整验证、长证明、重复 robustness、implementation details。正文提到附录前，要先说清楚附录验证、保留或改变了什么。

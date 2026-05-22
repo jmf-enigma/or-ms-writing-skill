@@ -174,7 +174,7 @@ Proposition 1.
 
 This is often the cleanest Management Science style because the body keeps result meaning and the appendix carries verification.
 
-### Pattern 3: Proposition, Proof Idea, Appendix Proof
+### Pattern 3: Proposition, One Proof Move, Appendix Proof
 
 Use this when the proof technique is part of the contribution or the result would otherwise feel like a black box.
 

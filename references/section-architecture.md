@@ -131,7 +131,7 @@ Prefer:
 
 Avoid:
 
-- Generic headings such as `Story`, `Motivation`, `Trust Device`, `Contribution 1`, or `Reviewer Concern`.
+- Generic headings such as `Story`, `Motivation`, `Credibility Support`, `Contribution 1`, or `Reviewer Concern`.
 - A separate `Managerial Implications` section when the implications are short and would read better in the result interpretation or conclusion.
 - A separate `Related Literature` section when the target paper's lane naturally integrates literature into the introduction, unless the journal or field expects a standalone section.
 
@@ -184,7 +184,7 @@ Bad uses:
 
 Prefer noun phrases that identify objects: `Data Sources`, `Variable Construction`, `Treatment and Control Firms`, `The System Model`, `Benchmark Policies`, `Numerical Experiments`. Use claim-like subheadings only when the paper's style already supports them and the claim is narrow enough to be true.
 
-Avoid exposing scaffolding: `Story`, `Problem`, `Why It Matters`, `Trust Device`, `Reviewer Concern`, `Contribution 1`, `Proof Idea`. These can be internal planning labels, not manuscript headings.
+Avoid exposing scaffolding: `Story`, `Problem`, `Why It Matters`, `Credibility Support`, `Reviewer Concern`, `Contribution 1`, `Proof Idea`. These can be internal planning labels, not manuscript headings.
 
 ### Theorem, Proposition, And Proof Local Headings
 
@@ -232,7 +232,7 @@ Common modules:
 - Standard view, current practice, or canonical model.
 - Hidden friction, empirical obstacle, or technical difficulty.
 - Why existing work cannot answer this version of the question.
-- Trust device: experiment, institutional variation, theorem, construct validation, model feature, algorithmic guarantee, or benchmark.
+- Source of credibility: experiment, institutional variation, theorem, construct validation, model feature, algorithmic guarantee, or benchmark.
 - Study design or model preview.
 - Findings in the right evidence register.
 - Contributions by audience or literature stream.
