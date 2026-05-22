@@ -41,29 +41,31 @@ Use this reference when a passage still sounds generic after applying the core O
 
 ## Section Moves
 
+Before selecting a section order, classify the paper's lane: empirical experiment, archival/DID or construct-measurement empirical work, structural/ML/RM, theory/mechanism, theory/algorithm, or applied OR with field data. Headings should name manuscript objects, not the writer's diagnostic checklist. A Management Science field experiment and an Operations Research algorithm paper do not need the same body architecture.
+
 ### Abstract
 
-Good MS/OR abstracts usually follow this sequence:
+Good MS/OR abstracts usually draw from these moves; the evidence lane determines emphasis:
 
-1. Canonical setting or managerial decision.
-2. New friction, information structure, constraint, data feature, or generalization.
-3. Method or formal object.
-4. Sharp result, guarantee, estimate, or characterization.
-5. Validation, numerical evidence, application, or conditional implication.
+- Canonical setting or managerial decision.
+- New friction, information structure, constraint, data feature, or generalization.
+- Method or formal object.
+- Sharp result, guarantee, estimate, or characterization.
+- Validation, numerical evidence, application, or conditional implication.
 
 Do not start with a broad claim about importance when a precise decision is available. A better opening names the operational object, such as a firm pricing under nonstationary demand, a retailer planning a static calendar, a hotel manager responding to recommendations, or a decision maker inspecting alternatives at different costs.
 
 ### Introduction
 
-Strong introductions often use this order:
+Strong introductions draw from these modules. Their order depends on the lane and on the reviewer's next question:
 
-1. Define the decision environment in plain operational language.
-2. State the standard model, policy, belief, or literature default.
-3. Explain the practical or technical feature that breaks the default.
-4. Name the trust device: the model feature, institutional variation, algorithmic guarantee, experiment, or construct validation that can answer the friction.
-5. State the paper's formal object, method, or empirical design.
-6. Group contributions by type rather than chronology.
-7. Close each literature stream with the exact departure.
+- Define the decision environment in plain operational language.
+- State the standard model, policy, belief, or literature default when the contrast matters.
+- Explain the practical or technical feature that breaks the default.
+- Name the trust device: the model feature, institutional variation, algorithmic guarantee, experiment, or construct validation that can answer the friction.
+- State the paper's formal object, method, or empirical design after the reader understands the question it answers.
+- Group contributions by type rather than chronology.
+- Close each literature stream with the exact departure.
 
 Contribution sentences should include object plus result plus difficulty. For example, the sentence should make clear that the paper develops an algorithm and proves a regret rate, constructs a relaxation and obtains an approximation guarantee, or uses behavioral delay in recommendations to identify demand.
 
@@ -132,15 +134,15 @@ If the body states that a stronger result yields the displayed theorem, keep the
 
 ### Empirical And Data Sections
 
-Empirical MS writing is strongest when the institutional detail carries identification. Use this order:
+Empirical MS writing is strongest when the institutional detail carries identification. Use these modules, usually after the setting has made the decision process concrete:
 
-1. Decision process and data source.
-2. Observed action, latent object, and outcome.
-3. Institutional behavior that creates variation.
-4. Estimation equation or design.
-5. Identification assumption and why the setting supports it.
-6. Validation, robustness, or sensitivity.
-7. Interpretation of magnitudes for the decision.
+- Decision process and data source.
+- Observed action, latent object, and outcome.
+- Institutional behavior that creates variation.
+- Estimation equation or design.
+- Identification assumption and why the setting supports it.
+- Validation, robustness, or sensitivity.
+- Interpretation of magnitudes for the decision.
 
 Do not call a design causal unless the variation, assumptions, and threats are named. If power or external validity is limited, state that limitation near the result rather than burying it.
 

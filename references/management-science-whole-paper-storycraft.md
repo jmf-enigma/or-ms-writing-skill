@@ -34,15 +34,15 @@ This file extends the MS corpus with additional whole-paper readings across fiel
 
 MS storytelling is not flourish. It is the reader path by which a broad management audience comes to trust a precise claim. Use the path as a diagnostic map, not as a fixed outline.
 
-Common beats:
+Common modules:
 
-1. Existing practice, institution, decision, or belief.
-2. Hidden friction that makes the standard belief incomplete.
-3. Design object that isolates the friction: experiment, model, estimator, algorithm, or optimization problem.
-4. Main evidence in the decision metric.
-5. Mechanism that explains why the evidence has that sign.
-6. Boundary condition, heterogeneity, benchmark, or regime.
-7. Implication for management practice, theory, policy, or method.
+- Existing practice, institution, decision, or belief.
+- Hidden friction that makes the standard belief incomplete.
+- Design object that isolates the friction: experiment, model, estimator, algorithm, or optimization problem.
+- Main evidence in the decision metric.
+- Mechanism that explains why the evidence has that sign.
+- Boundary condition, heterogeneity, benchmark, or regime.
+- Implication for management practice, theory, policy, or method.
 
 The beats can be reordered, compressed, repeated, or omitted depending on the paper type. A field experiment may foreground the institution before theory. A theory paper may start from a standard model before the managerial setting. A methods paper may need the formal object early. The important test is whether the reader can recover the decision, friction, evidence, mechanism, and boundary where they matter.
 
@@ -107,25 +107,25 @@ If a paragraph tries to perform all seven jobs, split it. MS prose often sounds 
 
 Across MS field-experiment and empirical papers, the method paragraph usually comes after the paper has explained why the managerial question is not already answered.
 
-Common order:
+Common modules:
 
-1. The empirical setting or partner organization.
-2. The decision or treatment being varied.
-3. The randomization, quasi-experimental variation, or identification contrast.
-4. The outcome metric.
-5. Why the design addresses the earlier friction.
+- The empirical setting or partner organization.
+- The decision or treatment being varied.
+- The randomization, quasi-experimental variation, or identification contrast.
+- The outcome metric.
+- Why the design addresses the earlier friction.
 
 Avoid a methods paragraph that is only a sample-size announcement. Sample size matters when it identifies scale, power, external relevance, or operational realism.
 
 ## Result Narration
 
-MS result narration often follows this sequence, but the paragraph's local job decides how much to include:
+MS result narration usually uses these ingredients, but the paragraph's local job decides how much to include and in what order:
 
-1. State the headline effect, theorem, estimate, or algorithmic guarantee.
-2. Translate the result into the decision metric.
-3. Compare with the benchmark, common intuition, or prior result.
-4. Explain the mechanism or decomposition.
-5. Give the boundary condition or heterogeneity that prevents overclaiming.
+- State the headline effect, theorem, estimate, or algorithmic guarantee.
+- Translate the result into the decision metric.
+- Compare with the benchmark, common intuition, or prior result.
+- Explain the mechanism or decomposition.
+- Give the boundary condition or heterogeneity that prevents overclaiming.
 
 For experiments, separate effect, mechanism, heterogeneity, and downstream quality when all are part of the claim. For theory, separate formal result, interpretation, and implication when the result would otherwise be opaque. For algorithms, separate guarantee, comparator, and empirical or operational validation when the paper has all three.
 
@@ -153,12 +153,12 @@ Mechanism sentence shape:
 
 MS contribution paragraphs are strongest when organized around what changes for the reader, not around the order of tasks the authors performed.
 
-Common contribution order:
+Common contribution modules:
 
-1. Core management insight or causal/formal object.
-2. Mechanism or decomposition that explains the insight.
-3. Methodological or design contribution if it is reusable.
-4. Practical implication, bounded by observable conditions.
+- Core management insight or causal/formal object.
+- Mechanism or decomposition that explains the insight.
+- Methodological or design contribution if it is reusable.
+- Practical implication, bounded by observable conditions.
 
 Avoid making the first contribution "we are the first." If novelty matters, attach it to the object: first causal evidence on a decision, first formal definition of a construct, first model that separates two mechanisms, first algorithm with a particular guarantee for a management setting.
 
@@ -221,14 +221,14 @@ For reviewer persuasion, pair each empirical object with its threat:
 
 MS abstracts are dense but not ornamental.
 
-Common successful order, not a required sentence template:
+Common successful modules, not a required sentence template:
 
-1. Practice or decision.
-2. Missing friction, definition, or evidence.
-3. Research design or model.
-4. Headline result in the management metric.
-5. Mechanism, heterogeneity, or boundary.
-6. Implication.
+- Practice or decision.
+- Missing friction, definition, or evidence.
+- Research design or model.
+- Headline result in the management metric.
+- Mechanism, heterogeneity, or boundary.
+- Implication.
 
 The sharpest result should get the cleanest sentence. Avoid ending with generic "valuable insights"; end with the action, design condition, or belief that changes.
 

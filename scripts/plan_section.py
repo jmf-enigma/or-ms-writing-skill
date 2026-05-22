@@ -17,15 +17,14 @@ BLUEPRINTS = {
         "Implication: say who can act on the result and under what condition.",
     ],
     "introduction": [
-        "Phenomenon and operational tension.",
-        "Industry default or standard intuition.",
-        "Hidden friction that makes the default incomplete.",
-        "Why existing work leaves the tension unresolved.",
-        "Trust device: experiment, institutional variation, theorem, model feature, construct validation, or algorithmic guarantee.",
-        "Model/method preview.",
-        "Main findings in mechanism language.",
-        "Contributions by literature stream.",
-        "Managerial/policy implications and roadmap.",
+        "Entry point: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct.",
+        "Contrast object: current practice, canonical model, prior evidence, or literature default when it matters.",
+        "Friction: why the contrast object cannot answer this version of the question.",
+        "Trust device: experiment, institutional variation, theorem, model feature, construct validation, algorithmic guarantee, or benchmark.",
+        "Study object: model, data, design, estimator, algorithm, policy, or formal problem after the question is legible.",
+        "Findings in the right evidence register: estimate, theorem, guarantee, characterization, validation, or counterfactual.",
+        "Contributions by audience or literature stream, grouped by what the reader learns.",
+        "Implications and roadmap only when they help the lane and target journal.",
     ],
     "related": [
         "Stream 1: what it studies and the precise gap.",
@@ -34,6 +33,7 @@ BLUEPRINTS = {
         "End with one sentence stating this paper's distinct angle.",
     ],
     "model": [
+        "Lane choice: theory/problem formulation, empirical model, structural measurement device, or applied system model.",
         "Agents, timing, information, decisions.",
         "State/action, demand/payoff/transition primitives.",
         "Objective and constraints.",
@@ -136,7 +136,7 @@ def topic_lens(topic: str) -> str:
             {"pricing", "review", "match", "recommend", "content", "creator", "seller"},
         ),
         "empirical": (
-            {"empirical", "experiment", "identification", "replication", "behavioral", "panel data", "administrative data", "field data"},
+            {"empirical", "experiment", "identification", "replication", "behavioral", "panel data", "administrative data", "field data", "did", "difference-in-differences", "construct validation"},
             {"field", "dataset", "estimate"},
         ),
         "human_ai": (
@@ -144,7 +144,7 @@ def topic_lens(topic: str) -> str:
             {"trust", "framing", "incentive", "expert advice", "human", "advice"},
         ),
         "algorithm": (
-            {"algorithm", "approximation algorithm", "online algorithm"},
+            {"algorithm", "approximation algorithm", "online algorithm", "dynamic programming", "lagrangian relaxation", "computational study"},
             {"online", "matching", "scheduling", "routing", "lp"},
         ),
         "mechanism": (
@@ -164,11 +164,11 @@ def topic_lens(topic: str) -> str:
             {"robust", "misspecification", "worst-case", "ambiguity", "out-of-sample"},
         ),
         "business": (
-            {"finance", "accounting", "marketing", "advertising", "disclosure", "lending", "credit", "audit", "investor", "information system", "technology adoption"},
+            {"finance", "accounting", "marketing", "advertising", "disclosure", "lending", "credit", "audit", "investor", "information system", "technology adoption", "collaborative work management", "managerial hierarchy", "managerial intensity"},
             {"consumer"},
         ),
         "infrastructure": (
-            {"energy", "electricity", "grid", "transportation", "traffic", "transit", "environment", "climate", "carbon", "infrastructure"},
+            {"energy", "electricity", "grid", "transportation", "traffic", "transit", "environment", "climate", "carbon", "infrastructure", "unit commitment"},
             {"routing", "emission"},
         ),
         "policy": (
@@ -190,7 +190,7 @@ def topic_lens(topic: str) -> str:
 
 QUALITY = {
     "abstract": "decision, friction, method, result, implication, boundary; avoid jargon before the problem is clear",
-    "introduction": "phenomenon, tension, default intuition, hidden friction, gap, model, findings, boundary, implications, roadmap",
+    "introduction": "lane-specific entry point, decision or formal object, contrast, friction, trust device, findings, boundary, contribution; roadmap only if useful",
     "related": "stream, limitation, this paper's difference; no citation dumping",
     "model": "agents, timing, information, actions, primitives, objective, constraints, assumptions, benchmark, solution concept, and translated formulation display",
     "results": "formal result, benchmark intuition, derivation checkpoint when needed, mechanism, condition, implication",
@@ -219,9 +219,8 @@ def normalize(value: str) -> str:
 def has_keyword(text: str, keyword: str) -> bool:
     if " " in keyword:
         return keyword in text
-    if len(keyword) <= 3:
-        return re.search(rf"\b{re.escape(keyword)}\b", text) is not None
-    return keyword in text
+    suffix = r"(?:s|es|ing|ed|al)?"
+    return re.search(rf"\b{re.escape(keyword)}{suffix}\b", text) is not None
 
 
 def main() -> int:
@@ -253,10 +252,10 @@ def main() -> int:
     if args.topic.strip():
         print("Topic lens:")
         print(textwrap.fill(topic_lens(args.topic), width=88))
-    print("\nFlexible blueprint:")
-    print("Use as section-level prompts, not as the final paragraph order.")
-    for i, item in enumerate(BLUEPRINTS[section], 1):
-        print(f"{i}. {item}")
+    print("\nSection modules:")
+    print("Select, omit, and reorder by evidence lane; do not copy this order into polished prose.")
+    for item in BLUEPRINTS[section]:
+        print(f"- {item}")
     print("\nRecommended references:")
     print("- Load one bundle by default; add another only if the draft still has a specific language, story, math, placement, or reviewer problem.")
     seen_refs = set()
@@ -269,6 +268,8 @@ def main() -> int:
     if target == "management science":
         print("\nManagement Science comparable-design lane:")
         print(textwrap.fill("Apply the always-on MS core first as a diagnostic, not a template: decision, belief, friction, method, result, mechanism, condition, consequence. Then match the paper to field experiment, human-algorithm, data-driven revenue management, analytical platform model, hybrid algorithm-field implementation, operational-data transfer/cross-learning, service queueing, behavioral experiment, or theory/algorithm with management applications.", width=88))
+    print("\nArchitecture note:")
+    print(textwrap.fill("MS/OR papers do not share one universal skeleton. Choose headings that name the paper object, such as Research Setting, Data and Methods, The Model, Empirical Strategy, Main Results, Algorithm, Numerical Experiments, Robustness Tests, or Discussion and Conclusion.", width=88))
     print("\nDiagnostic signals:")
     print(textwrap.fill(QUALITY.get(section, "actor, decision, friction, method, result, consequence"), width=88))
     print("\nOR/MS spine:")

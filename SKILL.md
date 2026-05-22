@@ -20,7 +20,7 @@ Write the requested text first. Use diagnosis, maps, script labels, and checklis
 
 Internally run only three silent passes unless the task is long or structurally unclear:
 
-1. **Reader job**: What does this sentence, paragraph, or section need the reviewer to understand next?
+1. **Lane and reader job**: Is this empirical, structural, theory, algorithmic, applied OR, or hybrid, and what does the reviewer need next?
 2. **Claim-evidence-boundary**: What is the claim, what supports it, and under what assumption, benchmark, data regime, model class, or population is it valid?
 3. **OR/MS language rhythm**: Are the actor, decision, formal object, evidence verb, and implication stated in ordinary field language without checklist residue?
 
@@ -57,11 +57,12 @@ Use the register that matches the requested unit. These are flexible patterns, n
 
 - **Micro rewrite**: Fix object, verb, qualifier, and rhythm. Return one to three polished options only when alternatives are useful.
 - **Abstract**: Move quickly from setting and decision to friction, model/data/design, headline result, validation or implication. Avoid broad hooks and generic final managerial sentences.
-- **Introduction**: Start from a real decision or research tension, not a literature inventory. Move from practice or canonical belief to the unresolved friction, then to this paper's model/data/design and results.
-- **MS storycraft**: Treat story as persuasion order. Establish the decision, standard view, hidden friction, trust device, result, mechanism, and boundary; do not make every paragraph carry the whole chain.
+- **Section architecture**: Do not assume one MS/OR skeleton. First classify the paper lane, then choose headings that name the object: `Research Setting`, `Data and Methods`, `The Model`, `Empirical Strategy`, `Main Results`, `Algorithm`, `Numerical Experiments`, `Robustness Tests`, or `Discussion and Conclusion`.
+- **Introduction**: Start from the entry point the lane needs: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct. Order the modules so each paragraph answers the reviewer's next question; a roadmap is optional.
+- **MS storycraft**: Treat story as persuasion order, not a fixed arc. Make the decision, standard view, friction, trust device, result, mechanism, and boundary recoverable across the manuscript without forcing every paragraph to carry the whole chain.
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.
 - **Related work**: End each stream with the difference that matters: setting, information, constraint, performance criterion, proof technique, data source, or decision logic.
-- **Model setup**: Describe the decision environment before dense notation. Introduce agents, timing, information, actions or policy class, objective, constraints, assumptions, benchmark, and solution concept or estimand.
+- **Model setup**: Describe the decision environment before dense notation. Introduce agents, timing, information, actions or policy class, objective, constraints, assumptions, benchmark, and solution concept or estimand in the order the paper lane requires.
 - **Assumptions**: State what role each assumption plays: simplify, identify, bound, preserve tractability, isolate a mechanism, rule out degeneracy, or match institutional constraints.
 - **Result interpretation**: State the formal result or local claim, then explain what changes relative to the benchmark and why the condition matters for the decision.
 - **Empirical or numerical results**: Separate what is observed, what is estimated or simulated, what is counterfactual, and what the design or model can support.
@@ -124,12 +125,13 @@ Run `plan_section.py` only for section-level or structurally unclear tasks. Run 
 
 1. Identify the requested unit and write at that granularity.
 2. Choose one reference bundle only if the task needs it.
-3. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
-4. Draft ordinary OR/MS prose. Do not expose prewriting labels.
-5. For model or proof material, decide the body/appendix split before writing formulas or proof text.
-6. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
-7. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
-8. Run the naturalness pass: split overloaded sentences, remove checklist residue, use exact verb-object pairs, and delete filler.
+3. For full sections or manuscripts, classify the evidence lane before choosing headings or paragraph order.
+4. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
+5. Draft ordinary OR/MS prose. Do not expose prewriting labels.
+6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
+7. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
+8. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
+9. Run the naturalness pass: split overloaded sentences, remove checklist residue, use exact verb-object pairs, and delete filler.
 
 ## If The Draft Feels Weird
 
@@ -153,6 +155,7 @@ Before finalizing, check only what the requested unit needs:
 - Technical terms use field-accepted meanings and are defined when overloaded.
 - Model passages make agents, timing, information, actions, objective, constraints, assumptions, benchmark, and solution concept clear when relevant.
 - Result and proof passages state the formal object, result type, assumption or benchmark, interpretation, and proof idea at the right depth.
+- Headings and paragraph order match the paper lane and the reader's persuasion path, not a generic MS/OR outline.
 - Body/appendix placement lets a reviewer understand and evaluate the contribution without opening the appendix, while leaving routine verification out of the body.
 - The language is concrete, calm, and insertable. It does not expose scaffolding, overuse colon-led roadmaps, semicolon chains, dash pivots, AI-associated filler, or perfectly symmetric list rhythm.
 
