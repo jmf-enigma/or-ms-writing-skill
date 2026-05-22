@@ -23,6 +23,12 @@ This file extends the MS corpus with additional whole-paper readings across fiel
 - Manshadi, Rodilitz, Saban, and Suresh, "Redesigning VolunteerMatch's Search Algorithm," Management Science, 2025.
 - Bapna, Ramaprasad, Shmueli, and Umyarov, "One-Way Mirrors in Online Dating," Management Science, 2016.
 - Bird and Frug, "A Theory of Front-Line Management," Management Science, 2025.
+- Greiner, Grunwald, Lindner, Lintner, and Wiernsperger, "Incentives, Framing, and Reliance on Algorithmic Advice," Management Science, 2025.
+- Garcia, Tolvanen, and Wagner, "Demand Estimation Using Managerial Responses to Automated Price Recommendations," Management Science, 2022.
+- Chen, van der Lans, and Trusov, "Efficient Estimation of Network Games of Incomplete Information," Management Science, 2021.
+- Han, Chu, Sun, and Wu, "Commercializing the Package Flow," Management Science, 2025.
+- "Collaborative Work Management Technologies and Managerial Intensity in U.S. Corporations," Management Science, 2026.
+- Guasoni, Huberman, and Shikhelman, "Lightning Network Economics: Topology," Management Science, 2024.
 
 ## The MS Story Is A Flexible Reader Path
 
@@ -41,6 +47,19 @@ Common beats:
 The beats can be reordered, compressed, repeated, or omitted depending on the paper type. A field experiment may foreground the institution before theory. A theory paper may start from a standard model before the managerial setting. A methods paper may need the formal object early. The important test is whether the reader can recover the decision, friction, evidence, mechanism, and boundary where they matter.
 
 The path should be visible across the manuscript, not crammed into every sentence. A local paragraph usually performs only one or two of these jobs, and some paragraphs only define notation, report a robustness check, or bridge literatures.
+
+## Recent MS Persuasion Patterns
+
+Recent full-text MS papers reinforce that storytelling is reviewer persuasion, not decoration. The paper first turns a broad topic into a reviewable object, then makes the trust device visible.
+
+- **Human-AI and algorithmic-advice papers** separate tool quality from human reliance. They introduce the managerial decision, the behavioral friction, the experimental manipulation, and then interpret reliance, performance, incentives, or framing as distinct outcomes.
+- **Revenue management and empirical pricing papers** move from the canonical pricing problem to an identification obstacle. They explain why ordinary demand estimation is hard, then show how an institutional behavior, such as delayed responses to recommendations, creates usable variation.
+- **Structural model papers** state both obstacles early: computation and identification. The model section then reads as an answer to those obstacles, not as notation for its own sake.
+- **Platform and field-experiment papers** make the intervention operational before the estimating equation. The design, matching, balance, and robustness checks are narrated as reasons a reviewer can trust the comparison.
+- **Organization and strategy papers** often start with two competing mechanisms. The empirical design is persuasive because the chosen setting is expected to activate one mechanism more than the other.
+- **Theory and network papers** use examples, local-improvement arguments, and algorithms to move the reader from a real constraint to a formal result. The theorem is followed by the intuition, complexity implication, or algorithmic consequence.
+
+Across these lanes, the introduction usually answers three reviewer questions before listing results: why this setting matters, why the standard view or method is insufficient, and what feature of the model, data, or design makes the claim credible.
 
 ## Do Not Overfit The Story
 
@@ -167,6 +186,16 @@ Theory papers often start from a standard setup and add one new feature. The pro
 
 For formal definitions, explain what the definition rules in and rules out. For new measures, state the decision problem the measure supports before giving the formula.
 
+For MS model writing, the model is persuasive when it is introduced as the answer to a reviewer concern:
+
+- If the concern is **tractability**, explain which state, action, or equilibrium object creates the difficulty and which reformulation controls it.
+- If the concern is **identification**, explain what is observed, what is latent, and which institutional feature or excluded variation supports the estimand.
+- If the concern is **external validity**, explain which institutional details are retained in the base model and which are stress-tested later.
+- If the concern is **behavioral interpretation**, separate the model's mechanical prediction from the behavioral mechanism that the data can test.
+- If the concern is **implementation**, say what the algorithm, policy, or estimator takes as input, what it outputs, and what benchmark makes its performance meaningful.
+
+Do not make the model paragraph a list of primitives. A strong MS model paragraph says why these primitives are the right abstraction for the paper's trust device.
+
 ## Empirical And Field-Experiment Sections
 
 MS empirical sections feel grounded because they keep the institution and outcome metric visible.
@@ -178,6 +207,15 @@ MS empirical sections feel grounded because they keep the institution and outcom
 - Put treatment implementation, survey instruments, long balance tables, and secondary checks in the appendix after the body gives enough information to trust the design.
 
 Do not let "causal evidence" float. State the causal contrast and the metric: treatment versus control, policy versus benchmark, ads versus public service announcements, uncertain sender reward versus certain sender reward, or collaboration treatment versus pure control.
+
+For reviewer persuasion, pair each empirical object with its threat:
+
+- Measurement: show how the construct is observed, validated, and bounded.
+- Treatment or adoption: explain timing and why it is plausibly separated from the outcome shock.
+- Matching or weighting: report balance and common support before interpreting estimates.
+- DID or event study: name the counterfactual group and the timing assumption.
+- Structural estimation: state what identifies the latent object and how model fit or external variation supports it.
+- Robustness: summarize the conclusion in the body and place the repeated checks in the appendix.
 
 ## Abstract Rhythm
 

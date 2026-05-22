@@ -21,6 +21,7 @@ BLUEPRINTS = {
         "Industry default or standard intuition.",
         "Hidden friction that makes the default incomplete.",
         "Why existing work leaves the tension unresolved.",
+        "Trust device: experiment, institutional variation, theorem, model feature, construct validation, or algorithmic guarantee.",
         "Model/method preview.",
         "Main findings in mechanism language.",
         "Contributions by literature stream.",
@@ -37,6 +38,7 @@ BLUEPRINTS = {
         "State/action, demand/payoff/transition primitives.",
         "Objective and constraints.",
         "Assumptions with short rationale.",
+        "Reviewer concern the model answers: tractability, identification, mechanism isolation, implementation, or external validity.",
         "Benchmark, solution concept, and what the abstraction isolates.",
         "Main formulation display and one sentence translating the objective, constraints, and benchmark.",
     ],
@@ -44,6 +46,7 @@ BLUEPRINTS = {
         "Reminder of local setup.",
         "Formal proposition/theorem.",
         "Benchmark or standard intuition.",
+        "Trust checkpoint: identification contrast, proof move, validation, placebo, approximation benchmark, or robustness conclusion when needed.",
         "Derivation checkpoint when the result depends on a relaxation, dual, Bellman equation, regret decomposition, or identifying expression.",
         "Intuition paragraph.",
         "Comparative static, regime, threshold, or mechanism.",
@@ -107,6 +110,7 @@ TOPIC_LENSES = {
     "algorithm": "Actor: planner, algorithm, or platform operator. Decision: allocate, match, schedule, route, learn, stop, accept, reject, or price. Friction: online arrival, uncertainty, combinatorial complexity, limited information, coupling, or nonconvexity. Benchmark: LP relaxation, myopic policy, batching, greedy heuristic, or clairvoyant optimum.",
     "mechanism": "Actor: designer, regulator, platform, seller, bidder, or agent. Decision: choose rules, payments, allocation, disclosure, regulation, or information design. Friction: incentives, private information, participation, collusion, fairness, or welfare tradeoff. Benchmark: first-best, no regulation, standard auction, posted price, Myerson, or efficient allocation.",
     "learning": "Actor: algorithm, platform, seller, physician, recommender, or experimenter. Decision: explore, exploit, recommend, price, treat, allocate samples, or stop learning. Friction: uncertainty, adaptive data, regret, attrition, delayed feedback, fairness, or safety. Benchmark: oracle, classical learner, static policy, unconstrained learner, or no-learning policy.",
+    "human_ai": "Actor: manager, worker, expert, user, or human decision maker. Decision: accept, reject, rely on, override, frame, or incentivize algorithmic advice. Friction: trust, algorithm aversion, incentives, framing, accountability, workflow fit, or expertise. Benchmark: unaided human judgment, expert advice, algorithmic advice, or hybrid human-algorithm decision making.",
     "data_driven_rm": "Actor: firm, seller, retailer, platform, or operations manager. Decision: price, stock, assort, recommend, procure, or allocate capacity. Friction: limited, censored, contextual, nonstationary, or misspecified data. Benchmark: oracle, sample-average approximation, model-based policy, model-free policy, static policy, or simple heuristic.",
     "robust_optimization": "Actor: decision maker, planner, firm, or algorithm. Decision: choose a policy, action, decision rule, or uncertainty set before the realized distribution or parameters are known. Friction: distributional ambiguity, misspecification, side information, ambiguity radius, or limited samples. Benchmark: nominal policy, oracle policy, sample-average approximation, worst-case optimum, or out-of-sample performance.",
     "business": "Actor: investor, lender, consumer, advertiser, auditor, analyst, firm, or regulator. Decision: disclose, target, lend, report, audit, adopt technology, or allocate capital. Friction: information asymmetry, agency, attention, privacy, bias, strategic reporting, or network effects. Benchmark: rational benchmark, no disclosure, uniform targeting, or status quo policy.",
@@ -135,6 +139,10 @@ def topic_lens(topic: str) -> str:
             {"empirical", "experiment", "identification", "replication", "behavioral", "panel data", "administrative data", "field data"},
             {"field", "dataset", "estimate"},
         ),
+        "human_ai": (
+            {"algorithmic advice", "human-ai", "human algorithm", "algorithm aversion", "automated advice", "managerial reliance", "reliance on algorithmic advice"},
+            {"trust", "framing", "incentive", "expert advice", "human", "advice"},
+        ),
         "algorithm": (
             {"algorithm", "approximation algorithm", "online algorithm"},
             {"online", "matching", "scheduling", "routing", "lp"},
@@ -148,8 +156,8 @@ def topic_lens(topic: str) -> str:
             {"recommendation", "exploration", "adaptive", "prediction"},
         ),
         "data_driven_rm": (
-            {"data-driven", "transaction data", "limited data", "contextual data", "model-free", "demand learning", "model misspecification", "newsvendor", "dynamic pricing", "assortment pricing"},
-            {"pricing", "price", "assortment", "inventory", "sample", "historical", "nonstationary", "censored"},
+            {"data-driven", "transaction data", "limited data", "contextual data", "model-free", "demand learning", "demand estimation", "price recommendation", "price recommendations", "model misspecification", "newsvendor", "dynamic pricing", "assortment pricing"},
+            {"pricing", "price", "assortment", "inventory", "sample", "historical", "nonstationary", "censored", "recommendation"},
         ),
         "robust_optimization": (
             {"distributionally robust", "robust optimization", "dro", "uncertainty set", "wasserstein", "causal transport", "transport distance", "side information", "ambiguity set"},
@@ -172,10 +180,13 @@ def topic_lens(topic: str) -> str:
         strong_hit = any(has_keyword(lower, keyword) for keyword in strong_keywords)
         weak_hits = sum(1 for keyword in weak_keywords if has_keyword(lower, keyword))
         if strong_hit or weak_hits >= 2:
-            matches.append(TOPIC_LENSES[name])
+            matches.append((name, TOPIC_LENSES[name]))
     if not matches:
         return "Use the general lens. First classify the job as practice, theory, empirical, algorithm, policy, or review. Then identify the actor, decision, hidden friction, benchmark, evidence type, consequence, and caveat before drafting."
-    return " ".join(matches[:2])
+    matched_names = {name for name, _ in matches}
+    if {"human_ai", "data_driven_rm"} & matched_names:
+        matches = [(name, lens) for name, lens in matches if name != "algorithm"]
+    return " ".join(lens for _, lens in matches[:2])
 
 QUALITY = {
     "abstract": "decision, friction, method, result, implication, boundary; avoid jargon before the problem is clear",

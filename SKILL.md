@@ -31,6 +31,7 @@ Treat every reference, script, and blueprint as a reader test, not a template. D
 Use this kernel by default, but keep it invisible in the final prose.
 
 - Start from what the paper actually proves, estimates, simulates, or demonstrates; then choose only the motivation and contrast needed to make that contribution legible.
+- Make the paper's trust device visible before leaning on the claim: experiment, institutional variation, theorem, identification argument, equilibrium characterization, approximation guarantee, construct validation, simulation benchmark, or robustness logic.
 - Make decisions, mechanisms, and formal objects concrete. Prefer "the platform chooses disclosure precision" to "disclosure precision is considered."
 - Use exact evidence verbs: `characterize` for policy forms or equilibrium regions, `establish` for theorems and guarantees, `bound` for approximation or regret, `estimate` for empirical designs, `identify` only when the design or model supports identification, and `validate` for numerical, empirical, or out-of-sample evidence.
 - Keep formal adjectives attached to an object and a condition. Terms such as `optimal`, `robust`, `tractable`, `adaptive`, `finite-sample`, `data-driven`, and `near-optimal` need a benchmark, metric, policy class, or assumption nearby.
@@ -47,6 +48,7 @@ Assume the reviewer is a sharp expert in one nearby subfield, not an expert in e
 - Use the narrow term when it is available. Distinguish demand, arrival rate, purchase incidence, adoption, conversion, engagement, welfare, surplus, profit, and revenue.
 - Explain what is observed, latent, exogenous, endogenous, optimized, estimated, assumed, or counterfactual when those distinctions matter.
 - For cross-field papers, add one bridge sentence that maps the unfamiliar object into the reviewer's home vocabulary.
+- In introductions, model sections, and result sections, write toward the skeptical reviewer's next question: why this setting, why this model or design, what identifies or proves the claim, and what alternative explanation has been ruled out or bounded.
 - Before finalizing, ask what a skeptical but fair reviewer could misunderstand. If a claim might sound stronger than the evidence, narrow it.
 
 ## Section Registers
@@ -56,6 +58,7 @@ Use the register that matches the requested unit. These are flexible patterns, n
 - **Micro rewrite**: Fix object, verb, qualifier, and rhythm. Return one to three polished options only when alternatives are useful.
 - **Abstract**: Move quickly from setting and decision to friction, model/data/design, headline result, validation or implication. Avoid broad hooks and generic final managerial sentences.
 - **Introduction**: Start from a real decision or research tension, not a literature inventory. Move from practice or canonical belief to the unresolved friction, then to this paper's model/data/design and results.
+- **MS storycraft**: Treat story as persuasion order. Establish the decision, standard view, hidden friction, trust device, result, mechanism, and boundary; do not make every paragraph carry the whole chain.
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.
 - **Related work**: End each stream with the difference that matters: setting, information, constraint, performance criterion, proof technique, data source, or decision logic.
 - **Model setup**: Describe the decision environment before dense notation. Introduce agents, timing, information, actions or policy class, objective, constraints, assumptions, benchmark, and solution concept or estimand.

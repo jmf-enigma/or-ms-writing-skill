@@ -37,6 +37,7 @@ Use this reference when a passage still sounds generic after applying the core O
 - Applied OM papers often keep the base model parsimonious in the body, then move partner-specific estimation, extra scenarios, and calibration details to appendices. The body says which real features the abstraction keeps and why that is enough for the main result.
 - Theory papers with baseline and general models often analyze the baseline in the body and put the general model in an appendix. This is acceptable only when the body explains why the baseline carries the main mechanism and how the general model changes or preserves it.
 - Papers with many theorem variants often state the theorem, give a comment or observation, and then move proof details to the online appendix. The body still names the hard step or stronger result when reviewer trust depends on it.
+- Reviewer persuasion is usually built into the order of exposition. Strong papers do not append caveats only at the end; they introduce the trust device before the claim: a randomization, institutional delay, equilibrium condition, local-improvement argument, construct validation, matching design, approximation guarantee, or placebo logic.
 
 ## Section Moves
 
@@ -59,9 +60,10 @@ Strong introductions often use this order:
 1. Define the decision environment in plain operational language.
 2. State the standard model, policy, belief, or literature default.
 3. Explain the practical or technical feature that breaks the default.
-4. Name the paper's formal object, method, or empirical design.
-5. Group contributions by type rather than chronology.
-6. Close each literature stream with the exact departure.
+4. Name the trust device: the model feature, institutional variation, algorithmic guarantee, experiment, or construct validation that can answer the friction.
+5. State the paper's formal object, method, or empirical design.
+6. Group contributions by type rather than chronology.
+7. Close each literature stream with the exact departure.
 
 Contribution sentences should include object plus result plus difficulty. For example, the sentence should make clear that the paper develops an algorithm and proves a regret rate, constructs a relaxation and obtains an approximation guarantee, or uses behavioral delay in recommendations to identify demand.
 
@@ -88,6 +90,8 @@ Before notation becomes dense, give the reader a complete prose version of the d
 - What benchmark makes performance interpretable.
 
 After formalizing, translate each central symbol once. If the model has a threshold, index, relaxation, Lagrangian multiplier, confidence set, change point, or latent demand shock, say what it means operationally.
+
+Model narration should make the abstraction earn reviewer trust. Say which real feature is retained because it drives the result, which feature is simplified for tractability, and which concern is deferred to robustness, calibration, or an appendix extension.
 
 For applied model papers, explicitly separate three layers:
 
@@ -139,6 +143,8 @@ Empirical MS writing is strongest when the institutional detail carries identifi
 7. Interpretation of magnitudes for the decision.
 
 Do not call a design causal unless the variation, assumptions, and threats are named. If power or external validity is limited, state that limitation near the result rather than burying it.
+
+Strong empirical MS prose often treats validation as part of the story. After defining a text-derived, platform-derived, or model-derived measure, show why the measure is credible before using it as the main regressor or outcome. After reporting a main estimate, state the nearest alternative explanation and the check that addresses it.
 
 ### Numerical And Application Sections
 
