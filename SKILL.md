@@ -83,6 +83,8 @@ Decide placement by reader job, not by length alone.
 
 - Keep in the body: headline results, main theorem statements, preferred empirical estimates, primary numerical comparisons, central figures, key assumptions, benchmarks, result interpretations, and proof ideas needed for first-pass trust.
 - Move to appendix or online supplement: long algebra, constants, KKT verification, repeated cases, auxiliary lemmas, secondary robustness checks, parameter sweeps, implementation details, data dictionaries, and replication materials.
+- Every appendix pointer should be conclusion-first: the body states the result, interpretation, proof checkpoint, or robustness conclusion before sending the reader to the appendix.
+- Organize appendices by proof dependency or reviewer concern, not by what was easiest to cut. A good appendix section has one job: verify a theorem, define notation, document calibration, stress-test a claim, or report secondary scope.
 - Keep robustness in the body when it protects the main identification, feasibility, or validity claim. Move repeated or secondary robustness checks to the appendix.
 - For focused technical Operations Research papers, do not hide essential proof material in an online supplement. Use a regular appendix for verification details.
 - When the user gives rough proof notes and asks for 正文/附录, first create the split internally, then write a natural main-text passage and a complete appendix passage. Do not stop at a meta-outline unless asked.
@@ -93,8 +95,8 @@ Load the smallest bundle that can solve the request. One bundle is the default; 
 
 - **Native wording**: `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
 - **Whole-section story**: `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
-- **Model, theorem, equation, proof**: `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/math-and-proof-style.md`.
-- **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/math-model-main-appendix-craft.md`.
+- **Model, theorem, equation, proof**: `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md`.
+- **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
 - **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
 - **Paper-lane flavor**: `references/management-science-20x-lane-style.md` or `references/article-corpus-style-notes.md` only for difficult lane matching, complete sections, or requests to make a passage feel closer to recent MS/OR papers without copying personal style.
 - **General story or unfamiliar topics**: `references/general-topic-story-engine.md`, `references/storytelling-language.md`, and `references/paragraph-style.md`.

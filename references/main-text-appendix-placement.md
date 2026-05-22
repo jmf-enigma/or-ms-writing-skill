@@ -14,6 +14,16 @@ Use this when results exist and the task is to decide what belongs in the paper 
 
 The main text should let a careful reviewer understand and evaluate the contribution without opening the appendix. The appendix should let the same reviewer verify, reproduce, or stress-test the contribution.
 
+Appendix placement works best when each appendix section has a named reviewer job:
+
+- **Proof verification**: complete proof, helper lemmas, cases, constants, boundary regimes.
+- **Mathematical derivation**: algebra that verifies a body transformation, such as a reformulation, reduction, or decomposition.
+- **Notation and reproduction**: notation table, acronym list, data construction, code or replication statement, computational details.
+- **Validity threat**: identification concern, model misspecification, feasibility concern, endogeneity check, benchmark alternative, or policy implementation concern.
+- **Scope extension**: generalized primitives, relaxed assumptions, extra operational features, or secondary settings whose takeaway is already summarized in the body.
+
+The body-to-appendix handoff should carry a conclusion. A cross-reference that does not say what the appendix verifies, preserves, or changes is usually too thin.
+
 ## Mathematical Body Depth
 
 For mathematical models and proofs, placement is not only about length. It is about the reader's ability to evaluate the formal contribution before opening the appendix.
@@ -85,6 +95,8 @@ For a quick first pass, run `scripts/place_results.py` on a one-item-per-line li
 - "Section 5 reports the primary comparison. Online Appendix EC.6 repeats the analysis on additional datasets and metrics."
 - "Because this robustness check addresses the main identification concern, we report it in the body and leave the remaining checks to the online appendix."
 - "The extension does not change the main mechanism, so we summarize it here and provide the full formulation and proof in Appendix C."
+- "The online appendix reports the auxiliary baselines; all preserve the ranking in Table 2, so they do not change the interpretation of the preferred model."
+- "Appendix B gives the closed-form thresholds used in the figure. The body focuses on the region boundaries because those boundaries drive the operating-mode comparison."
 
 ## Do Not Do This
 

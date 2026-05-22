@@ -11,6 +11,7 @@ These notes draw especially on model/proof sections from:
 - Guo, "The Mnemonomics of Contractual Screening," Management Science, 2022.
 - Loewenstein et al./related MS theory papers with baseline model plus appendix extensions.
 - Payment for ecosystem services contract papers with short body proof sketches and complete appendix proofs.
+- Recent open INFORMS examples with body/appendix pairings: model-theory papers that keep theorem meaning in the body and proofs in labeled appendix subsections; applied optimization papers that keep the reformulation in the body and notation/proof details in online appendices; ML/empirical papers that keep the primary model and comparison in the body and auxiliary baselines in appendices.
 
 ## What Main-Text Equations Do
 
@@ -118,6 +119,15 @@ Useful sequence:
 
 For Management Science, proof-sketch prose should be literal. Use verbs such as define, decompose, construct, relax, bound, compare, combine, and apply. Do not make the proof sound like a story.
 
+Observed proof-idea rhythm in strong MS/OR papers:
+
+1. "We first..." fixes the object or reduction.
+2. "The difficulty is..." names the term, constraint, strategic response, or stochastic error.
+3. "We control/show/compare..." names the proof move.
+4. "Combining..." closes the theorem and points to the appendix.
+
+The body proof idea usually has zero or one display. Use a display only for the decomposition, inequality, or reduced system that the rest of the paper relies on. If a second display merely verifies the first, move it to the appendix.
+
 ## Appendix Proof Layout
 
 Appendix proofs are denser, but they still have structure.
@@ -132,6 +142,16 @@ Typical appendix order:
 6. End by mapping the final inequality or construction back to the body result.
 
 Appendix prose can say "We first show..." and "It remains to verify..." because the reader is following a technical argument. It should not say only "standard arguments" unless the exact standard result is cited and the mapping is clear.
+
+For long appendices, organize sections by proof dependency or reviewer concern:
+
+- definitions and notation before theorem proofs;
+- proposition proofs in the same order as the body;
+- closed-form or threshold expressions before figures that use them;
+- robustness or alternative assumptions after the main proof;
+- implementation and calibration details after the result they support.
+
+Start an appendix section with the section's job. A section that begins immediately with a symbol-heavy display often needs one orienting sentence.
 
 ## What Moves To Appendix
 
@@ -185,4 +205,3 @@ Then write two registers:
 - **Appendix register**: complete, sequential, notation-consistent, and proof-heavy.
 
 Do not write the same proof twice. The body explains why the proof works; the appendix proves that it works.
-

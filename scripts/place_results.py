@@ -104,16 +104,16 @@ def crossref(placement: str, item: str) -> str:
         return "Interpret in the body near the result."
     if placement == "Main text summary plus appendix":
         if has_any(lower, CENTRAL_DERIVATION_SIGNALS):
-            return "Show the start point, key move, and resulting object in the body; put verification in Appendix A."
+            return "State what the derivation creates before the pointer; put algebraic verification in Appendix A."
         if "proof" in lower or has_any(lower, PROOF_DETAIL_SIGNALS | PROOF_IDEA_SIGNALS):
-            return "State the proof idea in the body and put details in Appendix A."
+            return "State the constructed object, hard term, and proof move in the body; put complete details in Appendix A."
         if has_any(lower, ROBUSTNESS_SIGNALS | VALIDITY_SIGNALS):
-            return "Summarize the validity check in the body and put full tables in Online Appendix EC.x."
-        return "Summarize the takeaway in the body and put details in Appendix B."
+            return "State the robustness conclusion in the body; put full tables and variants in Online Appendix EC.x."
+        return "State the takeaway in the body before the appendix pointer; put details in Appendix B."
     if placement == "Regular appendix":
-        return "Refer from the body after the relevant theorem or model step."
+        return "Refer from the body only after the relevant result, interpretation, or proof checkpoint is stated."
     if placement == "Online appendix or e-companion":
-        return "Refer from the body only after the primary result is stated."
+        return "Refer from the body after stating what the supplement verifies, preserves, or changes."
     if placement == "Replication package":
         return "Mention in the data/code availability statement."
     return "Check whether the body still carries the main claim."

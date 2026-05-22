@@ -36,6 +36,8 @@ APPENDIX_DETAIL = {
     "case split", "boundary", "constant", "constants", "technical lemma",
     "auxiliary lemma", "verification", "kkt verification", "summation",
     "variance calculation", "calibration", "parameter grid", "data dictionary",
+    "closed form", "closed-form", "notation table", "online appendix", "appendix",
+    "e-companion", "implementation detail", "hyperparameter", "runtime",
 }
 INTERPRETATION = {
     "means", "implies", "intuition", "interpretation", "managerial",
@@ -51,6 +53,29 @@ GAP_WORDS = {
     "left to the reader", "straightforward", "standard argument",
     "standard arguments", "standard proof", "standard technique",
 }
+
+APPENDIX_JOBS = [
+    (
+        "Proof verification",
+        {"Verification detail", "Proof idea"},
+        "complete proofs, helper lemmas, algebra, constants, cases, concentration, KKT checks",
+    ),
+    (
+        "Derivation support",
+        {"Derivation checkpoint"},
+        "algebra that verifies a body transformation, reduction, relaxation, or decomposition",
+    ),
+    (
+        "Reviewer-threat support",
+        {"Validity support"},
+        "robustness, sensitivity, feasibility, identification, misspecification, or benchmark checks",
+    ),
+    (
+        "Notation/calibration support",
+        {"Model object", "Needs judgment"},
+        "notation tables, data-to-model mapping, calibration, implementation, and reproduction details when they are not needed for first-pass understanding",
+    ),
+]
 
 
 def clean(line: str) -> str:
@@ -204,6 +229,13 @@ def main() -> int:
             print(f"- Verify or expand: {note}")
     else:
         print("- No obvious appendix items detected. Check whether proof details, cases, constants, or robustness are missing.")
+
+    print("\nAppendix section jobs")
+    print("- Each appendix section should have one job, and the body cross-reference should state the conclusion before pointing to the appendix.")
+    for job, roles, description in APPENDIX_JOBS:
+        matching = [note for note, role, _, _ in rows if role in roles]
+        status = "candidate" if matching else "check if needed"
+        print(f"- {job}: {status}. Use for {description}.")
 
     if "Risk note" in seen:
         print("\nRisk notes")

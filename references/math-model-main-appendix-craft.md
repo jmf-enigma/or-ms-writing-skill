@@ -14,6 +14,18 @@ For Management Science-specific details about how body displays, theorem stateme
 - Baseline-plus-general-model theory papers often analyze the baseline model in the body and place the general model in an appendix. This works only when the body explains why the baseline carries the main mechanism and what the generalization preserves.
 - Mechanism and market-design papers often state theorem regions, then immediately interpret the regions and visualize the comparison. Proofs move to appendices, but the body explains which parameter or uncertainty source favors which mechanism.
 
+## Observed Paper-Appendix Pairing Patterns
+
+Recent MS/OR papers tend to pair the body and appendix through a visible checkpoint:
+
+- A model paper states the decision environment, formulation, and main proposition in the body, then sends only the proof and nonlinear or algebraic verification to the online appendix.
+- A theory paper with many lemmas gives the theorem and a short proof mechanism in the body, then uses appendix subsections whose titles match proof dependencies: local reconfiguration, routing node, global bounds, algorithm proof, or example construction.
+- A principal-agent or mechanism paper keeps benchmark definitions, equilibrium regions, and the economic comparison in the body. Closed-form expressions, geometric arguments, implicit-function steps, and long proposition proofs move to labeled appendix subsections.
+- An empirical or ML paper states the preferred model, primary predictive or causal comparison, and practical interpretation in the body. Appendix sections collect notation, auxiliary baselines, alternative inputs, extra sample slices, and robustness checks; the body still says what those checks conclude.
+- An applied optimization paper keeps the queueing, routing, capacity, or service model and the central reformulation in the body. Notation lists, acronym lists, proposition proofs, and computational or implementation details move to online appendices.
+
+The common pattern is conclusion-first cross-referencing. The body does not say only "see Appendix." It first tells the reader what has been proved, estimated, checked, or preserved, and then tells the reader where to verify it.
+
 ## Main-Text Model Ladder
 
 Write the model section so a reviewer can reconstruct the decision environment before parsing notation.
@@ -148,6 +160,8 @@ The map is not the output unless the user asks for a map. For a body paragraph, 
 - "We state the theorem here because it determines the policy comparison. The complete proof, including the case split, is in Appendix C."
 - "This derivation is included in the body because it defines the estimator used in the empirical section. The remaining variance calculations are in Online Appendix EC.2."
 - "The robustness check addresses the main validity concern, so the body reports the conclusion and Online Appendix EC.4 gives the full table."
+- "The appendix does not introduce a new claim; it verifies the comparison stated above by expanding the two case splits."
+- "Online Appendix EC.2 repeats the analysis under the alternative timing assumption. The characterization is unchanged except for the principal's ability to commit before the agent responds."
 
 ## Failure Modes To Avoid
 
