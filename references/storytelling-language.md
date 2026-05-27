@@ -34,13 +34,15 @@ If a paragraph lacks actor + decision + friction, it will read abstract and life
 
 ## Sentence Moves That Work
 
-- `The challenge is not [obvious issue], but [deeper operational tension].`
-- `This distinction matters because [mechanism].`
-- `The model isolates this force by [abstraction].`
-- `The result is conditional. When [condition], [policy] improves [metric]. Otherwise, it can backfire.`
-- `The finding therefore changes the managerial question from [old question] to [new question].`
-- `The standard benchmark captures [object], but it misses [friction], which is the force the paper studies.`
-- `The design is useful because it separates [mechanism] from [nearby alternative].`
+Use these as reasoning moves, then rewrite them in the paper's own nouns.
+
+- Move from the obvious difficulty to the deeper operational tension.
+- Explain why a distinction matters by naming the mechanism it changes.
+- Let the model isolate one force through a clear abstraction.
+- State conditional results in two sentences when one sentence feels crowded: first the regime where the policy helps, then the regime where it can fail.
+- Recast managerial implications as a changed decision, not as a slogan.
+- Use the benchmark to show what is captured and what is missing.
+- Let the design separate one mechanism from a nearby alternative; do not call the design "useful" without saying what it separates.
 
 ## Rewrite Patterns For Banned Punctuation
 

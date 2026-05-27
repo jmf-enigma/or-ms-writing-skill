@@ -1,6 +1,6 @@
 interface:
   display_name: "OR/MS Writing"
-  short_description: "Natural OR/MS prose, micro-wording, and structure"
-  default_prompt: "Use $or-ms-writing to make OR/MS prose natural and reviewer-calibrated, including micro-wording, section structure, headings, body/appendix placement, and model, result, proof, or referee-facing passages."
+  short_description: "Natural OR/MS prose, flow, and structure"
+  default_prompt: "Use $or-ms-writing to make OR/MS prose natural, readable, and reviewer-calibrated, including micro-wording, paragraph flow, section structure, headings, body/appendix placement, and model, result, proof, or referee-facing passages."
 policy:
   allow_implicit_invocation: true

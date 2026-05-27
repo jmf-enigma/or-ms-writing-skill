@@ -39,27 +39,27 @@ Use this pass after the paragraph has the right logic.
 
 ## Paragraph Repair Patterns
 
-Use these only when a paragraph is missing a local job. They are repair patterns, not final paragraph templates.
+Use these only when a paragraph is missing a local job. They describe movement, not final paragraph templates. After choosing a movement, write ordinary sentences in the paper's own nouns.
 
 ### Motivation Pattern
 
-`[Phenomenon] creates a decision problem for [decision maker], who must [choice]. The difficulty is that [tradeoff/mechanism]. This tradeoff is especially salient in [setting] because [institutional reason]. We study this problem by [model/method], which allows us to isolate [core mechanism].`
+Move from phenomenon to decision maker, then to the tradeoff that makes the decision nontrivial. If a method enters, name the exact mechanism it isolates rather than writing a `which allows` clause.
 
 ### Gap Pattern
 
-`The closest literature examines [stream]. However, this work typically treats [object] as [standard assumption], leaving open how [missing mechanism] changes [decision/outcome]. Our paper addresses this gap by [specific departure], which is central in [application].`
+Move from the closest stream to the assumption it holds fixed. Then state the paper's departure and why that departure changes the decision or outcome.
 
 ### Contribution Pattern
 
-`Our first contribution is to [characterize/identify/establish] [result]. This result shows that [mechanism], rather than [alternative explanation], drives [outcome]. A second contribution is [comparative statics/extension], which clarifies when [policy/managerial action] improves [metric].`
+Group contributions by what the reader learns. A contribution paragraph usually needs the result object, the evidence type, and the precise departure from prior work; it does not need a perfectly parallel numbered list.
 
 ### Result Interpretation Pattern
 
-`Proposition X shows that [formal result in words]. The intuition is that [mechanism]. When [condition], this force dominates [opposing force], leading to [comparative static/threshold]. Thus, [decision maker] should [action] only when [condition].`
+State the proposition in words, then explain the mechanism or comparison that makes it true. Put the condition close to the action or interpretation it supports.
 
 ### Managerial Implication Pattern
 
-`The result has a direct implication for [manager/policymaker/platform]. If [observable condition], then [action] improves [metric] because [mechanism]. Conversely, when [condition fails], the same action may [negative consequence], so [recommended guardrail].`
+Name the decision maker, observable condition, action, and metric. If the action can fail, give the failure condition before the recommendation starts to sound universal.
 
 ## Revision Checklist
 

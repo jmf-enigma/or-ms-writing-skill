@@ -622,6 +622,17 @@ def template_residue_warnings(text: str, section: str) -> list[str]:
     return warnings
 
 
+def placeholder_residue_warnings(text: str) -> list[str]:
+    warnings = []
+    bracket_slots = re.findall(r"\[[A-Za-z][^\[\]]{1,60}\]", text)
+    if bracket_slots:
+        shown = ", ".join(f"`{slot}`" for slot in bracket_slots[:5])
+        warnings.append(f"unresolved placeholder(s) {shown}; replace slots with the paper's actual objects before finalizing.")
+    if re.search(r"\b(actor|decision|friction|mechanism|benchmark|implication)\s*/\s*", text, flags=re.I):
+        warnings.append("slash-list planning residue; convert diagnostic labels into ordinary prose.")
+    return warnings
+
+
 def roadmap_rhythm_warnings(text: str, section: str) -> list[str]:
     normalized_section = normalize_section(section)
     if normalized_section in {"roadmap", "outline", "response", "referee-response"}:
@@ -1097,6 +1108,10 @@ def main() -> int:
     for warning in template_scent:
         print(f"- read-aloud naturalness: {warning}")
 
+    placeholder_scent = placeholder_residue_warnings(text)
+    for warning in placeholder_scent:
+        print(f"- template residue: {warning}")
+
     this_hits = weak_this_sentences(text)
     if this_hits:
         verbs = ", ".join(sorted(set(this_hits)))
@@ -1166,7 +1181,7 @@ def main() -> int:
     else:
         print("- sentence length: ok")
 
-    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or template_scent or this_hits):
+    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or template_scent or placeholder_scent or this_hits):
         return 2
 
     return 0

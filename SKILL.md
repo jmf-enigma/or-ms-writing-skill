@@ -1,6 +1,6 @@
 ---
 name: or-ms-writing
-description: "Use for idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity: sentence-level rewrites, phrases, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and Xiao Lei paper-pattern references without imitating a living author's personal style."
+description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, or too template-driven: sentence-level rewrites, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
 ---
 
 # OR/MS Paper Writing
@@ -107,6 +107,8 @@ Decide placement by reader job, not by length alone.
 ## Reference Routing
 
 Load the smallest bundle that can solve the request. One bundle is the default; add another only when the task crosses language, story, math/proof, placement, or reviewer-calibration boundaries.
+
+When the problem is simply "this sounds strange," load `msor-natural-prose.md` first and resist loading more than one additional reference. Too many references can pull the draft back toward checklist prose.
 
 - **Natural wording and micro-phrasing**: `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
 - **Whole-section story**: `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.

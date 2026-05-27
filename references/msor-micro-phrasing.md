@@ -65,18 +65,20 @@ These observations come from original abstract/introduction/model/result passage
 
 Use these as transferable sentence logic. Do not copy the wording.
 
-- **Threatened-species learning** begins with a scarce-resource public problem, then adds the information constraint: managers must allocate survey and protection resources while the species' presence, detectability, and dynamics are uncertain. The model sentence earns its notation by saying what the POMDP learns, what it controls, and why the reformulation is lower-dimensional. Good move: domain pressure -> hidden state -> adaptive decision -> structural reduction -> case study.
-- **Automation and specialization** starts from an established theory of specialization, asks what impedes it, and then changes one element of the theory: workers coordinate with machines rather than with other workers. The field evidence is introduced only after the proposition tells the reader what mechanism the experiment tests. Good move: old theory -> missing mechanism -> formal proposition -> ordinary operational experiment.
-- **Strategic decision making under behavioral response** opens with familiar high-stakes domains, separates the predictive model from the decision policy, and then makes transparency the source of strategic response. The model is introduced as a Stackelberg game after the reader already knows who moves first and why. Good move: concrete domain -> transparency friction -> strategic response -> formal game -> induced distribution.
-- **Forecasting competitions** defines the scoring object before the theorem, shows why the natural deterministic mechanism fails, and then introduces the randomized mechanism as a repair. The appendix proofs are literal and sequential; each starts by fixing the mechanism, reports, or distribution used in the argument. Good move: definition -> natural attempt -> failure -> theorem -> repair.
-- **Dynamic pricing under self-exciting arrivals** builds the abstract in an OR style: stochastic process, operational phenomenon, sufficient state, policy structure, comparative static by regime, and a performance-loss guarantee. Good move: process -> state -> policy monotonicity -> regime split -> guarantee relative to dynamic optimum.
-- **Policy-gradient guarantees** does not oversell nonconvexity. It first says why policy gradients are used, then names the limitation, gives a simple failure mode, and states the structural property that removes bad stationary points. Good move: method popularity -> gap in guarantee -> simple counterexample -> structural condition -> rate or gap result.
-- **Hospital capacity networks in M&SOM** makes the feedback loop the central friction: routing depends on congestion, and congestion is affected by routing. The structured abstract then splits method into two components before naming what the approach improves relative to alternatives. Good move: shared resources -> endogenous routing -> feedback loop -> two-part method -> equilibrium evaluation.
-- **Matching-queue and incentive papers in M&SOM** put the conventional wisdom in the first few lines and then show when it backfires because agents respond strategically. The policy contribution is not merely "new"; it is simple, robust to private information, and implementable without exact parameters. Good move: accepted operational rule -> strategic response -> policy failure -> fallback rule -> parameter-light implementation.
-- **Coproductive principal-agent papers** make the decision menu explicit before equilibrium analysis. The reader sees the operating modes first, then learns which modes occur too often or too rarely under second-best or linear contracts. Good move: who can execute -> which team mode can emerge -> equilibrium distortion -> contract implication.
-- **Election security robust optimization** starts from an existing institutional procedure, explains why the manual alternative is costly, and frames optimization as a low-cost improvement rather than an abstract algorithmic advance. Good move: institutional practice -> practical constraint -> optimization object -> pilot or implementation evidence.
-- **Quick-commerce assortment planning** makes the physical linkage do the conceptual work: online assortments depend on local-store inventory, so online personalization and store assortment cannot be optimized separately. Good move: new operating mode -> linkage constraint -> joint decision -> formulation and experiments.
-- **M&SOM tariff and supply-chain-network papers** often close the body with a managerial or policy reading before the appendix. The appendix then begins directly with `Proof of Proposition 1` and verifies concavity, sign, or case conditions. Good move: body implication -> appendix verification, not appendix discovery.
+- **Threatened-species learning** begins with a scarce-resource public problem, then adds the information constraint: managers must allocate survey and protection resources while the species' presence, detectability, and dynamics are uncertain. The model sentence earns its notation by saying what the POMDP learns, what it controls, and why the reformulation is lower-dimensional.
+- **Automation and specialization** starts from an established theory of specialization, asks what impedes it, and then changes one element of the theory: workers coordinate with machines rather than with other workers. The field evidence is introduced only after the proposition tells the reader what mechanism the experiment tests.
+- **Strategic decision making under behavioral response** opens with familiar high-stakes domains, separates the predictive model from the decision policy, and then makes transparency the source of strategic response. The model is introduced as a Stackelberg game after the reader already knows who moves first and why.
+- **Forecasting competitions** defines the scoring object before the theorem, shows why the natural deterministic mechanism fails, and then introduces the randomized mechanism as a repair. The appendix proofs are literal and sequential; each starts by fixing the mechanism, reports, or distribution used in the argument.
+- **Dynamic pricing under self-exciting arrivals** builds the abstract in an OR style: stochastic process, operational phenomenon, sufficient state, policy structure, comparative static by regime, and a performance-loss guarantee.
+- **Policy-gradient guarantees** does not oversell nonconvexity. It first says why policy gradients are used, then names the limitation, gives a simple failure mode, and states the structural property that removes bad stationary points.
+- **Hospital capacity networks in M&SOM** makes the feedback loop the central friction: routing depends on congestion, and congestion is affected by routing. The structured abstract then splits method into two components before naming what the approach improves relative to alternatives.
+- **Matching-queue and incentive papers in M&SOM** put the conventional wisdom in the first few lines and then show when it backfires because agents respond strategically. The policy contribution is not merely "new"; it is simple, robust to private information, and implementable without exact parameters.
+- **Coproductive principal-agent papers** make the decision menu explicit before equilibrium analysis. The reader sees the operating modes first, then learns which modes occur too often or too rarely under second-best or linear contracts.
+- **Election security robust optimization** starts from an existing institutional procedure, explains why the manual alternative is costly, and frames optimization as a low-cost improvement rather than an abstract algorithmic advance.
+- **Quick-commerce assortment planning** makes the physical linkage do the conceptual work: online assortments depend on local-store inventory, so online personalization and store assortment cannot be optimized separately.
+- **M&SOM tariff and supply-chain-network papers** often close the body with a managerial or policy reading before the appendix. The appendix then begins directly with `Proof of Proposition 1` and verifies concavity, sign, or case conditions.
+
+The recurring movement is one-step progression: a visible operating object, then the friction, then the formal or empirical object that resolves it. Use that movement when it fits; do not reproduce it as an arrow list in final prose.
 
 ## Model And Formula Narration From Original Pages
 
@@ -94,7 +96,7 @@ Useful body-model sentence moves:
 - `The state variable records [operational object], so the policy can depend on [information] without tracking [irrelevant history].`
 - `The formulation keeps [constraint or feedback loop] in the objective and moves [secondary detail] to the extension.`
 - `The benchmark solves the same decision problem without [friction], which isolates the value of [mechanism].`
-- `The relaxation is useful because it separates [hard coupling] across [periods/types/resources].`
+- `The relaxation separates [hard coupling] across [periods/types/resources], leaving [object] to be optimized or bounded directly.`
 - `The induced distribution is the object the decision maker optimizes over after agents respond to the published policy.`
 - `The deterministic problem provides an implementable policy; the dynamic problem provides the performance benchmark.`
 
@@ -192,7 +194,7 @@ After using a move, rewrite the sentence in the paper's own nouns. The final pro
 - `The difficulty is not [obvious issue] alone; it is that [decision consequence] depends on [hidden state, incentive, or information].`
 - `Many [practices/interventions/policies] require [coordination/cooperation/adoption] between [actors], but [misaligned incentives/information frictions] make this difficult.`
 - `[Technology/tool/algorithm] assists [actor] with [task] by [mechanism].`
-- `The context is useful because [outcome] is observed at [granularity] and [decision maker] has discretion over [choice].`
+- `In this context, [outcome] is observed at [granularity], and [decision maker] has discretion over [choice].`
 - `To fill this gap, we study [decision/effect] in a setting where [key object] is observed rather than projected.`
 
 ### Method Enters Naturally
@@ -226,13 +228,13 @@ After using a move, rewrite the sentence in the paper's own nouns. The final pro
 - `The effect is concentrated among [units/regime], consistent with [mechanism].`
 - `The result is muted when [boundary condition] weakens [mechanism].`
 - `The pattern is hard to reconcile with [alternative channel] because [diagnostic evidence].`
-- `The result changes the managerial question from [old decision] to [new decision].`
-- `This does not imply [overbroad claim]; it implies [bounded action] when [condition].`
+- `After this result, the relevant decision is no longer [old decision] alone; it is [new decision] under [condition].`
+- `The result supports [bounded action] when [condition], but it does not support [overbroad claim].`
 - `The asymmetric effect is driven by [mechanism for one actor] and [different mechanism for another actor].`
 - `The mechanism operates through [intermediate behavior], not through [nearby alternative].`
 - `The effect persists after [robustness check], suggesting that [threat] is unlikely to explain the result.`
 - `The condition is mild in [practical regime] but rules out [pathological case].`
-- `The managerial implication is conditional: [actor] should [action] when [observable condition], but [caveat] when [condition fails].`
+- `[Actor] should [action] when [observable condition], but [caveat] when [condition fails].`
 
 ### Proof And Theory
 
@@ -240,7 +242,7 @@ After using a move, rewrite the sentence in the paper's own nouns. The final pro
 - `The key step bounds [hard term] by [tractable object].`
 - `The lower bound captures [tradeoff], whereas the upper bound is induced by [policy class].`
 - `Combining the two bounds yields [guarantee] under [condition].`
-- `The theorem is useful because it converts [opaque optimization] into [policy form, threshold, or computable condition].`
+- `The theorem converts [opaque optimization] into [policy form, threshold, or computable condition].`
 - `Under [resource pooling, convexity, monotonicity, or cost] condition, [policy] achieves [rate/ratio].`
 - `The proof shows that any policy in [class] must incur [lower bound], so the proposed policy is rate optimal.`
 - `The priority property reduces the within-period decision to [simpler tradeoff].`

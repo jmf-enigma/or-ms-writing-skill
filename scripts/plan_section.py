@@ -300,9 +300,8 @@ def main() -> int:
     print(textwrap.fill("The body must contain what a reviewer needs for first-pass understanding and trust: headline result, object, assumptions, benchmark, primary evidence, and interpretation. Appendices carry verification, long proofs, repeated robustness, implementation details, and replication materials.", width=88))
     print("\nParagraph rule:")
     print(textwrap.fill("Each paragraph should have one job: claim, support, interpretation, and bridge. If a claim lacks evidence, mark it as a gap instead of polishing around it.", width=88))
-    print("\nStory prompts:")
-    print("actor / decision / standard intuition / hidden friction / method / result / consequence")
-    print(textwrap.fill("Use these as prompts, not a fixed order. Omit pieces that the local paragraph does not need. If the prose sounds like a filled-in template, write the next sentence as the simplest answer to the reader's next question.", width=88))
+    print("\nReader-flow reminder:")
+    print(textwrap.fill("Let each paragraph answer the reader's next question. Start from the local object the reader already understands, add only one new friction, method, result, or caveat at a time, and omit anything the local paragraph does not need. If the prose sounds like a filled-in template, write the next sentence as the simplest answer to the reader's next question.", width=88))
     return 0
 
 

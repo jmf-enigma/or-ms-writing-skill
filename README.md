@@ -6,7 +6,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 ## About
 
-`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
+`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
 
 ## English
 
@@ -17,6 +17,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 - precise claim, evidence, and boundary control;
 - Management Science and OR/MS style without imitating any living author's personal voice;
 - natural paragraph flow, read-aloud smoothness, micro-level wording, sentence hinges, verb-object choices, and relation words such as `when`, `whereas`, `relative to`, `without`, and `consistent with`;
+- template-residue repair for stiff prose, unresolved placeholders, slash-list planning remnants, and stock sentences that sound mechanically OR/MS;
 - lane-specific paper structure, heading depth, and subheading decisions;
 - model narration, notation setup, theorem/proposition captions, proof exposition, and appendix placement;
 - reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
@@ -126,6 +127,8 @@ MIT License. See [LICENSE](LICENSE).
 
 `or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
 
+最新版本把“自然顺畅”放在更前面：先让句子像研究者在解释问题，再考虑 micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
+
 它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、判断正文小标题、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
 
 ### 适合做什么
@@ -138,7 +141,8 @@ MIT License. See [LICENSE](LICENSE).
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
-- 段落读起来顺不顺、像不像研究者在自然解释一个问题，而不是把 actor / decision / mechanism / implication 这些标签硬塞进一句话；
+- 段落读起来顺不顺、像不像研究者在自然解释一个问题，而不是把诊断标签硬塞进一句话；
+- 检查和修掉 `[policy]` 这类未替换 placeholder、slash-list planning residue、以及 stock theorem-usefulness 这类机械句；
 - 很细的 expression 和 sentence move，比如 `when` 写 regime、`relative to` 写 benchmark、`without reducing` 写 tradeoff、`consistent with` 写机制证据；
 - 同一个 model / data 下更好的表达，而不是更强的、不被支持的结论；
 - 中文 rough notes 到自然英文论文段落的转换。

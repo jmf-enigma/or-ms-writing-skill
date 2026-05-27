@@ -65,7 +65,7 @@ Do not linger on the broad claim. The reader should reach the paper's data withi
 
 Demand-estimation and empirical-strategy papers often sound smooth because the identification problem is explained before the method. They say why the usual source of variation is unavailable, then point to a behavioral or institutional feature that creates usable variation.
 
-Good movement:
+Movement:
 
 - standard challenge;
 - why the focal setting makes it harder;
@@ -78,7 +78,7 @@ Avoid opening with the estimator unless the reader already knows the identificat
 
 Applied OR papers often begin with an existing operational procedure, show how it can fail, and then introduce optimization as a direct repair. The smoothness comes from making the procedure concrete before naming the formulation.
 
-Good movement:
+Movement:
 
 - existing procedure or rule;
 - practical vulnerability or cost;
@@ -91,7 +91,7 @@ This movement is useful for public-sector, healthcare, logistics, and platform p
 
 Technical OR/ML papers often start with a method that is already familiar, then name the specific theoretical discomfort. The theorem enters as a response to that discomfort, not as an isolated achievement.
 
-Good movement:
+Movement:
 
 - method widely used;
 - limitation in the known theory;
@@ -104,7 +104,7 @@ Do not oversell the theorem as surprising unless the paper itself gives the read
 
 Good result paragraphs often make a result readable by immediately saying where it does and does not operate. The boundary is not an afterthought; it prevents the claim from sounding too broad.
 
-Good movement:
+Movement:
 
 - local result or estimate;
 - metric or formal object changed;
@@ -231,7 +231,7 @@ Use a labeled `Proof.` only when the proof is complete. If the body gives only t
 
 The result should usually be stated before its implication, but the implication should not wait until the end of the section.
 
-Good movement:
+Movement:
 
 - state the estimate, theorem, or comparison;
 - say how it differs from the benchmark;
@@ -240,7 +240,7 @@ Good movement:
 
 Stiff:
 
-`The result changes the managerial question from whether to adopt the algorithm to how to configure the algorithm.`
+`The result changes what managers should ask about the algorithm.`
 
 Smoother:
 

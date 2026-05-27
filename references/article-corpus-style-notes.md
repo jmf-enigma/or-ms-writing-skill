@@ -446,7 +446,7 @@ Story: retailers place an early low-cost order under high demand uncertainty and
 Style lessons:
 
 - The abstract moves from operational timing to forecast evolution model, analytical characterization, asymptotic heuristic, calibration, and regime-dependent benchmark comparison.
-- The managerial implication is conditional: the adjusted critical-fractile heuristic matters when the signal is more uncertain; otherwise, the classic newsvendor solution can perform well.
+- The adjusted critical-fractile heuristic matters when the signal is more uncertain. When the signal is precise, the classic newsvendor solution can perform well.
 - This is a good pattern for stochastic-model papers where the story is not "new method beats old method" but "which policy works under which information regime."
 
 ### Transfer, Cross-Learning, And Co-Learning With ODA
