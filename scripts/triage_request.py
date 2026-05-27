@@ -14,7 +14,8 @@ MODE_TERMS = {
         "native", "idiomatic", "wording", "phrase", "sentence", "smooth",
         "word choice", "collocation", "preposition", "verb-object",
         "ai-like", "ai scent", "colon", "noun pile", "不顺", "奇怪",
-        "地道", "翻译腔", "语言", "用词", "措辞", "搭配", "句子", "ai",
+        "怪怪", "别扭", "地道", "翻译腔", "语言", "用词", "措辞",
+        "搭配", "句子", "ai", "ai味", "冒号",
     },
     "paragraph": {
         "paragraph", "flow", "story", "narrative", "transition", "logic",
@@ -25,17 +26,18 @@ MODE_TERMS = {
         "full paper", "whole paper", "manuscript", "spine", "central object",
         "result hierarchy", "paper structure", "section structure", "headings",
         "subheadings", "完整", "整篇", "全文", "结构", "标题", "小标题",
-        "主线", "文章",
+        "主线", "文章", "整体", "全局", "优化一遍", "整体优化",
     },
     "math": {
         "model", "equation", "derivation", "formula", "theorem", "proposition",
         "lemma", "proof", "proof idea", "appendix proof", "证明", "模型",
-        "数学", "公式", "推导", "命题", "定理",
+        "数学", "公式", "推导", "命题", "定理", "proof idea",
+        "proposition", "正文证明",
     },
     "placement": {
         "appendix", "supplement", "e-companion", "body", "main text",
         "online appendix", "placement", "where to put", "正文", "附录",
-        "放哪", "正文附录",
+        "放哪", "正文附录", "正文和附录", "正文/附录",
     },
     "reviewer": {
         "reviewer", "referee", "editor", "objection", "calibration",
@@ -117,7 +119,14 @@ def score_modes(text: str) -> dict[str, int]:
         scores["manuscript"] += 1
     if any(marker in text for marker in {"$", "\\(", "\\[", "≤", "≥", "∑", "="}):
         scores["math"] += 2
+    if any(term in lower for term in {"整体", "全局", "完整优化", "优化一遍", "整体优化"}):
+        scores["manuscript"] += 2
+    if any(term in lower for term in {"怪怪", "别扭", "不地道", "ai味", "冒号"}):
+        scores["sentence"] += 2
     if "appendix" in lower and any(word in lower for word in {"proof", "derivation", "theorem", "proposition"}):
+        scores["math"] += 1
+        scores["placement"] += 1
+    if any(term in lower for term in {"正文", "附录"}) and any(term in lower for term in {"证明", "推导", "命题", "定理", "公式"}):
         scores["math"] += 1
         scores["placement"] += 1
     return scores
@@ -131,6 +140,8 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
     ordered = [mode for mode in priority if mode in positives]
     if "sentence" in ordered and "manuscript" in ordered:
         ordered = ["manuscript", "sentence"] + [mode for mode in ordered if mode not in {"manuscript", "sentence"}]
+    if "manuscript" in ordered and "math" in ordered and "placement" in ordered:
+        ordered = ["manuscript", "math", "placement"] + [mode for mode in ordered if mode not in {"manuscript", "math", "placement"}]
     if "math" in ordered and "placement" in ordered:
         ordered = [mode for mode in ordered if mode != "placement"] + ["placement"]
     return ordered[:4]

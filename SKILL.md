@@ -26,6 +26,13 @@ Internally run only three silent passes unless the task is long or structurally 
 
 Treat every reference, script, and blueprint as a reader test, not a template. Do not force a passage to mention every possible element. If the user asks for one sentence, write one sentence. If the user asks for a paragraph, make one paragraph do one job. If the user gives Chinese or mixed notes, translate the intended argument, not the syntax.
 
+Use a small dispatch layer before drafting:
+
+- **Unit**: phrase, sentence, paragraph, section, manuscript, proof/model notes, response letter, or placement decision.
+- **Lane**: empirical experiment, construct-measurement, structural/estimation, analytical theory, algorithm/OR, applied field implementation, or hybrid.
+- **Reader job**: understand the object, trust the evidence, follow the model, interpret the theorem, separate mechanisms, or decide body versus appendix.
+- **Output shape**: polished prose by default; compact diagnosis only when asked; body/appendix split only when the task requires placement.
+
 Use this priority order to avoid doing too much:
 
 - **Language-only requests**: If the user says the prose is weird, stiff, translated, AI-like, hard to read, not native, or the wording sounds off, run word-choice and sentence-craft passes first and do not expand the paper architecture unless the argument itself is unclear.
@@ -33,6 +40,7 @@ Use this priority order to avoid doing too much:
 - **Full paper, abstract, introduction, result package, or multiple data/model/result items**: run a manuscript-spine pass first: central object, spine result, support needed for first-pass trust, boundary, and what should move to appendix or disappear.
 - **Model, theorem, equation, or proof requests**: decide body depth and appendix placement before polishing the language.
 - **Reviewer-facing requests**: keep the skeptical reviewer's next question in view: exact term, evidence, boundary, bridge, and overclaim risk.
+- **Global optimization requests**: If the user asks to optimize a whole skill, manuscript, section package, or writing system, audit routing, duplication, failure modes, and validation first; then make the smallest changes that improve behavior across many requests.
 
 If the requested mode is unclear, run `triage_request.py` internally before loading references.
 
@@ -57,6 +65,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Use full-text MS/OR rhythm rather than a fixed skeleton. Strong papers usually move from an operating object to the friction, then to the formal or empirical move that resolves it. Headings name objects or reader jobs (`Model and Preliminaries`, `Fluid Model`, `Empirical Strategy`, `Accuracy Loss`, `Main Results`) rather than slogans.
 - Treat "story" as persuasion order. A paragraph is good when the reader can see why the next object must appear: a benchmark creates a comparison, a constraint creates the theorem, a design rules out an alternative, or a proof move controls the difficult term.
 - Do not turn reference notes into slot-filled prose. If a sentence sounds assembled from actor, decision, friction, benchmark, mechanism, and implication labels, split it into ordinary sentences and keep only the relation the reader needs now.
+- Avoid overcorrection. A passage can be idiomatic without sounding like every MS/OR convention has been applied. If the local claim is simple, use the simple sentence and stop.
 - Let the prose sound like a researcher explaining the result to a careful coauthor. Use `we` naturally, keep the subject close to the verb, and allow plain links such as `because`, `so`, and `this means` when they state the relation more clearly than heavier academic phrasing.
 - For translated-English drafts, rebuild the English logic: decision or object, friction, method or formal move, evidence, condition, implication.
 - Let the story come from exact nouns and relations, not from story-like language. Avoid empty phrases such as "important implications," "novel framework," "rapidly evolving landscape," "underscores," "delve," and slogan-like final sentences.
@@ -81,6 +90,7 @@ Use the register that matches the requested unit. These are flexible patterns, n
 - **Abstract**: Move quickly from setting and decision to friction, model/data/design, headline result, validation or implication. Avoid broad hooks and generic final managerial sentences.
 - **Manuscript judgment**: Before drafting a full section or paper, choose the central object, spine result, result hierarchy, model necessity, credibility path, reviewer objections, and body/appendix split.
 - **Section architecture**: Do not assume one MS/OR skeleton. First classify the paper lane, then choose headings that name the object: `Research Setting`, `Data and Methods`, `The Model`, `Empirical Strategy`, `Main Results`, `Algorithm`, `Numerical Experiments`, `Robustness Tests`, or `Discussion and Conclusion`. Add subheadings only when the reader job, evidence object, construct, model component, theorem family, or validity threat changes.
+- **Whole-manuscript optimization**: Improve the decision path before rewriting language: central object, result hierarchy, lane-specific structure, proof/model depth, appendix allocation, and only then sentence rhythm.
 - **Introduction**: Start from the entry point the lane needs: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct. Order the modules so each paragraph answers the reviewer's next question; a roadmap is optional.
 - **MS storycraft**: Treat story as persuasion order, not a fixed arc. Make the decision, standard view, friction, credibility support, result, mechanism, and boundary recoverable across the manuscript without forcing every paragraph to carry the whole chain.
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.

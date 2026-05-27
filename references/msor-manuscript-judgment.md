@@ -18,6 +18,19 @@ Before writing, identify:
 
 If these five objects are unclear, do not start by improving language. First narrow the paper.
 
+## Whole-Manuscript Optimization Pass
+
+Use this pass when the user says the paper, section package, or writing system still feels "weird" after local polishing.
+
+1. **Choose the lane before the outline**: empirical experiment, construct-measurement, structural/estimation, analytical theory, algorithm/OR, applied field implementation, or hybrid.
+2. **Name the central object in ordinary language**: the decision, mechanism, estimator, theorem object, policy class, platform rule, or empirical construct.
+3. **Choose the spine result**: the one theorem, estimate, field comparison, or guarantee that the abstract must remember.
+4. **Order support by reviewer trust**: model/design first when it creates credibility, mechanism next when it changes interpretation, robustness only where it protects validity.
+5. **Assign placement**: body for first-pass trust and interpretation; appendix for verification, repeated robustness, implementation, and data dictionaries.
+6. **Only then polish sentences**: repair subject-verb-object, collocations, relation words, and read-aloud rhythm.
+
+This prevents a common failure mode: a section with good sentences but no persuasion order.
+
 ## Result Hierarchy
 
 Classify results by reader job, not by the order in which they were produced.
@@ -71,6 +84,8 @@ Common order:
 - What boundary or implementation condition remains?
 
 If the data are rich, resist describing richness for its own sake. Say which variation, granularity, timing, or measurement feature makes the main comparison possible.
+
+For construct-measurement papers, the measure may be part of the contribution. Keep the construct definition, elicitation, validation logic, and primary measurement equation in the body when they make the result interpretable. Move only alternative codings, repeated validation checks, and long variable dictionaries to the appendix.
 
 ## Proof And Theory Architecture
 

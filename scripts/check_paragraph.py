@@ -81,7 +81,8 @@ BENCHMARKS = {
     "current practice", "status quo", "fluid", "lp relaxation", "complete information",
     "no information", "unconstrained", "offline optimum", "clairvoyant", "baseline",
     "existing ranking", "existing algorithm", "current algorithm", "incumbent policy",
-    "incumbent algorithm", "incumbent rule", "current policy",
+    "incumbent algorithm", "incumbent rule", "current policy", "relaxed problem",
+    "relaxed policy", "original policy class",
 }
 RESULT_TYPES = {
     "existence", "unique", "uniqueness", "threshold", "comparative static",
@@ -699,7 +700,18 @@ def noun_pile_warnings(text: str) -> list[str]:
         rf"\b(?:[a-z][a-z-]{{2,}}\s+){{3,}}(?:{head_pattern})\b",
         flags=re.I,
     )
-    hits = sorted(set(match.group(0) for match in pile_pattern.finditer(lower)))
+    noun_pile_false_verbs = {
+        "shows", "show", "compares", "compare", "uses", "use", "bounds", "bound",
+        "constructs", "construct", "estimates", "estimate", "characterizes",
+        "characterize", "proves", "prove", "derives", "derive", "reduces", "reduce",
+    }
+    hits = []
+    for match in pile_pattern.finditer(lower):
+        hit = match.group(0)
+        if any(re.search(rf"\b{verb}\b", hit) for verb in noun_pile_false_verbs):
+            continue
+        hits.append(hit)
+    hits = sorted(set(hits))
     if hits:
         warnings.append(
             "noun pile detected: "

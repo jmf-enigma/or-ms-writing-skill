@@ -32,11 +32,13 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 The latest update adds more full-text MS/OR signals from AI calibration experiments, competitor-information field experiments, automation field evidence, bargaining and information-acquisition theory, optimal learning/control, applied DP, and technical appendices. It strengthens guidance on:
 
+- whole-task dispatch: unit, lane, reader job, and output shape before drafting;
 - construct and measurement sections such as `Measures`, `Empirical Framework`, and `Measurement Challenges`;
 - when an empirical measure, potential outcome, treatment contrast, or estimating equation is the paper's model;
 - field-experiment result prose: treatment effect, demand effect, heterogeneity, spillovers, alternative mechanisms, and placebo checks;
 - proposition placement: bare labels, short captions, complete body proofs only when they are truly complete, and ordinary prose for proof moves;
 - appendix design: variable construction, balance checks, robustness tables, auxiliary lemmas, KKT verification, repeated cases, and implementation details.
+- overcorrection control: stop adding OR/MS genre markers once the local object, evidence, and condition are clear.
 
 ### Best For
 

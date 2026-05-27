@@ -30,6 +30,19 @@ Smooth paragraphs are usually simpler than our drafts.
 
 The prose should feel almost spoken at the level of logic: "Here is the object. Here is why the usual approach is not enough. Here is what we observe or prove. Here is what changes." The final sentence can still be formal, but the path to it should not feel mechanical.
 
+## Overall Repair Order
+
+When a whole passage or section feels wrong, do not fix everything at once. Work in this order:
+
+1. **Local object**: what noun should the reader carry from one sentence to the next?
+2. **Reader turn**: what new question does the next sentence answer?
+3. **Evidence verb**: does the verb match the support: estimate, show, characterize, establish, suggest, validate?
+4. **Boundary**: is the assumption, sample, benchmark, policy class, or regime close enough to the claim?
+5. **Sentence rhythm**: split long sentences, remove noun piles, and put the subject near the verb.
+6. **Field texture**: add only the OR/MS collocation that the object needs.
+
+Stop when the paragraph reads like a researcher explaining the result. Do not keep adding genre markers after the logic is already clear.
+
 ## The Natural Paragraph Test
 
 Before finalizing a paragraph, silently ask:
@@ -190,6 +203,18 @@ Delete or simplify before rewriting.
 - Replace `we provide a framework` with the actual formal object unless the paper is genuinely a framework paper.
 - Replace `we leverage data` with what the data record, vary, identify, or fail to observe.
 - Replace a long proposition caption with a short label and a sentence after the result.
+
+## Avoid Overcorrection
+
+Some drafts become strange after too much "MS-style" repair. Watch for these signs:
+
+- every sentence contains a benchmark, condition, and mechanism even when one relation is enough;
+- every paragraph names a decision, friction, method, result, and implication;
+- every proof paragraph announces the constructed object, hard term, and proof move even when the proof is routine;
+- every result sentence hedges with `suggests`, `is consistent with`, and `under` until the contribution sounds smaller than the evidence;
+- every heading is object-like but no longer readable as a normal paper heading.
+
+Repair by removing one layer. A simple supported claim should remain simple: state the object, the evidence, and the condition that matters.
 
 ## Natural Model Prose
 

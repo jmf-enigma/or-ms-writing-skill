@@ -31,6 +31,12 @@ MODEL_TERMS = {
     "constraint", "benchmark", "assumption", "equilibrium", "estimator",
     "relaxation", "bellman", "policy class",
 }
+CONSTRUCT_TERMS = {
+    "construct", "measure", "measurement", "calibration", "belief",
+    "confidence", "ability", "skill", "potential outcome", "treatment contrast",
+    "estimand", "coefficient", "empirical framework", "elicitation",
+    "measurement challenge",
+}
 DATA_TERMS = {
     "data", "experiment", "random", "identification", "variation",
     "estimate", "table", "sample", "field", "panel", "instrument",
@@ -54,10 +60,22 @@ def clean_notes(raw: str) -> list[str]:
 
 def classify(note: str) -> str:
     lower = note.lower()
-    if has_any(lower, APPENDIX_TERMS):
+    explicit_appendix = any(
+        term in lower
+        for term in {
+            "appendix", "online appendix", "e-companion", "proof detail",
+            "kkt verification", "case split", "case splits", "data dictionary",
+            "implementation detail", "robustness table", "robustness tables",
+        }
+    )
+    if explicit_appendix and not any(term in lower for term in {"main", "primary", "headline", "spine"}):
         return "Appendix or verification"
     if has_any(lower, SPINE_TERMS):
         return "Spine candidate"
+    if has_any(lower, CONSTRUCT_TERMS):
+        return "Construct or measure"
+    if has_any(lower, APPENDIX_TERMS):
+        return "Appendix or verification"
     if has_any(lower, MECHANISM_TERMS):
         return "Mechanism support"
     if has_any(lower, BOUNDARY_TERMS):
@@ -75,7 +93,7 @@ def choose_spine(notes: list[str]) -> str:
         lower = note.lower()
         score = 0
         score += 3 if has_any(lower, SPINE_TERMS) else 0
-        score += 2 if has_any(lower, MODEL_TERMS | DATA_TERMS) else 0
+        score += 2 if has_any(lower, MODEL_TERMS | DATA_TERMS | CONSTRUCT_TERMS) else 0
         score += 1 if has_any(lower, BOUNDARY_TERMS | MECHANISM_TERMS) else 0
         score += 1 if re.search(r"\b(profit|welfare|cost|revenue|regret|accuracy|waiting|access|match|conversion|service)\b", lower) else 0
         score -= 2 if has_any(lower, APPENDIX_TERMS) else 0
@@ -108,6 +126,7 @@ def main() -> int:
     order = [
         "Spine candidate",
         "Model object",
+        "Construct or measure",
         "Credibility support",
         "Mechanism support",
         "Boundary or scope",
@@ -129,6 +148,7 @@ def main() -> int:
         "What belief or benchmark does the spine result change?",
         "Which one result must appear in the abstract and introduction?",
         "Which support item is needed for first-pass trust?",
+        "If this is empirical, which construct or measurement choice must stay in the body?",
         "Which condition or setting keeps the claim from becoming too broad?",
         "Which correct but secondary items should move to the appendix?",
     ]
@@ -139,6 +159,7 @@ def main() -> int:
     print("- Write the central object and spine result before polishing sentences.")
     print("- Place support around the spine; do not write a result catalog.")
     print("- If the model or data item does not support the spine, demote it or make its role explicit.")
+    print("- If a construct, measure, or treatment contrast makes the result interpretable, keep its definition in the body and move only repeated validation to the appendix.")
     return 0
 
 
