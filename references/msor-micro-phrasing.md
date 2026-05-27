@@ -2,6 +2,8 @@
 
 Use this when the user asks for very fine wording, sentence-level idiom, native expression, or prose that should feel closer to Management Science, Operations Research, or M&SOM without copying an author's personal style. These are sentence mechanics distilled from public abstracts and full-text passages. Transfer the logic, not the wording.
 
+If the prose sounds stiff, difficult, or over-engineered, load `msor-natural-prose.md` first. This file is a diagnostic bank, not a phrasebook. Do not assemble final sentences by filling every slot in a pattern.
+
 ## Source Readings
 
 Recent language calibration used two layers.
@@ -179,6 +181,8 @@ Many awkward paragraphs come from a verb that does not govern the right object.
 ## Tiny Sentence Moves
 
 Use these as sentence logic, not templates.
+
+After using a move, rewrite the sentence in the paper's own nouns. The final prose should not sound like it was generated from a form with fields for actor, decision, benchmark, mechanism, and implication.
 
 ### Setting And Friction
 

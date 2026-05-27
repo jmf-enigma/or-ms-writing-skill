@@ -16,7 +16,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 - precise claim, evidence, and boundary control;
 - Management Science and OR/MS style without imitating any living author's personal voice;
-- micro-level wording, sentence hinges, verb-object choices, and relation words such as `when`, `whereas`, `relative to`, `without`, and `consistent with`;
+- natural paragraph flow, read-aloud smoothness, micro-level wording, sentence hinges, verb-object choices, and relation words such as `when`, `whereas`, `relative to`, `without`, and `consistent with`;
 - lane-specific paper structure, heading depth, and subheading decisions;
 - model narration, notation setup, theorem/proposition captions, proof exposition, and appendix placement;
 - reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
@@ -48,6 +48,7 @@ The skill is built around a few nonnegotiable writing principles:
 - Elegant OR/MS storytelling comes from a real reader turn: old belief to missing friction, current objective to unintended consequence, method default to decision mismatch, benchmark to result, or result to boundary.
 - The main text must let a reviewer understand and trust the contribution without opening the appendix, and appendix pointers should first say what the appendix verifies, preserves, or changes.
 - References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
+- When prose sounds stiff, the skill now prioritizes ordinary subject-verb movement and one-step paragraph progression before adding more OR/MS markers.
 
 ### Installation
 
@@ -137,6 +138,7 @@ MIT License. See [LICENSE](LICENSE).
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
+- 段落读起来顺不顺、像不像研究者在自然解释一个问题，而不是把 actor / decision / mechanism / implication 这些标签硬塞进一句话；
 - 很细的 expression 和 sentence move，比如 `when` 写 regime、`relative to` 写 benchmark、`without reducing` 写 tradeoff、`consistent with` 写机制证据；
 - 同一个 model / data 下更好的表达，而不是更强的、不被支持的结论；
 - 中文 rough notes 到自然英文论文段落的转换。

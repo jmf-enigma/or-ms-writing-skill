@@ -424,6 +424,36 @@ STORYCRAFT_SHELLS = {
     "novel insights",
 }
 
+TEMPLATE_SIGNAL_PHRASES = {
+    "is useful because",
+    "the theorem is useful because",
+    "the result changes the managerial question",
+    "the managerial implication is conditional",
+    "the proof first reduces the problem",
+    "the key step bounds",
+    "the appendix gives the full derivation",
+    "the displayed decomposition is the only step",
+    "this does not imply",
+    "good move",
+}
+
+ABSTRACT_NOUNS = {
+    "framework", "insight", "insights", "mechanism", "mechanisms",
+    "implication", "implications", "contribution", "contributions",
+    "approach", "perspective", "paradigm", "lens", "narrative",
+}
+
+HEAVY_RELATION_WORDS = {
+    "whereas", "relative to", "compared with", "without", "consistent with",
+    "thereby", "under", "conditional on", "in contrast", "moreover",
+}
+
+PAPER_OBJECT_OPENERS = {
+    "the model", "the theorem", "the result", "the results", "the proof",
+    "the analysis", "the framework", "the approach", "the algorithm",
+    "this model", "this result", "this theorem", "this analysis",
+}
+
 STRONG_CLAIM_TRIGGERS = {
     "show", "shows", "showing", "find", "finds", "finding",
     "establish", "establishes", "established", "prove", "proves", "proved",
@@ -517,6 +547,19 @@ def repeated_openers(text: str) -> list[str]:
     return sorted(set(repeats))
 
 
+def repeated_object_openers(text: str) -> list[str]:
+    sentences = [sentence.strip().lower() for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence.strip()]
+    hits = []
+    for sentence in sentences:
+        for opener in PAPER_OBJECT_OPENERS:
+            if sentence.startswith(opener):
+                hits.append(opener)
+                break
+    if len(hits) >= 3:
+        return sorted(set(hits))
+    return []
+
+
 def weak_this_sentences(text: str) -> list[str]:
     hits = []
     sentences = re.split(r"(?<=[.!?])\s+", text.strip())
@@ -529,6 +572,54 @@ def weak_this_sentences(text: str) -> list[str]:
             if not previous or not contains_term(previous, precise_antecedents):
                 hits.append(match.group(1).lower())
     return hits
+
+
+def template_residue_warnings(text: str, section: str) -> list[str]:
+    normalized_section = normalize_section(section)
+    if normalized_section in {"appendix-proof"}:
+        return []
+    lower = text.lower()
+    warnings = []
+    phrase_hits = sorted(phrase for phrase in TEMPLATE_SIGNAL_PHRASES if phrase in lower)
+    if phrase_hits:
+        warnings.append(
+            "template residue detected: "
+            + ", ".join(f"`{hit}`" for hit in phrase_hits)
+            + ". Rewrite around the paper's local noun and verb instead of using a stock move."
+        )
+
+    abstract_hits = [
+        noun for noun in ABSTRACT_NOUNS
+        if re.search(rf"\b{re.escape(noun)}\b", lower)
+    ]
+    if len(abstract_hits) >= 4 and not has_number(text):
+        warnings.append(
+            "abstract-noun stack: "
+            + ", ".join(f"`{hit}`" for hit in sorted(set(abstract_hits))[:6])
+            + ". Replace at least one with the local object, metric, policy, estimate, or theorem."
+        )
+
+    relation_hits = [
+        word for word in HEAVY_RELATION_WORDS
+        if re.search(rf"\b{re.escape(word)}\b", lower)
+    ]
+    sentences = [sentence for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence]
+    if len(relation_hits) >= max(3, len(sentences) + 1):
+        warnings.append(
+            "over-engineered relation words: "
+            + ", ".join(f"`{hit}`" for hit in sorted(set(relation_hits))[:6])
+            + ". Keep only the relation that explains the next step."
+        )
+
+    object_openers = repeated_object_openers(text)
+    if object_openers:
+        warnings.append(
+            "stiff sentence openings: "
+            + ", ".join(f"`{hit}`" for hit in object_openers)
+            + ". Vary the flow by letting one sentence inherit the prior object and the next add the new action, condition, or evidence."
+        )
+
+    return warnings
 
 
 def roadmap_rhythm_warnings(text: str, section: str) -> list[str]:
@@ -1002,6 +1093,10 @@ def main() -> int:
     for warning in weak_relative_scent:
         print(f"- naturalness: {warning}")
 
+    template_scent = template_residue_warnings(text, args.section)
+    for warning in template_scent:
+        print(f"- read-aloud naturalness: {warning}")
+
     this_hits = weak_this_sentences(text)
     if this_hits:
         verbs = ", ".join(sorted(set(this_hits)))
@@ -1071,7 +1166,7 @@ def main() -> int:
     else:
         print("- sentence length: ok")
 
-    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or this_hits):
+    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or template_scent or this_hits):
         return 2
 
     return 0
