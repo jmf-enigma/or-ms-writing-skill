@@ -15,6 +15,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 `or-ms-writing` helps Codex write like a careful OR/MS researcher rather than a generic academic assistant. It focuses on:
 
 - precise claim, evidence, and boundary control;
+- task triage: deciding whether the next pass should prioritize sentence craft, paragraph flow, paper spine, mathematical exposition, body/appendix placement, or reviewer calibration;
 - sentence craft: local subjects, exact verbs, concrete objects, controlled relation words, clean stress positions, and translated-English repair;
 - manuscript-level judgment: central object, spine result, result hierarchy, credibility path, model necessity, and reviewer objections;
 - Management Science and OR/MS style without imitating any living author's personal voice;
@@ -41,6 +42,7 @@ Use this skill for:
 
 The skill is built around a few nonnegotiable writing principles:
 
+- Do the right pass first: language-only requests should not be inflated into paper redesign, and manuscript-level requests should not be reduced to sentence polishing.
 - Every major claim needs nearby evidence and a clear boundary.
 - A strong paper needs a spine: the central object and the result that changes the reader's belief.
 - Results should not receive equal emphasis; distinguish spine result, load-bearing support, mechanism, boundary, robustness, extension, and appendix-only verification.
@@ -103,6 +105,10 @@ Use $or-ms-writing to make this abstract more native, less generic, and more pre
 ### Useful Scripts
 
 ```bash
+python3 scripts/triage_request.py --target "Management Science" --request "make this proof idea less weird" < draft.txt
+```
+
+```bash
 python3 scripts/plan_section.py --section headings --target "Management Science" --topic "DID construct validation"
 ```
 
@@ -138,6 +144,8 @@ MIT License. See [LICENSE](LICENSE).
 
 最新版本把“句子英文”和“自然顺畅”放得更靠前：先让每句话有清楚的 subject、verb、object、condition、benchmark 和 emphasis，再考虑 paper spine、micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
 
+它也加入了一个前置 triage：先判断当前任务到底是语言问题、段落问题、整篇文章主线问题、数学/证明问题、正文/附录分工问题，还是 reviewer calibration 问题。这样不会把一个简单的句子改写膨胀成整篇 paper redesign，也不会在整篇文章问题上只做表面润色。
+
 它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、判断正文小标题、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
 
 ### 适合做什么
@@ -145,6 +153,7 @@ MIT License. See [LICENSE](LICENSE).
 适合用它来处理:
 
 - abstract、introduction、contribution、related work、discussion；
+- 先判断当前任务该优先修语言、结构、数学叙述、正文/附录分工还是审稿人理解；
 - 判断一篇文章真正要讲什么：哪个 result 是 spine，哪些是 support，哪些只是 robustness 或 appendix verification；
 - section architecture、headings/subheadings、paragraph order；
 - model setup、assumption、formulation、theorem/proposition statement、result interpretation；
@@ -162,6 +171,7 @@ MIT License. See [LICENSE](LICENSE).
 
 这个 skill 的核心判断很简单，但执行时很严格:
 
+- 先做正确的 pass：语言任务先修句子，全文任务先定主线，数学任务先定正文/附录深度。
 - 一个大 claim 附近必须有 evidence。
 - 一个强 claim 附近必须有 boundary。
 - 一篇强文章必须有 spine：读者应记住的 central object，以及真正改变信念的 result。

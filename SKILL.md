@@ -26,11 +26,15 @@ Internally run only three silent passes unless the task is long or structurally 
 
 Treat every reference, script, and blueprint as a reader test, not a template. Do not force a passage to mention every possible element. If the user asks for one sentence, write one sentence. If the user asks for a paragraph, make one paragraph do one job. If the user gives Chinese or mixed notes, translate the intended argument, not the syntax.
 
-For full papers, introductions, abstracts, result sections, or any request that gives multiple data/model/result items, run a manuscript-spine pass before the three language passes: identify the central object, the result that carries the paper, the support needed for first-pass trust, the boundary, and what should move to appendix or disappear.
+Use this priority order to avoid doing too much:
 
-If the user's complaint is that the prose sounds weird, stiff, hard to read, or unlike something a human researcher would say, prioritize natural flow before adding more field markers. Use original-paper paragraph movement, ordinary subjects and verbs, and one-step sentence progression.
+- **Language-only requests**: If the user says the prose is weird, stiff, translated, AI-like, hard to read, or not native, run sentence craft first and do not expand the paper architecture unless the argument itself is unclear.
+- **Paragraph or section requests**: Decide the paragraph job or section reader job, then draft in that register. Sentence craft happens after the local argument is clear.
+- **Full paper, abstract, introduction, result package, or multiple data/model/result items**: run a manuscript-spine pass first: central object, spine result, support needed for first-pass trust, boundary, and what should move to appendix or disappear.
+- **Model, theorem, equation, or proof requests**: decide body depth and appendix placement before polishing the language.
+- **Reviewer-facing requests**: keep the skeptical reviewer's next question in view: exact term, evidence, boundary, bridge, and overclaim risk.
 
-If the user's complaint is mainly about language, run a sentence-craft pass before any manuscript-spine expansion. For each sentence, choose the local subject, verb, object, condition, benchmark, and stress position; then rebuild the English sentence around that spine. Do not repair awkward language by adding heavier academic vocabulary.
+If the requested mode is unclear, run `triage_request.py` internally before loading references.
 
 ## Writing Kernel
 
@@ -116,6 +120,8 @@ Decide placement by reader job, not by length alone.
 
 Load the smallest bundle that can solve the request. One bundle is the default; add another only when the task crosses language, story, math/proof, placement, or reviewer-calibration boundaries.
 
+For mixed or ambiguous requests, use `triage_request.py` first and then load only the first one or two bundles it recommends.
+
 When the problem is simply "this sounds strange," load `msor-sentence-craft.md` first, then `msor-natural-prose.md` only if paragraph flow is also the problem. Too many references can pull the draft back toward checklist prose.
 
 - **Sentence craft and translated-English repair**: `references/msor-sentence-craft.md` + `references/msor-natural-prose.md`.
@@ -135,6 +141,7 @@ When the problem is simply "this sounds strange," load `msor-sentence-craft.md` 
 Use scripts for planning or diagnostics, not as visible prose formats.
 
 ```bash
+python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/triage_request.py --target TARGET --request "REQUEST" < draft.txt
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_section.py --section SECTION --target TARGET --topic "TOPIC"
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_manuscript.py --target TARGET < notes.txt
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/place_results.py --target TARGET --paper-type "regular" < results.txt
@@ -142,22 +149,23 @@ python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_math_split.
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/check_paragraph.py --fail-on-ai-scent < draft.txt
 ```
 
-Run `plan_manuscript.py` when the user gives multiple results, data facts, model components, or proof notes and the real question is what the paper should emphasize. Run `plan_section.py` only for section-level or structurally unclear tasks; use `--section headings` when deciding section depth or subheading names. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
+Run `triage_request.py` when the task could be language, manuscript structure, math/proof, placement, or reviewer calibration and the order matters. Run `plan_manuscript.py` when the user gives multiple results, data facts, model components, or proof notes and the real question is what the paper should emphasize. Run `plan_section.py` only for section-level or structurally unclear tasks; use `--section headings` when deciding section depth or subheading names. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
 
 ## Stable Procedure
 
 1. Identify the requested unit and write at that granularity.
-2. Choose one reference bundle only if the task needs it.
-3. For full sections or manuscripts, choose the central object, spine result, support hierarchy, and evidence lane before choosing headings, subheadings, or paragraph order.
-4. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
-5. Draft ordinary OR/MS prose. Do not expose prewriting labels.
+2. If the unit or priority is unclear, triage once; otherwise choose one reference bundle only if the task needs it.
+3. For language-only tasks, preserve the argument and repair sentence craft before considering structure.
+4. For full sections or manuscripts, choose the central object, spine result, support hierarchy, and evidence lane before choosing headings, subheadings, or paragraph order.
+5. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
 6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
-7. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
-8. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
-9. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
-10. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
-11. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
-12. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
+7. Draft ordinary OR/MS prose. Do not expose prewriting labels.
+8. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
+9. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
+10. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
+11. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
+12. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
+13. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
 
 ## If The Draft Feels Weird
 
