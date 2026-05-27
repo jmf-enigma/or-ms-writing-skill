@@ -6,7 +6,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 ## About
 
-`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
+`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes manuscript-spine judgment, readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
 
 ## English
 
@@ -15,6 +15,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 `or-ms-writing` helps Codex write like a careful OR/MS researcher rather than a generic academic assistant. It focuses on:
 
 - precise claim, evidence, and boundary control;
+- manuscript-level judgment: central object, spine result, result hierarchy, credibility path, model necessity, and reviewer objections;
 - Management Science and OR/MS style without imitating any living author's personal voice;
 - natural paragraph flow, read-aloud smoothness, micro-level wording, sentence hinges, verb-object choices, and relation words such as `when`, `whereas`, `relative to`, `without`, and `consistent with`;
 - template-residue repair for stiff prose, unresolved placeholders, slash-list planning remnants, and stock sentences that sound mechanically OR/MS;
@@ -28,6 +29,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 Use this skill for:
 
 - abstracts, introductions, contribution paragraphs, related work, and discussion sections;
+- deciding what the paper is really about before drafting: which result carries the manuscript, which results support it, and which items should move to the appendix;
 - section architecture, headings, subheadings, and paragraph order;
 - model setup, assumptions, formulations, theorem/proposition statements, local proof placement, result interpretations, and proof ideas;
 - deciding what belongs in the main text, appendix, online appendix, or replication package;
@@ -39,6 +41,8 @@ Use this skill for:
 The skill is built around a few nonnegotiable writing principles:
 
 - Every major claim needs nearby evidence and a clear boundary.
+- A strong paper needs a spine: the central object and the result that changes the reader's belief.
+- Results should not receive equal emphasis; distinguish spine result, load-bearing support, mechanism, boundary, robustness, extension, and appendix-only verification.
 - Stronger prose should not mean stronger unsupported claims.
 - A model should be introduced as a decision environment, not as a collection of symbols.
 - Theorem and proposition captions should stay spare; the paper should explain the result in the surrounding prose.
@@ -102,6 +106,10 @@ python3 scripts/plan_section.py --section headings --target "Management Science"
 ```
 
 ```bash
+python3 scripts/plan_manuscript.py --target "Management Science" < notes.txt
+```
+
+```bash
 python3 scripts/plan_math_split.py --target "Management Science" < proof_notes.txt
 ```
 
@@ -121,13 +129,13 @@ MIT License. See [LICENSE](LICENSE).
 
 ### 简介
 
-`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 claim、evidence、boundary、section architecture、小标题层级、model/proof 叙述、theorem/proposition caption，以及正文和附录的分工。
+`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 manuscript spine、claim、evidence、boundary、section architecture、小标题层级、model/proof 叙述、theorem/proposition caption，以及正文和附录的分工。
 
 ### 这是什么
 
 `or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
 
-最新版本把“自然顺畅”放在更前面：先让句子像研究者在解释问题，再考虑 micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
+最新版本把“文章判断”和“自然顺畅”放在更前面：先判断 central object、spine result、result hierarchy、model necessity 和 reviewer objection，再考虑 micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
 
 它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、判断正文小标题、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
 
@@ -136,6 +144,7 @@ MIT License. See [LICENSE](LICENSE).
 适合用它来处理:
 
 - abstract、introduction、contribution、related work、discussion；
+- 判断一篇文章真正要讲什么：哪个 result 是 spine，哪些是 support，哪些只是 robustness 或 appendix verification；
 - section architecture、headings/subheadings、paragraph order；
 - model setup、assumption、formulation、theorem/proposition statement、result interpretation；
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
@@ -153,6 +162,8 @@ MIT License. See [LICENSE](LICENSE).
 
 - 一个大 claim 附近必须有 evidence。
 - 一个强 claim 附近必须有 boundary。
+- 一篇强文章必须有 spine：读者应记住的 central object，以及真正改变信念的 result。
+- 不是所有 result 都应该同等展开；正文要围绕 spine result 组织，附录负责验证、重复检查和二级扩展。
 - 语言可以更地道，但结论不能被偷偷加强。
 - model 要先让读者知道谁在什么信息下做什么决定，再进入符号。
 - theorem/proposition 的标题要克制，通常只用编号或很短的 object label；真正的意思放在前后正文里讲清楚。

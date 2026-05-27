@@ -16,6 +16,16 @@ BLUEPRINTS = {
         "Result: give mechanisms and conditions, not theorem numbers alone.",
         "Implication: say who can act on the result and under what condition.",
     ],
+    "manuscript": [
+        "Central object: name the decision, system, policy class, estimator, theorem object, or mechanism the paper is about.",
+        "Reader belief shift: state what a reviewer believed before reading and what the paper changes.",
+        "Spine result: choose the theorem, estimate, guarantee, field comparison, or mechanism result that carries the paper.",
+        "Credibility path: identify the proof, design, benchmark, validation, or implementation evidence needed for first-pass trust.",
+        "Result hierarchy: separate spine, load-bearing support, mechanism, boundary, robustness, extension, and appendix-only verification.",
+        "Model necessity: say which assumptions, states, timing, controls, and benchmarks are forced by the spine result.",
+        "Reviewer objections: anticipate the strongest home-field, adjacent-field, and skeptical-editor objections.",
+        "Deletion/demotion: mark correct but secondary items that should move to appendix or disappear.",
+    ],
     "introduction": [
         "Entry point: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct.",
         "Contrast object: current practice, canonical model, prior evidence, or literature default when it matters.",
@@ -100,11 +110,12 @@ BLUEPRINTS = {
 }
 
 REFS = {
-    "abstract": ["msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
-    "introduction": ["msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "abstract": ["msor-manuscript-judgment.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "manuscript": ["msor-manuscript-judgment.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md", "main-text-appendix-placement.md"],
+    "introduction": ["msor-manuscript-judgment.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
     "related": ["section-architecture.md", "paragraph-style.md", "citation-tools when exact citations matter"],
     "model": ["msor-natural-prose.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
-    "results": ["msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
+    "results": ["msor-manuscript-judgment.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
     "proof": ["msor-natural-prose.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "math-and-proof-style.md", "math-proof-writing for complete proofs", "theory-proof-workbench for missing proofs"],
     "placement": ["main-text-appendix-placement.md", "paper-appendix-paired-patterns.md", "math-model-main-appendix-craft.md", "reviewer-calibration.md"],
     "headings": ["section-architecture.md", "management-science-whole-paper-storycraft.md", "msor-paper-craft.md"],
@@ -203,6 +214,7 @@ def topic_lens(topic: str) -> str:
 
 QUALITY = {
     "abstract": "decision, friction, method, result, implication, boundary; avoid jargon before the problem is clear",
+    "manuscript": "central object, reader belief shift, spine result, credibility path, result hierarchy, model necessity, reviewer objections, deletion/demotion",
     "introduction": "lane-specific entry point, decision or formal object, contrast, friction, credibility support, findings, boundary, contribution; roadmap only if useful",
     "related": "stream, limitation, this paper's difference; no citation dumping",
     "model": "agents, timing, information, actions, primitives, objective, constraints, assumptions, benchmark, solution concept, and translated formulation display",
@@ -239,7 +251,7 @@ def has_keyword(text: str, keyword: str) -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--section", required=True, help="abstract, introduction, related, model, results, proof, placement, headings, managerial, discussion, conclusion")
+    parser.add_argument("--section", required=True, help="abstract, manuscript, introduction, related, model, results, proof, placement, headings, managerial, discussion, conclusion")
     parser.add_argument("--target", default="working paper", help="Management Science, Operations Research, M&SOM, or working paper")
     parser.add_argument("--topic", default="", help="optional paper topic for a topic-specific story lens")
     args = parser.parse_args()
@@ -247,6 +259,8 @@ def main() -> int:
     section = normalize(args.section)
     if section in {"intro"}:
         section = "introduction"
+    if section in {"paper", "full paper", "paper spine", "spine", "manuscript spine", "whole paper"}:
+        section = "manuscript"
     if section in {"lit", "literature", "related literature"}:
         section = "related"
     if section in {"managerial implications", "implications"}:
@@ -289,7 +303,7 @@ def main() -> int:
     print("\nDiagnostic signals:")
     print(textwrap.fill(QUALITY.get(section, "actor, decision, friction, method, result, consequence"), width=88))
     print("\nOR/MS spine:")
-    print(textwrap.fill("Use as an internal diagnostic, not a sentence template: decision maker, formal object, benchmark, result type, mechanism, validity condition, and decision consequence. Include only the pieces the section needs.", width=88))
+    print(textwrap.fill("Use as an internal diagnostic, not a sentence template: central object, spine result, credibility support, benchmark, mechanism, validity condition, and decision consequence. Include only the pieces the section needs.", width=88))
     print("\nNaturalness rule:")
     print(textwrap.fill("Do not force every diagnostic item into one sentence or paragraph. Use ordinary setup-result and result-interpretation pairs, split overloaded sentences before polishing, and rebuild translated-English order around the paper's local nouns and verbs.", width=88))
     print("\nEvidence preservation rule:")

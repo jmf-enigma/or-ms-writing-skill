@@ -1,6 +1,6 @@
 ---
 name: or-ms-writing
-description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, or too template-driven: sentence-level rewrites, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
+description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when the task requires manuscript-level judgment: choosing the paper spine, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, sentence-level rewrites, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
 ---
 
 # OR/MS Paper Writing
@@ -26,6 +26,8 @@ Internally run only three silent passes unless the task is long or structurally 
 
 Treat every reference, script, and blueprint as a reader test, not a template. Do not force a passage to mention every possible element. If the user asks for one sentence, write one sentence. If the user asks for a paragraph, make one paragraph do one job. If the user gives Chinese or mixed notes, translate the intended argument, not the syntax.
 
+For full papers, introductions, abstracts, result sections, or any request that gives multiple data/model/result items, run a manuscript-spine pass before the three language passes: identify the central object, the result that carries the paper, the support needed for first-pass trust, the boundary, and what should move to appendix or disappear.
+
 If the user's complaint is that the prose sounds weird, stiff, hard to read, or unlike something a human researcher would say, prioritize natural flow before adding more field markers. Use original-paper paragraph movement, ordinary subjects and verbs, and one-step sentence progression.
 
 ## Writing Kernel
@@ -33,6 +35,7 @@ If the user's complaint is that the prose sounds weird, stiff, hard to read, or 
 Use this kernel by default, but keep it invisible in the final prose.
 
 - Start from what the paper actually proves, estimates, simulates, or demonstrates; then choose only the motivation and contrast needed to make that contribution legible.
+- For manuscript-level work, decide the paper spine before sentence polish. The spine is the central object plus the one result, estimate, theorem, or field comparison that changes the reader's belief.
 - Make the paper's source of credibility visible before leaning on the claim: experiment, institutional variation, theorem, identification argument, equilibrium characterization, approximation guarantee, construct validation, simulation benchmark, or robustness logic.
 - Make decisions, mechanisms, and formal objects concrete. Prefer "the platform chooses disclosure precision" to "disclosure precision is considered."
 - Use exact evidence verbs: `characterize` for policy forms or equilibrium regions, `establish` for theorems and guarantees, `bound` for approximation or regret, `estimate` for empirical designs, `identify` only when the design or model supports identification, and `validate` for numerical, empirical, or out-of-sample evidence.
@@ -65,6 +68,7 @@ Use the register that matches the requested unit. These are flexible patterns, n
 
 - **Micro rewrite**: Fix object, verb, qualifier, and rhythm. Return one to three polished options only when alternatives are useful.
 - **Abstract**: Move quickly from setting and decision to friction, model/data/design, headline result, validation or implication. Avoid broad hooks and generic final managerial sentences.
+- **Manuscript judgment**: Before drafting a full section or paper, choose the central object, spine result, result hierarchy, model necessity, credibility path, reviewer objections, and body/appendix split.
 - **Section architecture**: Do not assume one MS/OR skeleton. First classify the paper lane, then choose headings that name the object: `Research Setting`, `Data and Methods`, `The Model`, `Empirical Strategy`, `Main Results`, `Algorithm`, `Numerical Experiments`, `Robustness Tests`, or `Discussion and Conclusion`. Add subheadings only when the reader job, evidence object, construct, model component, theorem family, or validity threat changes.
 - **Introduction**: Start from the entry point the lane needs: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct. Order the modules so each paragraph answers the reviewer's next question; a roadmap is optional.
 - **MS storycraft**: Treat story as persuasion order, not a fixed arc. Make the decision, standard view, friction, credibility support, result, mechanism, and boundary recoverable across the manuscript without forcing every paragraph to carry the whole chain.
@@ -111,7 +115,8 @@ Load the smallest bundle that can solve the request. One bundle is the default; 
 When the problem is simply "this sounds strange," load `msor-natural-prose.md` first and resist loading more than one additional reference. Too many references can pull the draft back toward checklist prose.
 
 - **Natural wording and micro-phrasing**: `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
-- **Whole-section story**: `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
+- **Manuscript judgment and paper spine**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
+- **Whole-section story**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
 - **Model, theorem, equation, proof**: `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md`.
 - **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
 - **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
@@ -126,18 +131,19 @@ Use scripts for planning or diagnostics, not as visible prose formats.
 
 ```bash
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_section.py --section SECTION --target TARGET --topic "TOPIC"
+python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_manuscript.py --target TARGET < notes.txt
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/place_results.py --target TARGET --paper-type "regular" < results.txt
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_math_split.py --target TARGET --paper-type "regular" < proof_notes.txt
 python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/check_paragraph.py --fail-on-ai-scent < draft.txt
 ```
 
-Run `plan_section.py` only for section-level or structurally unclear tasks; use `--section headings` when deciding section depth or subheading names. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
+Run `plan_manuscript.py` when the user gives multiple results, data facts, model components, or proof notes and the real question is what the paper should emphasize. Run `plan_section.py` only for section-level or structurally unclear tasks; use `--section headings` when deciding section depth or subheading names. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
 
 ## Stable Procedure
 
 1. Identify the requested unit and write at that granularity.
 2. Choose one reference bundle only if the task needs it.
-3. For full sections or manuscripts, classify the evidence lane before choosing headings, subheadings, or paragraph order.
+3. For full sections or manuscripts, choose the central object, spine result, support hierarchy, and evidence lane before choosing headings, subheadings, or paragraph order.
 4. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
 5. Draft ordinary OR/MS prose. Do not expose prewriting labels.
 6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
@@ -171,6 +177,7 @@ Repair by simplifying the operating logic, not by adding more genre markers.
 Before finalizing, check only what the requested unit needs:
 
 - The object, claim, evidence, and boundary are identifiable.
+- For manuscript-level work, the central object, spine result, credibility path, and result hierarchy are identifiable.
 - The passage does not overstate causality, optimality, robustness, dominance, magnitude, or generality.
 - Technical terms use field-accepted meanings and are defined when overloaded.
 - Model passages make agents, timing, information, actions, objective, constraints, assumptions, benchmark, and solution concept clear when relevant.

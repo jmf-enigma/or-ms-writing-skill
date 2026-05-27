@@ -454,6 +454,12 @@ PAPER_OBJECT_OPENERS = {
     "this model", "this result", "this theorem", "this analysis",
 }
 
+RESULT_CATALOG_MARKERS = {
+    "we show", "we find", "we establish", "we characterize", "we derive",
+    "we prove", "we also", "we further", "we next", "our first",
+    "our second", "our third",
+}
+
 STRONG_CLAIM_TRIGGERS = {
     "show", "shows", "showing", "find", "finds", "finding",
     "establish", "establishes", "established", "prove", "proves", "proved",
@@ -631,6 +637,22 @@ def placeholder_residue_warnings(text: str) -> list[str]:
     if re.search(r"\b(actor|decision|friction|mechanism|benchmark|implication)\s*/\s*", text, flags=re.I):
         warnings.append("slash-list planning residue; convert diagnostic labels into ordinary prose.")
     return warnings
+
+
+def result_catalog_warnings(text: str, section: str) -> list[str]:
+    normalized_section = normalize_section(section)
+    if normalized_section not in {"abstract", "introduction", "intro", "contribution", "results", "paragraph"}:
+        return []
+    lower = text.lower()
+    hits = [marker for marker in RESULT_CATALOG_MARKERS if marker in lower]
+    if len(hits) < 3:
+        return []
+    has_spine_signal = any(marker in lower for marker in {"main result", "primary result", "headline", "central", "spine", "we focus", "the key result"})
+    if has_spine_signal:
+        return []
+    return [
+        "result-catalog rhythm detected; choose the spine result and arrange other findings as support, mechanism, boundary, or robustness instead of giving every result equal weight."
+    ]
 
 
 def roadmap_rhythm_warnings(text: str, section: str) -> list[str]:
@@ -1112,6 +1134,10 @@ def main() -> int:
     for warning in placeholder_scent:
         print(f"- template residue: {warning}")
 
+    catalog_scent = result_catalog_warnings(text, args.section)
+    for warning in catalog_scent:
+        print(f"- manuscript judgment: {warning}")
+
     this_hits = weak_this_sentences(text)
     if this_hits:
         verbs = ", ".join(sorted(set(this_hits)))
@@ -1181,7 +1207,7 @@ def main() -> int:
     else:
         print("- sentence length: ok")
 
-    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or template_scent or placeholder_scent or this_hits):
+    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or template_scent or placeholder_scent or catalog_scent or this_hits):
         return 2
 
     return 0
