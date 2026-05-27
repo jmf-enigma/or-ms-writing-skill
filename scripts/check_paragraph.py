@@ -83,6 +83,8 @@ MATH_MOVES = {
     "monotonicity", "kkt", "fixed point", "induction", "contradiction",
     "concentration", "martingale", "duality", "relaxation", "rounding",
     "exchange argument", "envelope", "decomposition", "bounding",
+    "couple", "couples", "coupled", "compare", "compares", "compared",
+    "bound", "bounds", "bounded", "condition", "conditions", "conditioned",
 }
 DERIVATION_TERMS = {
     "derive", "derives", "derivation", "reformulate", "reformulates",
@@ -300,6 +302,22 @@ EMPTY_PHRASES = {
     "impactful",
     "performance improvements",
     "decision-making framework",
+}
+
+ANCHOR_SENSITIVE_WEAK_PHRASES = {
+    "leverage",
+    "sheds light",
+    "shed light",
+    "underscore",
+    "underscores",
+    "crucial",
+    "novel insights",
+    "managerial insights",
+    "managerial implications",
+    "practical implications",
+    "state-of-the-art",
+    "real-world",
+    "valuable",
 }
 
 TRANSLATION_DRIFT_PHRASES = {
@@ -877,6 +895,23 @@ def translation_drift_warnings(text: str) -> list[str]:
     ]
 
 
+def weak_phrase_warnings(text: str) -> list[str]:
+    lower = text.lower()
+    warnings = []
+    anchor_terms = ACTORS | DECISIONS | METRICS | EVIDENCE | FORMAL_OBJECTS | BENCHMARKS | MATH_MOVES | FRICTIONS
+    has_anchor = contains_term(text, anchor_terms)
+    for phrase in sorted(EMPTY_PHRASES):
+        if phrase not in lower:
+            continue
+        if phrase in ANCHOR_SENSITIVE_WEAK_PHRASES and has_anchor:
+            warnings.append(
+                f"anchor-sensitive phrase `{phrase}`; keep only if it is attached to a precise data source, theorem, mechanism, metric, or action."
+            )
+        else:
+            warnings.append(f"replace `{phrase}` with the actual decision or implication.")
+    return warnings
+
+
 def word_choice_warnings(text: str) -> list[str]:
     lower = text.lower()
     warnings = [
@@ -1098,6 +1133,10 @@ def proof_idea_voice_warnings(text: str, section: str) -> list[str]:
     if normalized_section not in {"proof", "proof-exposition", "appendix-proof", "results", "theorem", "proposition"} and "proof" not in lower:
         return []
     warnings = []
+    if re.search(r"\bproof idea\s*:", lower):
+        warnings.append("avoid `Proof idea:` as a visible label in polished body prose; write the proof move as ordinary prose unless the venue or section structure requires the label.")
+    if re.search(r"\bkey insight\s*:", lower):
+        warnings.append("avoid `Key insight:` after a theorem; state what the result changes relative to the benchmark or condition.")
     style_hits = sorted(word for word in PROOF_IDEA_STYLE_WORDS if word in lower)
     if style_hits:
         warnings.append(
@@ -1234,9 +1273,8 @@ def main() -> int:
         print(f"- {name}: {'present' if ok else 'absent'}" + ("" if ok else f" | Consider only if this paragraph's job needs it: {advice}"))
 
     lower = text.lower()
-    for phrase in EMPTY_PHRASES:
-        if phrase in lower:
-            print(f"- weak phrase: replace `{phrase}` with the actual decision or implication.")
+    for warning in weak_phrase_warnings(text):
+        print(f"- weak phrase: {warning}")
 
     for word in empty_ing_hits(text):
         print(f"- empty -ing phrase: replace `{word}` with a concrete verb and object.")

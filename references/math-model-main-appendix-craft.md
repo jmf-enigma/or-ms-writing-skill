@@ -9,6 +9,7 @@ For Management Science-specific details about how body displays, theorem stateme
 - Management Science asks papers to be succinct and focused, and says online-companion analytical proofs or data analysis should not contain material critical for evaluating the paper. Therefore the body needs the result, the model object, and enough interpretation to evaluate the contribution.
 - Operations Research separates regular appendices needed for understanding from electronic companions that are optional supplemental material. In focused technical papers, proofs belong in the published paper rather than only in an EC.
 - Recent MS/OR papers commonly put the decision environment, main model primitives, key assumptions, theorem statements, and result interpretation in the body. Long proofs, routine lemmas, repeated algebra, KKT checks, finite-sample demonstrations, and extra robustness usually move to an appendix or EC.
+- Full-text close readings confirm that proof placement is contextual. Some technical OR papers carry complete proofs in the main paper; many MS/M&SOM papers state the theorem or proposition, interpret it, give one proof move if trust requires it, and then put complete proof verification in the appendix or online supplement.
 - Model-heavy papers often give one body-level proof idea or derivation checkpoint before pointing to an appendix. The body tells the reader why the formal step works; the appendix verifies every inequality, case, and constant.
 - Applied OM papers often introduce a parsimonious base model in the body and put partner-specific calibration, data estimation, extra operational features, and scenario grids in appendices. The body still states how the real system maps onto the base model.
 - Baseline-plus-general-model theory papers often analyze the baseline model in the body and place the general model in an appendix. This works only when the body explains why the baseline carries the main mechanism and what the generalization preserves.
@@ -102,6 +103,10 @@ Use ordinary verbs: construct, decompose, bound, compare, apply, combine, show, 
 
 Do not write "the key intuition is" when the next sentence is actually a proof step. In proof ideas, prefer "the key step is to..." or "the argument uses..." because this keeps the prose mathematical rather than motivational.
 
+Close-reading rule: a proof idea is often not labeled. In recent full texts, the body may say that the proof hinges on a sample-path comparison, a closure property, a Bellman-type equation, or a trade-off between queue length and revenue loss, then point to an appendix. That is usually more native than a visible `Proof idea:` label.
+
+For a theorem that gives a rate or bound, include the rate driver in the body. For example, state whether the proof balances waiting cost against rejection loss, translates a one-period improvement into a global optimality gap, or compares a strategic policy against a random benchmark. The appendix can then verify the inequalities.
+
 ## Appendix Proof And Derivation Voice
 
 An appendix proof can be denser, but it still needs reader signposts.
@@ -113,6 +118,8 @@ An appendix proof can be denser, but it still needs reader signposts.
 - End by mapping the proved technical statement back to the theorem, proposition, or displayed result in the body.
 
 The appendix should verify the body, not replace it. If the appendix contains the first explanation of the theorem's meaning, the body is too thin.
+
+Full-text appendix shape is usually more literal than elegant: `Proof of Proposition 1`, `Proof of Theorem 2`, `Auxiliary Lemmas`, `Additional Robustness Checks`. Long proof sections are allowed to use explicit sequencing because the reader is verifying a claim. What feels strange is not density; it is an appendix that introduces a new benchmark, new mechanism, or new interpretation that the body never prepared.
 
 ## Reviewer Calibration
 

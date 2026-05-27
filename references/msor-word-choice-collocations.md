@@ -138,6 +138,41 @@ Use these only when the content supports them.
 - `robustness check`, `alternative specification`, `placebo test`;
 - `managerial implication`, but only after the action and condition are explicit.
 
+## Full-Text Close-Reading Word Patterns
+
+Recent MS/OR body sections are often plainer than polished AI prose. They repeat ordinary verbs because the object changes.
+
+Natural paper-level verbs:
+
+- `We study` a system, decision, question, model, or effect.
+- `We ask` how a platform, firm, operator, or evaluator should act when a friction is present.
+- `We model` a queueing system as a graph, a signaling problem as a game, or a sourcing problem as a two-stage newsvendor model.
+- `We formulate` an MDP, optimization problem, estimator, or decision process.
+- `We show` a theorem result, experimental effect, or analytical implication when the support is direct.
+- `We prove` a theorem, proposition, lower bound, or optimality guarantee.
+- `We estimate` demand, elasticity, treatment effects, heterogeneity, or model parameters.
+- `We find` empirical effects and patterns.
+- `The proof uses` a coupling, relaxation, decomposition, Bellman equation, sample-path argument, or concentration step.
+
+Natural relation phrases:
+
+- `relative to` a benchmark;
+- `compared with` a policy, estimator, or treatment;
+- `under` an information structure, scaling regime, policy class, or assumption;
+- `consistent with` a model or mechanism, especially in empirical work;
+- `in contrast` only when the contrast is explicit;
+- `because` and `when` for the real mechanism or condition.
+
+Full-text caveat: published papers sometimes use words such as `leverage`, `sheds light`, `crucial`, `novel`, or `managerial implications`. Do not ban them mechanically. Keep them only when the sentence has a precise object nearby: a data source, a theorem, a mechanism, a metric, or an action. If the word can be deleted without changing the claim, delete it.
+
+Examples of native anchoring:
+
+- `The fluid solution gives an upper bound on the achievable profit under any stable policy.`
+- `The proof couples arrivals across policies and bounds the queue length term.`
+- `The experiment separates sender-side and recipient-side reward uncertainty.`
+- `The model shows that the sign of the screening effect depends on the covariance between expertise and the GAI signal boost.`
+- `The result is robust across strategy profiles, not because agents report truthfully, but because the fallback rule limits the loss from misreporting.`
+
 ## More Natural Rewrites
 
 Weak:

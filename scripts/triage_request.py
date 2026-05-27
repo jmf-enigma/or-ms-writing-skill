@@ -49,6 +49,7 @@ MODE_REFS = {
         "msor-sentence-craft.md",
         "msor-natural-prose.md",
         "msor-micro-phrasing.md",
+        "msor-full-text-close-reading.md",
         "academic-style-and-ai-writing.md",
     ],
     "paragraph": [
@@ -56,12 +57,14 @@ MODE_REFS = {
         "management-science-whole-paper-storycraft.md",
         "paragraph-style.md",
         "msor-micro-phrasing.md",
+        "msor-full-text-close-reading.md",
     ],
     "manuscript": [
         "msor-manuscript-judgment.md",
         "section-architecture.md",
         "msor-paper-craft.md",
         "main-text-appendix-placement.md",
+        "msor-full-text-close-reading.md",
     ],
     "math": [
         "msor-word-choice-collocations.md",
@@ -69,11 +72,13 @@ MODE_REFS = {
         "management-science-model-proof-equation-layout.md",
         "math-model-main-appendix-craft.md",
         "paper-appendix-paired-patterns.md",
+        "msor-full-text-close-reading.md",
     ],
     "placement": [
         "main-text-appendix-placement.md",
         "paper-appendix-paired-patterns.md",
         "math-model-main-appendix-craft.md",
+        "msor-full-text-close-reading.md",
     ],
     "reviewer": [
         "reviewer-calibration.md",

@@ -12,6 +12,7 @@ These notes draw especially on model/proof sections from:
 - Loewenstein et al./related MS theory papers with baseline model plus appendix extensions.
 - Payment for ecosystem services contract papers with short body proof sketches and complete appendix proofs.
 - Recent open INFORMS examples with body/appendix pairings: model-theory papers that keep theorem meaning in the body and proofs in labeled appendix subsections; applied optimization papers that keep the reformulation in the body and notation/proof details in online appendices; ML/empirical papers that keep the primary model and comparison in the body and auxiliary baselines in appendices.
+- Recent full-text close readings of dynamic pricing/matching, matching queues with incentives, policy-gradient guarantees, recommendation-based demand estimation, and GAI-screening papers. These papers are useful because they show how the body moves from an operating object to notation, then from a theorem to interpretation and appendix verification.
 
 ## What Main-Text Equations Do
 
@@ -83,6 +84,8 @@ MS model narration usually proceeds in this order, but the exact order can vary 
 7. Interpret why the model is difficult or why the abstraction isolates the mechanism.
 
 For technical algorithm papers, the model may start earlier, but it should still tell the reader what each state and control represents before the theorem.
+
+Close-reading update: recent MS/OR model sections often open with the real operating process, not with the mathematical formulation. A two-sided queueing paper first says customers and servers arrive, wait, are matched, and generate profit; only then does it introduce the bipartite graph, arrival processes, actions, objective, and assumptions. A screening paper first identifies sender, receiver, signal, effort, and expertise; only then does it show the signal equation and posterior object. This order makes notation feel necessary rather than dumped.
 
 ## Theorem And Result Layout
 
@@ -187,6 +190,8 @@ Proposition 1.
 
 Do not label this paragraph `Proof.` unless it is complete. Usually do not label it `Proof idea` either; write it as normal prose after the result.
 
+This pattern is especially common when the body needs only the credibility bridge. For example, a lower-bound theorem may state the rate, then give one paragraph explaining the trade-off between expected queue length and revenue loss before sending the detailed coupling, Taylor expansion, and tail-probability work to the appendix.
+
 ### Pattern 4: Technical OR Body Proof
 
 Use this in focused OR theory or algorithm papers when proof logic is the paper's main contribution and the journal expects technical development in the body.
@@ -227,10 +232,12 @@ For Management Science, proof-sketch prose should be literal. Use verbs such as 
 
 Observed proof-idea rhythm in strong MS/OR papers:
 
-1. "We first..." fixes the object or reduction.
-2. "The difficulty is..." names the term, constraint, strategic response, or stochastic error.
-3. "We control/show/compare..." names the proof move.
-4. "Combining..." closes the theorem and points to the appendix.
+1. Fix the object or reduction: a sample path, Bellman objective, coupling, fluid benchmark, dual, or policy-improvement problem.
+2. Name the difficult term: queue length, Bellman error, incentive response, revenue loss, rejection probability, or approximation error.
+3. Name the proof move: decompose, compare, bound, condition, apply, or combine.
+4. Close the loop: say how this yields the theorem and where the complete proof appears.
+
+Use `we first...` only when the reader is inside a genuine proof roadmap. In polished body prose, a direct sentence is often better: `The proof couples arrivals across policies and bounds the expected queue length by comparing the process with a heavy-traffic M/M/1 queue.`
 
 The body proof idea usually has zero or one display. Use a display only for the decomposition, inequality, or reduced system that the rest of the paper relies on. If a second display merely verifies the first, move it to the appendix.
 
