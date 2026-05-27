@@ -86,6 +86,7 @@ Use the register that matches the requested unit. These are flexible patterns, n
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.
 - **Related work**: End each stream with the difference that matters: setting, information, constraint, performance criterion, proof technique, data source, or decision logic.
 - **Model setup**: Describe the decision environment before dense notation. Introduce agents, timing, information, actions or policy class, objective, constraints, assumptions, benchmark, and solution concept or estimand in the order the paper lane requires.
+- **Construct and empirical framework setup**: In empirical or experimental papers, a measure, construct, potential outcome, treatment contrast, or estimating equation may be the model. Define what the construct means, how it is observed or elicited, and what the coefficient or contrast represents before polishing the prose.
 - **Assumptions**: State what role each assumption plays: simplify, identify, bound, preserve tractability, isolate a mechanism, rule out degeneracy, or match institutional constraints.
 - **Result interpretation**: State the formal result or local claim, then explain what changes relative to the benchmark and why the condition matters for the decision.
 - **Empirical or numerical results**: Separate what is observed, what is estimated or simulated, what is counterfactual, and what the design or model can support.
@@ -98,6 +99,7 @@ For model and mathematical writing, the body should establish the object, not me
 
 - Before a display, say what the display defines, relaxes, decomposes, bounds, or estimates. After the display, translate the central variables and explain why the display is used next.
 - A main-text model passage usually needs the decision environment, timing, information, action or policy class, objective, key constraints, assumptions, benchmark, and solution concept.
+- In empirical papers, the body may instead need construct definitions, measurement logic, treatment/control contrast, identifying variation, outcome definition, estimand, and coefficient interpretation. Do not force theorem vocabulary onto this lane.
 - A main-text derivation usually needs only three levels: starting formal object, load-bearing mathematical move, and resulting object used by the theorem, estimator, policy, or comparison.
 - A theorem paragraph should name the result type: existence, uniqueness, monotonicity, threshold structure, comparative static, approximation ratio, regret bound, convergence rate, welfare comparison, or identification result.
 - Theorem and proposition captions should be spare. Prefer `Proposition 1.` or a short parenthetical/object label when useful; do not attach long claim-like titles. Surround the result with ordinary prose rather than headings such as `Key Insight`, `Proof Idea`, or `Takeaway`.
@@ -107,6 +109,7 @@ For model and mathematical writing, the body should establish the object, not me
 - Keep proof ideas proportional. If the proof is routine, one precise sentence may be enough; if the result looks surprising or methodologically important, give the checkpoint that prevents the theorem from feeling like a black box.
 - Do not write "by some algebra" or "standard arguments" unless the step is genuinely routine. Name the actual move: exchange argument, coupling, convexity, submodularity, KKT conditions, duality, fixed point, martingale concentration, induction, envelope argument, or contradiction.
 - The appendix proof verifies the body; it should not carry the first explanation of what the theorem means. Start with fixed objects and assumptions, signpost long algebra, and map the final technical statement back to the body result.
+- For empirical appendices, keep variable dictionaries, balance checks, alternative codings, placebo tests, repeated specifications, and secondary robustness tables there after the body states the measure, identification logic, and conclusion.
 
 ## Body Versus Appendix
 

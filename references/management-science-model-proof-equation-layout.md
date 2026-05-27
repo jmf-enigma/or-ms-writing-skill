@@ -13,6 +13,7 @@ These notes draw especially on model/proof sections from:
 - Payment for ecosystem services contract papers with short body proof sketches and complete appendix proofs.
 - Recent open INFORMS examples with body/appendix pairings: model-theory papers that keep theorem meaning in the body and proofs in labeled appendix subsections; applied optimization papers that keep the reformulation in the body and notation/proof details in online appendices; ML/empirical papers that keep the primary model and comparison in the body and auxiliary baselines in appendices.
 - Recent full-text close readings of dynamic pricing/matching, matching queues with incentives, policy-gradient guarantees, recommendation-based demand estimation, and GAI-screening papers. These papers are useful because they show how the body moves from an operating object to notation, then from a theorem to interpretation and appendix verification.
+- Additional full-text checks from AI calibration experiments, competitor-information field experiments, automation field evidence, bargaining/information acquisition theory, optimal learning/control, and energy DP papers. These show that model writing includes construct measurement, empirical frameworks, potential outcomes, short mechanism models, and applied optimization formulations, not only theorem-first analytical models.
 
 ## What Main-Text Equations Do
 
@@ -25,6 +26,8 @@ Main-text displays usually perform one of five jobs:
 5. **Support a body proof idea**: one key inequality or decomposition that explains why the theorem is credible.
 
 If a display does none of these jobs, it probably belongs in the appendix or should be prose.
+
+Empirical equations have analogous jobs. A display may define a construct, an elicited belief measure, a treatment contrast, a potential outcome, an estimating equation, or a counterfactual exercise. It belongs in the body when the reader needs it to understand the claim; it belongs in the appendix when it is an alternative coding, repeated robustness specification, or implementation detail.
 
 ## Body Formula Choreography
 
@@ -87,6 +90,10 @@ For technical algorithm papers, the model may start earlier, but it should still
 
 Close-reading update: recent MS/OR model sections often open with the real operating process, not with the mathematical formulation. A two-sided queueing paper first says customers and servers arrive, wait, are matched, and generate profit; only then does it introduce the bipartite graph, arrival processes, actions, objective, and assumptions. A screening paper first identifies sender, receiver, signal, effort, and expertise; only then does it show the signal equation and posterior object. This order makes notation feel necessary rather than dumped.
 
+Construct-heavy empirical papers use the same climb. First define what the construct means in the paper, then say how it is observed or elicited, then display the measure, and only then interpret coefficients or predictions. For example, an AI-human decision paper may define ability, beliefs, and calibration before writing the empirical framework; the measurement section is part of the model because it tells the reviewer what the variables mean.
+
+Potential-outcome and regression passages should be written as design prose, not just formulas. Before the display, identify treatment, control, outcome, unit, sample, and comparison. After the display, say which coefficient maps to the paper's prediction and what variation supports that interpretation. If the paper cannot fully separate nearby channels, say so and use `suggestive`, `consistent with`, or `difficult to cleanly disentangle`.
+
 ## Theorem And Result Layout
 
 A theorem in the body should be surrounded by prose.
@@ -144,6 +151,8 @@ Key Insight.
 [Interpretation.]
 ```
 
+Some papers place the key derivation before the proposition rather than after it. This works when the derivation creates the threshold, objective, or comparison that the proposition then characterizes. Do not move that derivation to the appendix merely because it is mathematical; move only the verification steps that do not change the reader's understanding of the result.
+
 ## Proof Placement After A Theorem Or Proposition
 
 There is no single MS/OR rule that every proposition must be followed by a formal proof in the body. Choose among four patterns.
@@ -164,6 +173,8 @@ Proof.
 
 This pattern is common in compact theory sections and simple analytical models. The proof under `Proof.` must be a real proof, not only intuition. It should not rely on long hidden lemmas, repeated cases, or constants that belong in an appendix.
 
+Observed MS papers do use `Proof.` directly below propositions, but only when the proof is short enough to be read as part of the body and actually proves the statement. A proof that begins with "the intuition is" or immediately says the complete proof is in the appendix should not be labeled `Proof.` in the body.
+
 ### Pattern 2: Proposition, Interpretation, Appendix Pointer
 
 Use this when the theorem is important but the proof is routine, algebraic, or long.
@@ -176,6 +187,8 @@ Proposition 1.
 ```
 
 This is often the cleanest Management Science style because the body keeps result meaning and the appendix carries verification.
+
+If all proofs are in the appendix, say that once in the model or analysis section only when helpful. Still give each proposition enough body interpretation that the reader can evaluate its role without opening the appendix.
 
 ### Pattern 3: Proposition, One Proof Move, Appendix Proof
 
@@ -241,6 +254,8 @@ Use `we first...` only when the reader is inside a genuine proof roadmap. In pol
 
 The body proof idea usually has zero or one display. Use a display only for the decomposition, inequality, or reduced system that the rest of the paper relies on. If a second display merely verifies the first, move it to the appendix.
 
+Proof-idea language should be almost invisible. Good body prose says, for example, that the proof reduces the full information history to a hybrid belief state, decomposes regret into estimation and control terms, or compares a relaxed policy with the original policy. It usually does not announce `Proof idea:` unless the surrounding paper has a repeated formal proof-sketch convention.
+
 ## Appendix Proof Layout
 
 Appendix proofs are denser, but they still have structure.
@@ -263,6 +278,7 @@ For long appendices, organize sections by proof dependency or reviewer concern:
 - closed-form or threshold expressions before figures that use them;
 - robustness or alternative assumptions after the main proof;
 - implementation and calibration details after the result they support.
+- empirical details, variable construction, balance checks, placebo tests, and secondary robustness checks after the body has stated the main design and conclusion.
 
 Start an appendix section with the section's job. A section that begins immediately with a symbol-heavy display often needs one orienting sentence.
 
@@ -284,6 +300,7 @@ Keep these in the body:
 
 - the mathematical object the paper is about;
 - the main optimization problem, estimator, policy, bound, or theorem;
+- construct definitions, treatment contrasts, and measurement choices needed to interpret primary empirical results;
 - one derivation checkpoint if it creates the object used later;
 - one proof idea if the theorem otherwise looks like a black box;
 - interpretation of the result and benchmark.
@@ -301,6 +318,9 @@ Keep these in the body:
 | Algorithm rule | Body for decision logic and inputs | Pseudocode, tuning, runtime |
 | KKT/FOC | Body only if it is the characterization | Verification and cases |
 | Concentration bound | Body only if it is the named guarantee | Probability events and constants |
+| Construct measure | Body if it defines the main estimand or mechanism | Alternative codings and validation tables |
+| Regression or DID equation | Body if it is the primary empirical strategy | Robustness specifications and extra fixed-effect variants |
+| Calibration or counterfactual equation | Body if it is the main comparison | Estimation details, standard errors, and sensitivity |
 
 ## Writing From A Rough Proof
 
@@ -318,3 +338,5 @@ Then write two registers:
 - **Appendix register**: complete, sequential, notation-consistent, and proof-heavy.
 
 Do not write the same proof twice. The body explains why the proof works; the appendix proves that it works.
+
+For rough empirical-model notes, use the same split. The body defines the construct, identifies the comparison, and states the estimand; the appendix documents variable construction, balance, alternative specifications, and repeated robustness tables.

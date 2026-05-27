@@ -134,6 +134,13 @@ Use these only when the content supports them.
 - `threshold policy`, `priority rule`, `base-stock policy`, `index policy`;
 - `field experiment`, `quasi-experimental variation`, `identifying variation`;
 - `treatment effect`, `heterogeneous effect`, `mechanism evidence`;
+- `elicit beliefs`, `measure calibration`, `construct a skill measure`, `estimate heterogeneous treatment effects`;
+- `address measurement error`, `measurement challenge`, `potential outcome`, `treatment contrast`;
+- `nonparametric results`, `main parametric specification`, `placebo test`, `spillover effects`;
+- `managerial inattention`, `competitor knowledge`, `demand effects`, `customer sorting`, `learning effects`;
+- `task specialization`, `integrated job design`, `coordination costs`, `nonautomated task`, `cost of effort`;
+- `incentive compatibility constraint`, `continuation utility`, `threshold structure`, `binding constraint`;
+- `belief state`, `sufficient statistic`, `certainty-equivalent policy`, `front-load effort`;
 - `primary metric`, `countervailing metric`, `out-of-sample performance`;
 - `robustness check`, `alternative specification`, `placebo test`;
 - `managerial implication`, but only after the action and condition are explicit.
@@ -165,11 +172,36 @@ Natural relation phrases:
 
 Full-text caveat: published papers sometimes use words such as `leverage`, `sheds light`, `crucial`, `novel`, or `managerial implications`. Do not ban them mechanically. Keep them only when the sentence has a precise object nearby: a data source, a theorem, a mechanism, a metric, or an action. If the word can be deleted without changing the claim, delete it.
 
+Empirical verbs that sound native when the support is right:
+
+- `elicit` probabilistic beliefs, confidence, preferences, or willingness to pay;
+- `measure` ability, calibration, performance, quality, demand, or attention;
+- `standardize` a score, skill measure, outcome, or treatment contrast;
+- `randomly assign` units to treatment and control conditions;
+- `construct` a dataset, sample, measure, index, or counterfactual;
+- `estimate` treatment effects, demand effects, heterogeneity, or a structural parameter;
+- `detect` a demand effect, spillover, sorting pattern, or performance response;
+- `repeat` a specification, `replicate` the main finding, and `preserve` sign and magnitude under robustness checks.
+
+Theory verbs that sound native when the object is formal:
+
+- `characterize` an optimal policy, equilibrium, threshold, regime, or comparative static;
+- `derive` a bound, expression, first-order condition, sufficient condition, or recursive representation;
+- `verify` an incentive constraint, KKT condition, boundary case, or equilibrium condition;
+- `reduce` a history to a sufficient statistic, a model to a recursive contract, or a dynamic problem to a lower-dimensional state;
+- `compare` an optimal policy with a benchmark, certainty-equivalent policy, or current practice.
+
+Be careful with `mechanism`. In empirical writing, a mechanism is supported by additional evidence, heterogeneity, placebo tests, or a follow-up experiment. In theory writing, it is a channel in the model, such as reduced marginal effort cost, information acquisition incentives, congestion, or adverse selection. Do not use `mechanism` as a synonym for "why this is interesting."
+
 Examples of native anchoring:
 
 - `The fluid solution gives an upper bound on the achievable profit under any stable policy.`
 - `The proof couples arrivals across policies and bounds the queue length term.`
 - `The experiment separates sender-side and recipient-side reward uncertainty.`
+- `The design elicits probabilistic beliefs before treatment, which lets the analysis distinguish ability from calibration.`
+- `The follow-up experiment is consistent with managerial inattention, but it does not fully rule out complementary capability differences.`
+- `The proposition compares the optimal policy with the certainty-equivalent policy and shows when the two coincide.`
+- `The appendix verifies the incentive constraints and proves the auxiliary lemmas used in the recursive characterization.`
 - `The model shows that the sign of the screening effect depends on the covariance between expertise and the GAI signal boost.`
 - `The result is robust across strategy profiles, not because agents report truthfully, but because the fallback rule limits the loss from misreporting.`
 

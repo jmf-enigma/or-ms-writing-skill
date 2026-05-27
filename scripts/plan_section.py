@@ -45,6 +45,7 @@ BLUEPRINTS = {
     "model": [
         "Lane choice: theory/problem formulation, empirical model, structural measurement device, or applied system model.",
         "Agents, timing, information, decisions.",
+        "For empirical lanes: construct meaning, measurement or elicitation, treatment/control contrast, estimand, and coefficient interpretation.",
         "State/action, demand/payoff/transition primitives.",
         "Objective and constraints.",
         "Assumptions with short rationale.",
@@ -54,7 +55,8 @@ BLUEPRINTS = {
     ],
     "results": [
         "Reminder of local setup.",
-        "Formal proposition/theorem.",
+        "Formal proposition/theorem or empirical estimand.",
+        "For empirical lanes: outcome, treatment contrast, magnitude, uncertainty, mechanism evidence, heterogeneity, spillovers, and placebo or robustness checks.",
         "Benchmark or standard intuition.",
         "Credibility checkpoint: identification contrast, proof move, validation, placebo, approximation benchmark, or robustness conclusion when needed.",
         "Derivation checkpoint when the result depends on a relaxation, dual, Bellman equation, regret decomposition, or identifying expression.",
@@ -82,11 +84,12 @@ BLUEPRINTS = {
         "Classify the evidence lane before choosing section depth.",
         "Use a top-level heading when the paper moves to a new reader task: setting, data, model, results, robustness, computation, or discussion.",
         "Use a subsection when the object, construct, model component, result family, algorithm, benchmark, or validity threat changes.",
+        "Use construct headings such as Measures, Empirical Framework, Measurement Challenges, or Conceptual Motivation when they are the reader's next job.",
         "Keep theorem and proposition labels spare: Proposition 1, Theorem 2, or a short parenthetical object label when needed.",
         "Put the result's meaning in the surrounding prose, not in long proposition captions or tiny headings such as Key Insight or Proof Idea.",
         "Avoid a subheading for a transition, one-paragraph intuition, local caveat, or second piece of evidence for the same claim.",
         "Use third-level headings only for parallel items a reviewer may need to locate independently.",
-        "Name objects, not scaffolding: Data Sources, Variable Construction, Alternative Measurement, Benchmark Policies, Numerical Experiments.",
+        "Name objects, not scaffolding: Measures, Empirical Framework, Data Sources, Variable Construction, Alternative Measurement, Benchmark Policies, Numerical Experiments.",
     ],
     "managerial": [
         "Decision maker and observable condition.",
@@ -158,8 +161,8 @@ def topic_lens(topic: str) -> str:
             {"pricing", "review", "match", "recommend", "content", "creator", "seller"},
         ),
         "empirical": (
-            {"empirical", "experiment", "identification", "replication", "behavioral", "panel data", "administrative data", "field data", "did", "difference-in-differences", "construct validation"},
-            {"field", "dataset", "estimate"},
+            {"empirical", "experiment", "identification", "replication", "behavioral", "panel data", "administrative data", "field data", "did", "difference-in-differences", "construct validation", "measurement challenge", "calibration experiment", "field experiment"},
+            {"field", "dataset", "estimate", "calibration", "treatment", "coefficient", "belief"},
         ),
         "human_ai": (
             {"algorithmic advice", "human-ai", "human algorithm", "algorithm aversion", "automated advice", "managerial reliance", "reliance on algorithmic advice"},
@@ -217,8 +220,8 @@ QUALITY = {
     "manuscript": "central object, reader belief shift, spine result, credibility path, result hierarchy, model necessity, reviewer objections, deletion/demotion",
     "introduction": "lane-specific entry point, decision or formal object, contrast, friction, credibility support, findings, boundary, contribution; roadmap only if useful",
     "related": "stream, limitation, this paper's difference; no citation dumping",
-    "model": "agents, timing, information, actions, primitives, objective, constraints, assumptions, benchmark, solution concept, and translated formulation display",
-    "results": "formal result, benchmark intuition, derivation checkpoint when needed, mechanism, condition, implication",
+    "model": "agents, timing, information, actions, primitives, objective, constraints, assumptions, benchmark, solution concept, translated formulation display; for empirical work, construct meaning, measure, treatment contrast, estimand, and coefficient interpretation",
+    "results": "formal result or empirical estimand, benchmark intuition, derivation checkpoint when needed, magnitude, mechanism, condition, implication",
     "proof": "setup, plain proof idea, constructed object, hard term, mathematical move, key lemma or inequality, validity condition, conclusion mapped back; avoid stylized proof language",
     "placement": "body for first-pass contribution, model object, theorem statement, interpretation, and central derivation checkpoint; appendix for verification, robustness, implementation, and replication",
     "headings": "section depth follows reader task; subheadings mark new objects, result families, model components, or validity threats; theorem/proposition captions stay short",

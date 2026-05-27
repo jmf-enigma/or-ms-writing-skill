@@ -28,6 +28,16 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 - reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
 - language repair for passages that feel translated, generic, overclaimed, or too AI-like.
 
+### Recent Close-Reading Update
+
+The latest update adds more full-text MS/OR signals from AI calibration experiments, competitor-information field experiments, automation field evidence, bargaining and information-acquisition theory, optimal learning/control, applied DP, and technical appendices. It strengthens guidance on:
+
+- construct and measurement sections such as `Measures`, `Empirical Framework`, and `Measurement Challenges`;
+- when an empirical measure, potential outcome, treatment contrast, or estimating equation is the paper's model;
+- field-experiment result prose: treatment effect, demand effect, heterogeneity, spillovers, alternative mechanisms, and placebo checks;
+- proposition placement: bare labels, short captions, complete body proofs only when they are truly complete, and ordinary prose for proof moves;
+- appendix design: variable construction, balance checks, robustness tables, auxiliary lemmas, KKT verification, repeated cases, and implementation details.
+
 ### Best For
 
 Use this skill for:
@@ -165,6 +175,9 @@ MIT License. See [LICENSE](LICENSE).
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
 - 真实正文里的 model/proof/appendix 写法：什么时候正文给完整 proof，什么时候只给承重 proof move，什么时候把完整验证放进 appendix；
+- 实证论文里的 construct 和 measurement 写法：什么时候 `Measures`、`Empirical Framework`、`Measurement Challenges` 本身就是正文核心，而不是附录细节；
+- field experiment 结果段：treatment effect、demand effect、heterogeneity、spillovers、alternative mechanisms、placebo checks 怎么分层写；
+- 理论文里的 proposition 摆法：什么时候 proposition 前要先推到 threshold 或 comparison，什么时候 proposition 下面可以直接写完整 `Proof.`，什么时候只写正文 proof move 并把完整证明放进 appendix；
 - 用词和搭配：比如 `effect on`、`robust to`、`relative to a benchmark`、`establish a bound`、`estimate an effect`，以及避开 `managerial enlightenment`、`optimize decision-making`、`provide insights` 这类翻译腔；
 - 句子级英文修复：弱主语、抽象名词堆、介词链、中文直译、relation words 滥用、proof idea 句子过硬；
 - 段落读起来顺不顺、像不像研究者在自然解释一个问题，而不是把诊断标签硬塞进一句话；

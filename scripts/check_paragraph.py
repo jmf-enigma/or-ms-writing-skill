@@ -21,7 +21,9 @@ ACTORS = {
     "employers", "agencies", "investors", "lenders", "auditors", "analysts",
     "utilities", "cities", "operators", "communities", "users",
     "volunteer", "volunteers", "opportunity", "opportunities", "nonprofit",
-    "nonprofits",
+    "nonprofits", "cashier", "cashiers", "employee", "employees", "worker",
+    "workers", "buyer", "buyers", "conservation planner", "species",
+    "decision maker", "decision makers",
 }
 DECISIONS = {
     "price", "pricing", "match", "allocate", "recommend", "learn", "regulate",
@@ -31,7 +33,8 @@ DECISIONS = {
     "train", "monitor", "comply", "explore", "exploit",
     "acquire", "accept", "refer", "share", "invite", "engage",
     "sourcing", "ordering", "order", "procure", "procurement",
-    "disclosure",
+    "disclosure", "measure", "elicit", "standardize", "implement",
+    "rank", "display", "scan", "survey", "protect", "front-load",
 }
 FRICTIONS = {
     "fairness", "uncertain", "ambiguity", "capacity", "churn", "disengagement",
@@ -45,6 +48,9 @@ FRICTIONS = {
     "online arrival", "online arrivals", "censoring", "censored",
     "nonstationary", "non-stationarity", "change point", "change-point",
     "demand shift", "demand shifts", "misspecification",
+    "managerial inattention", "measurement error", "measurement challenge",
+    "calibration", "coordination cost", "coordination costs",
+    "information acquisition", "false negatives", "skill disparity",
 }
 MECHANISM_MARKERS = {"because", "therefore", "thus", "when", "whereas", "while", "however"}
 ELEGANCE_HINGES = {
@@ -57,13 +63,18 @@ EVIDENCE = {
     "estimate", "result", "proof", "benchmark", "case study", "numerical",
     "counterfactual", "identification", "field", "administrative data", "regret bound",
     "approximation", "characterization", "optimization", "formulation",
+    "coefficient", "regression", "estimating equation", "table", "figure",
+    "potential outcome", "treatment contrast", "calibration measure",
 }
 FORMAL_OBJECTS = {
     "policy", "threshold", "regime", "constraint", "objective", "state", "action",
     "equilibrium", "relaxation", "bound", "approximation", "regret", "estimator",
     "counterfactual", "allocation", "pricing", "schedule", "assortment", "inventory",
     "ranking", "matching", "routing", "disclosure", "decision variable", "solution",
-    "decision rule",
+    "decision rule", "construct", "measure", "coefficient", "regression",
+    "estimating equation", "potential outcome", "treatment effect", "treatment contrast",
+    "calibration", "belief state", "sufficient statistic", "recursive representation",
+    "incentive constraint", "continuation utility",
 }
 BENCHMARKS = {
     "benchmark", "first-best", "first best", "oracle", "myopic", "static policy",
@@ -123,7 +134,10 @@ INTERPRETATION_MARKERS = {
 EMPIRICAL_DESIGN_MARKERS = {
     "variation", "identification", "instrument", "exogenous", "random", "treatment",
     "control", "difference-in-differences", "diff-in-diff", "event study", "fixed effect",
-    "robustness", "sensitivity", "placebo",
+    "robustness", "sensitivity", "placebo", "measurement error", "balance",
+    "randomly assign", "randomly assigned", "potential outcome", "treatment contrast",
+    "empirical framework", "follow-up experiment", "heterogeneous treatment",
+    "spillover", "spillovers", "customer sorting",
 }
 FORMAL_WORD_SUPPORTS = {
     "near-optimal": {"regret", "bound", "rate", "lower bound", "oracle", "benchmark", "approximation"},
@@ -189,7 +203,10 @@ METRICS = {
     "price", "demand", "sales", "market share", "match rate", "utilization",
     "objective value", "optimality gap", "approximation ratio", "bound", "rate",
     "estimate", "magnitude", "effect size", "connections", "access", "coverage",
-    "exposure", "engagement", "retention",
+    "exposure", "engagement", "retention", "calibration", "net confidence",
+    "belief", "beliefs", "accuracy", "skill", "scan speed", "customer flow",
+    "presence probability", "detection probability", "protection effort",
+    "survey effort",
 }
 STRONG_COMPARISON_TERMS = {
     "outperform", "outperforms", "outperformed", "outperforming",

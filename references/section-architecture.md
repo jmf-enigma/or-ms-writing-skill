@@ -17,6 +17,12 @@ Use these as evidence that structure is conditional, not as formats to copy.
 - An Operations Research applied dynamic-programming paper can keep literature review inside the introduction, then move to system model, Lagrangian relaxation, optimality conditions and price models, unit models, policies, and computational study. Proofs and implementation details can go to an electronic companion after the body states theorem meaning and benchmark value.
 - A Management Science structural or estimation paper often puts setting and data before identification, then model, estimation, validation, counterfactuals, and managerial interpretation. The model is not merely theory; it is the measurement and counterfactual device.
 - A theory paper may be shorter and spare: base model, benchmark, characterization, comparative statics or regimes, extensions, and conclusion. It does not need an empirical-style data or robustness architecture.
+- A Management Science AI experiment can use `Ability, Beliefs, and Calibration`, `Measures`, `Empirical Framework`, `Measurement Challenges`, `Experimental Design`, `Results`, and `Conclusion`. This is not loose structure: the construct and measurement sections are what make the treatment effects interpretable.
+- A Management Science platform or strategy field experiment can use `Conceptual Motivation`, `Experimental Design and Data`, demand-effect or mechanism sections, placebo tests, heterogeneity, spillovers, and discussion. The conceptual section names the alternative channels before the design chooses among them.
+- A Management Science automation field-evidence paper can move from a classic theory to a short model, then to field implementation, empirical strategy, results, alternative mechanisms, and validation. The model section fixes the mechanism the field evidence tests.
+- A Management Science bargaining or information-acquisition theory paper can use `Base Model`, `Optimal Information Gathering`, `Stochastic Cost`, `Dual Case`, `Extensions`, and `Discussion`. Section names follow the economic variant, not a generic result list.
+- An Operations Research stochastic-control or applied DP paper can use `Problem Description`, Lagrangian relaxation, price models, policies, numerical experiments, and electronic-companion sections for proofs, pseudocode, and network variants. The body still interprets each theorem before handing verification to the companion.
+- A Management Science conservation or optimal-learning paper can state sufficient statistics and structural theorems in the body while putting all proofs and many numerical illustrations in the online appendix. The theorem paragraph still says what the statistic, threshold, or policy comparison means.
 
 ## Architecture Is Lane-Specific
 
@@ -37,6 +43,8 @@ Common body architecture:
 Typical heading language: `Research Setting`, `Experiment Design`, `Data`, `Measures`, `Results`, `Mechanism`, `Robustness Check`, `Discussion`.
 
 Paragraph rhythm: setting or treatment first, design credibility second, table or figure third, interpretation and mechanism after the estimate. Do not begin a results paragraph with a coefficient if the reader has not been reminded of the outcome and contrast.
+
+Recent AI and human-decision experiments often need construct headings such as `Measures`, `Empirical Framework`, and `Measurement Challenges`. Use them when the reader must understand how ability, belief, confidence, calibration, or performance is measured before the treatment result is meaningful. Do not hide these choices in an appendix if they are what makes the experiment credible.
 
 ### Archival, DID, Or Construct-Measurement Empirical Paper
 
@@ -72,6 +80,8 @@ Typical heading language: `Data`, `Empirical Strategy`, `Identification`, `Model
 
 Paragraph rhythm: the institutional behavior that creates variation appears before the estimating equation. The model section distinguishes observed actions, latent demand or utility, exogenous variation, and the target estimand.
 
+If the paper is about managers using available information, a `Conceptual Motivation` section can be more natural than a generic `Theory` section. It should define the assumed knowledge, the channel the experiment can move, and the alternative explanations the results later revisit.
+
 ### Theory, Mechanism, Or Analytical Model
 
 Common body architecture:
@@ -87,6 +97,8 @@ Common body architecture:
 Typical heading language: `The Model`, `Benchmark`, `Equilibrium Analysis`, `Main Results`, `Extensions`, `General Model`, `Numerical Analysis`.
 
 Paragraph rhythm: define the standard setup and the new feature before notation becomes dense. After each proposition, interpret the region, threshold, or comparison before moving to the next result.
+
+For information, contracting, or bargaining theory, headings can name information regimes or variants: `Base Model`, `Observable Opportunities`, `Concealable Opportunities`, `Stochastic Cost`, `Seller Information Acquisition`, `Joint Information Acquisition`, or `Organizational Implications`. These are often better than `Model 1`, `Model 2`, or `Robustness` because they tell the reader which economic object changed.
 
 ### Theory/Algorithm Or Technical OR Paper
 
@@ -127,7 +139,7 @@ Headings should name the paper object, not the writer's prewriting checklist.
 Prefer:
 
 - `The Model`, `Research Setting`, `Data and Methods`, `Experimental Design`, `Main Results`, `Robustness Tests`, `Alternative Explanations`, `Algorithm`, `Numerical Experiments`, `Discussion and Conclusion`.
-- Descriptive subheadings when they guide interpretation: `Alternative Measurement`, `Customer Acquisition`, `Improving Effectiveness`, `Bounds on the Global Minimal Cost`, `Adding a Routing Node`.
+- Descriptive subheadings when they guide interpretation: `Measures`, `Empirical Framework`, `Measurement Challenges`, `Conceptual Motivation`, `Alternative Measurement`, `Customer Acquisition`, `Improving Effectiveness`, `Observable Opportunities`, `Concealable Opportunities`, `Organizational Implications`, `Bounds on the Global Minimal Cost`, `Adding a Routing Node`.
 
 Avoid:
 
@@ -179,6 +191,8 @@ Bad uses:
 - `Motivation`, `Intuition`, `Discussion`, `Takeaway`, or `Interesting Result` as tiny headings.
 - One-paragraph subsubsections that would read better as topic sentences.
 - Symmetric heading stacks that make all material appear equally important when only one result is central.
+
+Use subsubsections for parallel empirical jobs only when a reviewer will search for them independently: `Nonparametric Results`, `Main Parametric Results`, `Placebo Test`, `Heterogeneity`, `Spillovers`, or `Alternative Mechanisms`. If the content is a single interpretive paragraph after a table, keep it unheaded.
 
 ### Heading Names
 
@@ -258,6 +272,8 @@ Result sections are organized by the evidence job, not by the order in which the
 - Empirical experiment: main treatment effects, mechanism, heterogeneity, robustness.
 - Archival/DID: main estimate, measurement validation if not earlier, robustness, alternative explanations, supplementary analyses.
 - Theory: theorem or proposition, interpretation, proof idea when needed, comparative statics, extensions.
+- Hybrid theory-field paper: model or conceptual mechanism, implementation, main field effect, mechanism evidence, alternative explanations, and external or survey validation.
+- Applied OR paper: policy or relaxation result, algorithm or implementable rule, benchmark comparison, computational scale, sensitivity, and implementation details.
 - Algorithm: structural result, algorithm, guarantee, computation, benchmark comparison.
 - Applied OR: primary operational comparison, scalability or feasibility, sensitivity, benchmark or perfect-information bound.
 

@@ -12,6 +12,8 @@ MODEL_SETUP = {
     "model", "primitive", "state", "action", "decision", "timing",
     "information", "objective", "constraint", "feasible", "benchmark",
     "assumption", "definition", "solution concept", "estimand",
+    "construct", "measure", "measurement", "potential outcome",
+    "treatment contrast", "estimating equation", "empirical framework",
 }
 RESULT = {
     "theorem", "proposition", "corollary", "lemma", "result",
@@ -38,6 +40,9 @@ APPENDIX_DETAIL = {
     "variance calculation", "calibration", "parameter grid", "data dictionary",
     "closed form", "closed-form", "notation table", "online appendix", "appendix",
     "e-companion", "implementation detail", "hyperparameter", "runtime",
+    "variable construction", "balance check", "balance checks", "placebo",
+    "placebo test", "alternative specification", "alternative specifications",
+    "robustness table", "robustness tables", "repeated boundary cases",
 }
 INTERPRETATION = {
     "means", "implies", "intuition", "interpretation", "managerial",
@@ -177,6 +182,13 @@ def classify(note: str) -> tuple[str, str, str]:
     )
 
 
+def has_appendix_hint(note: str, role: str) -> bool:
+    lower = note.lower()
+    return role in {"Verification detail", "Derivation checkpoint", "Proof idea", "Validity support"} or (
+        "appendix" in lower and has_any(lower, APPENDIX_DETAIL | PROOF_IDEA | VALIDITY | CENTRAL_DERIVATION)
+    )
+
+
 def read_notes(args: argparse.Namespace) -> list[str]:
     raw = list(args.item or [])
     if not sys.stdin.isatty():
@@ -234,7 +246,7 @@ def main() -> int:
     print("- Keep theorem/proposition captions short; put the meaning in the prose before and after the statement.")
 
     print("\nAppendix modules")
-    appendix_items = [note for note, role, _, _ in rows if role in {"Verification detail", "Derivation checkpoint", "Proof idea", "Validity support"}]
+    appendix_items = [note for note, role, _, _ in rows if has_appendix_hint(note, role)]
     if appendix_items:
         for note in appendix_items:
             print(f"- Verify or expand: {note}")
