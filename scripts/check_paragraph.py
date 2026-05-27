@@ -442,6 +442,23 @@ ABSTRACT_NOUNS = {
     "implication", "implications", "contribution", "contributions",
     "approach", "perspective", "paradigm", "lens", "narrative",
 }
+NOUN_PILE_HEADS = {
+    "analysis", "approach", "design", "framework", "implication", "implications",
+    "mechanism", "model", "optimization", "policy", "process", "strategy",
+    "structure", "system",
+}
+WEAK_SUBJECT_PATTERNS = {
+    r"there (?:is|are|exists|exist)\b": "empty `there` opener; name the actor, object, theorem, estimate, or mechanism that exists or changes.",
+    r"it is (?:important|necessary|worth noting|clear|obvious|shown|found|seen)\b": "empty `it is` opener; make the result, condition, estimate, model, or proof step the subject.",
+    r"this paper (?:aims to|seeks to|attempts to|tries to|provides|offers|contributes)\b": "`this paper` opener is weak here; use `we study`, `we estimate`, `we characterize`, or name the decision/model directly.",
+    r"this study (?:aims to|seeks to|attempts to|tries to|provides|offers|contributes)\b": "`this study` opener is weak here; make the empirical design, setting, or result the subject.",
+    r"the (?:analysis|framework|approach) (?:provides|offers|enables|allows|highlights|underscores)\b": "abstract subject with a weak verb; name the policy, model, estimator, theorem, or metric that does the work.",
+}
+PREPOSITION_CHAIN_TERMS = {
+    "of", "for", "in", "with", "by", "under", "through", "between", "among",
+    "from", "to", "on", "over",
+}
+NOMINALIZATION_SUFFIXES = ("tion", "sion", "ment", "ity", "ance", "ence", "ship", "ness")
 
 HEAVY_RELATION_WORDS = {
     "whereas", "relative to", "compared with", "without", "consistent with",
@@ -578,6 +595,69 @@ def weak_this_sentences(text: str) -> list[str]:
             if not previous or not contains_term(previous, precise_antecedents):
                 hits.append(match.group(1).lower())
     return hits
+
+
+def weak_subject_warnings(text: str) -> list[str]:
+    warnings = []
+    sentences = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence.strip()]
+    for sentence in sentences:
+        lower = sentence.lower()
+        for pattern, advice in WEAK_SUBJECT_PATTERNS.items():
+            if re.match(pattern, lower):
+                warnings.append(advice)
+                break
+    return sorted(set(warnings))
+
+
+def preposition_chain_warnings(text: str) -> list[str]:
+    warnings = []
+    sentences = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence.strip()]
+    for sentence in sentences:
+        words = re.findall(r"\b[A-Za-z][A-Za-z-]*\b", sentence.lower())
+        if len(words) < 24:
+            continue
+        prep_count = sum(1 for word in words if word in PREPOSITION_CHAIN_TERMS)
+        of_count = sum(1 for word in words if word == "of")
+        if prep_count >= 6 or of_count >= 3:
+            warnings.append(
+                "preposition chain: a long sentence carries too many `of/for/in/with/by/under` phrases. Turn one phrase into the subject or main verb."
+            )
+            break
+    return warnings
+
+
+def noun_pile_warnings(text: str) -> list[str]:
+    lower = text.lower()
+    warnings = []
+    head_pattern = "|".join(sorted(re.escape(head) for head in NOUN_PILE_HEADS))
+    pile_pattern = re.compile(
+        rf"\b(?:[a-z][a-z-]{{2,}}\s+){{3,}}(?:{head_pattern})\b",
+        flags=re.I,
+    )
+    hits = sorted(set(match.group(0) for match in pile_pattern.finditer(lower)))
+    if hits:
+        warnings.append(
+            "noun pile detected: "
+            + ", ".join(f"`{hit}`" for hit in hits[:3])
+            + ". Rewrite as actor + verb + object, then add the condition or benchmark."
+        )
+    sentences = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence.strip()]
+    for sentence in sentences:
+        words = re.findall(r"\b[A-Za-z][A-Za-z-]*\b", sentence.lower())
+        if len(words) < 24:
+            continue
+        nominalizations = [
+            word for word in words
+            if word in ABSTRACT_NOUNS or (len(word) > 6 and word.endswith(NOMINALIZATION_SUFFIXES))
+        ]
+        if len(nominalizations) >= 5:
+            warnings.append(
+                "nominalization density: "
+                + ", ".join(f"`{word}`" for word in sorted(set(nominalizations))[:6])
+                + ". Convert at least one abstraction into a subject or verb."
+            )
+            break
+    return warnings
 
 
 def template_residue_warnings(text: str, section: str) -> list[str]:
@@ -1143,6 +1223,14 @@ def main() -> int:
         verbs = ", ".join(sorted(set(this_hits)))
         print(f"- weak `This` opener: `{verbs}`. Name the actor, mechanism, or result instead.")
 
+    sentence_craft_scent = (
+        weak_subject_warnings(text)
+        + noun_pile_warnings(text)
+        + preposition_chain_warnings(text)
+    )
+    for warning in sentence_craft_scent:
+        print(f"- sentence craft: {warning}")
+
     for warning in model_narration_warnings(text, args.section):
         print(f"- MS model/data narration: {warning}")
 
@@ -1207,7 +1295,17 @@ def main() -> int:
     else:
         print("- sentence length: ok")
 
-    if args.fail_on_ai_scent and (punctuation or llm_scent or roadmap_scent or weak_relative_scent or template_scent or placeholder_scent or catalog_scent or this_hits):
+    if args.fail_on_ai_scent and (
+        punctuation
+        or llm_scent
+        or roadmap_scent
+        or weak_relative_scent
+        or template_scent
+        or placeholder_scent
+        or catalog_scent
+        or this_hits
+        or sentence_craft_scent
+    ):
         return 2
 
     return 0

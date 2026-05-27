@@ -110,18 +110,18 @@ BLUEPRINTS = {
 }
 
 REFS = {
-    "abstract": ["msor-manuscript-judgment.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "abstract": ["msor-manuscript-judgment.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
     "manuscript": ["msor-manuscript-judgment.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md", "main-text-appendix-placement.md"],
-    "introduction": ["msor-manuscript-judgment.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
-    "related": ["section-architecture.md", "paragraph-style.md", "citation-tools when exact citations matter"],
-    "model": ["msor-natural-prose.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
-    "results": ["msor-manuscript-judgment.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
-    "proof": ["msor-natural-prose.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "math-and-proof-style.md", "math-proof-writing for complete proofs", "theory-proof-workbench for missing proofs"],
+    "introduction": ["msor-manuscript-judgment.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
+    "related": ["msor-sentence-craft.md", "section-architecture.md", "paragraph-style.md", "citation-tools when exact citations matter"],
+    "model": ["msor-sentence-craft.md", "msor-natural-prose.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
+    "results": ["msor-manuscript-judgment.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
+    "proof": ["msor-sentence-craft.md", "msor-natural-prose.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "math-and-proof-style.md", "math-proof-writing for complete proofs", "theory-proof-workbench for missing proofs"],
     "placement": ["main-text-appendix-placement.md", "paper-appendix-paired-patterns.md", "math-model-main-appendix-craft.md", "reviewer-calibration.md"],
     "headings": ["section-architecture.md", "management-science-whole-paper-storycraft.md", "msor-paper-craft.md"],
-    "managerial": ["msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-language-rhythm.md", "msor-paper-craft.md", "storytelling-language.md"],
-    "discussion": ["msor-natural-prose.md", "paragraph-style.md", "storytelling-language.md"],
-    "conclusion": ["msor-natural-prose.md", "paragraph-style.md", "storytelling-language.md"],
+    "managerial": ["msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-language-rhythm.md", "msor-paper-craft.md", "storytelling-language.md"],
+    "discussion": ["msor-sentence-craft.md", "msor-natural-prose.md", "paragraph-style.md", "storytelling-language.md"],
+    "conclusion": ["msor-sentence-craft.md", "msor-natural-prose.md", "paragraph-style.md", "storytelling-language.md"],
 }
 
 TOPIC_LENSES = {
@@ -305,7 +305,7 @@ def main() -> int:
     print("\nOR/MS spine:")
     print(textwrap.fill("Use as an internal diagnostic, not a sentence template: central object, spine result, credibility support, benchmark, mechanism, validity condition, and decision consequence. Include only the pieces the section needs.", width=88))
     print("\nNaturalness rule:")
-    print(textwrap.fill("Do not force every diagnostic item into one sentence or paragraph. Use ordinary setup-result and result-interpretation pairs, split overloaded sentences before polishing, and rebuild translated-English order around the paper's local nouns and verbs.", width=88))
+    print(textwrap.fill("Do not force every diagnostic item into one sentence or paragraph. Use ordinary setup-result and result-interpretation pairs, split overloaded sentences before polishing, keep the subject close to the verb, and rebuild translated-English order around the paper's local subject, verb, object, condition, and benchmark.", width=88))
     print("\nEvidence preservation rule:")
     print(textwrap.fill("Do not strengthen the evidence while improving the prose. Keep the evidence type, comparator, metric, magnitude, policy class, and validity condition no stronger than the user's material supports.", width=88))
     print("\nArgument-evidence-boundary rule:")

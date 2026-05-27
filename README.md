@@ -6,7 +6,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 ## About
 
-`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes manuscript-spine judgment, readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
+`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes sentence-level English craft, manuscript-spine judgment, readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
 
 ## English
 
@@ -15,6 +15,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 `or-ms-writing` helps Codex write like a careful OR/MS researcher rather than a generic academic assistant. It focuses on:
 
 - precise claim, evidence, and boundary control;
+- sentence craft: local subjects, exact verbs, concrete objects, controlled relation words, clean stress positions, and translated-English repair;
 - manuscript-level judgment: central object, spine result, result hierarchy, credibility path, model necessity, and reviewer objections;
 - Management Science and OR/MS style without imitating any living author's personal voice;
 - natural paragraph flow, read-aloud smoothness, micro-level wording, sentence hinges, verb-object choices, and relation words such as `when`, `whereas`, `relative to`, `without`, and `consistent with`;
@@ -53,7 +54,7 @@ The skill is built around a few nonnegotiable writing principles:
 - Elegant OR/MS storytelling comes from a real reader turn: old belief to missing friction, current objective to unintended consequence, method default to decision mismatch, benchmark to result, or result to boundary.
 - The main text must let a reviewer understand and trust the contribution without opening the appendix, and appendix pointers should first say what the appendix verifies, preserves, or changes.
 - References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
-- When prose sounds stiff, the skill now prioritizes ordinary subject-verb movement and one-step paragraph progression before adding more OR/MS markers.
+- When prose sounds stiff, the skill now prioritizes sentence craft: ordinary subject-verb-object movement, fewer noun piles, shorter preposition chains, and one-step paragraph progression before adding more OR/MS markers.
 
 ### Installation
 
@@ -135,7 +136,7 @@ MIT License. See [LICENSE](LICENSE).
 
 `or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
 
-最新版本把“文章判断”和“自然顺畅”放在更前面：先判断 central object、spine result、result hierarchy、model necessity 和 reviewer objection，再考虑 micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
+最新版本把“句子英文”和“自然顺畅”放得更靠前：先让每句话有清楚的 subject、verb、object、condition、benchmark 和 emphasis，再考虑 paper spine、micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
 
 它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、判断正文小标题、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
 
@@ -150,6 +151,7 @@ MIT License. See [LICENSE](LICENSE).
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
+- 句子级英文修复：弱主语、抽象名词堆、介词链、中文直译、relation words 滥用、proof idea 句子过硬；
 - 段落读起来顺不顺、像不像研究者在自然解释一个问题，而不是把诊断标签硬塞进一句话；
 - 检查和修掉 `[policy]` 这类未替换 placeholder、slash-list planning residue、以及 stock theorem-usefulness 这类机械句；
 - 很细的 expression 和 sentence move，比如 `when` 写 regime、`relative to` 写 benchmark、`without reducing` 写 tradeoff、`consistent with` 写机制证据；
@@ -163,6 +165,7 @@ MIT License. See [LICENSE](LICENSE).
 - 一个大 claim 附近必须有 evidence。
 - 一个强 claim 附近必须有 boundary。
 - 一篇强文章必须有 spine：读者应记住的 central object，以及真正改变信念的 result。
+- 一句强英文要先有清楚的 subject、verb、object；不要用 abstract noun pile 和空泛主语去遮住真正的 actor、policy、model、estimate 或 proof move。
 - 不是所有 result 都应该同等展开；正文要围绕 spine result 组织，附录负责验证、重复检查和二级扩展。
 - 语言可以更地道，但结论不能被偷偷加强。
 - model 要先让读者知道谁在什么信息下做什么决定，再进入符号。

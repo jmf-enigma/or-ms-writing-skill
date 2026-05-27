@@ -1,6 +1,6 @@
 # OR/MS Natural Prose
 
-Use this when the draft is technically correct but sounds stiff, assembled, translated, or difficult to read. The goal is not to make the prose casual. It is to make it sound like a careful researcher explaining the paper to another researcher.
+Use this when the draft is technically correct but sounds stiff, assembled, translated, or difficult to read. The goal is not to make the prose casual. It is to make it sound like a careful researcher explaining the paper to another researcher. If the sentence itself is malformed, noun-heavy, or translated word by word, use `msor-sentence-craft.md` before using this paragraph-flow reference.
 
 Do not copy source wording. Transfer the movement of the paragraphs: what the sentence takes as known, what it adds, and why the next sentence follows.
 

@@ -1,6 +1,6 @@
 ---
 name: or-ms-writing
-description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when the task requires manuscript-level judgment: choosing the paper spine, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, sentence-level rewrites, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
+description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when the task requires sentence craft or manuscript-level judgment: choosing sentence subjects, verbs, objects, relation words, paper spine, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, sentence-level rewrites, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
 ---
 
 # OR/MS Paper Writing
@@ -30,6 +30,8 @@ For full papers, introductions, abstracts, result sections, or any request that 
 
 If the user's complaint is that the prose sounds weird, stiff, hard to read, or unlike something a human researcher would say, prioritize natural flow before adding more field markers. Use original-paper paragraph movement, ordinary subjects and verbs, and one-step sentence progression.
 
+If the user's complaint is mainly about language, run a sentence-craft pass before any manuscript-spine expansion. For each sentence, choose the local subject, verb, object, condition, benchmark, and stress position; then rebuild the English sentence around that spine. Do not repair awkward language by adding heavier academic vocabulary.
+
 ## Writing Kernel
 
 Use this kernel by default, but keep it invisible in the final prose.
@@ -41,6 +43,8 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Use exact evidence verbs: `characterize` for policy forms or equilibrium regions, `establish` for theorems and guarantees, `bound` for approximation or regret, `estimate` for empirical designs, `identify` only when the design or model supports identification, and `validate` for numerical, empirical, or out-of-sample evidence.
 - Keep formal adjectives attached to an object and a condition. Terms such as `optimal`, `robust`, `tractable`, `adaptive`, `finite-sample`, `data-driven`, and `near-optimal` need a benchmark, metric, policy class, or assumption nearby.
 - Put old or contextual information before new information. Keep the grammatical subject close to the verb. Prefer two clean sentences to one sentence that carries setting, gap, model, result, mechanism, and implication.
+- Build each sentence around a working subject, verb, and object before adding qualifiers. A sentence that starts from `the analysis`, `the framework`, `the result`, or `this paper` often needs a more local subject: manager, platform, estimator, theorem, policy, queue, signal, treatment, benchmark, or proof.
+- Avoid noun piles and preposition chains. Replace phrases such as "platform information disclosure strategy optimization framework" with the actual action: who discloses what, to whom, with what consequence, and under what condition.
 - Keep punctuation quiet in polished prose. Do not use colons as a default way to announce claims, contributions, implications, proof ideas, or takeaways. Turn `The implication is: ...` and `Key result: ...` into ordinary sentences with a subject, verb, object, condition, and benchmark. Preserve colons only when they serve formal notation, definitions, assumptions, proof labels, tables, or venue-required structure.
 - Avoid itinerary prose. Do not default to `we first...`, `we then...`, `finally...`, or perfectly parallel contribution sentences unless the section is explicitly a roadmap. In polished prose, let the order follow the research objects: setting, friction, method, result, mechanism, boundary, or benchmark.
 - Make the story elegant by giving the reader a turn, not by adding flourish. A good MS paragraph often moves from an existing practice, belief, model, or benchmark to the friction that changes the question, then to the method or result that resolves that friction. Use quiet hinges such as `but`, `whereas`, `when`, `because`, `relative to`, `rather than`, and `consistent with` only when they express a real relation.
@@ -112,17 +116,18 @@ Decide placement by reader job, not by length alone.
 
 Load the smallest bundle that can solve the request. One bundle is the default; add another only when the task crosses language, story, math/proof, placement, or reviewer-calibration boundaries.
 
-When the problem is simply "this sounds strange," load `msor-natural-prose.md` first and resist loading more than one additional reference. Too many references can pull the draft back toward checklist prose.
+When the problem is simply "this sounds strange," load `msor-sentence-craft.md` first, then `msor-natural-prose.md` only if paragraph flow is also the problem. Too many references can pull the draft back toward checklist prose.
 
-- **Natural wording and micro-phrasing**: `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
+- **Sentence craft and translated-English repair**: `references/msor-sentence-craft.md` + `references/msor-natural-prose.md`.
+- **Natural wording and micro-phrasing**: `references/msor-sentence-craft.md` + `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
 - **Manuscript judgment and paper spine**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
 - **Whole-section story**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
-- **Model, theorem, equation, proof**: `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md`.
+- **Model, theorem, equation, proof**: `references/msor-sentence-craft.md` + `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md`.
 - **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
 - **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
 - **Paper-lane flavor**: `references/management-science-20x-lane-style.md` or `references/article-corpus-style-notes.md` only for difficult lane matching, complete sections, or requests to make a passage feel closer to recent MS/OR papers without copying personal style.
 - **General story or unfamiliar topics**: `references/general-topic-story-engine.md`, `references/storytelling-language.md`, and `references/paragraph-style.md`.
-- **Detailed corpus/style archives**: `references/msor-natural-prose.md`, `references/msor-micro-phrasing.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, micro-wording, readability, or AI-scent repair.
+- **Detailed corpus/style archives**: `references/msor-sentence-craft.md`, `references/msor-natural-prose.md`, `references/msor-micro-phrasing.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, micro-wording, readability, or AI-scent repair.
 - **Xiao Lei / digital platform / pricing / social operations flavor**: `references/xiao-lei-patterns.md` plus a topic/story or language bundle, while avoiding personal-style imitation.
 
 ## Script Use
@@ -149,9 +154,10 @@ Run `plan_manuscript.py` when the user gives multiple results, data facts, model
 6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
 7. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
 8. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
-9. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
-10. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
-11. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
+9. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
+10. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
+11. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
+12. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
 
 ## If The Draft Feels Weird
 
@@ -164,6 +170,8 @@ Repair by simplifying the operating logic, not by adding more genre markers.
 - If it starts with `This enables`, `This allows`, or a `which allows` clause, name the mechanism, theorem, design, or data object that does the work.
 - If it becomes dry after removing AI-scent, do not add polish words. Add a precise turn: old belief versus new friction, benchmark versus result, mechanism versus alternative mechanism, or condition versus boundary.
 - If it is hard to read, split before polishing. A smooth paragraph often needs three ordinary sentences where a draft tried to write one impressive sentence.
+- If the sentence has a noun pile, turn one noun into the subject and another into the verb. Do not polish "decision-making framework" when the paper can say who chooses what.
+- If a sentence has many `of`, `for`, `in`, `with`, or `under` phrases before the verb, move the decision maker, policy, theorem, estimator, or metric to the front.
 - If it sounds like a grant pitch, replace praise with the decision, metric, theorem, estimate, mechanism, or condition.
 - If it sounds translated, rebuild the sentence around the English subject and verb rather than polishing word by word.
 - If the proof idea sounds stylized, replace metaphor and suspense with the constructed object, hard term, and proof move.
@@ -185,6 +193,7 @@ Before finalizing, check only what the requested unit needs:
 - Headings, subheadings, and paragraph order match the paper lane and the reader's persuasion path, not a generic MS/OR outline.
 - Body/appendix placement lets a reviewer understand and evaluate the contribution without opening the appendix, while leaving routine verification out of the body.
 - The language is concrete, calm, and insertable. It does not expose scaffolding, overuse colon-led roadmaps, semicolon chains, dash pivots, AI-associated filler, or perfectly symmetric list rhythm.
+- Sentences have local subjects and working verbs. They avoid abstract-noun stacks, long preposition chains, weak `This` openings, and relation words that do not name a real condition, benchmark, mechanism, or boundary.
 - The paragraph can be read aloud without sounding like a template. Each sentence inherits one object from the prior sentence and adds one new object, relation, or caveat.
 
 ## Default Style
