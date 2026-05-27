@@ -322,6 +322,36 @@ TRANSLATION_DRIFT_PHRASES = {
     "the results tell a story": "state the result, comparator, metric, and condition directly.",
 }
 
+ODD_COLLOCATIONS = {
+    "managerial enlightenment": "Use `managerial implications` only if needed, and preferably name the action and condition directly.",
+    "management enlightenment": "Use `managerial implications` only if needed, and preferably name the action and condition directly.",
+    "optimize decision-making": "Name the decision and metric: choose a policy, set a price, reduce waiting time, improve profit, etc.",
+    "optimize decision making": "Name the decision and metric: choose a policy, set a price, reduce waiting time, improve profit, etc.",
+    "optimize the strategy": "Use `choose/design a policy`, `set a price`, `select an assortment`, or name the actual control.",
+    "strategy optimization": "Use `policy choice`, `pricing decision`, `assortment choice`, `allocation rule`, or the actual control.",
+    "has important influence on": "Use `affects`, `changes`, `shifts`, `alters`, or `is associated with`, depending on evidence.",
+    "has a significant influence on": "Use `affects` or state the estimated effect; specify statistical or economic significance if needed.",
+    "provide theoretical basis": "Name the theorem, condition, benchmark, or guarantee the paper actually provides.",
+    "provides theoretical basis": "Name the theorem, condition, benchmark, or guarantee the paper actually provides.",
+    "put forward a model": "Use `develop a model`, `study a model`, or name what the model captures.",
+    "puts forward a model": "Use `develops a model`, `studies a model`, or name what the model captures.",
+    "conduct research on": "Use `study`, `examine`, `estimate`, `model`, or `characterize` with a concrete object.",
+    "carry out research on": "Use `study`, `examine`, `estimate`, `model`, or `characterize` with a concrete object.",
+    "good performance": "Name the metric, benchmark, rate, guarantee, or field comparison.",
+    "robustness proves": "Robustness checks support or preserve an interpretation; they rarely `prove` it.",
+    "proves the validity": "Use `supports`, `preserves`, or name the validity threat ruled out.",
+}
+
+ODD_PREPOSITION_PATTERNS = {
+    r"\beffect to\b": "Use `effect on` an outcome or behavior.",
+    r"\bimpact to\b": "Use `impact on` an outcome or behavior, or simply `affects`.",
+    r"\brobust for\b": "Use `robust to` a specification, perturbation, or assumption change.",
+    r"\bsensitive for\b": "Use `sensitive to` a parameter, assumption, or data choice.",
+    r"\bcompare to the benchmark\b": "Use `compare with` or `relative to` when making an analytical benchmark comparison.",
+    r"\bimprove .* than\b": "Use `improve relative to` or `perform better than`, with a named metric.",
+    r"\bbased on the above\b": "State the result or implication directly instead of referring to `the above`.",
+}
+
 EMPTY_ING = {
     "ensuring",
     "showcasing",
@@ -847,6 +877,25 @@ def translation_drift_warnings(text: str) -> list[str]:
     ]
 
 
+def word_choice_warnings(text: str) -> list[str]:
+    lower = text.lower()
+    warnings = [
+        f"`{phrase}` is an odd collocation; {advice}"
+        for phrase, advice in ODD_COLLOCATIONS.items()
+        if phrase in lower
+    ]
+    for pattern, advice in ODD_PREPOSITION_PATTERNS.items():
+        if re.search(pattern, lower):
+            warnings.append(f"preposition/collocation issue: {advice}")
+    if "leverage data" in lower or "leverages data" in lower or "leveraging data" in lower:
+        warnings.append("`leverage data` is vague; say what the data record, reveal, identify, or make comparable.")
+    if "provide insights" in lower or "provides insights" in lower:
+        warnings.append("`provide insights` is vague; name the result, condition, metric, policy, theorem, or estimate.")
+    if "practical significance" in lower:
+        warnings.append("`practical significance` sounds translated; name the decision, metric, action, or operating condition.")
+    return warnings
+
+
 def overloaded_sentence_warnings(text: str) -> list[str]:
     sentences = re.split(r"(?<=[.!?])\s+", text.strip())
     categories = [
@@ -1195,6 +1244,10 @@ def main() -> int:
     for warning in translation_drift_warnings(text):
         print(f"- translated-English drift: {warning}")
 
+    word_choice_scent = word_choice_warnings(text)
+    for warning in word_choice_scent:
+        print(f"- word choice: {warning}")
+
     for warning in overloaded_sentence_warnings(text):
         print(f"- naturalness: {warning}")
 
@@ -1305,6 +1358,7 @@ def main() -> int:
         or catalog_scent
         or this_hits
         or sentence_craft_scent
+        or word_choice_scent
     ):
         return 2
 

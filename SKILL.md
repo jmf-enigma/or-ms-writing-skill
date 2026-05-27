@@ -1,6 +1,6 @@
 ---
 name: or-ms-writing
-description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when the task requires sentence craft or manuscript-level judgment: choosing sentence subjects, verbs, objects, relation words, paper spine, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, sentence-level rewrites, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
+description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when wording and collocations sound nonnative; supports sentence craft, word choice, verb-object fit, relation words, paper spine, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
 ---
 
 # OR/MS Paper Writing
@@ -28,7 +28,7 @@ Treat every reference, script, and blueprint as a reader test, not a template. D
 
 Use this priority order to avoid doing too much:
 
-- **Language-only requests**: If the user says the prose is weird, stiff, translated, AI-like, hard to read, or not native, run sentence craft first and do not expand the paper architecture unless the argument itself is unclear.
+- **Language-only requests**: If the user says the prose is weird, stiff, translated, AI-like, hard to read, not native, or the wording sounds off, run word-choice and sentence-craft passes first and do not expand the paper architecture unless the argument itself is unclear.
 - **Paragraph or section requests**: Decide the paragraph job or section reader job, then draft in that register. Sentence craft happens after the local argument is clear.
 - **Full paper, abstract, introduction, result package, or multiple data/model/result items**: run a manuscript-spine pass first: central object, spine result, support needed for first-pass trust, boundary, and what should move to appendix or disappear.
 - **Model, theorem, equation, or proof requests**: decide body depth and appendix placement before polishing the language.
@@ -45,6 +45,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Make the paper's source of credibility visible before leaning on the claim: experiment, institutional variation, theorem, identification argument, equilibrium characterization, approximation guarantee, construct validation, simulation benchmark, or robustness logic.
 - Make decisions, mechanisms, and formal objects concrete. Prefer "the platform chooses disclosure precision" to "disclosure precision is considered."
 - Use exact evidence verbs: `characterize` for policy forms or equilibrium regions, `establish` for theorems and guarantees, `bound` for approximation or regret, `estimate` for empirical designs, `identify` only when the design or model supports identification, and `validate` for numerical, empirical, or out-of-sample evidence.
+- Choose collocations, not dictionary synonyms. In OR/MS prose, a policy `improves` a metric, a theorem `establishes` a bound, an estimator `recovers` a latent object, data `record` behavior or `identify` variation, and a robustness check `preserves` sign and magnitude.
 - Keep formal adjectives attached to an object and a condition. Terms such as `optimal`, `robust`, `tractable`, `adaptive`, `finite-sample`, `data-driven`, and `near-optimal` need a benchmark, metric, policy class, or assumption nearby.
 - Put old or contextual information before new information. Keep the grammatical subject close to the verb. Prefer two clean sentences to one sentence that carries setting, gap, model, result, mechanism, and implication.
 - Build each sentence around a working subject, verb, and object before adding qualifiers. A sentence that starts from `the analysis`, `the framework`, `the result`, or `this paper` often needs a more local subject: manager, platform, estimator, theorem, policy, queue, signal, treatment, benchmark, or proof.
@@ -57,7 +58,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Let the prose sound like a researcher explaining the result to a careful coauthor. Use `we` naturally, keep the subject close to the verb, and allow plain links such as `because`, `so`, and `this means` when they state the relation more clearly than heavier academic phrasing.
 - For translated-English drafts, rebuild the English logic: decision or object, friction, method or formal move, evidence, condition, implication.
 - Let the story come from exact nouns and relations, not from story-like language. Avoid empty phrases such as "important implications," "novel framework," "rapidly evolving landscape," "underscores," "delve," and slogan-like final sentences.
-- Preserve useful plain words. `Study`, `show`, `use`, `choose`, `price`, `bound`, and `compare` are often better than ornate substitutes.
+- Preserve useful plain words. `Study`, `show`, `use`, `choose`, `price`, `bound`, and `compare` are often better than ornate substitutes. Do not write `utilize`, `facilitate`, `illuminate`, `showcase`, or `optimize decision-making` when the paper can name the decision, metric, policy, estimate, theorem, or benchmark.
 
 ## Reviewer Calibration
 
@@ -122,18 +123,18 @@ Load the smallest bundle that can solve the request. One bundle is the default; 
 
 For mixed or ambiguous requests, use `triage_request.py` first and then load only the first one or two bundles it recommends.
 
-When the problem is simply "this sounds strange," load `msor-sentence-craft.md` first, then `msor-natural-prose.md` only if paragraph flow is also the problem. Too many references can pull the draft back toward checklist prose.
+When the problem is simply "this sounds strange" or "the wording is not native," load `msor-word-choice-collocations.md` and `msor-sentence-craft.md` first, then `msor-natural-prose.md` only if paragraph flow is also the problem. Too many references can pull the draft back toward checklist prose.
 
-- **Sentence craft and translated-English repair**: `references/msor-sentence-craft.md` + `references/msor-natural-prose.md`.
-- **Natural wording and micro-phrasing**: `references/msor-sentence-craft.md` + `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
+- **Word choice, collocation, and translated-English repair**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/msor-natural-prose.md`.
+- **Natural wording and micro-phrasing**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md`.
 - **Manuscript judgment and paper spine**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
 - **Whole-section story**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
-- **Model, theorem, equation, proof**: `references/msor-sentence-craft.md` + `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md`.
+- **Model, theorem, equation, proof**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md`.
 - **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
 - **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
 - **Paper-lane flavor**: `references/management-science-20x-lane-style.md` or `references/article-corpus-style-notes.md` only for difficult lane matching, complete sections, or requests to make a passage feel closer to recent MS/OR papers without copying personal style.
 - **General story or unfamiliar topics**: `references/general-topic-story-engine.md`, `references/storytelling-language.md`, and `references/paragraph-style.md`.
-- **Detailed corpus/style archives**: `references/msor-sentence-craft.md`, `references/msor-natural-prose.md`, `references/msor-micro-phrasing.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, micro-wording, readability, or AI-scent repair.
+- **Detailed corpus/style archives**: `references/msor-word-choice-collocations.md`, `references/msor-sentence-craft.md`, `references/msor-natural-prose.md`, `references/msor-micro-phrasing.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, micro-wording, readability, or AI-scent repair.
 - **Xiao Lei / digital platform / pricing / social operations flavor**: `references/xiao-lei-patterns.md` plus a topic/story or language bundle, while avoiding personal-style imitation.
 
 ## Script Use
@@ -155,17 +156,18 @@ Run `triage_request.py` when the task could be language, manuscript structure, m
 
 1. Identify the requested unit and write at that granularity.
 2. If the unit or priority is unclear, triage once; otherwise choose one reference bundle only if the task needs it.
-3. For language-only tasks, preserve the argument and repair sentence craft before considering structure.
+3. For language-only tasks, preserve the argument and repair word choice, collocations, and sentence craft before considering structure.
 4. For full sections or manuscripts, choose the central object, spine result, support hierarchy, and evidence lane before choosing headings, subheadings, or paragraph order.
 5. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
 6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
 7. Draft ordinary OR/MS prose. Do not expose prewriting labels.
 8. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
 9. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
-10. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
-11. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
-12. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
-13. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
+10. Run the word-choice pass: check verb-object fit, prepositions, evidence verbs, and translated collocations before reaching for synonyms.
+11. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
+12. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
+13. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
+14. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
 
 ## If The Draft Feels Weird
 
@@ -182,6 +184,7 @@ Repair by simplifying the operating logic, not by adding more genre markers.
 - If a sentence has many `of`, `for`, `in`, `with`, or `under` phrases before the verb, move the decision maker, policy, theorem, estimator, or metric to the front.
 - If it sounds like a grant pitch, replace praise with the decision, metric, theorem, estimate, mechanism, or condition.
 - If it sounds translated, rebuild the sentence around the English subject and verb rather than polishing word by word.
+- If the wording is odd, check collocation before style. Replace `managerial enlightenment`, `optimize strategy`, `has important influence`, `leverage data`, and `provide insights` with the local action, metric, estimate, theorem, or policy.
 - If the proof idea sounds stylized, replace metaphor and suspense with the constructed object, hard term, and proof move.
 - If the model passage is symbol-heavy, add one plain sentence before notation that says who chooses what, with what information, and against what benchmark.
 - If the result paragraph is vague, move the theorem, estimate, simulation comparison, or benchmark closer to the claim.
@@ -201,6 +204,7 @@ Before finalizing, check only what the requested unit needs:
 - Headings, subheadings, and paragraph order match the paper lane and the reader's persuasion path, not a generic MS/OR outline.
 - Body/appendix placement lets a reviewer understand and evaluate the contribution without opening the appendix, while leaving routine verification out of the body.
 - The language is concrete, calm, and insertable. It does not expose scaffolding, overuse colon-led roadmaps, semicolon chains, dash pivots, AI-associated filler, or perfectly symmetric list rhythm.
+- Word choices are idiomatic for the object: effects are `on` outcomes, robustness is `to` specifications, policies improve metrics `relative to` benchmarks, and evidence verbs do not exceed the support.
 - Sentences have local subjects and working verbs. They avoid abstract-noun stacks, long preposition chains, weak `This` openings, and relation words that do not name a real condition, benchmark, mechanism, or boundary.
 - The paragraph can be read aloud without sounding like a template. Each sentence inherits one object from the prior sentence and adds one new object, relation, or caveat.
 

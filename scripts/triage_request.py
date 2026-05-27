@@ -12,8 +12,9 @@ MODE_TERMS = {
     "sentence": {
         "awkward", "stiff", "weird", "strange", "translated", "translation",
         "native", "idiomatic", "wording", "phrase", "sentence", "smooth",
+        "word choice", "collocation", "preposition", "verb-object",
         "ai-like", "ai scent", "colon", "noun pile", "不顺", "奇怪",
-        "地道", "翻译腔", "语言", "用词", "句子", "ai",
+        "地道", "翻译腔", "语言", "用词", "措辞", "搭配", "句子", "ai",
     },
     "paragraph": {
         "paragraph", "flow", "story", "narrative", "transition", "logic",
@@ -44,6 +45,7 @@ MODE_TERMS = {
 
 MODE_REFS = {
     "sentence": [
+        "msor-word-choice-collocations.md",
         "msor-sentence-craft.md",
         "msor-natural-prose.md",
         "msor-micro-phrasing.md",
@@ -62,6 +64,7 @@ MODE_REFS = {
         "main-text-appendix-placement.md",
     ],
     "math": [
+        "msor-word-choice-collocations.md",
         "msor-sentence-craft.md",
         "management-science-model-proof-equation-layout.md",
         "math-model-main-appendix-craft.md",
@@ -88,7 +91,7 @@ MODE_SCRIPTS = {
 }
 
 MODE_RULES = {
-    "sentence": "Repair English before adding structure: subject, verb, object, condition, benchmark, stress position.",
+    "sentence": "Repair English before adding structure: word choice, collocation, subject, verb, object, condition, benchmark.",
     "paragraph": "Make each paragraph do one job and move by reader questions, not by checklist order.",
     "manuscript": "Choose the central object, spine result, support hierarchy, and section architecture before polishing.",
     "math": "Keep the body focused on object, theorem, interpretation, and proof checkpoint; move verification details out.",

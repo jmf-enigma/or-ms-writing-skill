@@ -1,6 +1,6 @@
 # OR/MS Sentence Craft
 
-Use this reference when the user's main complaint is that the English sounds awkward, translated, stiff, too AI-like, or hard to read even after the claim and structure are correct. This file is about sentence construction, not paper architecture.
+Use this reference when the user's main complaint is that the English sounds awkward, translated, stiff, too AI-like, or hard to read even after the claim and structure are correct. This file is about sentence construction, not paper architecture. If the words themselves sound odd or nonnative, use `msor-word-choice-collocations.md` before this file.
 
 The goal is to make each sentence sound like it belongs in an OR/MS paper: plain enough to read, exact enough to trust, and narrow enough that a reviewer can see the object, relation, evidence, and boundary.
 

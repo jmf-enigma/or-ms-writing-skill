@@ -6,7 +6,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 ## About
 
-`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes sentence-level English craft, manuscript-spine judgment, readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
+`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes idiomatic word choice and collocations, sentence-level English craft, manuscript-spine judgment, readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
 
 ## English
 
@@ -16,6 +16,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 
 - precise claim, evidence, and boundary control;
 - task triage: deciding whether the next pass should prioritize sentence craft, paragraph flow, paper spine, mathematical exposition, body/appendix placement, or reviewer calibration;
+- idiomatic word choice: verb-object fit, prepositions, evidence verbs, and OR/MS collocations rather than dictionary synonyms;
 - sentence craft: local subjects, exact verbs, concrete objects, controlled relation words, clean stress positions, and translated-English repair;
 - manuscript-level judgment: central object, spine result, result hierarchy, credibility path, model necessity, and reviewer objections;
 - Management Science and OR/MS style without imitating any living author's personal voice;
@@ -43,6 +44,7 @@ Use this skill for:
 The skill is built around a few nonnegotiable writing principles:
 
 - Do the right pass first: language-only requests should not be inflated into paper redesign, and manuscript-level requests should not be reduced to sentence polishing.
+- Natural prose starts with natural word pairings: a theorem establishes a bound, a policy improves a metric, data record behavior, robustness checks preserve an interpretation, and effects are on outcomes.
 - Every major claim needs nearby evidence and a clear boundary.
 - A strong paper needs a spine: the central object and the result that changes the reader's belief.
 - Results should not receive equal emphasis; distinguish spine result, load-bearing support, mechanism, boundary, robustness, extension, and appendix-only verification.
@@ -142,7 +144,7 @@ MIT License. See [LICENSE](LICENSE).
 
 `or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
 
-最新版本把“句子英文”和“自然顺畅”放得更靠前：先让每句话有清楚的 subject、verb、object、condition、benchmark 和 emphasis，再考虑 paper spine、micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
+最新版本把“用词搭配”和“句子英文”放得更靠前：先看 verb-object fit、preposition、evidence verb、OR/MS collocation，再让每句话有清楚的 subject、verb、object、condition、benchmark 和 emphasis，最后才考虑 paper spine、micro-expression 和 journal flavor。它会尽量避免把诊断标签直接写进成稿。
 
 它也加入了一个前置 triage：先判断当前任务到底是语言问题、段落问题、整篇文章主线问题、数学/证明问题、正文/附录分工问题，还是 reviewer calibration 问题。这样不会把一个简单的句子改写膨胀成整篇 paper redesign，也不会在整篇文章问题上只做表面润色。
 
@@ -160,6 +162,7 @@ MIT License. See [LICENSE](LICENSE).
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
+- 用词和搭配：比如 `effect on`、`robust to`、`relative to a benchmark`、`establish a bound`、`estimate an effect`，以及避开 `managerial enlightenment`、`optimize decision-making`、`provide insights` 这类翻译腔；
 - 句子级英文修复：弱主语、抽象名词堆、介词链、中文直译、relation words 滥用、proof idea 句子过硬；
 - 段落读起来顺不顺、像不像研究者在自然解释一个问题，而不是把诊断标签硬塞进一句话；
 - 检查和修掉 `[policy]` 这类未替换 placeholder、slash-list planning residue、以及 stock theorem-usefulness 这类机械句；
@@ -172,6 +175,7 @@ MIT License. See [LICENSE](LICENSE).
 这个 skill 的核心判断很简单，但执行时很严格:
 
 - 先做正确的 pass：语言任务先修句子，全文任务先定主线，数学任务先定正文/附录深度。
+- 先修自然搭配，再修句子结构；不要把奇怪的词组用更华丽的词包装起来。
 - 一个大 claim 附近必须有 evidence。
 - 一个强 claim 附近必须有 boundary。
 - 一篇强文章必须有 spine：读者应记住的 central object，以及真正改变信念的 result。
