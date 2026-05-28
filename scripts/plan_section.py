@@ -26,6 +26,15 @@ BLUEPRINTS = {
         "Reviewer objections: anticipate the strongest home-field, adjacent-field, and skeptical-editor objections.",
         "Deletion/demotion: mark correct but secondary items that should move to appendix or disappear.",
     ],
+    "story": [
+        "Entry state: what the reader knows before the paragraph or section starts.",
+        "Paragraph jobs: assign one dominant job to each paragraph before editing sentences.",
+        "Within-paragraph order: known object, new relation, evidence or formal object, interpretation, handoff.",
+        "Between-paragraph handoff: make the last sentence prepare the next paragraph's object or question.",
+        "Reader question: each paragraph should answer the question raised by the previous paragraph.",
+        "Lane discipline: empirical, theory, algorithmic, and hybrid papers use different story orders.",
+        "Exit state: what the reader should believe, understand, or be ready to evaluate at the end.",
+    ],
     "introduction": [
         "Entry point: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct.",
         "Contrast object: current practice, canonical model, prior evidence, or literature default when it matters.",
@@ -115,6 +124,7 @@ BLUEPRINTS = {
 REFS = {
     "abstract": ["msor-manuscript-judgment.md", "msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "msor-full-text-close-reading.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
     "manuscript": ["msor-manuscript-judgment.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md", "main-text-appendix-placement.md"],
+    "story": ["management-science-whole-paper-storycraft.md", "paragraph-style.md", "msor-natural-prose.md", "section-architecture.md"],
     "introduction": ["msor-manuscript-judgment.md", "msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "msor-full-text-close-reading.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
     "related": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "section-architecture.md", "paragraph-style.md", "citation-tools when exact citations matter"],
     "model": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-full-text-close-reading.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
@@ -218,6 +228,7 @@ def topic_lens(topic: str) -> str:
 QUALITY = {
     "abstract": "decision, friction, method, result, implication, boundary; avoid jargon before the problem is clear",
     "manuscript": "central object, reader belief shift, spine result, credibility path, result hierarchy, model necessity, reviewer objections, deletion/demotion",
+    "story": "entry state, paragraph job, within-paragraph order, paragraph handoff, reader question, lane-specific sequence, exit state",
     "introduction": "lane-specific entry point, decision or formal object, contrast, friction, credibility support, findings, boundary, contribution; roadmap only if useful",
     "related": "stream, limitation, this paper's difference; no citation dumping",
     "model": "agents, timing, information, actions, primitives, objective, constraints, assumptions, benchmark, solution concept, translated formulation display; for empirical work, construct meaning, measure, treatment contrast, estimand, and coefficient interpretation",
@@ -254,7 +265,7 @@ def has_keyword(text: str, keyword: str) -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--section", required=True, help="abstract, manuscript, introduction, related, model, results, proof, placement, headings, managerial, discussion, conclusion")
+    parser.add_argument("--section", required=True, help="abstract, manuscript, story, introduction, related, model, results, proof, placement, headings, managerial, discussion, conclusion")
     parser.add_argument("--target", default="working paper", help="Management Science, Operations Research, M&SOM, or working paper")
     parser.add_argument("--topic", default="", help="optional paper topic for a topic-specific story lens")
     args = parser.parse_args()
@@ -264,6 +275,8 @@ def main() -> int:
         section = "introduction"
     if section in {"paper", "full paper", "paper spine", "spine", "manuscript spine", "whole paper"}:
         section = "manuscript"
+    if section in {"story logic", "story-order", "story order", "paragraph logic", "paragraph order", "flow", "reader flow", "section flow"}:
+        section = "story"
     if section in {"lit", "literature", "related literature"}:
         section = "related"
     if section in {"managerial implications", "implications"}:
@@ -316,7 +329,7 @@ def main() -> int:
     print("\nPlacement rule:")
     print(textwrap.fill("The body must contain what a reviewer needs for first-pass understanding and trust: headline result, object, assumptions, benchmark, primary evidence, and interpretation. Appendices carry verification, long proofs, repeated robustness, implementation details, and replication materials.", width=88))
     print("\nParagraph rule:")
-    print(textwrap.fill("Each paragraph should have one job: claim, support, interpretation, and bridge. If a claim lacks evidence, mark it as a gap instead of polishing around it.", width=88))
+    print(textwrap.fill("Each paragraph should have one dominant job, with support, interpretation, and bridge sentences serving that job. If a claim lacks evidence, mark it as a gap instead of polishing around it.", width=88))
     print("\nReader-flow reminder:")
     print(textwrap.fill("Let each paragraph answer the reader's next question. Start from the local object the reader already understands, add only one new friction, method, result, or caveat at a time, and omit anything the local paragraph does not need. If the prose sounds like a filled-in template, write the next sentence as the simplest answer to the reader's next question.", width=88))
     return 0

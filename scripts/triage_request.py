@@ -20,9 +20,12 @@ MODE_TERMS = {
     },
     "paragraph": {
         "paragraph", "flow", "story", "narrative", "transition", "logic",
-        "premise", "inference", "logical chain", "argument",
+        "premise", "inference", "logical chain", "argument", "story logic",
+        "paragraph order", "section flow", "reader flow", "between paragraphs",
+        "within paragraph",
         "introduction", "abstract", "related work", "contribution", "discussion",
-        "段落", "故事", "逻辑", "推理", "论证", "引言", "摘要", "贡献",
+        "段落", "段落之间", "段落内", "故事", "逻辑", "顺序", "推进",
+        "承接", "转折", "推理", "论证", "引言", "摘要", "贡献",
     },
     "manuscript": {
         "full paper", "whole paper", "manuscript", "spine", "central object",
@@ -101,7 +104,7 @@ MODE_SCRIPTS = {
 
 MODE_RULES = {
     "sentence": "Repair English before adding structure: word choice, collocation, subject, verb, object, condition, benchmark.",
-    "paragraph": "Make each paragraph do one job and move by reader questions, not by checklist order.",
+    "paragraph": "Give each paragraph one dominant job and move by reader questions, not by checklist order.",
     "manuscript": "Choose the central object, spine result, support hierarchy, and section architecture before polishing.",
     "math": "Keep the body focused on object, theorem, interpretation, and proof checkpoint; move verification details out.",
     "placement": "Keep first-pass trust in the body and move routine verification, repetitions, and implementation details out.",
@@ -126,6 +129,9 @@ def score_modes(text: str) -> dict[str, int]:
     if any(term in lower for term in {"逻辑", "推理", "论证", "logic", "inference", "premise"}):
         scores["paragraph"] += 2
         scores["reviewer"] += 1
+    if any(term in lower for term in {"段落之间", "段落内", "顺序", "推进", "承接", "story order", "reader flow", "paragraph order", "section flow"}):
+        scores["paragraph"] += 3
+        scores["manuscript"] += 1
     if any(term in lower for term in {"学术", "更学术", "academic", "scholarly", "formal register"}):
         scores["sentence"] += 2
         scores["reviewer"] += 1
@@ -148,6 +154,8 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
     ordered = [mode for mode in priority if mode in positives]
     if "paragraph" in ordered and "sentence" in ordered and scores["paragraph"] >= scores["sentence"]:
         ordered = ["paragraph", "sentence"] + [mode for mode in ordered if mode not in {"paragraph", "sentence"}]
+    if "paragraph" in ordered and "manuscript" in ordered and scores["paragraph"] >= scores["manuscript"]:
+        ordered = ["paragraph", "manuscript"] + [mode for mode in ordered if mode not in {"paragraph", "manuscript"}]
     if "sentence" in ordered and "manuscript" in ordered:
         ordered = ["manuscript", "sentence"] + [mode for mode in ordered if mode not in {"manuscript", "sentence"}]
     if "manuscript" in ordered and "math" in ordered and "placement" in ordered:

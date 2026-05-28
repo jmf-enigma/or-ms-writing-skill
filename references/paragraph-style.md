@@ -14,7 +14,7 @@ Use this when the user wants a fixed-quality paragraph, rewrite, or section para
 
 ## Paragraph Contract
 
-Every paragraph must have exactly one main job:
+Every paragraph should have one dominant job. It may contain supporting details, but the reader should be able to say why the paragraph exists.
 
 1. **Context paragraph**: phenomenon -> operational decision -> why it matters.
 2. **Gap paragraph**: literature has X -> misses Y -> this paper studies Y.
@@ -23,6 +23,41 @@ Every paragraph must have exactly one main job:
 5. **Comparison paragraph**: benchmark -> difference -> source of difference.
 6. **Managerial paragraph**: action -> condition -> mechanism -> caveat.
 7. **Transition paragraph**: summarize what was established -> motivate next analysis.
+
+## Within-Paragraph Story Order
+
+The order of sentences should follow the reader's state, not the author's notes.
+
+Useful sentence orders:
+
+- **Context paragraph**: known setting -> decision maker -> decision -> friction.
+- **Gap paragraph**: closest prior view -> maintained assumption -> missing object -> paper question.
+- **Model paragraph**: decision environment -> information/timing -> control -> objective -> why the abstraction is useful.
+- **Empirical design paragraph**: setting -> treatment or variation -> comparison -> outcome metric -> credibility threat addressed.
+- **Result paragraph**: result or estimate -> benchmark or contrast -> mechanism -> boundary or interpretation.
+- **Proof idea paragraph**: result target -> constructed object -> hard term -> proof move -> appendix verification.
+- **Robustness paragraph**: threat -> check -> conclusion -> appendix details if secondary.
+
+Do not use all elements every time. The point is sequence: each sentence should make the next sentence easier to understand.
+
+## Between-Paragraph Story Order
+
+A section feels coherent when the last sentence of one paragraph prepares the first sentence of the next.
+
+Good handoffs:
+
+- A setting paragraph ends with a friction; the next paragraph explains why existing work or current practice does not resolve it.
+- A gap paragraph ends with a question; the next paragraph introduces the model, data, or design that answers it.
+- A design paragraph ends with the comparison it makes credible; the next paragraph reports the main result.
+- A result paragraph ends with an unresolved mechanism; the next paragraph tests, models, or explains that mechanism.
+- A theorem paragraph ends with a condition; the next paragraph explores comparative statics, boundary cases, or implementation.
+
+Weak handoffs:
+
+- A paragraph ends with a broad implication and the next begins with notation.
+- A result appears before the reader knows the benchmark.
+- A robustness paragraph appears before the main estimate has been interpreted.
+- A proof detail appears before the theorem's economic or operational meaning is clear.
 
 ## Clarity And Concision Pass
 
@@ -65,6 +100,8 @@ Name the decision maker, observable condition, action, and metric. If the action
 
 - First sentence tells the reader what the paragraph is for.
 - No sentence makes a claim that the paragraph cannot support.
+- Sentences appear in the order the reader needs: known object, new relation, evidence, interpretation, handoff.
+- The paragraph handoff is visible: the last sentence prepares the next paragraph's object or question.
 - Technical terms are defined before being used.
 - The last sentence either interprets the result or moves the reader forward.
 - Citations are used to position the paper, not to replace explanation.

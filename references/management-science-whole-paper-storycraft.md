@@ -48,6 +48,38 @@ The beats can be reordered, compressed, repeated, or omitted depending on the pa
 
 The path should be visible across the manuscript, not crammed into every sentence. A local paragraph usually performs only one or two of these jobs, and some paragraphs only define notation, report a robustness check, or bridge literatures.
 
+## Story Logic Within And Across Paragraphs
+
+Story logic is the order in which the reader is allowed to learn things. It is not a checklist of content and it is not the same as formal inference validity.
+
+For each paragraph, decide five private states:
+
+1. **Entry state**: what object, belief, result, or concern the reader already has.
+2. **Paragraph job**: what this paragraph must change in the reader's understanding.
+3. **Development path**: the sequence of objects inside the paragraph.
+4. **Exit state**: what the reader should now believe, understand, or be ready to evaluate.
+5. **Handoff**: why the next paragraph is the natural next move.
+
+Common within-paragraph paths:
+
+- **Setting -> decision -> friction**: use when the reader must first understand the operating problem.
+- **Standard view -> missing feature -> paper object**: use for introductions, related work, and model motivation.
+- **Design -> comparison -> credibility**: use when the paragraph earns trust in an empirical design.
+- **Result -> benchmark -> mechanism -> boundary**: use for result interpretation.
+- **Formal object -> condition -> interpretation -> next theorem**: use for theory sections.
+- **Claim -> threat -> check -> conclusion**: use for robustness and appendix handoffs.
+
+Common paragraph-to-paragraph paths:
+
+- **Context paragraph to friction paragraph**: the first paragraph gives the decision; the second explains why the current view fails.
+- **Friction paragraph to method paragraph**: the friction creates the need for the experiment, model, estimator, or theorem.
+- **Method paragraph to result paragraph**: the method has made a comparison credible, so the reader is ready for the evidence.
+- **Result paragraph to mechanism paragraph**: the result has a sign or magnitude, so the reader asks why.
+- **Mechanism paragraph to boundary paragraph**: the mechanism implies where the result should weaken, reverse, or stop applying.
+- **Main result paragraph to appendix handoff**: the body has stated the result and proof checkpoint; the appendix verifies routine details.
+
+If the draft feels illogical, do not first change words. Write a one-line job for each paragraph and reorder those jobs until each paragraph answers the question raised by the previous one.
+
 ## Recent MS Persuasion Patterns
 
 Recent full-text MS papers reinforce that storytelling is reviewer persuasion, not decoration. The paper first turns a broad topic into a reviewable object, then makes the source of credibility visible.
