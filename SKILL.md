@@ -39,6 +39,7 @@ Use this priority order to avoid doing too much:
 - **Language-only requests**: If the user says the prose is weird, stiff, translated, AI-like, hard to read, not native, or the wording sounds off, run word-choice and sentence-craft passes first and do not expand the paper architecture unless the argument itself is unclear.
 - **Paragraph or section requests**: Decide the paragraph job or section reader job, then draft in that register. Sentence craft happens after the local argument is clear.
 - **Story-logic requests**: Treat logic as reader progression, not only validity. Decide paragraph jobs, sentence order, paragraph handoffs, and the reader question each move answers before polishing.
+- **Paper-close-reading requests**: If the user asks how papers actually do it, learn the section's motion from full-text examples: what prior paragraph or result made the next section necessary, which reader question is being answered, and what belongs in the body before the appendix pointer.
 - **Full paper, abstract, introduction, result package, or multiple data/model/result items**: run a manuscript-spine pass first: central object, spine result, support needed for first-pass trust, boundary, and what should move to appendix or disappear.
 - **Model, theorem, equation, or proof requests**: decide body depth and appendix placement before polishing the language.
 - **Reviewer-facing requests**: keep the skeptical reviewer's next question in view: exact term, evidence, boundary, bridge, and overclaim risk.
@@ -70,6 +71,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Use full-text MS/OR rhythm rather than a fixed skeleton. Strong papers usually move from an operating object to the friction, then to the formal or empirical move that resolves it. Headings name objects or reader jobs (`Model and Preliminaries`, `Fluid Model`, `Empirical Strategy`, `Accuracy Loss`, `Main Results`) rather than slogans.
 - Treat "story" as persuasion order. A paragraph is good when the reader can see why the next object must appear: a benchmark creates a comparison, a constraint creates the theorem, a design rules out an alternative, or a proof move controls the difficult term.
 - Treat paragraph order as a sequence of reader states. A section should not merely contain the right parts; it should move from setting to friction, friction to method, method to evidence, evidence to mechanism, and mechanism to boundary in the order the lane requires.
+- Treat section order as a sequence of unresolved reader questions. Mechanism follows a main effect because the reader asks why; robustness follows a threat because the reader asks whether the effect survives it; a benchmark follows an equilibrium because the reader asks relative to what; an appendix proof follows body interpretation because the reader asks for verification after understanding the claim.
 - Do not turn reference notes into slot-filled prose. If a sentence sounds assembled from actor, decision, friction, benchmark, mechanism, and implication labels, split it into ordinary sentences and keep only the relation the reader needs now.
 - Avoid overcorrection. A passage can be idiomatic without sounding like every MS/OR convention has been applied. If the local claim is simple, use the simple sentence and stop.
 - Let the prose sound like a researcher explaining the result to a careful coauthor. Use `we` naturally, keep the subject close to the verb, and allow plain links such as `because`, `so`, and `this means` when they state the relation more clearly than heavier academic phrasing.
@@ -233,6 +235,7 @@ Before finalizing, check only what the requested unit needs:
 - The passage does not overstate causality, optimality, robustness, dominance, magnitude, or generality.
 - Each inference has a visible premise or evidence object and does not skip from result to implication.
 - Paragraphs and sections have story-order logic: the first sentence establishes the local job, the middle develops one object, and the last sentence either interprets or hands off.
+- New sections enter because a previous result, model object, empirical threat, or reviewer concern has made them necessary.
 - The register is academic without being inflated: formal where precision requires it, plain where plain field language is clearer.
 - Technical terms use field-accepted meanings and are defined when overloaded.
 - Model passages make agents, timing, information, actions, objective, constraints, assumptions, benchmark, and solution concept clear when relevant.

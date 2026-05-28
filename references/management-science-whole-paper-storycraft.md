@@ -93,6 +93,19 @@ Recent full-text MS papers reinforce that storytelling is reviewer persuasion, n
 
 Across these lanes, the introduction usually answers three reviewer questions before listing results: why this setting matters, why the standard view or method is insufficient, and what feature of the model, data, or design makes the claim credible.
 
+## Close-Reading Story Paths
+
+Recent full-text papers show that the right order is usually a chain of reader questions, not a universal section skeleton.
+
+- **Field experiment and algorithmic-advice papers** first separate the tool from the human decision around it. The story often moves from a broad belief about AI or decision aids, to a behavioral or organizational friction, to the manipulated design, to the main effect, and then to usage, qualitative evidence, learning, or sensitivity analyses that explain why the effect has that sign. The estimating equation appears after randomization, treatment, outcome, and unit of analysis are already clear.
+- **Platform and data-capability experiments** often use a primary experiment to establish the effect, then use mechanism sections to rule out nearby explanations. The mechanism paragraph starts with the threat or alternative channel, introduces the finer-grained data or interaction, and ends by saying what that check does and does not establish.
+- **Multimethod behavioral operations papers** use each method to answer the previous method's limitation. A field study establishes effect size and external relevance. An analytical benchmark then says what a rational decision maker should do. Experiments test whether observed behavior follows or deviates from that benchmark. The paper feels coherent because each method is introduced by a missing reader question, not by author chronology.
+- **Analytical platform and supply-chain papers** build the story around a comparison. The model gives the actors, timing, information, and objective; a proposition characterizes equilibrium; the interpretation explains the regions or strategic channels; the next theorem compares equilibrium with a benchmark or design alternative. The body often repeats `recall Proposition 1` only when the previous result is the object being compared.
+- **Optimal control, learning, and applied OR papers** often proceed from formulation to approximation to guarantee to structure. The approximation is introduced only after the optimal object is shown to be costly or intractable. A performance-bound theorem earns computational credibility; structural theorems then interpret policy regions, stopping rules, or sample paths. Numerical examples usually enter after the theorem has told the reader what they should verify.
+- **Technical theory papers** sometimes place a short complete proof in the body, but more often keep the result and interpretation in the body and send verification to an appendix or online companion. The body should still say what the theorem changes relative to the benchmark before asking the reader to leave the main text.
+
+Use these paths as a diagnostic. If a draft says `we next conduct a robustness test`, ask what concern the robustness test answers. If a model appears after results, ask what result made the formal object necessary. If a proof or formula appears in the body, ask whether it creates the comparison the reader needs or merely verifies it.
+
 ## Elegance As Reader Turns
 
 Recent MS papers that read well do not simply list problem, method, result, and implication. They create small turns that let the next object feel necessary.

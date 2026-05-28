@@ -59,6 +59,19 @@ Weak handoffs:
 - A robustness paragraph appears before the main estimate has been interpreted.
 - A proof detail appears before the theorem's economic or operational meaning is clear.
 
+## Reader-Question Chains From Full Papers
+
+Use these when a paragraph has the right content but still feels oddly ordered.
+
+- **Empirical result chain**: remind the reader of the outcome and comparison, state the estimate or sign, translate the magnitude into the paper's metric, then say whether the pattern is primary evidence, mechanism evidence, or a boundary. Move secondary specifications to the appendix after stating their conclusion in the body.
+- **Mechanism chain**: start with the unresolved alternative explanation, introduce the finer-grained data, interaction, qualitative evidence, or subgroup comparison, then state how much the check supports the proposed mechanism. Do not begin with the table number.
+- **Model chain**: begin with the operating action or strategic friction, then introduce the primitives that capture it, then define the objective or equilibrium object. End by saying what the first lemma, proposition, or benchmark will resolve.
+- **Proposition chain**: before the proposition, create the comparison or threshold it characterizes. After the proposition, explain the region, benchmark, or strategic channel that changed. Only then move to the next result or appendix proof.
+- **Approximation or algorithm chain**: show why the exact object is costly or intractable, introduce the approximation as the response to that obstacle, state the guarantee, then use numerical results to verify performance or operating relevance.
+- **Robustness chain**: name the threat, state the check, summarize the conclusion, and send repeated tables or alternative codings to the appendix. Robustness paragraphs should not interrupt before the main result has been interpreted.
+
+The paragraph should usually move from the reader's last question to the paper's next object. It should not move by the order in which the author ran regressions, solved lemmas, or drafted notes.
+
 ## Clarity And Concision Pass
 
 Use this pass after the paragraph has the right logic.

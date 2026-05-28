@@ -94,6 +94,19 @@ Construct-heavy empirical papers use the same climb. First define what the const
 
 Potential-outcome and regression passages should be written as design prose, not just formulas. Before the display, identify treatment, control, outcome, unit, sample, and comparison. After the display, say which coefficient maps to the paper's prediction and what variation supports that interpretation. If the paper cannot fully separate nearby channels, say so and use `suggestive`, `consistent with`, or `difficult to cleanly disentangle`.
 
+## Observed Main-Text Math Paths
+
+Recent MS/OR full texts show several repeatable ways that formulas become readable in the body.
+
+- **Equilibrium model path**: prose names the actors, timing, information, and objective; displays define the demand, payoff, or expected sales object; the proposition characterizes equilibrium; the following paragraph explains each regime or strategic channel. Verification, long cases, and repeated inequalities move to the appendix.
+- **Benchmark comparison path**: first state the decentralized or baseline result, then define the first-best, centralized, relaxed, or complete-information benchmark, then compare the two in prose. The comparison paragraph should tell the reader which distortion, constraint, or information channel creates the gap.
+- **Approximation path**: show why the optimal dynamic object is computationally expensive, define the approximation or surrogate value function, state the theorem that bounds performance loss, then use numerical results to check whether the bound or policy is useful. Do not introduce an approximation before the exact object is visible.
+- **Potential-outcome path**: define units, treatment, control, outcomes, and potential outcomes before the regression display. After the display, identify the coefficient of interest and what assumption or randomization justifies reading it as the paper's treatment effect.
+- **Mechanism-regression path**: use the main design to establish the effect first. A mechanism regression should then begin with the possible channel, define the interaction or fine-grained measure, and conclude what the sign or magnitude says about the channel.
+- **Appendix-proof path**: the appendix can begin directly with binding constraints, first-order conditions, HJB verification, coupling details, or case analysis because the body has already explained the object and meaning. The body should not make the appendix carry the first explanation of why the result matters.
+
+When deciding whether a mathematical step belongs in the body, ask whether it creates an object the reader will use later. A virtual surplus, threshold, Bellman objective, potential outcome, or value-function approximation may belong in the body. A derivative check, repeated case split, constant definition, or table of alternative codings usually belongs in the appendix.
+
 ## Theorem And Result Layout
 
 A theorem in the body should be surrounded by prose.

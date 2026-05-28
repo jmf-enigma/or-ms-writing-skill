@@ -35,6 +35,7 @@ The latest update adds more full-text MS/OR signals from AI calibration experime
 - whole-task dispatch: unit, lane, reader job, and output shape before drafting;
 - logic-before-style repair: premise, evidence object, inference, boundary, and next reader question;
 - story-order repair: entry state, paragraph job, within-paragraph sequence, paragraph handoff, and exit state;
+- full-paper close-reading paths: how field experiments, platform models, multimethod studies, optimal-control papers, and appendix-heavy theory papers make one section necessary from the previous section's reader question;
 - academic register calibration: more precise constructs, assumptions, benchmarks, and inference verbs without ornate wording;
 - construct and measurement sections such as `Measures`, `Empirical Framework`, and `Measurement Challenges`;
 - when an empirical measure, potential outcome, treatment contrast, or estimating equation is the paper's model;
@@ -176,6 +177,7 @@ MIT License. See [LICENSE](LICENSE).
 - 判断一篇文章真正要讲什么：哪个 result 是 spine，哪些是 support，哪些只是 robustness 或 appendix verification；
 - section architecture、headings/subheadings、paragraph order；
 - 段落之间和段落内的故事顺序：每段进入时读者知道什么、这一段改变什么、句子如何推进、段尾怎样自然交给下一段；
+- 真实 paper 的 section 推进：main effect 后为什么进 mechanism，equilibrium 后为什么进 benchmark，exact model 后为什么进 approximation，正文解释之后为什么再去 appendix；
 - model setup、assumption、formulation、theorem/proposition statement、result interpretation；
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；

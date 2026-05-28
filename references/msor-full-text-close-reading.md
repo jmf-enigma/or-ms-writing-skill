@@ -20,6 +20,7 @@ Recent close-reading signals include full-text HTML or PDF versions of:
 - Yan, Castro, Frazier, Ma, and Nazerzadeh, "Matching Queues, Flexibility, and Incentives," M&SOM.
 - Bhandari and Russo, "Global Optimality Guarantees for Policy Gradient Methods," Operations Research / arXiv.
 - Recent empirical Management Science papers with theoretical background, data, empirical strategy, primary results, and limitations sections.
+- Additional close readings from full-text INFORMS papers on human-centered AI field experiments, algorithmic advice incentives and framing, external data capabilities in search, on-demand delivery platforms, supply-chain blockchain design, food-delivery platform contracts, blockchain information provision, threatened-species optimal learning, drug-resistance optimal control, contractual screening, and cash-constrained nanostore experiments.
 
 Do not imitate any author's personal cadence. Extract field-level choices: where the sentence starts, how the model is introduced, how a result is interpreted, and where the proof is placed.
 
@@ -32,6 +33,8 @@ Strong MS/OR body prose is plain but not flat. It gives the reader the next obje
 - The method enters only after the reader knows what it is for. `We model`, `we estimate`, or `we propose` should answer a question already visible in the paragraph.
 - Result paragraphs keep the comparator and metric close: profit loss from the fluid benchmark, screening error relative to true expertise, throughput relative to random assignment, elasticity estimates relative to a preferred demand model.
 - Boundaries are not apologies. They tell the reviewer what the claim is conditional on: a policy class, information structure, scaling regime, experiment, sample, or maintained behavioral assumption.
+
+Full papers also show a useful discipline: a new section should usually be justified by the previous section's unresolved reader question. A mechanism section follows because the main effect leaves an alternative explanation. A benchmark section follows because the equilibrium result needs a welfare or first-best comparison. An approximation section follows because the exact dynamic program is too costly. A behavioral experiment follows because field data identify an effect but not optimality or mechanism. This is the paper's logic of motion.
 
 ## Lane-Specific Body Moves
 
