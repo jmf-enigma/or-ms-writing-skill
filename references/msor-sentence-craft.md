@@ -20,6 +20,32 @@ Before rewriting a sentence, decide the one job it must do.
 
 If a sentence is doing more than one of these, split it before polishing. A good sentence is often modest. A good paragraph does the larger work.
 
+## The Logic Job
+
+Before raising the register, make sure the sentence has done its logical work.
+
+- If the sentence states an implication, ask what premise makes it follow.
+- If it recommends an action, ask which actor, metric, and condition make the action justified.
+- If it interprets an estimate, ask whether the design supports causality, mechanism evidence, or only association.
+- If it interprets a theorem, ask what benchmark, policy class, or assumption the theorem uses.
+- If it points to the appendix, ask what the body has already established.
+
+Weak:
+
+`This result has important implications for platform design.`
+
+Better:
+
+`The result changes the platform's disclosure problem because additional precision raises seller competition more than it improves matching in the high-congestion regime.`
+
+Weak:
+
+`Therefore, managers should use AI to improve decisions.`
+
+Better:
+
+`In this experiment, AI improves decisions only for participants whose pre-treatment beliefs are sufficiently calibrated, so the managerial implication is conditional on measuring that calibration before deployment.`
+
 ## Build Around Subject, Verb, Object
 
 Awkward OR/MS prose often hides the actor and delays the verb.
@@ -89,6 +115,8 @@ Avoid:
 - `leverage data` when the point is what the data record or identify;
 - `utilize a framework` when the model is choosing, estimating, bounding, or comparing something;
 - `provide insights` when the sentence can name the policy, metric, condition, or theorem.
+
+Plain verbs can still be academic. `Estimate`, `characterize`, `establish`, `bound`, `compare`, and `separate` are formal because they identify the support relation. Do not replace them with ornate verbs unless the ornate verb is more exact.
 
 ## Reduce Noun Piles
 
@@ -201,6 +229,13 @@ Examples:
 - `The policy is asymptotically optimal for the pooled system but can be suboptimal for individual subsystems.`
 
 Do not end result sentences with `important implications`, `better outcomes`, or `improved decision making` when a metric, benchmark, or condition is available.
+
+For a more academic result sentence, add the missing support relation rather than a style word:
+
+- `The estimates suggest`, not `the results clearly show`, when the mechanism is not fully identified.
+- `The theorem establishes`, not `the analysis reveals`, when the result follows from a proof.
+- `The comparison is consistent with`, not `this proves`, when evidence supports but does not uniquely identify a channel.
+- `Under the high-demand regime`, not `in many practical settings`, when the result is conditional on a model regime.
 
 ## Model Sentences
 

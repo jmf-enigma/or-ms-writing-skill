@@ -157,8 +157,8 @@ TECHNICAL_VERB_OBJECTS = {
     "derives": {"expression", "bound", "guarantee", "reformulation", "condition", "ratio", "rate", "dual"},
     "establish": {"theorem", "bound", "guarantee", "rate", "ratio", "characterization", "optimality", "convergence"},
     "establishes": {"theorem", "bound", "guarantee", "rate", "ratio", "characterization", "optimality", "convergence"},
-    "identify": {"condition", "variation", "mechanism", "source", "class", "property", "case", "structure"},
-    "identifies": {"condition", "variation", "mechanism", "source", "class", "property", "case", "structure"},
+    "identify": {"condition", "variation", "mechanism", "channel", "channels", "source", "class", "property", "case", "structure"},
+    "identifies": {"condition", "variation", "mechanism", "channel", "channels", "source", "class", "property", "case", "structure"},
 }
 MODEL_MATH_MARKERS = {
     "denote", "denotes", "represent", "represents", "where", "objective",
@@ -561,6 +561,31 @@ BOUNDARY_MARKERS = {
     "within", "among", "in our setting",
 }
 
+INFERENCE_MARKERS = {
+    "therefore", "thus", "hence", "consequently", "implies", "imply",
+    "suggests", "suggest", "indicates", "indicate", "should", "recommend",
+    "recommendation", "managerial implication", "policy implication",
+}
+PREMISE_MARKERS = {
+    "because", "as", "given", "under", "when", "if", "relative to",
+    "compared with", "from", "based on", "consistent with", "in the model",
+    "in the experiment", "the estimate", "the theorem", "the proposition",
+    "the comparison", "the proof", "the table", "the figure",
+}
+CASUAL_REGISTER_PHRASES = {
+    "a lot": "replace with a magnitude, frequency, or qualitative scope.",
+    "lots of": "replace with a magnitude, frequency, or qualitative scope.",
+    "big": "name the metric or use `large` only with magnitude support.",
+    "huge": "name the metric or use `large` only with magnitude support.",
+    "things": "name the construct, decision, metric, assumption, or result.",
+    "stuff": "name the construct, decision, metric, assumption, or result.",
+    "kind of": "state the relation precisely or remove the hedge.",
+    "sort of": "state the relation precisely or remove the hedge.",
+    "basically": "remove or replace with the exact simplification.",
+    "really": "remove or replace with a measurable qualifier.",
+    "very": "remove or replace with a measurable qualifier.",
+}
+
 
 def normalize_section(section: str) -> str:
     return section.strip().lower().replace("_", "-")
@@ -704,6 +729,7 @@ def noun_pile_warnings(text: str) -> list[str]:
         "shows", "show", "compares", "compare", "uses", "use", "bounds", "bound",
         "constructs", "construct", "estimates", "estimate", "characterizes",
         "characterize", "proves", "prove", "derives", "derive", "reduces", "reduce",
+        "improves", "improve", "interprets", "interpret", "identifies", "identify",
     }
     hits = []
     for match in pile_pattern.finditer(lower):
@@ -1211,6 +1237,39 @@ def reviewer_calibration_warnings(text: str) -> list[str]:
     return warnings
 
 
+def logical_inference_warnings(text: str, section: str) -> list[str]:
+    normalized_section = normalize_section(section)
+    if normalized_section in {"phrase", "title", "micro", "micro-rewrite"}:
+        return []
+    lower = text.lower()
+    warnings = []
+    inference_hit = any(re.search(rf"\b{re.escape(marker)}\b", lower) for marker in INFERENCE_MARKERS)
+    if not inference_hit:
+        return warnings
+
+    has_premise = (
+        contains_any(text, PREMISE_MARKERS | EVIDENCE | RESULT_TYPES | MATH_MOVES | BENCHMARKS)
+        or has_number(text)
+    )
+    has_boundary = (
+        contains_term(text, BOUNDARY_MARKERS | BENCHMARKS)
+        or any(term in lower for term in {"in the model", "in the experiment", "in our sample"})
+    )
+    if not has_premise:
+        warnings.append("logic jump: inference marker appears without a visible premise or evidence object; name the estimate, theorem, comparison, design feature, or proof move that supports it.")
+    if any(term in lower for term in {"should", "recommend", "managerial implication", "policy implication"}) and not has_boundary:
+        warnings.append("logic jump: recommendation lacks a condition; state when, for whom, or relative to which benchmark the implication follows.")
+
+    sentences = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence.strip()]
+    if sentences:
+        first = sentences[0].lower()
+        first_has_inference = any(re.search(rf"\b{re.escape(marker)}\b", first) for marker in INFERENCE_MARKERS)
+        first_has_support = contains_any(first, EVIDENCE | RESULT_TYPES | MATH_MOVES | BENCHMARKS) or has_number(first)
+        if first_has_inference and not first_has_support and len(sentences) > 1:
+            warnings.append("logic order: the paragraph opens with an inference before giving the evidence; consider moving the theorem, estimate, comparison, or premise first.")
+    return warnings
+
+
 def academic_style_warnings(text: str) -> list[str]:
     lower = text.lower()
     warnings = []
@@ -1224,6 +1283,11 @@ def academic_style_warnings(text: str) -> list[str]:
         warnings.append("generic gap; turn the gap into a decision problem, evidence limit, model limit, or unresolved mechanism.")
     if lower.count(" this ") + lower.startswith("this ") > 2:
         warnings.append("repeated `This`; name the object or mechanism instead of relying on pronoun flow.")
+    for phrase, advice in CASUAL_REGISTER_PHRASES.items():
+        if re.search(rf"\b{re.escape(phrase)}\b", lower):
+            warnings.append(f"academic register: `{phrase}` is too casual; {advice}")
+    if re.search(r"\b(?:clearly|obviously)\b", lower) and not contains_any(text, EVIDENCE | MATH_MOVES | RESULT_TYPES):
+        warnings.append("academic register: `clearly/obviously` needs the proof fact, estimate, or assumption that makes the claim clear.")
     for verb, supports in CLAIM_VERB_SUPPORTS.items():
         if re.search(rf"\b{re.escape(verb)}\b", lower) and not any(support in lower for support in supports):
             warnings.append(f"`{verb}` is strong; add theorem/proof/estimate/simulation support or use a weaker evidence verb.")
@@ -1380,6 +1444,9 @@ def main() -> int:
 
     for warning in argument_evidence_boundary_warnings(text, args.section):
         print(f"- {warning}")
+
+    for warning in logical_inference_warnings(text, args.section):
+        print(f"- logic and inference: {warning}")
 
     for warning in appendix_placement_warnings(text, args.section):
         print(f"- appendix placement: {warning}")

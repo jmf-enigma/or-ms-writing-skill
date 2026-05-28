@@ -38,10 +38,14 @@ When a whole passage or section feels wrong, do not fix everything at once. Work
 2. **Reader turn**: what new question does the next sentence answer?
 3. **Evidence verb**: does the verb match the support: estimate, show, characterize, establish, suggest, validate?
 4. **Boundary**: is the assumption, sample, benchmark, policy class, or regime close enough to the claim?
-5. **Sentence rhythm**: split long sentences, remove noun piles, and put the subject near the verb.
-6. **Field texture**: add only the OR/MS collocation that the object needs.
+5. **Inference chain**: can the reader see how the sentence follows from the previous one?
+6. **Sentence rhythm**: split long sentences, remove noun piles, and put the subject near the verb.
+7. **Academic register**: replace casual evaluation with constructs, metrics, assumptions, benchmarks, or calibrated inference verbs.
+8. **Field texture**: add only the OR/MS collocation that the object needs.
 
 Stop when the paragraph reads like a researcher explaining the result. Do not keep adding genre markers after the logic is already clear.
+
+Academic register should not make the paragraph heavier than its logic. A paragraph becomes more scholarly when it states the inference more exactly: what evidence supports the claim, what condition limits it, and what alternative interpretation remains.
 
 ## The Natural Paragraph Test
 

@@ -20,6 +20,42 @@ Use this reference when a passage needs deeper diagnosis for academic style, rea
 - If a paragraph changes objects, start a new paragraph or add a bridge sentence.
 - If a paragraph starts with method, ask whether the reader first needs the decision, tension, or question.
 
+## Logic Before Academic Register
+
+A sentence that has not thought through its logic cannot be repaired by making it sound more academic. Before polishing, reconstruct the chain:
+
+1. **Premise**: what object, setting, assumption, or prior result is already available?
+2. **Evidence**: what theorem, estimate, model comparison, design feature, table, or proof move supports the next claim?
+3. **Inference**: what exactly follows from that evidence?
+4. **Boundary**: under what condition, sample, benchmark, information structure, or policy class does it follow?
+5. **Next reader question**: what must the next sentence answer?
+
+Common logic jumps:
+
+- moving from a broad setting directly to a managerial recommendation;
+- stating that a result "implies" a mechanism when the evidence only supports consistency with that mechanism;
+- using a proof move as if it already explained the theorem's economic meaning;
+- putting a robustness check after a claim without naming the threat it addresses;
+- using `therefore`, `thus`, or `suggests` when the prior sentence has not established the premise.
+
+Repair logic before register. Often the academic version is one added clause that names the comparison or condition, not a fancier verb.
+
+## Academic Register Without Inflation
+
+More academic prose is more precise, not more ornate.
+
+Use academic register to:
+
+- define constructs and overloaded terms before relying on them;
+- choose calibrated inference verbs: `shows`, `suggests`, `is consistent with`, `establishes`, `characterizes`, `bounds`;
+- keep assumptions, samples, benchmarks, and policy classes close to claims;
+- replace casual evaluation with measurable objects: magnitude, estimate, rate, bound, regime, or threshold;
+- use discipline-specific nouns when they clarify the object: estimand, treatment contrast, equilibrium, policy class, value function, incentive constraint.
+
+Avoid upgrading plain field language into inflated prose. `We estimate`, `the model shows`, and `the proof bounds` are often more academic than `we provide a comprehensive analysis`, because they tell the reviewer what kind of support the sentence has.
+
+Casual words to repair in paper prose include `a lot`, `big`, `huge`, `things`, `stuff`, `kind of`, `sort of`, `really`, `very`, `basically`, and unsupported `clearly` or `obviously`. Replace them with the object, metric, condition, or proof fact.
+
 ## CARS Without Template Prose
 
 For introductions and related motivation:

@@ -12,15 +12,17 @@ MODE_TERMS = {
     "sentence": {
         "awkward", "stiff", "weird", "strange", "translated", "translation",
         "native", "idiomatic", "wording", "phrase", "sentence", "smooth",
-        "word choice", "collocation", "preposition", "verb-object",
+        "word choice", "collocation", "preposition", "verb-object", "academic",
+        "scholarly", "formal register", "register",
         "ai-like", "ai scent", "colon", "noun pile", "不顺", "奇怪",
         "怪怪", "别扭", "地道", "翻译腔", "语言", "用词", "措辞",
-        "搭配", "句子", "ai", "ai味", "冒号",
+        "搭配", "句子", "ai", "ai味", "冒号", "学术", "更学术",
     },
     "paragraph": {
         "paragraph", "flow", "story", "narrative", "transition", "logic",
+        "premise", "inference", "logical chain", "argument",
         "introduction", "abstract", "related work", "contribution", "discussion",
-        "段落", "故事", "逻辑", "引言", "摘要", "贡献",
+        "段落", "故事", "逻辑", "推理", "论证", "引言", "摘要", "贡献",
     },
     "manuscript": {
         "full paper", "whole paper", "manuscript", "spine", "central object",
@@ -121,6 +123,12 @@ def score_modes(text: str) -> dict[str, int]:
         scores["math"] += 2
     if any(term in lower for term in {"整体", "全局", "完整优化", "优化一遍", "整体优化"}):
         scores["manuscript"] += 2
+    if any(term in lower for term in {"逻辑", "推理", "论证", "logic", "inference", "premise"}):
+        scores["paragraph"] += 2
+        scores["reviewer"] += 1
+    if any(term in lower for term in {"学术", "更学术", "academic", "scholarly", "formal register"}):
+        scores["sentence"] += 2
+        scores["reviewer"] += 1
     if any(term in lower for term in {"怪怪", "别扭", "不地道", "ai味", "冒号"}):
         scores["sentence"] += 2
     if "appendix" in lower and any(word in lower for word in {"proof", "derivation", "theorem", "proposition"}):
@@ -138,6 +146,8 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
         return ["sentence", "paragraph"]
     priority = ["sentence", "manuscript", "math", "placement", "reviewer", "paragraph"]
     ordered = [mode for mode in priority if mode in positives]
+    if "paragraph" in ordered and "sentence" in ordered and scores["paragraph"] >= scores["sentence"]:
+        ordered = ["paragraph", "sentence"] + [mode for mode in ordered if mode not in {"paragraph", "sentence"}]
     if "sentence" in ordered and "manuscript" in ordered:
         ordered = ["manuscript", "sentence"] + [mode for mode in ordered if mode not in {"manuscript", "sentence"}]
     if "manuscript" in ordered and "math" in ordered and "placement" in ordered:

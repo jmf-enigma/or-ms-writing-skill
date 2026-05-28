@@ -21,7 +21,7 @@ Write the requested text first. Use diagnosis, maps, script labels, and checklis
 Internally run only three silent passes unless the task is long or structurally unclear:
 
 1. **Lane and reader job**: Is this empirical, structural, theory, algorithmic, applied OR, or hybrid, and what does the reviewer need next?
-2. **Claim-evidence-boundary**: What is the claim, what supports it, and under what assumption, benchmark, data regime, model class, or population is it valid?
+2. **Claim-evidence-boundary and inference**: What is the claim, what supports it, what inference is being drawn, and under what assumption, benchmark, data regime, model class, or population is it valid?
 3. **OR/MS language rhythm**: Are the actor, decision, formal object, evidence verb, and implication stated in ordinary field language without checklist residue?
 
 Treat every reference, script, and blueprint as a reader test, not a template. Do not force a passage to mention every possible element. If the user asks for one sentence, write one sentence. If the user asks for a paragraph, make one paragraph do one job. If the user gives Chinese or mixed notes, translate the intended argument, not the syntax.
@@ -40,6 +40,7 @@ Use this priority order to avoid doing too much:
 - **Full paper, abstract, introduction, result package, or multiple data/model/result items**: run a manuscript-spine pass first: central object, spine result, support needed for first-pass trust, boundary, and what should move to appendix or disappear.
 - **Model, theorem, equation, or proof requests**: decide body depth and appendix placement before polishing the language.
 - **Reviewer-facing requests**: keep the skeptical reviewer's next question in view: exact term, evidence, boundary, bridge, and overclaim risk.
+- **Academic-register requests**: Raise the register by tightening definitions, inference verbs, hedges, and transitions. Do not replace plain field words with ornate synonyms.
 - **Global optimization requests**: If the user asks to optimize a whole skill, manuscript, section package, or writing system, audit routing, duplication, failure modes, and validation first; then make the smallest changes that improve behavior across many requests.
 
 If the requested mode is unclear, run `triage_request.py` internally before loading references.
@@ -51,6 +52,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Start from what the paper actually proves, estimates, simulates, or demonstrates; then choose only the motivation and contrast needed to make that contribution legible.
 - For manuscript-level work, decide the paper spine before sentence polish. The spine is the central object plus the one result, estimate, theorem, or field comparison that changes the reader's belief.
 - Make the paper's source of credibility visible before leaning on the claim: experiment, institutional variation, theorem, identification argument, equilibrium characterization, approximation guarantee, construct validation, simulation benchmark, or robustness logic.
+- Reconstruct the local logic before polishing: premise, evidence object, inference, boundary, and next reader question. Do not let a sentence jump from setting to implication, from result to recommendation, or from proof move to theorem meaning without the missing link.
 - Make decisions, mechanisms, and formal objects concrete. Prefer "the platform chooses disclosure precision" to "disclosure precision is considered."
 - Use exact evidence verbs: `characterize` for policy forms or equilibrium regions, `establish` for theorems and guarantees, `bound` for approximation or regret, `estimate` for empirical designs, `identify` only when the design or model supports identification, and `validate` for numerical, empirical, or out-of-sample evidence.
 - Choose collocations, not dictionary synonyms. In OR/MS prose, a policy `improves` a metric, a theorem `establishes` a bound, an estimator `recovers` a latent object, data `record` behavior or `identify` variation, and a robustness check `preserves` sign and magnitude.
@@ -67,6 +69,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 - Do not turn reference notes into slot-filled prose. If a sentence sounds assembled from actor, decision, friction, benchmark, mechanism, and implication labels, split it into ordinary sentences and keep only the relation the reader needs now.
 - Avoid overcorrection. A passage can be idiomatic without sounding like every MS/OR convention has been applied. If the local claim is simple, use the simple sentence and stop.
 - Let the prose sound like a researcher explaining the result to a careful coauthor. Use `we` naturally, keep the subject close to the verb, and allow plain links such as `because`, `so`, and `this means` when they state the relation more clearly than heavier academic phrasing.
+- Make the register academic by making the logic more precise, not by making the words larger. Academic prose earns its formality through exact terms, calibrated verbs, explicit assumptions, measured claims, and complete inference chains.
 - For translated-English drafts, rebuild the English logic: decision or object, friction, method or formal move, evidence, condition, implication.
 - Let the story come from exact nouns and relations, not from story-like language. Avoid empty phrases such as "important implications," "novel framework," "rapidly evolving landscape," "underscores," "delve," and slogan-like final sentences.
 - Preserve useful plain words. `Study`, `show`, `use`, `choose`, `price`, `bound`, and `compare` are often better than ornate substitutes. Do not write `utilize`, `facilitate`, `illuminate`, `showcase`, or `optimize decision-making` when the paper can name the decision, metric, policy, estimate, theorem, or benchmark.
@@ -178,13 +181,15 @@ Run `triage_request.py` when the task could be language, manuscript structure, m
 6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
 7. Draft ordinary OR/MS prose. Do not expose prewriting labels.
 8. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
-9. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
-10. Run the word-choice pass: check verb-object fit, prepositions, evidence verbs, and translated collocations before reaching for synonyms.
-11. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
-12. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
-13. Run the full-text genre pass: compare the passage with recent MS/OR body patterns, especially model setup, theorem interpretation, proof placement, and appendix handoff.
-14. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
-15. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
+9. Run the logic pass: every `therefore`, `implies`, `suggests`, `should`, or managerial recommendation needs a visible premise, evidence object, and boundary.
+10. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
+11. Run the word-choice pass: check verb-object fit, prepositions, evidence verbs, and translated collocations before reaching for synonyms.
+12. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
+13. Run the academic-register pass: remove casual words, vague evaluative adjectives, and unsupported emphasis; keep precise technical nouns and calibrated inference verbs.
+14. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
+15. Run the full-text genre pass: compare the passage with recent MS/OR body patterns, especially model setup, theorem interpretation, proof placement, and appendix handoff.
+16. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
+17. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
 
 ## If The Draft Feels Weird
 
@@ -198,6 +203,8 @@ Repair by simplifying the operating logic, not by adding more genre markers.
 - If it becomes dry after removing AI-scent, do not add polish words. Add a precise turn: old belief versus new friction, benchmark versus result, mechanism versus alternative mechanism, or condition versus boundary.
 - If it is hard to read, split before polishing. A smooth paragraph often needs three ordinary sentences where a draft tried to write one impressive sentence.
 - If the sentence has a noun pile, turn one noun into the subject and another into the verb. Do not polish "decision-making framework" when the paper can say who chooses what.
+- If the sentence sounds under-thought, do not polish it yet. Identify the premise, evidence, inference, and boundary; then write the sentence that connects the missing step.
+- If the prose sounds too informal, make it more academic by naming the construct, estimand, theorem object, policy class, assumption, or benchmark. Do not add ornate adjectives.
 - If a sentence has many `of`, `for`, `in`, `with`, or `under` phrases before the verb, move the decision maker, policy, theorem, estimator, or metric to the front.
 - If it sounds like a grant pitch, replace praise with the decision, metric, theorem, estimate, mechanism, or condition.
 - If it sounds translated, rebuild the sentence around the English subject and verb rather than polishing word by word.
@@ -215,6 +222,8 @@ Before finalizing, check only what the requested unit needs:
 - The object, claim, evidence, and boundary are identifiable.
 - For manuscript-level work, the central object, spine result, credibility path, and result hierarchy are identifiable.
 - The passage does not overstate causality, optimality, robustness, dominance, magnitude, or generality.
+- Each inference has a visible premise or evidence object and does not skip from result to implication.
+- The register is academic without being inflated: formal where precision requires it, plain where plain field language is clearer.
 - Technical terms use field-accepted meanings and are defined when overloaded.
 - Model passages make agents, timing, information, actions, objective, constraints, assumptions, benchmark, and solution concept clear when relevant.
 - Result and proof passages state the formal object, result type, assumption or benchmark, interpretation, and proof idea at the right depth.
