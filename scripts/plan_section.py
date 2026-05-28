@@ -223,7 +223,14 @@ def topic_lens(topic: str) -> str:
         matches = [(name, lens) for name, lens in matches if name != "algorithm"]
     if "algorithm" in matched_names and ("numerical experiment" in lower or "computational experiment" in lower):
         matches = [(name, lens) for name, lens in matches if name != "empirical"]
-    return " ".join(lens for _, lens in matches[:2])
+    primary_name, primary_lens = matches[0]
+    if len(matches) == 1:
+        return primary_lens
+    secondary_name = matches[1][0]
+    return (
+        f"Primary lens ({primary_name}): {primary_lens} "
+        f"Secondary signal: also check {secondary_name} only if the paragraph's reader job genuinely crosses lanes."
+    )
 
 QUALITY = {
     "abstract": "decision, friction, method, result, implication, boundary; avoid jargon before the problem is clear",

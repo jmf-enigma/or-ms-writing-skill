@@ -149,6 +149,8 @@ Load the smallest bundle that can solve the request. One bundle is the default; 
 
 For mixed or ambiguous requests, use `triage_request.py` first and then load only the first one or two bundles it recommends.
 
+References are for fixing a specific failure mode, not for decorating the answer with more conventions. If a request asks how papers actually do something, start with the full-text close-reading or lane reference that matches the unit, then add language references only if the resulting prose still sounds unnatural.
+
 When the problem is simply "this sounds strange" or "the wording is not native," load `msor-word-choice-collocations.md` and `msor-sentence-craft.md` first, then `msor-natural-prose.md` only if paragraph flow is also the problem. Too many references can pull the draft back toward checklist prose.
 
 - **Word choice, collocation, and translated-English repair**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/msor-natural-prose.md`.
@@ -181,24 +183,18 @@ Run `triage_request.py` when the task could be language, manuscript structure, m
 
 ## Stable Procedure
 
-1. Identify the requested unit and write at that granularity.
-2. If the unit or priority is unclear, triage once; otherwise choose one reference bundle only if the task needs it.
-3. For language-only tasks, preserve the argument and repair word choice, collocations, and sentence craft before considering structure.
-4. For full sections or manuscripts, choose the central object, spine result, support hierarchy, and evidence lane before choosing headings, subheadings, or paragraph order.
-5. For long, mathematical, or cross-field tasks, decide reader job, support type, and boundary before drafting.
-6. For model or proof material, decide the body/appendix split before writing formulas or proof text.
-7. Draft ordinary OR/MS prose. Do not expose prewriting labels.
-8. Run the evidence-preservation pass: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the user's material.
-9. Run the story-order pass: each sentence and paragraph should answer the reader's next question and prepare the next object.
-10. Run the logic pass: every `therefore`, `implies`, `suggests`, `should`, or managerial recommendation needs a visible premise, evidence object, and boundary.
-11. Run the reviewer-calibration pass: define overloaded terms, bridge unfamiliar methods, and narrow claims that could be overread.
-12. Run the word-choice pass: check verb-object fit, prepositions, evidence verbs, and translated collocations before reaching for synonyms.
-13. Run the sentence-craft pass: make each sentence carry one job, keep the subject near the verb, replace noun piles with actor-action-object phrasing, and keep relation words attached to real conditions or comparisons.
-14. Run the academic-register pass: remove casual words, vague evaluative adjectives, and unsupported emphasis; keep precise technical nouns and calibrated inference verbs.
-15. Run the naturalness pass: split overloaded sentences, remove checklist residue, remove colon-led roadmaps, itinerary prose, weak `This enables/allows` links, and dash pivots; use exact verb-object pairs and delete filler.
-16. Run the full-text genre pass: compare the passage with recent MS/OR body patterns, especially model setup, theorem interpretation, proof placement, and appendix handoff.
-17. Run the read-aloud pass: if a sentence would sound odd in a seminar or coauthor conversation, rebuild it around the local noun and verb before adding technical qualifiers back.
-18. Run the elegance pass for paragraphs and sections: add one real hinge where needed so the reader sees why the paper moves from setting to friction, method to result, or result to boundary.
+Use this as a control loop, not a visible outline. Stop when the requested unit is genuinely handled.
+
+1. **Scope**: identify the unit, lane, reader job, and output shape. If unclear, triage once and load at most one or two reference bundles.
+2. **Reader path**: decide what the reader knows at entry, what must change, what question the paragraph or section answers, and what next object it prepares.
+3. **Evidence and placement**: identify the theorem, estimate, table, proof move, benchmark, assumption, or design feature that supports the claim. For model or proof material, decide body versus appendix before writing formulas.
+4. **Draft**: write ordinary OR/MS prose at the requested granularity. Do not expose planning labels, scripts, or reference terminology.
+5. **Preserve**: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the supplied material.
+6. **Calibrate**: narrow overloaded terms, bridge unfamiliar methods for adjacent-field reviewers, and keep evidence and boundary near claims that could be overread.
+7. **Polish language**: fix collocations, prepositions, local subjects, working verbs, sentence stress, relation words, and academic register. Prefer exact plain words to ornate synonyms.
+8. **Remove residue**: delete checklist rhythm, colon-led roadmaps, itinerary prose, weak `This enables/allows` links, abstract noun piles, and appendix pointers that arrive before interpretation.
+9. **Genre check**: compare the passage with the relevant full-text MS/OR pattern: empirical design, construct measurement, model setup, theorem interpretation, proof placement, result narration, or appendix handoff.
+10. **Read aloud**: if the prose would sound odd in a seminar or coauthor conversation, rebuild it around the local object, action, condition, and benchmark.
 
 ## If The Draft Feels Weird
 
@@ -231,6 +227,7 @@ Repair by simplifying the operating logic, not by adding more genre markers.
 Before finalizing, check only what the requested unit needs:
 
 - The object, claim, evidence, and boundary are identifiable.
+- The answer stays at the user's requested granularity and does not turn a sentence repair into a paper redesign unless the argument requires it.
 - For manuscript-level work, the central object, spine result, credibility path, and result hierarchy are identifiable.
 - The passage does not overstate causality, optimality, robustness, dominance, magnitude, or generality.
 - Each inference has a visible premise or evidence object and does not skip from result to implication.

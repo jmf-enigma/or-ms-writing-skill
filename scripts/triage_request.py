@@ -30,8 +30,12 @@ MODE_TERMS = {
     "manuscript": {
         "full paper", "whole paper", "manuscript", "spine", "central object",
         "result hierarchy", "paper structure", "section structure", "headings",
+        "full-text", "close reading", "paper close reading", "how papers do it",
+        "how papers write", "paper writing",
         "subheadings", "完整", "整篇", "全文", "结构", "标题", "小标题",
         "主线", "文章", "整体", "全局", "优化一遍", "整体优化",
+        "论文怎么写", "论文咋写", "paper咋写", "paper怎么写", "别人怎么写",
+        "别人咋写", "paper是咋做", "paper怎么做",
     },
     "math": {
         "model", "equation", "derivation", "formula", "theorem", "proposition",
@@ -126,6 +130,9 @@ def score_modes(text: str) -> dict[str, int]:
         scores["math"] += 2
     if any(term in lower for term in {"整体", "全局", "完整优化", "优化一遍", "整体优化"}):
         scores["manuscript"] += 2
+    if any(term in lower for term in {"paper是咋做", "paper怎么做", "paper怎么写", "paper咋写", "论文怎么写", "论文咋写", "别人怎么写", "别人咋写", "full-text", "close reading"}):
+        scores["manuscript"] += 3
+        scores["paragraph"] += 1
     if any(term in lower for term in {"逻辑", "推理", "论证", "logic", "inference", "premise"}):
         scores["paragraph"] += 2
         scores["reviewer"] += 1
