@@ -50,7 +50,9 @@ MODE_TERMS = {
     },
     "reviewer": {
         "reviewer", "referee", "editor", "objection", "calibration",
-        "overclaim", "misunderstand", "审稿", "审稿人", "反驳", "质疑",
+        "overclaim", "misunderstand", "citation", "citations", "reference",
+        "references", "related work citation", "literature citation",
+        "审稿", "审稿人", "反驳", "质疑", "引用", "文献", "参考文献",
     },
 }
 
@@ -142,6 +144,9 @@ def score_modes(text: str) -> dict[str, int]:
     if any(term in lower for term in {"学术", "更学术", "academic", "scholarly", "formal register"}):
         scores["sentence"] += 2
         scores["reviewer"] += 1
+    if any(term in lower for term in {"citation", "citations", "reference", "references", "引用", "文献", "参考文献"}):
+        scores["reviewer"] += 2
+        scores["paragraph"] += 1
     if any(term in lower for term in {"怪怪", "别扭", "不地道", "ai味", "冒号"}):
         scores["sentence"] += 2
     if "appendix" in lower and any(word in lower for word in {"proof", "derivation", "theorem", "proposition"}):

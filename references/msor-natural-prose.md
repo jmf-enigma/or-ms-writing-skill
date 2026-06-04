@@ -58,6 +58,7 @@ Before finalizing a paragraph, silently ask:
 5. Does the paragraph use the paper's nouns instead of generic labels such as insight, implication, framework, mechanism, and contribution?
 6. If a sentence uses `when`, `whereas`, `relative to`, `without`, or `consistent with`, is that relation the reason the sentence exists?
 7. Could one clause be moved to the next sentence and make the paragraph easier to read?
+8. Does any `A, B, and C` list merely decorate a noun? If yes, keep only the item that carries the claim, or split the items into separate evidence-backed claims.
 
 If the answer to any of these is no, simplify before polishing.
 

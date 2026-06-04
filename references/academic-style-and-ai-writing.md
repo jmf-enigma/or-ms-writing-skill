@@ -95,6 +95,7 @@ Treat the following as diagnostic, not as a banned-word list. A word may stay if
 - Punctuation scaffolding: colon-led labels such as "Key insight:", "The implication is:", "Contribution:", "Result:", "Proof idea:", and "Takeaway:"; semicolon chains; dash pivots that create a reveal instead of a logical relation.
 - Itinerary prose: repeated "we first," "we then," "we next," and "finally" when the paragraph should be organized by objects, results, or evidence.
 - Weak antecedent links: "This enables/allows..." and ", which enables/allows..." when "this" or "which" points to an entire previous sentence rather than a named mechanism, theorem, design, or data feature.
+- Decorative triplets: three abstract adjectives or nouns joined as `A, B, and C`, especially before words such as framework, approach, implications, insights, challenges, opportunities, or dynamics. These often sound like filler unless each item is a real construct or result branch.
 
 Replacement rule:
 
@@ -104,6 +105,7 @@ Replacement rule:
 - Replace "comprehensive framework" with the model primitives or data design.
 - Replace colon-led labels with direct syntax. For example, write "This comparison shows when the threshold policy improves profit relative to the myopic benchmark" rather than "Key implication: the threshold policy improves profit."
 - Replace itinerary prose with research-object prose. "We first model the platform, then analyze equilibrium, and finally discuss implications" usually becomes a sentence about the platform's decision, the equilibrium object, and the condition that changes the implication.
+- Replace decorative triplets with one precise object or with separate claims. `robust, scalable, and efficient framework` usually becomes the policy class, guarantee, runtime, or benchmark that the paper actually establishes.
 - If removing AI-scent makes the paragraph flat, add a real hinge rather than a style word. The hinge should name a contrast, condition, mechanism, benchmark, or boundary.
 
 ## Reviewer-Readable Anti-AI Pass

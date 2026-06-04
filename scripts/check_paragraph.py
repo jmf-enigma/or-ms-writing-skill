@@ -508,10 +508,42 @@ ABSTRACT_NOUNS = {
     "implication", "implications", "contribution", "contributions",
     "approach", "perspective", "paradigm", "lens", "narrative",
 }
+DECORATIVE_TRIPLET_TERMS = {
+    "actionable", "adaptive", "advanced", "beneficial", "broad", "comprehensive",
+    "compelling", "complex", "critical", "crucial", "deep", "dynamic", "effective",
+    "efficient", "elegant", "flexible", "general", "generalizable", "holistic",
+    "important", "impactful", "innovative", "insightful", "interpretable",
+    "meaningful", "multifaceted", "novel", "practical", "powerful", "real-world",
+    "relevant", "rich", "robust", "scalable", "seamless", "significant",
+    "sophisticated", "strategic", "substantial", "timely", "transformative",
+    "useful", "valuable", "versatile",
+    "analysis", "approach", "benefits", "challenge", "challenges", "contribution",
+    "contributions", "dynamics", "framework", "implication", "implications",
+    "insight", "insights", "mechanism", "mechanisms", "opportunities",
+    "perspective", "perspectives", "strategy", "strategies",
+}
+TRIPLET_HEAD_NOUNS = {
+    "analysis", "approach", "contribution", "contributions", "framework",
+    "implication", "implications", "insight", "insights", "mechanism",
+    "mechanisms", "model", "perspective", "strategy", "system",
+}
 NOUN_PILE_HEADS = {
     "analysis", "approach", "design", "framework", "implication", "implications",
     "mechanism", "model", "optimization", "policy", "process", "strategy",
     "structure", "system",
+}
+LITERATURE_CLAIM_MARKERS = {
+    "prior work", "previous work", "existing work", "prior literature",
+    "existing literature", "the literature", "this literature", "related work",
+    "previous studies", "prior studies", "studies have", "research has",
+}
+CITATION_EXPLANATION_MARKERS = {
+    "show", "shows", "find", "finds", "estimate", "estimates", "establish",
+    "establishes", "characterize", "characterizes", "study", "studies",
+    "focus", "focuses", "assume", "assumes", "model", "models", "document",
+    "documents", "leave", "leaves", "whereas", "while", "but", "however",
+    "relative to", "unlike", "in contrast", "differ", "differs", "extend",
+    "extends",
 }
 WEAK_SUBJECT_PATTERNS = {
     r"there (?:is|are|exists|exist)\b": "empty `there` opener; name the actor, object, theorem, estimate, or mechanism that exists or changes.",
@@ -836,6 +868,32 @@ def result_catalog_warnings(text: str, section: str) -> list[str]:
     return [
         "result-catalog rhythm detected; choose the spine result and arrange other findings as support, mechanism, boundary, or robustness instead of giving every result equal weight."
     ]
+
+
+def decorative_triplet_warnings(text: str) -> list[str]:
+    warnings = []
+    triplet_pattern = re.compile(
+        r"\b(?:a|an|the\s+)?([A-Za-z][A-Za-z-]+),\s+([A-Za-z][A-Za-z-]+),?\s+and\s+([A-Za-z][A-Za-z-]+)(?:\s+([A-Za-z][A-Za-z-]+))?",
+        flags=re.I,
+    )
+    for match in triplet_pattern.finditer(text):
+        items = [match.group(i).strip() for i in range(1, 4)]
+        head = (match.group(4) or "").strip()
+        if all(item[:1].isupper() for item in items) and not head:
+            continue
+        lower_items = [item.lower() for item in items]
+        item_words = [word for item in lower_items for word in re.findall(r"[a-z][a-z-]*", item)]
+        decorative_score = sum(1 for word in item_words if word in DECORATIVE_TRIPLET_TERMS)
+        head_is_generic = head.lower() in TRIPLET_HEAD_NOUNS or any(
+            item in ABSTRACT_NOUNS or item in TRIPLET_HEAD_NOUNS for item in lower_items
+        )
+        all_short = all(len(item.split()) <= 2 for item in items)
+        if all_short and (decorative_score >= 2 or head_is_generic):
+            phrase = ", ".join(items[:2]) + ", and " + items[2] + (f" {head}" if head else "")
+            warnings.append(
+                f"decorative three-part list `{phrase}`; keep an `A, B, and C` list only when the three items are real constructs, mechanisms, assumptions, or result branches. Otherwise replace it with the exact object or split it into evidence-backed claims."
+            )
+    return warnings[:3]
 
 
 def roadmap_rhythm_warnings(text: str, section: str) -> list[str]:
@@ -1237,6 +1295,55 @@ def reviewer_calibration_warnings(text: str) -> list[str]:
     return warnings
 
 
+def citation_markers(text: str) -> list[str]:
+    patterns = [
+        r"\([A-Z][A-Za-z-]+(?:\s+et\s+al\.)?,?\s+\d{4}[a-z]?(?:;\s*[A-Z][A-Za-z-]+(?:\s+et\s+al\.)?,?\s+\d{4}[a-z]?)*\)",
+        r"\b[A-Z][A-Za-z-]+\s+et\s+al\.\s+\(\d{4}[a-z]?\)",
+        r"\b[A-Z][A-Za-z-]+\s+and\s+[A-Z][A-Za-z-]+\s+\(\d{4}[a-z]?\)",
+        r"\b[A-Z][A-Za-z-]+,\s+[A-Z][A-Za-z-]+,\s+and\s+[A-Z][A-Za-z-]+\s+\(\d{4}[a-z]?\)",
+        r"\[\d+(?:,\s*\d+)*\]",
+        r"\b10\.\d{4,9}/[-._;()/:A-Za-z0-9]+\b",
+    ]
+    hits = []
+    for pattern in patterns:
+        hits.extend(re.findall(pattern, text))
+    return hits
+
+
+def citation_discipline_warnings(text: str, section: str) -> list[str]:
+    normalized_section = normalize_section(section)
+    lower = text.lower()
+    citations = citation_markers(text)
+    warnings = []
+    has_literature_claim = any(marker in lower for marker in LITERATURE_CLAIM_MARKERS)
+    literature_context = normalized_section in {
+        "abstract", "introduction", "intro", "related", "related-work",
+        "literature", "contribution", "paragraph",
+    }
+
+    if has_literature_claim and literature_context and not citations:
+        warnings.append(
+            "literature claim has no visible citation marker; add verified citations or name the exact literature stream without pretending the claim is sourced."
+        )
+    if len(citations) >= 3 and not any(marker in lower for marker in CITATION_EXPLANATION_MARKERS):
+        warnings.append(
+            "citation list may be replacing explanation; state what the cited stream establishes and what object, setting, mechanism, data source, or proof technique this paper changes."
+        )
+    novelty_hit = (
+        re.search(r"\bnovel\b|\bfirst\b|\bnew\b", lower)
+        and not re.search(r"\bfirst\s+(?:inequality|term|step|case|constraint|order|stage|period|round|line)\b", lower)
+    )
+    if novelty_hit and not citations and not any(marker in lower for marker in {"literature", "stream", "benchmark", "relative to", "unlike"}):
+        warnings.append(
+            "novelty claim needs citation discipline; identify the literature stream, benchmark, or verified prior work before claiming novelty."
+        )
+    if citations:
+        warnings.append(
+            "citation metadata is not verified by this writing check; use citation-tools or browsing for author-year, DOI, BibTeX, cited-by, or exact-paper claim verification."
+        )
+    return warnings
+
+
 def logical_inference_warnings(text: str, section: str) -> list[str]:
     normalized_section = normalize_section(section)
     if normalized_section in {"phrase", "title", "micro", "micro-rewrite"}:
@@ -1308,12 +1415,13 @@ def llm_style_warnings(text: str) -> list[str]:
 def punctuation_scent(text: str, allow_structured: bool = False) -> list[str]:
     warnings = []
     lower = text.lower()
+    text_without_parentheticals = re.sub(r"\([^)]*\)", "", text)
     colon_count = text.count(":")
     em_dash_count = text.count("\u2014")
     en_dash_count = text.count("\u2013")
     double_dash_count = text.count(" -- ")
     spaced_hyphen_count = len(re.findall(r"\s-\s", text))
-    semicolon_count = text.count(";")
+    semicolon_count = text_without_parentheticals.count(";")
     colon_labels = sorted(
         label for label in COLON_ROADMAP_LABELS
         if re.search(rf"\b{re.escape(label)}\b\s*:", lower)
@@ -1394,6 +1502,10 @@ def main() -> int:
     for warning in template_scent:
         print(f"- read-aloud naturalness: {warning}")
 
+    triplet_scent = decorative_triplet_warnings(text)
+    for warning in triplet_scent:
+        print(f"- AI-scent list rhythm: {warning}")
+
     placeholder_scent = placeholder_residue_warnings(text)
     for warning in placeholder_scent:
         print(f"- template residue: {warning}")
@@ -1454,6 +1566,10 @@ def main() -> int:
     for warning in reviewer_calibration_warnings(text):
         print(f"- reviewer calibration: {warning}")
 
+    citation_scent = citation_discipline_warnings(text, args.section)
+    for warning in citation_scent:
+        print(f"- citation discipline: {warning}")
+
     for warning in academic_style_warnings(text):
         print(f"- academic style: {warning}")
 
@@ -1488,6 +1604,7 @@ def main() -> int:
         or roadmap_scent
         or weak_relative_scent
         or template_scent
+        or triplet_scent
         or placeholder_scent
         or catalog_scent
         or this_hits
