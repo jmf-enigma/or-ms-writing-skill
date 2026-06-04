@@ -1339,7 +1339,7 @@ def citation_discipline_warnings(text: str, section: str) -> list[str]:
         )
     if citations:
         warnings.append(
-            "citation metadata is not verified by this writing check; use citation-tools or browsing for author-year, DOI, BibTeX, cited-by, or exact-paper claim verification."
+            "citation content is not verified by this writing check; read the cited paper's relevant abstract, introduction, model/data/result/proof section, and appendix when needed. Use citation-tools or browsing for author-year, DOI, BibTeX, cited-by, and exact-paper claim verification."
         )
     return warnings
 

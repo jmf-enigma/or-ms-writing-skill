@@ -1,6 +1,6 @@
 ---
 name: or-ms-writing
-description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when wording and collocations sound nonnative; supports sentence craft, word choice, verb-object fit, relation words, paper spine, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
+description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when wording and collocations sound nonnative; supports sentence craft, word choice, verb-object fit, relation words, paper spine, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, citation fit and citation close reading, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
 ---
 
 # OR/MS Paper Writing
@@ -12,6 +12,7 @@ Use this skill to write or revise publication-style research prose for Managemen
 - Do not mimic a living scholar's personal wording, cadence, or distinctive voice. Use field-level conventions and paper architecture only.
 - Do not hide missing logic in polished prose. If a theorem, proof step, identification claim, benchmark, or empirical support is absent, write the strongest supported version and flag the gap only when it affects validity.
 - Do not upgrade evidence. A rewrite may clarify, narrow, reorder, and sharpen, but it must not invent significance, dominance, causality, optimality, robustness, generality, data, assumptions, or magnitudes.
+- Do not judge citation fit from metadata, title, abstract, memory, or cited-by counts alone. If a claim depends on a cited paper, read the paper's relevant content and verify that the cited paper actually supports that claim at the same level of scope and strength.
 - For proof discovery or failed lemmas, route to `theory-proof-workbench`. For a mostly complete but rough proof, pair with `math-proof-writing`.
 
 ## Default Behavior
@@ -43,6 +44,7 @@ Use this priority order to avoid doing too much:
 - **Full paper, abstract, introduction, result package, or multiple data/model/result items**: run a manuscript-spine pass first: central object, spine result, support needed for first-pass trust, boundary, and what should move to appendix or disappear.
 - **Model, theorem, equation, or proof requests**: decide body depth and appendix placement before polishing the language.
 - **Reviewer-facing requests**: keep the skeptical reviewer's next question in view: exact term, evidence, boundary, bridge, and overclaim risk.
+- **Citation-fit requests**: Treat citation appropriateness as content verification, not formatting. Use `citation-tools` or browsing for exact papers, then read the cited paper's abstract, introduction positioning, relevant model/data/result/proof section, and conclusion or appendix passage before deciding whether the citation supports the sentence.
 - **Academic-register requests**: Raise the register by tightening definitions, inference verbs, hedges, and transitions. Do not replace plain field words with ornate synonyms.
 - **Global optimization requests**: If the user asks to optimize a whole skill, manuscript, section package, or writing system, audit routing, duplication, failure modes, and validation first; then make the smallest changes that improve behavior across many requests.
 
@@ -106,7 +108,7 @@ Use the register that matches the requested unit. These are flexible patterns, n
 - **Story-order repair**: For a paragraph or section that feels illogical, map start state, paragraph job, sentence sequence, exit state, and handoff to the next paragraph before changing wording.
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.
 - **Related work**: End each stream with the difference that matters: setting, information, constraint, performance criterion, proof technique, data source, or decision logic.
-- **Citation and literature claims**: Do not invent citations, author-year pairs, DOI, page numbers, or claims about a paper. If exact citation content matters, use `citation-tools` or browsing. In prose, each citation should support the nearest claim, and each cited stream should be followed by the paper's precise departure.
+- **Citation and literature claims**: Do not invent citations, author-year pairs, DOI, page numbers, or claims about a paper. If exact citation content matters, use `citation-tools` or browsing and read the relevant content of the cited paper. In prose, each citation should support the nearest claim, and each cited stream should be followed by the paper's precise departure.
 - **Model setup**: Describe the decision environment before dense notation. Introduce agents, timing, information, actions or policy class, objective, constraints, assumptions, benchmark, and solution concept or estimand in the order the paper lane requires.
 - **Construct and empirical framework setup**: In empirical or experimental papers, a measure, construct, potential outcome, treatment contrast, or estimating equation may be the model. Define what the construct means, how it is observed or elicited, and what the coefficient or contrast represents before polishing the prose.
 - **Assumptions**: State what role each assumption plays: simplify, identify, bound, preserve tractability, isolate a mechanism, rule out degeneracy, or match institutional constraints.
@@ -163,7 +165,7 @@ When the problem is simply "this sounds strange" or "the wording is not native,"
 - **Model, theorem, equation, proof**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md` + `references/msor-full-text-close-reading.md`.
 - **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
 - **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
-- **Citation discipline and related-work support**: `references/msor-paper-craft.md` + `references/academic-style-and-ai-writing.md` + `citation-tools` when exact citation metadata, cited-by counts, BibTeX, DOI, or author-year verification matters.
+- **Citation discipline and related-work support**: `references/citation-close-reading.md` + `references/msor-paper-craft.md` + `references/academic-style-and-ai-writing.md` + `citation-tools` or browsing when exact citation metadata, cited-by counts, BibTeX, DOI, author-year verification, or cited-paper content matters.
 - **Paper-lane flavor**: `references/management-science-20x-lane-style.md` or `references/article-corpus-style-notes.md` only for difficult lane matching, complete sections, or requests to make a passage feel closer to recent MS/OR papers without copying personal style.
 - **General story or unfamiliar topics**: `references/general-topic-story-engine.md`, `references/storytelling-language.md`, and `references/paragraph-style.md`.
 - **Detailed corpus/style archives**: `references/msor-word-choice-collocations.md`, `references/msor-sentence-craft.md`, `references/msor-natural-prose.md`, `references/msor-micro-phrasing.md`, `references/msor-full-text-close-reading.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, micro-wording, readability, or AI-scent repair.
@@ -190,7 +192,7 @@ Use this as a control loop, not a visible outline. Stop when the requested unit 
 
 1. **Scope**: identify the unit, lane, reader job, and output shape. If unclear, triage once and load at most one or two reference bundles.
 2. **Reader path**: decide what the reader knows at entry, what must change, what question the paragraph or section answers, and what next object it prepares.
-3. **Evidence and placement**: identify the theorem, estimate, table, proof move, benchmark, assumption, or design feature that supports the claim. For model or proof material, decide body versus appendix before writing formulas.
+3. **Evidence and placement**: identify the theorem, estimate, table, proof move, benchmark, assumption, design feature, or cited-paper content that supports the claim. For model or proof material, decide body versus appendix before writing formulas.
 4. **Draft**: write ordinary OR/MS prose at the requested granularity. Do not expose planning labels, scripts, or reference terminology.
 5. **Preserve**: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the supplied material.
 6. **Calibrate**: narrow overloaded terms, bridge unfamiliar methods for adjacent-field reviewers, and keep evidence and boundary near claims that could be overread.
@@ -247,6 +249,7 @@ Before finalizing, check only what the requested unit needs:
 - Three-part lists are used only when the items are genuine constructs, mechanisms, result branches, or assumptions; decorative adjective/noun triplets are removed.
 - Word choices are idiomatic for the object: effects are `on` outcomes, robustness is `to` specifications, policies improve metrics `relative to` benchmarks, and evidence verbs do not exceed the support.
 - Citation and related-work claims are bounded: no invented references, no citation dumping, and no novelty claim without a precise literature stream, benchmark, or verified citation support.
+- Citation fit has been checked against the cited paper's actual content when the sentence relies on that paper; if the paper was not read, mark the citation support as unverified instead of polishing around it.
 - Sentences have local subjects and working verbs. They avoid abstract-noun stacks, long preposition chains, weak `This` openings, and relation words that do not name a real condition, benchmark, mechanism, or boundary.
 - The paragraph can be read aloud without sounding like a template. Each sentence inherits one object from the prior sentence and adds one new object, relation, or caveat.
 

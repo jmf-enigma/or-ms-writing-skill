@@ -94,6 +94,7 @@ MODE_REFS = {
         "msor-full-text-close-reading.md",
     ],
     "reviewer": [
+        "citation-close-reading.md",
         "reviewer-calibration.md",
         "academic-style-and-ai-writing.md",
     ],
@@ -168,6 +169,8 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
         ordered = ["paragraph", "sentence"] + [mode for mode in ordered if mode not in {"paragraph", "sentence"}]
     if "paragraph" in ordered and "manuscript" in ordered and scores["paragraph"] >= scores["manuscript"]:
         ordered = ["paragraph", "manuscript"] + [mode for mode in ordered if mode not in {"paragraph", "manuscript"}]
+    if "reviewer" in ordered and scores["reviewer"] > scores.get("paragraph", 0) and scores["reviewer"] >= scores.get("manuscript", 0):
+        ordered = ["reviewer"] + [mode for mode in ordered if mode != "reviewer"]
     if "sentence" in ordered and "manuscript" in ordered:
         ordered = ["manuscript", "sentence"] + [mode for mode in ordered if mode not in {"manuscript", "sentence"}]
     if "manuscript" in ordered and "math" in ordered and "placement" in ordered:

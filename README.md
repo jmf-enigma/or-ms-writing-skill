@@ -38,7 +38,7 @@ The latest update adds more full-text MS/OR signals from AI calibration experime
 - full-paper close-reading paths: how field experiments, platform models, multimethod studies, optimal-control papers, and appendix-heavy theory papers make one section necessary from the previous section's reader question;
 - workflow cleanup: a shorter control-loop procedure, tighter request triage for paper-close-reading prompts, and less noisy topic lenses in section planning;
 - AI-scent list detection: catches decorative `A, B, and C` adjective/noun triplets and asks whether the items are real constructs or just filler;
-- citation discipline: checks citation dumping, unsourced literature claims, and novelty claims that need a precise literature stream, while routing exact metadata verification to citation tools;
+- citation close reading: checks citation dumping, unsourced literature claims, and novelty claims, and requires reading the cited paper's actual model/data/result/proof content before judging whether a citation supports the sentence;
 - academic register calibration: more precise constructs, assumptions, benchmarks, and inference verbs without ornate wording;
 - construct and measurement sections such as `Measures`, `Empirical Framework`, and `Measurement Challenges`;
 - when an empirical measure, potential outcome, treatment contrast, or estimating equation is the paper's model;
@@ -183,7 +183,7 @@ MIT License. See [LICENSE](LICENSE).
 - 真实 paper 的 section 推进：main effect 后为什么进 mechanism，equilibrium 后为什么进 benchmark，exact model 后为什么进 approximation，正文解释之后为什么再去 appendix；
 - 更干净的内部流程：少一点 checklist，多一点 scope、reader path、evidence/placement、language polish 的控制循环；
 - 新的 AI 味检测：抓 `A, B, and C` 这种三连抽象形容词/名词，尤其是接 framework、insights、implications 这类词的时候；
-- 引用纪律检查：检查 citation dumping、没有 citation 的 literature claim、没有文献边界的 novelty claim；真正的 DOI/BibTeX/作者年份核验交给 citation tools；
+- 引用 close reading：检查 citation dumping、没有 citation 的 literature claim、没有文献边界的 novelty claim；判断引用是否合适时必须看被引文章的具体 model/data/result/proof 内容，DOI/BibTeX/作者年份核验交给 citation tools；
 - model setup、assumption、formulation、theorem/proposition statement、result interpretation；
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
