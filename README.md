@@ -39,6 +39,7 @@ The latest update adds more full-text MS/OR signals from AI calibration experime
 - workflow cleanup: a shorter control-loop procedure, tighter request triage for paper-close-reading prompts, and less noisy topic lenses in section planning;
 - AI-scent list detection: catches decorative `A, B, and C` adjective/noun triplets and asks whether the items are real constructs or just filler;
 - citation close reading: checks citation dumping, unsourced literature claims, and novelty claims, and requires reading the cited paper's actual model/data/result/proof content before judging whether a citation supports the sentence;
+- high-impact paper craft: learns from classic and highly cited MS/OR papers by asking what portable object, benchmark, evidence, and boundary made the paper reusable;
 - academic register calibration: more precise constructs, assumptions, benchmarks, and inference verbs without ornate wording;
 - construct and measurement sections such as `Measures`, `Empirical Framework`, and `Measurement Challenges`;
 - when an empirical measure, potential outcome, treatment contrast, or estimating equation is the paper's model;
@@ -67,6 +68,7 @@ The skill is built around a few nonnegotiable writing principles:
 - Natural prose starts with natural word pairings: a theorem establishes a bound, a policy improves a metric, data record behavior, robustness checks preserve an interpretation, and effects are on outcomes.
 - Every major claim needs nearby evidence and a clear boundary.
 - A strong paper needs a spine: the central object and the result that changes the reader's belief.
+- A high-impact paper usually gives later readers a portable object: a model, benchmark, contract, measure, theorem object, policy class, empirical contrast, or tradeoff that can be cited and extended.
 - Results should not receive equal emphasis; distinguish spine result, load-bearing support, mechanism, boundary, robustness, extension, and appendix-only verification.
 - Stronger prose should not mean stronger unsupported claims.
 - A model should be introduced as a decision environment, not as a collection of symbols.
@@ -184,6 +186,7 @@ MIT License. See [LICENSE](LICENSE).
 - 更干净的内部流程：少一点 checklist，多一点 scope、reader path、evidence/placement、language polish 的控制循环；
 - 新的 AI 味检测：抓 `A, B, and C` 这种三连抽象形容词/名词，尤其是接 framework、insights、implications 这类词的时候；
 - 引用 close reading：检查 citation dumping、没有 citation 的 literature claim、没有文献边界的 novelty claim；判断引用是否合适时必须看被引文章的具体 model/data/result/proof 内容，DOI/BibTeX/作者年份核验交给 citation tools；
+- 高引/经典论文写法：不是模仿名家措辞，而是学它们怎样让一个 model、benchmark、contract、measure、policy class、theorem object、empirical contrast 或 tradeoff 变成后续文献可以引用和扩展的 portable object；
 - model setup、assumption、formulation、theorem/proposition statement、result interpretation；
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
 - proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
@@ -209,6 +212,7 @@ MIT License. See [LICENSE](LICENSE).
 - 一个大 claim 附近必须有 evidence。
 - 一个强 claim 附近必须有 boundary。
 - 一篇强文章必须有 spine：读者应记住的 central object，以及真正改变信念的 result。
+- 高质量 MS/OR 文章通常还有一个 durable object：后续论文会引用的 model、benchmark、measure、contract、policy class、theorem object、empirical contrast 或 tradeoff。
 - 一句强英文要先有清楚的 subject、verb、object；不要用 abstract noun pile 和空泛主语去遮住真正的 actor、policy、model、estimate 或 proof move。
 - 不是所有 result 都应该同等展开；正文要围绕 spine result 组织，附录负责验证、重复检查和二级扩展。
 - 语言可以更地道，但结论不能被偷偷加强。

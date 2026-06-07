@@ -13,6 +13,11 @@ SPINE_TERMS = {
     "effect", "guarantee", "bound", "characterize", "identification",
     "field experiment", "implementation", "policy", "threshold",
 }
+DURABLE_TERMS = {
+    "model", "benchmark", "tradeoff", "contract", "policy class", "uncertainty set",
+    "estimator", "measure", "construct", "mechanism", "algorithm", "relaxation",
+    "bound", "index", "threshold", "treatment contrast", "identification strategy",
+}
 MECHANISM_TERMS = {
     "mechanism", "channel", "driven by", "because", "heterogeneity",
     "mediates", "explains", "consistent with", "why",
@@ -70,6 +75,8 @@ def classify(note: str) -> str:
     )
     if explicit_appendix and not any(term in lower for term in {"main", "primary", "headline", "spine"}):
         return "Appendix or verification"
+    if has_any(lower, DURABLE_TERMS) and any(term in lower for term in {"new", "named", "general", "reusable", "portable", "canonical", "extends", "captures"}):
+        return "Durable object"
     if has_any(lower, SPINE_TERMS):
         return "Spine candidate"
     if has_any(lower, CONSTRUCT_TERMS):
@@ -102,6 +109,20 @@ def choose_spine(notes: list[str]) -> str:
     return scored[0][2] if scored and scored[0][0] > 0 else "Not clear from notes. Choose the claim that changes the main decision, benchmark, or belief."
 
 
+def choose_durable_object(notes: list[str]) -> str:
+    scored: list[tuple[int, int, str]] = []
+    for index, note in enumerate(notes):
+        lower = note.lower()
+        score = 0
+        score += 3 if has_any(lower, DURABLE_TERMS) else 0
+        score += 2 if any(term in lower for term in {"benchmark", "relative to", "compared with", "extends", "generalizes", "new", "named", "reusable", "portable"}) else 0
+        score += 1 if has_any(lower, MODEL_TERMS | CONSTRUCT_TERMS | DATA_TERMS) else 0
+        score -= 2 if has_any(lower, APPENDIX_TERMS) else 0
+        scored.append((score, -index, note))
+    scored.sort(reverse=True)
+    return scored[0][2] if scored and scored[0][0] > 0 else "Not clear from notes. Name the model, benchmark, measure, treatment contrast, policy class, theorem object, or tradeoff that later papers would cite."
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--target", default="working paper", help="Management Science, Operations Research, M&SOM, or working paper")
@@ -119,11 +140,15 @@ def main() -> int:
     print("Likely spine result")
     print(f"- {choose_spine(notes)}\n")
 
+    print("Likely durable object")
+    print(f"- {choose_durable_object(notes)}\n")
+
     buckets: dict[str, list[str]] = {}
     for note in notes:
         buckets.setdefault(classify(note), []).append(note)
 
     order = [
+        "Durable object",
         "Spine candidate",
         "Model object",
         "Construct or measure",
@@ -144,6 +169,7 @@ def main() -> int:
 
     print("\nBefore drafting, answer")
     questions = [
+        "What model, benchmark, measure, treatment contrast, policy class, theorem object, or tradeoff would a later paper cite?",
         "What is the central object the reader should remember?",
         "What belief or benchmark does the spine result change?",
         "Which one result must appear in the abstract and introduction?",
@@ -156,6 +182,7 @@ def main() -> int:
         print(f"- {question}")
 
     print("\nDrafting instruction")
+    print("- Write toward the durable object; do not turn the manuscript into a catalog of tasks completed.")
     print("- Write the central object and spine result before polishing sentences.")
     print("- Place support around the spine; do not write a result catalog.")
     print("- If the model or data item does not support the spine, demote it or make its role explicit.")

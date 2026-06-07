@@ -31,11 +31,14 @@ MODE_TERMS = {
         "full paper", "whole paper", "manuscript", "spine", "central object",
         "result hierarchy", "paper structure", "section structure", "headings",
         "full-text", "close reading", "paper close reading", "how papers do it",
-        "how papers write", "paper writing",
+        "how papers write", "paper writing", "high-cited", "highly cited",
+        "classic", "seminal", "canonical paper", "exemplary paper", "best paper",
+        "excellent paper", "influential paper",
         "subheadings", "完整", "整篇", "全文", "结构", "标题", "小标题",
         "主线", "文章", "整体", "全局", "优化一遍", "整体优化",
         "论文怎么写", "论文咋写", "paper咋写", "paper怎么写", "别人怎么写",
-        "别人咋写", "paper是咋做", "paper怎么做",
+        "别人咋写", "paper是咋做", "paper怎么做", "高引", "高被引",
+        "经典", "优秀论文", "优秀paper", "代表作", "顶刊", "高质量论文",
     },
     "math": {
         "model", "equation", "derivation", "formula", "theorem", "proposition",
@@ -74,6 +77,7 @@ MODE_REFS = {
     ],
     "manuscript": [
         "msor-manuscript-judgment.md",
+        "high-impact-msor-paper-patterns.md",
         "section-architecture.md",
         "msor-paper-craft.md",
         "main-text-appendix-placement.md",
@@ -136,6 +140,9 @@ def score_modes(text: str) -> dict[str, int]:
     if any(term in lower for term in {"paper是咋做", "paper怎么做", "paper怎么写", "paper咋写", "论文怎么写", "论文咋写", "别人怎么写", "别人咋写", "full-text", "close reading"}):
         scores["manuscript"] += 3
         scores["paragraph"] += 1
+    if any(term in lower for term in {"high-cited", "highly cited", "classic", "seminal", "exemplary", "best paper", "excellent paper", "influential paper", "高引", "高被引", "经典", "优秀论文", "代表作", "顶刊"}):
+        scores["manuscript"] += 3
+        scores["reviewer"] += 1
     if any(term in lower for term in {"逻辑", "推理", "论证", "logic", "inference", "premise"}):
         scores["paragraph"] += 2
         scores["reviewer"] += 1
