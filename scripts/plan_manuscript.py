@@ -12,11 +12,23 @@ SPINE_TERMS = {
     "main", "primary", "headline", "theorem", "proposition", "estimate",
     "effect", "guarantee", "bound", "characterize", "identification",
     "field experiment", "implementation", "policy", "threshold",
+    "主要", "核心", "主结果", "核心结果", "主定理", "定理", "命题",
+    "估计", "效应", "保证",
 }
 DURABLE_TERMS = {
     "model", "benchmark", "tradeoff", "contract", "policy class", "uncertainty set",
     "estimator", "measure", "construct", "mechanism", "algorithm", "relaxation",
     "bound", "index", "threshold", "treatment contrast", "identification strategy",
+    "模型", "基准", "权衡", "合约", "合同", "政策类", "策略类", "不确定集",
+    "估计量", "度量", "指标", "构念", "机制", "算法", "松弛", "界", "阈值",
+    "处理对照", "识别策略",
+}
+DURABLE_INTENT_TERMS = {
+    "new", "named", "general", "reusable", "portable", "canonical", "extends",
+    "captures", "develop", "develops", "propose", "proposes", "formulate",
+    "formulates", "introduce", "introduces", "define", "defines",
+    "新的", "命名", "一般", "可复用", "可引用", "经典", "扩展", "刻画",
+    "提出", "建立", "构建", "定义", "捕捉",
 }
 MECHANISM_TERMS = {
     "mechanism", "channel", "driven by", "because", "heterogeneity",
@@ -75,10 +87,10 @@ def classify(note: str) -> str:
     )
     if explicit_appendix and not any(term in lower for term in {"main", "primary", "headline", "spine"}):
         return "Appendix or verification"
-    if has_any(lower, DURABLE_TERMS) and any(term in lower for term in {"new", "named", "general", "reusable", "portable", "canonical", "extends", "captures"}):
-        return "Durable object"
     if has_any(lower, SPINE_TERMS):
         return "Spine candidate"
+    if has_any(lower, DURABLE_TERMS) and any(term in lower for term in DURABLE_INTENT_TERMS):
+        return "Durable object"
     if has_any(lower, CONSTRUCT_TERMS):
         return "Construct or measure"
     if has_any(lower, APPENDIX_TERMS):
@@ -115,7 +127,7 @@ def choose_durable_object(notes: list[str]) -> str:
         lower = note.lower()
         score = 0
         score += 3 if has_any(lower, DURABLE_TERMS) else 0
-        score += 2 if any(term in lower for term in {"benchmark", "relative to", "compared with", "extends", "generalizes", "new", "named", "reusable", "portable"}) else 0
+        score += 2 if any(term in lower for term in DURABLE_INTENT_TERMS | {"benchmark", "relative to", "compared with", "generalizes", "基准", "相对于", "相比"}) else 0
         score += 1 if has_any(lower, MODEL_TERMS | CONSTRUCT_TERMS | DATA_TERMS) else 0
         score -= 2 if has_any(lower, APPENDIX_TERMS) else 0
         scored.append((score, -index, note))

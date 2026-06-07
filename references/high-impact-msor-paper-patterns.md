@@ -16,6 +16,8 @@ This reference extends the skill's close-reading base with classic and high-impa
 
 Use high citation counts cautiously. A paper can be highly cited because it names a durable object, opens a modeling stream, supplies a useful benchmark, or becomes a common empirical reference. Citation count is not a license to overclaim.
 
+If using a paper as a style source, read beyond the abstract. Check the introduction's tension, the model or empirical design section, at least one result paragraph, one proof or appendix handoff when relevant, and the conclusion's boundary. Abstracts teach the contract; bodies teach persuasion order.
+
 ## The Main Lesson
 
 High-impact MS/OR papers usually make one object portable.

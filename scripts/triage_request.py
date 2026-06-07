@@ -27,18 +27,22 @@ MODE_TERMS = {
         "段落", "段落之间", "段落内", "故事", "逻辑", "顺序", "推进",
         "承接", "转折", "推理", "论证", "引言", "摘要", "贡献",
     },
+    "impact": {
+        "high-cited", "highly cited", "classic", "seminal", "canonical paper",
+        "exemplary paper", "best paper", "excellent paper", "influential paper",
+        "high-impact", "nature-style", "durable object", "portable object",
+        "高引", "高被引", "经典", "优秀论文", "优秀paper", "代表作",
+        "顶刊", "高质量论文", "nature skill", "nature写作", "高影响",
+    },
     "manuscript": {
         "full paper", "whole paper", "manuscript", "spine", "central object",
         "result hierarchy", "paper structure", "section structure", "headings",
         "full-text", "close reading", "paper close reading", "how papers do it",
-        "how papers write", "paper writing", "high-cited", "highly cited",
-        "classic", "seminal", "canonical paper", "exemplary paper", "best paper",
-        "excellent paper", "influential paper",
+        "how papers write", "paper writing",
         "subheadings", "完整", "整篇", "全文", "结构", "标题", "小标题",
         "主线", "文章", "整体", "全局", "优化一遍", "整体优化",
         "论文怎么写", "论文咋写", "paper咋写", "paper怎么写", "别人怎么写",
-        "别人咋写", "paper是咋做", "paper怎么做", "高引", "高被引",
-        "经典", "优秀论文", "优秀paper", "代表作", "顶刊", "高质量论文",
+        "别人咋写", "paper是咋做", "paper怎么做",
     },
     "math": {
         "model", "equation", "derivation", "formula", "theorem", "proposition",
@@ -75,9 +79,14 @@ MODE_REFS = {
         "msor-micro-phrasing.md",
         "msor-full-text-close-reading.md",
     ],
+    "impact": [
+        "high-impact-msor-paper-patterns.md",
+        "msor-manuscript-judgment.md",
+        "msor-paper-craft.md",
+        "management-science-whole-paper-storycraft.md",
+    ],
     "manuscript": [
         "msor-manuscript-judgment.md",
-        "high-impact-msor-paper-patterns.md",
         "section-architecture.md",
         "msor-paper-craft.md",
         "main-text-appendix-placement.md",
@@ -107,6 +116,7 @@ MODE_REFS = {
 MODE_SCRIPTS = {
     "sentence": ["check_paragraph.py"],
     "paragraph": ["check_paragraph.py", "plan_section.py"],
+    "impact": ["plan_manuscript.py", "plan_section.py", "check_paragraph.py"],
     "manuscript": ["plan_manuscript.py", "plan_section.py", "place_results.py"],
     "math": ["plan_math_split.py", "check_paragraph.py"],
     "placement": ["place_results.py", "plan_math_split.py"],
@@ -116,6 +126,7 @@ MODE_SCRIPTS = {
 MODE_RULES = {
     "sentence": "Repair English before adding structure: word choice, collocation, subject, verb, object, condition, benchmark.",
     "paragraph": "Give each paragraph one dominant job and move by reader questions, not by checklist order.",
+    "impact": "Identify the durable object, benchmark, support, and boundary that make the paper reusable.",
     "manuscript": "Choose the central object, spine result, support hierarchy, and section architecture before polishing.",
     "math": "Keep the body focused on object, theorem, interpretation, and proof checkpoint; move verification details out.",
     "placement": "Keep first-pass trust in the body and move routine verification, repetitions, and implementation details out.",
@@ -123,12 +134,23 @@ MODE_RULES = {
 }
 
 
+def matches_term(term: str, lower: str) -> bool:
+    """Match English tokens conservatively while keeping Chinese phrase matching."""
+    if any(ord(char) > 127 for char in term):
+        return term in lower
+    if " " in term or "-" in term:
+        return term in lower
+    if len(term) <= 3:
+        return bool(re.search(r"(?<![a-z0-9])" + re.escape(term) + r"(?![a-z0-9])", lower))
+    return bool(re.search(r"\b" + re.escape(term) + r"\b", lower))
+
+
 def score_modes(text: str) -> dict[str, int]:
     lower = text.lower()
     scores = {mode: 0 for mode in MODE_TERMS}
     for mode, terms in MODE_TERMS.items():
         for term in terms:
-            if re.search(r"\b" + re.escape(term) + r"\b", lower) or term in lower:
+            if matches_term(term, lower):
                 scores[mode] += 1
     if len(text.split()) > 220:
         scores["paragraph"] += 1
@@ -140,8 +162,9 @@ def score_modes(text: str) -> dict[str, int]:
     if any(term in lower for term in {"paper是咋做", "paper怎么做", "paper怎么写", "paper咋写", "论文怎么写", "论文咋写", "别人怎么写", "别人咋写", "full-text", "close reading"}):
         scores["manuscript"] += 3
         scores["paragraph"] += 1
-    if any(term in lower for term in {"high-cited", "highly cited", "classic", "seminal", "exemplary", "best paper", "excellent paper", "influential paper", "高引", "高被引", "经典", "优秀论文", "代表作", "顶刊"}):
-        scores["manuscript"] += 3
+    if any(term in lower for term in {"high-cited", "highly cited", "classic", "seminal", "exemplary", "best paper", "excellent paper", "influential paper", "high-impact", "durable object", "portable object", "高引", "高被引", "经典", "优秀论文", "代表作", "顶刊", "高影响"}):
+        scores["impact"] += 3
+        scores["manuscript"] += 1
         scores["reviewer"] += 1
     if any(term in lower for term in {"逻辑", "推理", "论证", "logic", "inference", "premise"}):
         scores["paragraph"] += 2
@@ -170,20 +193,29 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
     positives = [mode for mode, score in scores.items() if score > 0]
     if not positives:
         return ["sentence", "paragraph"]
-    priority = ["sentence", "manuscript", "math", "placement", "reviewer", "paragraph"]
+    priority = ["sentence", "impact", "manuscript", "math", "placement", "reviewer", "paragraph"]
     ordered = [mode for mode in priority if mode in positives]
     if "paragraph" in ordered and "sentence" in ordered and scores["paragraph"] >= scores["sentence"]:
         ordered = ["paragraph", "sentence"] + [mode for mode in ordered if mode not in {"paragraph", "sentence"}]
     if "paragraph" in ordered and "manuscript" in ordered and scores["paragraph"] >= scores["manuscript"]:
         ordered = ["paragraph", "manuscript"] + [mode for mode in ordered if mode not in {"paragraph", "manuscript"}]
-    if "reviewer" in ordered and scores["reviewer"] > scores.get("paragraph", 0) and scores["reviewer"] >= scores.get("manuscript", 0):
-        ordered = ["reviewer"] + [mode for mode in ordered if mode != "reviewer"]
-    if "sentence" in ordered and "manuscript" in ordered:
+    if "sentence" in ordered and "manuscript" in ordered and scores["manuscript"] > scores["sentence"]:
         ordered = ["manuscript", "sentence"] + [mode for mode in ordered if mode not in {"manuscript", "sentence"}]
     if "manuscript" in ordered and "math" in ordered and "placement" in ordered:
         ordered = ["manuscript", "math", "placement"] + [mode for mode in ordered if mode not in {"manuscript", "math", "placement"}]
     if "math" in ordered and "placement" in ordered:
         ordered = [mode for mode in ordered if mode != "placement"] + ["placement"]
+    if (
+        "reviewer" in ordered
+        and scores["reviewer"] > max(scores.get("sentence", 0), scores.get("paragraph", 0), scores.get("manuscript", 0))
+    ):
+        ordered = ["reviewer"] + [mode for mode in ordered if mode != "reviewer"]
+    if (
+        "impact" in ordered
+        and scores["impact"] >= max(scores.get("sentence", 0), scores.get("paragraph", 0))
+        and scores["impact"] > scores.get("reviewer", 0)
+    ):
+        ordered = ["impact"] + [mode for mode in ordered if mode != "impact"]
     return ordered[:4]
 
 
@@ -229,6 +261,8 @@ def main() -> int:
         print("- Do not expand the argument unless the user asked for structure; fix the English while preserving the claim.")
     elif sequence[0] == "manuscript":
         print("- Do not polish all results equally; identify the spine result before writing section prose.")
+    elif sequence[0] == "impact":
+        print("- Do not imitate a classic paper's surface voice; extract its durable object, benchmark, support, and boundary.")
     elif sequence[0] == "math":
         print("- Do not hide proof or derivation gaps in smooth prose; name the mathematical move or flag the gap.")
     elif sequence[0] == "placement":
