@@ -21,6 +21,14 @@ Recent close-reading signals include full-text HTML or PDF versions of:
 - Bhandari and Russo, "Global Optimality Guarantees for Policy Gradient Methods," Operations Research / arXiv.
 - Recent empirical Management Science papers with theoretical background, data, empirical strategy, primary results, and limitations sections.
 - Additional close readings from full-text INFORMS papers on human-centered AI field experiments, algorithmic advice incentives and framing, external data capabilities in search, on-demand delivery platforms, supply-chain blockchain design, food-delivery platform contracts, blockchain information provision, threatened-species optimal learning, drug-resistance optimal control, contractual screening, and cash-constrained nanostore experiments.
+- Bertsimas and Kallus, "From Predictive to Prescriptive Analytics," Management Science.
+- Ban and Rudin, "The Big Data Newsvendor," Operations Research.
+- Elmachtoub and Grigas, "Smart Predict, then Optimize," Management Science.
+- Besbes and Zeevi, "Dynamic Pricing Without Knowing the Demand Function," Operations Research.
+- Ferreira, Lee, and Simchi-Levi, "Analytics for an Online Retailer," M&SOM.
+- Buell, Kim, and Tsay, "Creating Reciprocal Value Through Operational Transparency," Management Science.
+- Cachon and Swinney, "The Value of Fast Fashion," Management Science.
+- DeValve and Myles, "Approximation Algorithms for Dynamic Inventory Management on Networks," Management Science.
 
 Do not imitate any author's personal cadence. Extract field-level choices: where the sentence starts, how the model is introduced, how a result is interpreted, and where the proof is placed.
 
@@ -35,6 +43,25 @@ Strong MS/OR body prose is plain but not flat. It gives the reader the next obje
 - Boundaries are not apologies. They tell the reviewer what the claim is conditional on: a policy class, information structure, scaling regime, experiment, sample, or maintained behavioral assumption.
 
 Full papers also show a useful discipline: a new section should usually be justified by the previous section's unresolved reader question. A mechanism section follows because the main effect leaves an alternative explanation. A benchmark section follows because the equilibrium result needs a welfare or first-best comparison. An approximation section follows because the exact dynamic program is too costly. A behavioral experiment follows because field data identify an effect but not optimality or mechanism. This is the paper's logic of motion.
+
+The expanded close reading also shows that strong papers often create a durable object before they make a broad contribution claim. That object may be a decision loss, a coefficient, regret against a named benchmark, a lower bound, a policy class, or a sequence of experiments that separates mechanisms. Contribution order then follows logical dependency rather than a generic list: define the object, expose the obstacle, construct the method or policy, establish support, and test relevance. This order is useful only when it matches the paper's actual argument.
+
+Model notation is often earned by the setting. An implementation paper can describe the operating workflow, aggregation choice, and active managerial constraint before writing the optimization problem. A technical paper can formalize earlier when the new mathematical object itself is the contribution. The common test is whether the reader knows why each primitive or display is needed when it appears.
+
+## Cross-Paper Motion And Language
+
+The newer full-text comparisons add several finer-grained moves.
+
+- **Question-led introductions** work when each question names a real unresolved decision and maps to a later analytical or empirical section. A list of rhetorical questions with no one-to-one payoff is weaker than a direct problem statement.
+- **Contribution order** often mirrors dependency. A paper may define a loss or benchmark, show why direct optimization is difficult, derive a tractable object, establish its properties, and then evaluate it. Preserve that order only when each result uses the previous object.
+- **Theorem progression** should state why the next result is needed. If one theorem gives asymptotic optimality and the next gives a rate, say what the first theorem leaves unresolved before presenting the second.
+- **Workflow-to-model transitions** explain the modeling unit, aggregation level, or implementation constraint before notation. This makes an abstraction look chosen rather than convenient.
+- **Design limitations** belong near the design decision they qualify. If ideal randomization, measurement, or assignment was infeasible, state the operational reason and the remaining inferential limit before reporting the estimate.
+- **Mechanism language** stays one step below the design. Use `consistent with` or `suggests` when a follow-up analysis narrows a channel without isolating it.
+- **Result-to-conclusion transport** preserves the exact metric, comparator, magnitude, uncertainty, and population. The conclusion can interpret a 9.7% estimate or an approximation factor; it cannot rename revenue as profit or turn tested instances into universal dominance.
+- **Practical interpretation** can translate a technical metric into an accessible comparison, but the translation must remain algebraically faithful to the original object.
+
+Useful transition forms are quiet and local: `The first result establishes... The next result strengthens this conclusion by...`; `To isolate this channel, we...`; `Because the assignment could not be randomized at..., we...`; `The bound is informative when...`; `The numerical study compares the policy with...`. Use the relation, not the sentence shell.
 
 ## Lane-Specific Body Moves
 
@@ -98,9 +125,9 @@ The content should be concrete:
 - hard term: queue length, Bellman error, incentive response, rejection probability, revenue loss, estimation error;
 - move: decompose, bound, compare, apply, combine, condition, induct.
 
-If the proof is complete and short, use `Proof.` below the result. If it is only a sketch, write a normal paragraph and point to the appendix.
+Full texts use three legitimate local conventions. A complete short proof can appear as `Proof.` below the result. A formal `Proof.` line can contain only an appendix pointer when the paper or venue uses that convention. A proof sketch can appear as ordinary prose with a cross-reference. The second convention records proof location; it does not supply proof logic or interpretation.
 
-The useful test is whether the paragraph could stand as a proof if the appendix disappeared. If yes, `Proof.` is acceptable under the proposition. If no, do not label it as proof or proof idea; say the reduction, bound, or comparison in ordinary prose and then send the complete verification to the appendix.
+For a proposed new paragraph, the useful test is still whether it could stand as the proof if the appendix disappeared. If yes, a complete `Proof.` is appropriate. If no, write the reduction, bound, or comparison as ordinary prose unless the manuscript already uses a formal one-line pointer convention. In every case, keep the result's meaning in nearby body prose.
 
 ## Equations In The Body
 
@@ -144,6 +171,8 @@ Empirical MS result sections usually earn trust in this order:
 
 Use restrained phrases such as `I find evidence consistent with`, `the estimates suggest`, `the evidence points largely to`, and `although not conclusive` when the mechanism is not fully identified. If the result is a field experiment, distinguish the direct treatment effect from demand effects, spillovers, usage changes, learning, customer sorting, and selection.
 
+When the design departs from ideal randomization, explain the operational constraint where the assignment is introduced. Do not wait until the conclusion to reveal a limitation that changes how the estimate should be read. In the conclusion, repeat the preferred magnitude and uncertainty only at the same scale and for the same outcome used in the results section.
+
 ## Theory And Model Prose
 
 Theory prose is strongest when the formal object carries the story.
@@ -178,7 +207,8 @@ Use richer words only when the object supports them. Published papers may use `l
 
 - A fixed MS/OR outline imposed on every paper.
 - A proposition title that reads like a conclusion sentence.
-- `Proof.` followed by intuition only.
+- `Proof.` followed by intuition in a manuscript where the label denotes a complete proof.
+- A one-line formal proof pointer with no nearby interpretation of the result.
 - Appendix pointers before the body states what the result means.
 - Model paragraphs that open with `we propose a framework` before naming the decision.
 - Contribution paragraphs that are only a list of `we first`, `we second`, `we third`.

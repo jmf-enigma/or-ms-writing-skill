@@ -23,9 +23,9 @@ Use this for theorem statements, result sections, proof sketches, and appendix p
 - Appendix: algebra, induction, KKT verification, coupling, concentration inequalities, case splits, technical lemmas.
 - Main text derivation: show the start point, the key transformation, and the resulting formal object if that object is used by the theorem, estimator, algorithm, or benchmark.
 - Appendix derivation: fill in omitted algebra, constants, boundary cases, auxiliary lemmas, and verification after the body has shown why the transformation matters.
-- If the proof is long, include a proof roadmap in the main text and send details to the appendix.
+- If the proof is long and reader trust requires it, include the one load-bearing proof move in the main text and send verification details to the appendix. Do not add a roadmap to every result.
 - Keep proof details in the body when the proof technique is the contribution, the paper is a focused technical paper, or the result is short enough that the proof clarifies rather than distracts.
-- Move complete proofs to the appendix only after the body has stated the formal result, named the proof idea, and explained the decision meaning.
+- A formal result may use a complete short body proof, a venue-style one-line `Proof.` pointer, or ordinary proof-sketch prose with an appendix reference. Whatever the convention, keep the decision meaning and any necessary credibility bridge in nearby body prose.
 - Put auxiliary lemmas in the appendix unless the lemma is the conceptual object that readers need to understand the main theorem.
 
 ## Body-Level Derivation Pattern
@@ -71,7 +71,7 @@ MS proof ideas are concise, literal, and low-style. They explain why the theorem
 - Prefer connected equations with a sentence before and after each display.
 - Use notation consistently; never reuse a symbol for a new object in the same proof.
 - Name lemmas by function: "single-crossing lemma," "upper-bound lemma," "threshold lemma."
-- If a key step is not proved, output `Gap Notes` and route to `theory-proof-workbench`.
+- If a key step is not proved, output `Gap Notes` and use an available proof-discovery workflow before polishing exposition.
 - Do not let the appendix provide the first explanation of the theorem's meaning. The body needs a formal statement, a proof idea when needed, and an interpretation paragraph.
 - Avoid proof prose that sounds generated. Do not use colon-led roadmaps, dash pivots, semicolon chains, "we proceed as follows," or numbered steps when a linear proof reads better.
 - For long proofs, paragraph labels are fine. For short proofs, use ordinary transitions such as "We first show," "It remains to verify," and "Combining these inequalities gives."

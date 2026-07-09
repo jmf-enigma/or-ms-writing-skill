@@ -255,7 +255,7 @@ Smoother:
 
 `The proof compares the original process with an auxiliary process that keeps the queue lengths ordered. This comparison bounds the value loss period by period; the appendix gives the induction and the remaining case checks.`
 
-Use a labeled `Proof.` only when the proof is complete. If the body gives only the reason the result is true, write it as normal prose after the theorem and point to the appendix for verification.
+Use a labeled `Proof.` for a complete short proof or for a one-line appendix pointer when that is the manuscript's established convention. If the body gives only the reason the result is true, normally write it as ordinary prose after the theorem and point to the appendix for verification. A formal pointer does not replace that explanatory prose.
 
 ## Natural Result Prose
 

@@ -81,7 +81,7 @@ In the body, a useful proof idea names:
 - the move that controls it;
 - the reason the move yields the theorem's stated object.
 
-Use `Proof.` under a proposition only for a complete, short proof that improves understanding. If the proof is long, write an ordinary interpretation paragraph and point to the appendix after naming the hard step. Appendix proofs verify; they should not be the first place the reader learns what the theorem means.
+Use `Proof.` under a proposition for a complete short proof or, when the manuscript uses that formal convention, a one-line appendix pointer. If the proof is long, keep any load-bearing proof move in ordinary prose and place full verification in the appendix. Appendix proofs verify; they should not be the first place the reader learns what the theorem means.
 
 ## Empirical And Field Pattern
 

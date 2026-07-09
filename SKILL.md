@@ -1,11 +1,11 @@
 ---
 name: or-ms-writing
-description: "Use for natural, idiomatic, reviewer-calibrated OR/MS and adjacent academic writing at any granularity, especially when prose sounds stiff, translated, AI-like, hard to read, too template-driven, or when wording and collocations sound nonnative; supports sentence craft, word choice, verb-object fit, relation words, paper spine, durable contribution object, central object, result hierarchy, model necessity, body/appendix split, reviewer persuasion path, citation fit and citation close reading, titles, abstracts, paragraphs, introductions, contribution statements, related work, model/data/result narration, theorem intuition, proof exposition, managerial implications, referee responses, and full paper sections for Management Science, Operations Research, M&SOM, OM, econ, business analytics, mechanism, empirical, learning, and policy work; uses INFORMS genre patterns and paper-level references without imitating a living author's personal style."
+description: "Use when writing, revising, or auditing OR/MS manuscripts or passages for natural English, story order, reviewer calibration, model/theorem/proof exposition, claim-citation fit, and main-text/appendix placement, especially for Management Science, Operations Research, and M&SOM."
 ---
 
 # OR/MS Paper Writing
 
-Use this skill to write or revise publication-style research prose for Management Science, Operations Research, M&SOM, and adjacent OR/MS, OM, economics, empirical, learning, policy, and business analytics work. The requested unit may be a phrase, sentence, title, abstract, paragraph, local section, model setup, theorem interpretation, proof idea, appendix proof, referee response, or full paper section.
+The requested unit may be a phrase, sentence, title, abstract, paragraph, local section, model setup, theorem interpretation, proof idea, appendix proof, referee response, full paper section, or cross-manuscript audit.
 
 ## Boundaries
 
@@ -13,7 +13,7 @@ Use this skill to write or revise publication-style research prose for Managemen
 - Do not hide missing logic in polished prose. If a theorem, proof step, identification claim, benchmark, or empirical support is absent, write the strongest supported version and flag the gap only when it affects validity.
 - Do not upgrade evidence. A rewrite may clarify, narrow, reorder, and sharpen, but it must not invent significance, dominance, causality, optimality, robustness, generality, data, assumptions, or magnitudes.
 - Do not judge citation fit from metadata, title, abstract, memory, or cited-by counts alone. If a claim depends on a cited paper, read the paper's relevant content and verify that the cited paper actually supports that claim at the same level of scope and strength.
-- For proof discovery or failed lemmas, route to `theory-proof-workbench`. For a mostly complete but rough proof, pair with `math-proof-writing`.
+- For proof discovery or failed lemmas, use a proof-discovery skill when one is available. For a mostly complete but rough proof, pair with a proof-writing skill; otherwise preserve the gap and limit this skill to exposition.
 
 ## Default Behavior
 
@@ -40,12 +40,13 @@ Use this priority order to avoid doing too much:
 - **Language-only requests**: If the user says the prose is weird, stiff, translated, AI-like, hard to read, not native, or the wording sounds off, run word-choice and sentence-craft passes first and do not expand the paper architecture unless the argument itself is unclear.
 - **Paragraph or section requests**: Decide the paragraph job or section reader job, then draft in that register. Sentence craft happens after the local argument is clear.
 - **Story-logic requests**: Treat logic as reader progression, not only validity. Decide paragraph jobs, sentence order, paragraph handoffs, and the reader question each move answers before polishing.
-- **Paper-close-reading requests**: If the user asks how papers actually do it, learn the section's motion from full-text examples: what prior paragraph or result made the next section necessary, which reader question is being answered, and what belongs in the body before the appendix pointer.
+- **Paper-close-reading requests**: If the user asks how papers actually do it, learn the section's motion from full-text examples: what prior paragraph or result made the next section necessary, which reader question is being answered, and what belongs in the local body passage around an appendix pointer.
 - **Full paper, abstract, introduction, result package, or multiple data/model/result items**: run a manuscript-spine pass first: central object, spine result, support needed for first-pass trust, boundary, and what should move to appendix or disappear.
+- **Whole-manuscript audit requests**: verify the paper contract across abstract, introduction, model or design, results, and conclusion before rewriting locally. Check central-object wording, claim strength, comparator, metric, evidence source, boundary, terminology, numerical statements, and appendix dependence.
 - **Classic, highly cited, or exemplary-paper requests**: learn the durable contribution pattern: what portable object the paper created, what standard benchmark it changed, what evidence made it credible, and what boundary made it citable. Do not imitate older wording or a famous author's personal cadence.
 - **Model, theorem, equation, or proof requests**: decide body depth and appendix placement before polishing the language.
 - **Reviewer-facing requests**: keep the skeptical reviewer's next question in view: exact term, evidence, boundary, bridge, and overclaim risk.
-- **Citation-fit requests**: Treat citation appropriateness as content verification, not formatting. Use `citation-tools` or browsing for exact papers, then read the cited paper's abstract, introduction positioning, relevant model/data/result/proof section, and conclusion or appendix passage before deciding whether the citation supports the sentence.
+- **Citation-fit requests**: Treat citation appropriateness as content verification, not formatting. Use an available citation lookup or browsing tool for exact papers, then read the cited paper's abstract, introduction positioning, relevant model/data/result/proof section, and conclusion or appendix passage before deciding whether the citation supports the sentence.
 - **Academic-register requests**: Raise the register by tightening definitions, inference verbs, hedges, and transitions. Do not replace plain field words with ornate synonyms.
 - **Global optimization requests**: If the user asks to optimize a whole skill, manuscript, section package, or writing system, audit routing, duplication, failure modes, and validation first; then make the smallest changes that improve behavior across many requests.
 
@@ -57,6 +58,7 @@ Use this kernel by default, but keep it invisible in the final prose.
 
 - Start from what the paper actually proves, estimates, simulates, or demonstrates; then choose only the motivation and contrast needed to make that contribution legible.
 - For manuscript-level work, decide the paper spine before sentence polish. The spine is the central object plus the one result, estimate, theorem, or field comparison that changes the reader's belief.
+- Keep one manuscript contract across sections: the same central object, headline claim, comparator, metric, credibility source, and boundary should survive compression in the abstract, motivation in the introduction, formalization in the model or design, support in the results, and interpretation in the conclusion.
 - For high-impact paper style, ask what object a later paper would cite: model, benchmark, contract, uncertainty set, theorem type, empirical contrast, estimator, policy class, measure, or tradeoff. Write toward that portable object rather than toward a broad importance claim.
 - Make the paper's source of credibility visible before leaning on the claim: experiment, institutional variation, theorem, identification argument, equilibrium characterization, approximation guarantee, construct validation, simulation benchmark, or robustness logic.
 - Reconstruct the local logic before polishing: premise, evidence object, inference, boundary, and next reader question. Do not let a sentence jump from setting to implication, from result to recommendation, or from proof move to theorem meaning without the missing link.
@@ -89,6 +91,8 @@ Use this kernel by default, but keep it invisible in the final prose.
 
 Assume the reviewer is a sharp expert in one nearby subfield, not an expert in every domain the paper touches. Write so that an OM reviewer can follow the econometrics, an empirical reviewer can follow the model, a theory reviewer can follow the institutional setting, and a domain reviewer can trust the formal language.
 
+For each technical object, decide whether the target reviewer may be expected to know it, needs one local bridge, or needs a deferred technical definition. Explain a cross-field object once at first consequential use, keep its canonical term afterward, and defer only verification details. Do not repeatedly rephrase a technical term for stylistic variety.
+
 - Define overloaded terms locally before relying on them: `causal`, `optimal`, `equilibrium`, `robust`, `identification`, `efficiency`, `fairness`, `welfare`, `learning`, `platform`, and `data-driven`.
 - Use the narrow term when it is available. Distinguish demand, arrival rate, purchase incidence, adoption, conversion, engagement, welfare, surplus, profit, and revenue.
 - Explain what is observed, latent, exogenous, endogenous, optimized, estimated, assumed, or counterfactual when those distinctions matter.
@@ -105,12 +109,13 @@ Use the register that matches the requested unit. These are flexible patterns, n
 - **Manuscript judgment**: Before drafting a full section or paper, choose the durable object, central object, spine result, result hierarchy, model necessity, credibility path, reviewer objections, and body/appendix split.
 - **Section architecture**: Do not assume one MS/OR skeleton. First classify the paper lane, then choose headings that name the object: `Research Setting`, `Data and Methods`, `The Model`, `Empirical Strategy`, `Main Results`, `Algorithm`, `Numerical Experiments`, `Robustness Tests`, or `Discussion and Conclusion`. Add subheadings only when the reader job, evidence object, construct, model component, theorem family, or validity threat changes.
 - **Whole-manuscript optimization**: Improve the decision path before rewriting language: central object, result hierarchy, lane-specific structure, proof/model depth, appendix allocation, and only then sentence rhythm.
+- **Whole-manuscript audit**: Compare the abstract, introduction, model or empirical design, headline results, and conclusion against one paper contract. Report material drift before local prose edits; do not force every section to repeat identical wording.
 - **Introduction**: Start from the entry point the lane needs: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct. Order the modules so each paragraph answers the reviewer's next question; a roadmap is optional.
 - **MS storycraft**: Treat story as persuasion order, not a fixed arc. Make the decision, standard view, friction, credibility support, result, mechanism, and boundary recoverable across the manuscript without forcing every paragraph to carry the whole chain.
 - **Story-order repair**: For a paragraph or section that feels illogical, map start state, paragraph job, sentence sequence, exit state, and handoff to the next paragraph before changing wording.
 - **Contribution paragraph**: Group by contribution type. Each contribution should name the object, the evidence or guarantee, and the precise departure from prior work.
 - **Related work**: End each stream with the difference that matters: setting, information, constraint, performance criterion, proof technique, data source, or decision logic.
-- **Citation and literature claims**: Do not invent citations, author-year pairs, DOI, page numbers, or claims about a paper. If exact citation content matters, use `citation-tools` or browsing and read the relevant content of the cited paper. In prose, each citation should support the nearest claim, and each cited stream should be followed by the paper's precise departure.
+- **Citation and literature claims**: Do not invent citations, author-year pairs, DOI, page numbers, or claims about a paper. If exact citation content matters, use an available citation lookup or browsing tool and read the relevant content of the cited paper. In prose, each citation should support the nearest claim, and each cited stream should be followed by the paper's precise departure.
 - **Model setup**: Describe the decision environment before dense notation. Introduce agents, timing, information, actions or policy class, objective, constraints, assumptions, benchmark, and solution concept or estimand in the order the paper lane requires.
 - **Construct and empirical framework setup**: In empirical or experimental papers, a measure, construct, potential outcome, treatment contrast, or estimating equation may be the model. Define what the construct means, how it is observed or elicited, and what the coefficient or contrast represents before polishing the prose.
 - **Assumptions**: State what role each assumption plays: simplify, identify, bound, preserve tractability, isolate a mechanism, rule out degeneracy, or match institutional constraints.
@@ -129,8 +134,8 @@ For model and mathematical writing, the body should establish the object, not me
 - A main-text derivation usually needs only three levels: starting formal object, load-bearing mathematical move, and resulting object used by the theorem, estimator, policy, or comparison.
 - A theorem paragraph should name the result type: existence, uniqueness, monotonicity, threshold structure, comparative static, approximation ratio, regret bound, convergence rate, welfare comparison, or identification result.
 - Theorem and proposition captions should be spare. Prefer `Proposition 1.` or a short parenthetical/object label when useful; do not attach long claim-like titles. Surround the result with ordinary prose rather than headings such as `Key Insight`, `Proof Idea`, or `Takeaway`.
-- Use a `Proof.` paragraph directly below a theorem or proposition only when the body contains a complete, short proof that helps the reader understand the result. If the body only gives intuition or a proof sketch, write it as ordinary explanatory prose and point to the appendix for the complete proof.
-- After a theorem or proposition, do not rush to the appendix. First give the formal result a reader-facing sentence: what object is characterized, what benchmark changes, or why the condition matters. If the proof is long, add at most one load-bearing proof move before the appendix pointer.
+- Follow one coherent post-result convention: a complete short `Proof.`; a one-line `Proof.` that sends verification to an appendix; or unlabeled explanatory or proof-sketch prose with an appendix pointer. All three occur in MS/OR papers. A one-line proof pointer is a publication convention, not an interpretation, and a sketch should not be mislabeled as a complete proof. Do not invent a visible `Proof Idea` heading unless the target paper already uses that convention.
+- After a theorem or proposition, keep a reader-facing explanation in the local result package: what object is characterized, what benchmark changes, or why the condition matters. The proof pointer may precede or follow that explanation according to the journal or paper convention, but it must not be the only follow-up. If trust requires a proof sketch, add only the load-bearing move before sending full verification to the appendix.
 - A proof idea in the body should name the constructed object, the hard term, and the mathematical move that controls it. Use plain proof verbs: construct, decompose, bound, compare, apply, combine, show, and imply.
 - Keep proof ideas proportional. If the proof is routine, one precise sentence may be enough; if the result looks surprising or methodologically important, give the checkpoint that prevents the theorem from feeling like a black box.
 - Do not write "by some algebra" or "standard arguments" unless the step is genuinely routine. Name the actual move: exchange argument, coupling, convexity, submodularity, KKT conditions, duality, fixed point, martingale concentration, induction, envelope argument, or contradiction.
@@ -143,7 +148,7 @@ Decide placement by reader job, not by length alone.
 
 - Keep in the body: headline results, main theorem statements, preferred empirical estimates, primary numerical comparisons, central figures, key assumptions, benchmarks, result interpretations, and proof ideas needed for first-pass trust.
 - Move to appendix or online supplement: long algebra, constants, KKT verification, repeated cases, auxiliary lemmas, secondary robustness checks, parameter sweeps, implementation details, data dictionaries, and replication materials.
-- Every appendix pointer that supports a claim should be conclusion-first: the body states the result, interpretation, proof checkpoint, or robustness conclusion before sending the reader to the appendix. Fold this into natural prose rather than exposing labels such as "handoff" or "proof checkpoint."
+- At the local result-package level, appendix cross-references should be conclusion-first: the body states the result, interpretation, proof checkpoint, or robustness conclusion rather than making the pointer carry the claim. A venue-style one-line `Proof.` pointer may sit directly below a formal result, but nearby prose must still explain the result. Fold cross-references into natural prose rather than exposing labels such as "handoff" or "proof checkpoint."
 - Organize appendices by proof dependency or reviewer concern, not by what was easiest to cut. A good appendix section has one job: verify a theorem, define notation, document calibration, stress-test a claim, or report secondary scope.
 - Keep robustness in the body when it protects the main identification, feasibility, or validity claim. Move repeated or secondary robustness checks to the appendix.
 - For focused technical Operations Research papers, do not hide essential proof material in an online supplement. Use a regular appendix for verification details.
@@ -162,12 +167,13 @@ When the problem is simply "this sounds strange" or "the wording is not native,"
 - **Word choice, collocation, and translated-English repair**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/msor-natural-prose.md`.
 - **Natural wording and micro-phrasing**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md` + `references/msor-full-text-close-reading.md`.
 - **Manuscript judgment and paper spine**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
+- **Manuscript contract and cross-section audit**: `references/manuscript-contract-and-consistency.md` + `references/msor-manuscript-judgment.md` + `references/reviewer-calibration.md`. Add citation or math references only for a drift that depends on those objects.
 - **Whole-section story**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
 - **Story logic, paragraph order, and section flow**: `references/management-science-whole-paper-storycraft.md` + `references/paragraph-style.md` + `references/msor-natural-prose.md` + `references/section-architecture.md`.
 - **Model, theorem, equation, proof**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md` + `references/msor-full-text-close-reading.md`.
 - **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
 - **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
-- **Citation discipline and related-work support**: `references/citation-close-reading.md` + `references/msor-paper-craft.md` + `references/academic-style-and-ai-writing.md` + `citation-tools` or browsing when exact citation metadata, cited-by counts, BibTeX, DOI, author-year verification, or cited-paper content matters.
+- **Citation discipline and related-work support**: `references/citation-close-reading.md` + `references/msor-paper-craft.md` + `references/academic-style-and-ai-writing.md` + an available citation lookup or browsing tool when exact citation metadata, cited-by counts, BibTeX, DOI, author-year verification, or cited-paper content matters.
 - **Paper-lane flavor**: `references/management-science-20x-lane-style.md` or `references/article-corpus-style-notes.md` only for difficult lane matching, complete sections, or requests to make a passage feel closer to recent MS/OR papers without copying personal style.
 - **Classic or high-impact MS/OR paper pattern**: `references/high-impact-msor-paper-patterns.md` plus the relevant story, model/proof, empirical, or appendix bundle. Use this for "highly cited," "classic," "seminal," "excellent paper," "Nature-style writing core," or requests to learn how strong papers persuade reviewers.
 - **General story or unfamiliar topics**: `references/general-topic-story-engine.md`, `references/storytelling-language.md`, and `references/paragraph-style.md`.
@@ -178,16 +184,19 @@ When the problem is simply "this sounds strange" or "the wording is not native,"
 
 Use scripts for planning or diagnostics, not as visible prose formats.
 
+Resolve these paths relative to this `SKILL.md`; do not hardcode a user's home directory or platform-specific install path.
+
 ```bash
-python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/triage_request.py --target TARGET --request "REQUEST" < draft.txt
-python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_section.py --section SECTION --target TARGET --topic "TOPIC"
-python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_manuscript.py --target TARGET < notes.txt
-python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/place_results.py --target TARGET --paper-type "regular" < results.txt
-python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/plan_math_split.py --target TARGET --paper-type "regular" < proof_notes.txt
-python3 /Users/mingfeijiang/.codex/skills/or-ms-writing/scripts/check_paragraph.py --fail-on-ai-scent < draft.txt
+python3 scripts/triage_request.py --target TARGET --request "REQUEST" < draft.txt
+python3 scripts/plan_section.py --section SECTION --target TARGET --topic "TOPIC"
+python3 scripts/plan_manuscript.py --target TARGET < notes.txt
+python3 scripts/audit_manuscript_contract.py --target TARGET < manuscript.txt
+python3 scripts/place_results.py --target TARGET --paper-type "regular" < results.txt
+python3 scripts/plan_math_split.py --target TARGET --paper-type "regular" < proof_notes.txt
+python3 scripts/check_paragraph.py --fail-on-ai-scent < draft.txt
 ```
 
-Run `triage_request.py` when the task could be language, manuscript structure, math/proof, placement, or reviewer calibration and the order matters. Run `plan_manuscript.py` when the user gives multiple results, data facts, model components, or proof notes and the real question is what the paper should emphasize. Run `plan_section.py` only for section-level or structurally unclear tasks; use `--section headings` when deciding section depth or subheading names. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
+Run `triage_request.py` when the task could be language, manuscript structure, contract audit, math/proof, placement, or reviewer calibration and the order matters. Run `plan_manuscript.py` when the user gives multiple results, data facts, model components, or proof notes and the real question is what the paper should emphasize. Run `audit_manuscript_contract.py` only when multiple manuscript sections are available and the task is consistency, pre-submission review, or whole-paper optimization. Run `plan_section.py` only for section-level or structurally unclear tasks; use `--section headings` when deciding section depth or subheading names. Run `place_results.py` when the user gives a list of results, tables, proofs, robustness checks, extensions, or figures. Run `plan_math_split.py` for rough proof/model notes, derivations, formula layout, or body-versus-appendix decisions. Run `check_paragraph.py` only after drafting or when diagnosing a passage.
 
 ## Stable Procedure
 
@@ -195,7 +204,7 @@ Use this as a control loop, not a visible outline. Stop when the requested unit 
 
 1. **Scope**: identify the unit, lane, reader job, and output shape. If unclear, triage once and load at most one or two reference bundles.
 2. **Reader path**: decide what the reader knows at entry, what must change, what question the paragraph or section answers, and what next object it prepares.
-3. **Evidence and placement**: identify the theorem, estimate, table, proof move, benchmark, assumption, design feature, or cited-paper content that supports the claim. For manuscript-level work, identify the portable object that a later paper would cite. For model or proof material, decide body versus appendix before writing formulas.
+3. **Contract, evidence, and placement**: for manuscript-level work, fix the central object, headline claim, comparator, metric, credibility source, and boundary before drafting sections. Identify the theorem, estimate, table, proof move, benchmark, assumption, design feature, or cited-paper content that supports the claim. For model or proof material, decide body versus appendix before writing formulas.
 4. **Draft**: write ordinary OR/MS prose at the requested granularity. Do not expose planning labels, scripts, or reference terminology.
 5. **Preserve**: keep evidence type, comparator, magnitude, policy class, assumption, benchmark, and validity condition no stronger than the supplied material.
 6. **Calibrate**: narrow overloaded terms, bridge unfamiliar methods for adjacent-field reviewers, and keep evidence and boundary near claims that could be overread.
@@ -238,6 +247,7 @@ Before finalizing, check only what the requested unit needs:
 - The object, claim, evidence, and boundary are identifiable.
 - The answer stays at the user's requested granularity and does not turn a sentence repair into a paper redesign unless the argument requires it.
 - For manuscript-level work, the central object, spine result, credibility path, and result hierarchy are identifiable.
+- Across a full manuscript, the abstract, introduction, model or design, results, and conclusion preserve the same paper contract without terminology, magnitude, claim-strength, or boundary drift.
 - For high-impact or full-paper work, the durable object, benchmark, support, and boundary are identifiable.
 - The passage does not overstate causality, optimality, robustness, dominance, magnitude, or generality.
 - Each inference has a visible premise or evidence object and does not skip from result to implication.

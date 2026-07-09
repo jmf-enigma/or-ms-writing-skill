@@ -14,6 +14,7 @@ For Management Science-specific details about how body displays, theorem stateme
 - Applied OM papers often introduce a parsimonious base model in the body and put partner-specific calibration, data estimation, extra operational features, and scenario grids in appendices. The body still states how the real system maps onto the base model.
 - Baseline-plus-general-model theory papers often analyze the baseline model in the body and place the general model in an appendix. This works only when the body explains why the baseline carries the main mechanism and what the generalization preserves.
 - Mechanism and market-design papers often state theorem regions, then immediately interpret the regions and visualize the comparison. Proofs move to appendices, but the body explains which parameter or uncertainty source favors which mechanism.
+- Published MS papers also use more than one formal proof convention. A result may be followed by a complete short `Proof.`, a one-line `Proof.` pointer such as a global appendix notice, or ordinary proof-sketch prose with a cross-reference. The invariant is that the nearby body text interprets the result and the manuscript uses its convention consistently.
 
 ## Observed Paper-Appendix Pairing Patterns
 
@@ -25,7 +26,7 @@ Recent MS/OR papers tend to pair the body and appendix through a visible checkpo
 - An empirical or ML paper states the preferred model, primary predictive or causal comparison, and practical interpretation in the body. Appendix sections collect notation, auxiliary baselines, alternative inputs, extra sample slices, and robustness checks; the body still says what those checks conclude.
 - An applied optimization paper keeps the queueing, routing, capacity, or service model and the central reformulation in the body. Notation lists, acronym lists, proposition proofs, and computational or implementation details move to online appendices.
 
-The common pattern is conclusion-first cross-referencing. The body does not say only "see Appendix." It first tells the reader what has been proved, estimated, checked, or preserved, and then tells the reader where to verify it.
+The common pattern is conclusion-first at the local result-package level. The body does not say only "see Appendix." It tells the reader what has been proved, estimated, checked, or preserved in nearby prose. A formal one-line proof pointer may precede that interpretation when the manuscript uses that convention.
 
 ## Main-Text Model Ladder
 
@@ -82,7 +83,7 @@ The appendix gives the missing algebra between these levels. Do not write five p
 
 A main-text proof sketch should not be a miniature appendix. It should contain the proof's job.
 
-Before writing a proof paragraph, decide whether the body is giving a complete proof or only a credibility bridge. If it is complete and short, it may appear directly under the theorem or proposition with the label `Proof.`. If it is only a sketch, do not label it `Proof.`; write a normal paragraph that explains the proof move and points to the appendix.
+Before writing a proof paragraph, distinguish three jobs. A complete short proof may appear directly under the theorem or proposition with `Proof.`. A venue-style one-line `Proof.` may only record that proof verification appears in the appendix. A credibility bridge explains the proof move in ordinary prose and points to the appendix. Do not confuse the pointer with the bridge, and do not label an incomplete sketch as a complete proof when the manuscript's convention would imply otherwise.
 
 - Name the object constructed or reduced to.
 - Name the hard term, constraint, or error source.

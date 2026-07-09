@@ -2,11 +2,11 @@
 
 Idiomatic, reviewer-calibrated academic writing support for Operations Research, Management Science, M&SOM, and adjacent empirical, theoretical, algorithmic, policy, and business analytics work.
 
-This repository contains a Codex skill. It is designed to help draft, rewrite, diagnose, and organize OR/MS research prose at many granularities: one sentence, one paragraph, a model description, a theorem interpretation, a proof idea, a response to a referee, or a full paper section.
+This repository contains a Codex skill. It is designed to help draft, rewrite, diagnose, organize, and audit OR/MS research prose at many granularities: one sentence, one paragraph, a model description, a theorem interpretation, a proof idea, a response to a referee, a full paper section, or a complete manuscript.
 
 ## About
 
-`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes idiomatic word choice and collocations, sentence-level English craft, full-text MS/OR close-reading patterns, manuscript-spine judgment, readable paragraph flow, claim-evidence-boundary control, Management Science and Operations Research language, lane-specific section architecture, heading and subheading choices, model and theorem narration, proof exposition, and main-text versus appendix placement.
+`or-ms-writing` is a Codex skill for turning rough research notes, model arguments, proof sketches, empirical results, and reviewer-facing revisions into natural OR/MS paper prose. It emphasizes idiomatic word choice and collocations, sentence-level English craft, full-text MS/OR close-reading patterns, manuscript-spine judgment, cross-section contract consistency, readable paragraph flow, claim-evidence-boundary control, lane-specific section architecture, model and theorem narration, proof exposition, and main-text versus appendix placement.
 
 ## English
 
@@ -15,7 +15,7 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 `or-ms-writing` helps Codex write like a careful OR/MS researcher rather than a generic academic assistant. It focuses on:
 
 - precise claim, evidence, and boundary control;
-- task triage: deciding whether the next pass should prioritize sentence craft, paragraph flow, paper spine, mathematical exposition, body/appendix placement, or reviewer calibration;
+- task triage: deciding whether the next pass should prioritize sentence craft, paragraph flow, paper spine, cross-section consistency, mathematical exposition, body/appendix placement, or reviewer calibration;
 - idiomatic word choice: verb-object fit, prepositions, evidence verbs, and OR/MS collocations rather than dictionary synonyms;
 - sentence craft: local subjects, exact verbs, concrete objects, controlled relation words, clean stress positions, and translated-English repair;
 - manuscript-level judgment: central object, spine result, result hierarchy, credibility path, model necessity, and reviewer objections;
@@ -26,11 +26,12 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 - lane-specific paper structure, heading depth, and subheading decisions;
 - model narration, notation setup, theorem/proposition captions, proof exposition, and appendix placement;
 - reviewer-facing prose for interdisciplinary papers where a reviewer may know one subfield deeply but not the whole paper's toolkit;
+- manuscript-contract auditing across the abstract, introduction, model or design, results, and conclusion: central object, claim, comparator, metric, evidence, boundary, terminology, and headline numbers;
 - language repair for passages that feel translated, generic, overclaimed, or too AI-like.
 
 ### Recent Close-Reading Update
 
-The latest update adds more full-text MS/OR signals from AI calibration experiments, competitor-information field experiments, automation field evidence, bargaining and information-acquisition theory, optimal learning/control, applied DP, and technical appendices. It strengthens guidance on:
+The latest update adds full-text signals from predictive-prescriptive analytics, data-driven newsvendor models, decision-focused prediction, dynamic pricing with unknown demand, online-retail implementation, operational-transparency experiments, fast-fashion theory, policy-gradient guarantees, network inventory algorithms, and their appendices. It strengthens guidance on:
 
 - whole-task dispatch: unit, lane, reader job, and output shape before drafting;
 - logic-before-style repair: premise, evidence object, inference, boundary, and next reader question;
@@ -44,7 +45,8 @@ The latest update adds more full-text MS/OR signals from AI calibration experime
 - construct and measurement sections such as `Measures`, `Empirical Framework`, and `Measurement Challenges`;
 - when an empirical measure, potential outcome, treatment contrast, or estimating equation is the paper's model;
 - field-experiment result prose: treatment effect, demand effect, heterogeneity, spillovers, alternative mechanisms, and placebo checks;
-- proposition placement: bare labels, short captions, complete body proofs only when they are truly complete, and ordinary prose for proof moves;
+- proposition placement: bare labels, short captions, complete short body proofs, venue-style one-line `Proof.` appendix pointers, and ordinary prose for proof moves, with a consistent convention and nearby interpretation;
+- whole-manuscript consistency: the same central object, comparator, metric, evidence type, magnitude, and boundary must survive section-specific compression and formalization;
 - appendix design: variable construction, balance checks, robustness tables, auxiliary lemmas, KKT verification, repeated cases, and implementation details.
 - overcorrection control: stop adding OR/MS genre markers once the local object, evidence, and condition are clear.
 
@@ -74,12 +76,12 @@ The skill is built around a few nonnegotiable writing principles:
 - A model should be introduced as a decision environment, not as a collection of symbols.
 - Theorem and proposition captions should stay spare; the paper should explain the result in the surrounding prose.
 - Proof ideas should name the load-bearing mathematical move, not hide behind "by algebra."
-- A proof idea is often ordinary prose, not a visible `Proof idea:` label; use `Proof.` only when the proof is complete.
+- A proof idea is often ordinary prose, not a visible `Proof idea:` label. A formal `Proof.` may contain a complete short proof or, when the paper uses that convention, a one-line appendix pointer; the pointer never replaces interpretation.
 - Proof ideas should be proportional: a routine proof may need one precise sentence; a surprising result may need a short proof checkpoint.
 - Polished prose should avoid colon-led roadmaps such as "Key insight:", "Result:", or "Managerial implication:" unless the mark is required by a formal label, table, definition, theorem condition, or venue format.
 - Avoid itinerary prose such as "we first..., we then..., finally..." and weak links such as "This enables..." or ", which allows..." unless the antecedent is precise.
 - Elegant OR/MS storytelling comes from a real reader turn: old belief to missing friction, current objective to unintended consequence, method default to decision mismatch, benchmark to result, or result to boundary.
-- The main text must let a reviewer understand and trust the contribution without opening the appendix, and appendix pointers should first say what the appendix verifies, preserves, or changes.
+- The main text must let a reviewer understand and trust the contribution without opening the appendix. At the local result-package level, an appendix pointer needs nearby prose saying what is established, why it matters, or what the appendix verifies.
 - References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
 - When prose sounds stiff, the skill now prioritizes sentence craft: ordinary subject-verb-object movement, fewer noun piles, shorter preposition chains, and one-step paragraph progression before adding more OR/MS markers.
 
@@ -116,6 +118,10 @@ Use $or-ms-writing to decide which of these results should be in the body versus
 Use $or-ms-writing to make this abstract more native, less generic, and more precise about evidence and boundary conditions.
 ```
 
+```text
+Use $or-ms-writing to audit this manuscript for claim, terminology, number, and boundary drift across sections.
+```
+
 ### Repository Structure
 
 ```text
@@ -142,6 +148,10 @@ python3 scripts/plan_manuscript.py --target "Management Science" < notes.txt
 ```
 
 ```bash
+python3 scripts/audit_manuscript_contract.py --target "Management Science" < manuscript.txt
+```
+
+```bash
 python3 scripts/plan_math_split.py --target "Management Science" < proof_notes.txt
 ```
 
@@ -161,7 +171,7 @@ MIT License. See [LICENSE](LICENSE).
 
 ### 简介
 
-`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 manuscript spine、claim、evidence、boundary、section architecture、小标题层级、model/proof 叙述、theorem/proposition caption、全文 close reading 里看到的正文节奏，以及正文和附录的分工。
+`or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill，用来把 rough notes、model 叙述、proof sketch、实证结果和审稿回复整理成更自然的 Management Science / Operations Research 风格论文语言。它重点处理 manuscript spine、跨章节 paper contract、claim、evidence、boundary、section architecture、小标题层级、model/proof 叙述、theorem/proposition caption、全文 close reading 里看到的正文节奏，以及正文和附录的分工。
 
 ### 这是什么
 
@@ -169,7 +179,7 @@ MIT License. See [LICENSE](LICENSE).
 
 最新版本把“用词搭配”和“句子英文”放得更靠前，也补上了对全文正文和 appendix 的 close reading：先看 verb-object fit、preposition、evidence verb、OR/MS collocation，再让每句话有清楚的 subject、verb、object、condition、benchmark 和 emphasis；遇到 model、theorem、proof idea、appendix handoff 时，会按真实 MS/OR 正文的写法判断深度，而不是套一个固定模板。它会尽量避免把诊断标签直接写进成稿。
 
-它也加入了一个前置 triage：先判断当前任务到底是语言问题、段落问题、整篇文章主线问题、数学/证明问题、正文/附录分工问题，还是 reviewer calibration 问题。这样不会把一个简单的句子改写膨胀成整篇 paper redesign，也不会在整篇文章问题上只做表面润色。
+它也加入了一个前置 triage：先判断当前任务到底是语言问题、段落问题、整篇文章主线问题、跨章节一致性问题、数学/证明问题、正文/附录分工问题，还是 reviewer calibration 问题。这样不会把一个简单的句子改写膨胀成整篇 paper redesign，也不会在整篇文章问题上只做表面润色。
 
 它可以处理很小的任务，也可以处理很大的任务。你可以让它改一句话、润色一段 model、写 theorem intuition、判断正文小标题、拆正文和附录、组织 proof idea、改 abstract、写 referee response，或者整理一整节。
 
@@ -180,6 +190,7 @@ MIT License. See [LICENSE](LICENSE).
 - abstract、introduction、contribution、related work、discussion；
 - 先判断当前任务该优先修语言、结构、数学叙述、正文/附录分工还是审稿人理解；
 - 判断一篇文章真正要讲什么：哪个 result 是 spine，哪些是 support，哪些只是 robustness 或 appendix verification；
+- 检查摘要、引言、模型或研究设计、结果和结论是不是在讲同一篇 paper：central object、comparator、metric、evidence type、claim strength、boundary 和关键数字有没有漂移；
 - section architecture、headings/subheadings、paragraph order；
 - 段落之间和段落内的故事顺序：每段进入时读者知道什么、这一段改变什么、句子如何推进、段尾怎样自然交给下一段；
 - 真实 paper 的 section 推进：main effect 后为什么进 mechanism，equilibrium 后为什么进 benchmark，exact model 后为什么进 approximation，正文解释之后为什么再去 appendix；
@@ -189,12 +200,12 @@ MIT License. See [LICENSE](LICENSE).
 - 高引/经典论文写法：不是模仿名家措辞，而是学它们怎样让一个 model、benchmark、contract、measure、policy class、theorem object、empirical contrast 或 tradeoff 变成后续文献可以引用和扩展的 portable object；
 - model setup、assumption、formulation、theorem/proposition statement、result interpretation；
 - proof idea、proof sketch、appendix proof、正文和附录的数学分工；
-- proposition/theorem 后面什么时候直接写 `Proof.`，什么时候只写正文解释并把完整 proof 放到 appendix；
+- proposition/theorem 后面什么时候直接写完整短 `Proof.`，什么时候按全文惯例只放一行 `Proof.` 附录指针，什么时候用普通正文解释 proof move；
 - Management Science 风格的语言、用词、句子节奏和故事逻辑；
 - 真实正文里的 model/proof/appendix 写法：什么时候正文给完整 proof，什么时候只给承重 proof move，什么时候把完整验证放进 appendix；
 - 实证论文里的 construct 和 measurement 写法：什么时候 `Measures`、`Empirical Framework`、`Measurement Challenges` 本身就是正文核心，而不是附录细节；
 - field experiment 结果段：treatment effect、demand effect、heterogeneity、spillovers、alternative mechanisms、placebo checks 怎么分层写；
-- 理论文里的 proposition 摆法：什么时候 proposition 前要先推到 threshold 或 comparison，什么时候 proposition 下面可以直接写完整 `Proof.`，什么时候只写正文 proof move 并把完整证明放进 appendix；
+- 理论文里的 proposition 摆法：什么时候 proposition 前要先推到 threshold 或 comparison，什么时候 proposition 下面写完整短 `Proof.`，什么时候按全文惯例只放一行 `Proof.` 附录指针，什么时候用普通正文解释 proof move；
 - 用词和搭配：比如 `effect on`、`robust to`、`relative to a benchmark`、`establish a bound`、`estimate an effect`，以及避开 `managerial enlightenment`、`optimize decision-making`、`provide insights` 这类翻译腔；
 - 句子级英文修复：弱主语、抽象名词堆、介词链、中文直译、relation words 滥用、proof idea 句子过硬；
 - 段落读起来顺不顺、像不像研究者在自然解释一个问题，而不是把诊断标签硬塞进一句话；
@@ -218,13 +229,14 @@ MIT License. See [LICENSE](LICENSE).
 - 语言可以更地道，但结论不能被偷偷加强。
 - model 要先让读者知道谁在什么信息下做什么决定，再进入符号。
 - theorem/proposition 的标题要克制，通常只用编号或很短的 object label；真正的意思放在前后正文里讲清楚。
-- `Proof idea:` 通常不要作为正文里的可见标签；除非正文真的给出完整证明，否则不要在 proposition 下面硬写 `Proof.`。
+- `Proof idea:` 通常不要作为正文里的可见标签。`Proof.` 可以承载完整短证明，也可以按期刊或全文惯例只承载附录指针；但附录指针不是 proof idea，也不能替代 proposition 后面的结果解释。
 - proof idea 要说清楚真正承重的数学动作，比如 relaxation、coupling、decomposition、KKT、concentration、fixed point、exchange argument。
 - proof idea 要按难度写：routine proof 可以一句话说清楚；surprising theorem 才需要更明确的 proof checkpoint。
 - 少用冒号式的 AI 节奏，比如 `Key insight:`、`Result:`、`Managerial implication:`。除非是 definition、assumption、table、theorem condition 或期刊格式需要，成稿里应改成自然句子。
 - 避免 `we first..., we then..., finally...` 这种流水账，也避免没有明确 antecedent 的 `This enables...` 或 `which allows...`。
 - 优雅的 OR/MS 叙事来自真实转弯：旧观点到新 friction，现有目标到意外后果，默认方法到 decision mismatch，benchmark 到 result，或者 result 到 boundary。
-- 正文要让审稿人第一遍就理解贡献和可信度；附录负责完整验证、长证明、重复 robustness、implementation details。正文提到附录前，要先说清楚附录验证、保留或改变了什么。
+- 正文要让审稿人第一遍就理解贡献和可信度；附录负责完整验证、长证明、重复 robustness、implementation details。附录指针前后必须有邻近正文说清结果意义和附录验证什么，但形式化的 `Proof.` 指针可以按全文惯例直接放在命题下面。
+- 全文允许不同章节使用不同压缩程度，但不能偷换 central object、comparator、metric、evidence、magnitude 或 boundary；结论可以解释结果，不能把结果升级成一篇更强的 paper。
 
 ### 安装
 
@@ -257,6 +269,10 @@ Use $or-ms-writing to decide which results, proofs, and robustness checks belong
 
 ```text
 Use $or-ms-writing to make this paragraph more native, less translated, and more reviewer-calibrated.
+```
+
+```text
+Use $or-ms-writing to check whether the abstract, introduction, results, and conclusion preserve the same claim, metric, evidence, and boundary.
 ```
 
 ### 文件结构

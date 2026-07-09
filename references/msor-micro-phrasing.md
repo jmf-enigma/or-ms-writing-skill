@@ -59,7 +59,7 @@ These observations come from original abstract/introduction/model/result passage
 - **Technical OR papers** often state the model in one compressed sentence and then immediately identify the state variable, sufficient statistic, or objective that carries the rest of the paper. The abstract may include a behavioral implication, but the implication is anchored to a formal regime or comparison.
 - **Learning and ML-adjacent OR/MS papers** often begin by acknowledging that a popular method works broadly, then expose the narrow failure mode the paper resolves. This makes the theorem feel motivated rather than ornamental.
 - **Strategic-behavior and mechanism papers** use concrete decision domains before notation. They name the decision maker's objective, the agent's response, and the induced distribution or equilibrium object before giving the formal game.
-- **Appendix proof pages** use plain labels such as `Appendix D. Proof of Theorem 1` and `Proof.`. They do not dress up technical verification as "proof idea." Body text may give intuition, but a labeled proof should be complete.
+- **Appendix proof pages** use plain labels such as `Appendix D. Proof of Theorem 1` and `Proof.`. They do not dress up technical verification as "proof idea." In the body, `Proof.` may hold a complete short proof or a venue-style one-line pointer; explanatory sketches are normally ordinary prose.
 
 ## Original-Page Close-Reading Ledger
 
@@ -104,7 +104,7 @@ Useful body-model sentence moves:
 
 Original papers use fewer proof labels than AI drafts tend to use.
 
-- A `Proof.` directly below a proposition is normal when the proof is short and complete. It is strange when the paragraph only gives intuition.
+- A `Proof.` directly below a proposition is normal when it contains a short complete proof or follows a consistent one-line appendix-pointer convention. It is strange when an incomplete intuitive sketch is presented as if it were the proof.
 - A body proof idea is usually unlabeled prose after the result. It names the constructed object, the hard term, and the move that controls it, then points to the appendix if the proof is long.
 - Appendix headings are literal: `Proof of Theorem 1`, `Proof of Proposition 3`, `Proof of Lemma I.4`, `Additional Results`, `Model Extensions`, or `Robustness Checks`. They do not need elegant titles.
 - Appendix proof openings fix objects before manipulating them: the policy, reports, distribution, event, queue state, or parameter regime is specified first.

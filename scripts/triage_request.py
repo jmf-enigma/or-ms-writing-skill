@@ -44,6 +44,13 @@ MODE_TERMS = {
         "论文怎么写", "论文咋写", "paper咋写", "paper怎么写", "别人怎么写",
         "别人咋写", "paper是咋做", "paper怎么做",
     },
+    "audit": {
+        "audit", "manuscript audit", "whole-paper audit", "full manuscript audit",
+        "cross-section consistency", "consistency check", "pre-submission",
+        "claim drift", "terminology drift", "number check", "numerical consistency",
+        "全文检查", "完整检查", "全面检查", "一致性", "投稿前", "通篇检查",
+        "前后一致", "前后矛盾", "术语漂移", "数字核对", "claim漂移",
+    },
     "math": {
         "model", "equation", "derivation", "formula", "theorem", "proposition",
         "lemma", "proof", "proof idea", "appendix proof", "证明", "模型",
@@ -92,6 +99,11 @@ MODE_REFS = {
         "main-text-appendix-placement.md",
         "msor-full-text-close-reading.md",
     ],
+    "audit": [
+        "manuscript-contract-and-consistency.md",
+        "msor-manuscript-judgment.md",
+        "reviewer-calibration.md",
+    ],
     "math": [
         "msor-word-choice-collocations.md",
         "msor-sentence-craft.md",
@@ -118,6 +130,7 @@ MODE_SCRIPTS = {
     "paragraph": ["check_paragraph.py", "plan_section.py"],
     "impact": ["plan_manuscript.py", "plan_section.py", "check_paragraph.py"],
     "manuscript": ["plan_manuscript.py", "plan_section.py", "place_results.py"],
+    "audit": ["audit_manuscript_contract.py", "plan_manuscript.py", "check_paragraph.py"],
     "math": ["plan_math_split.py", "check_paragraph.py"],
     "placement": ["place_results.py", "plan_math_split.py"],
     "reviewer": ["check_paragraph.py"],
@@ -128,6 +141,7 @@ MODE_RULES = {
     "paragraph": "Give each paragraph one dominant job and move by reader questions, not by checklist order.",
     "impact": "Identify the durable object, benchmark, support, and boundary that make the paper reusable.",
     "manuscript": "Choose the central object, spine result, support hierarchy, and section architecture before polishing.",
+    "audit": "Verify one paper contract across sections before local polish: object, claim, comparator, metric, evidence, boundary, terms, and numbers.",
     "math": "Keep the body focused on object, theorem, interpretation, and proof checkpoint; move verification details out.",
     "placement": "Keep first-pass trust in the body and move routine verification, repetitions, and implementation details out.",
     "reviewer": "Narrow overloaded terms and keep evidence, boundary, and bridge sentences near the claims reviewers could overread.",
@@ -159,6 +173,15 @@ def score_modes(text: str) -> dict[str, int]:
         scores["math"] += 2
     if any(term in lower for term in {"整体", "全局", "完整优化", "优化一遍", "整体优化"}):
         scores["manuscript"] += 2
+    if any(term in lower for term in {
+        "manuscript audit", "whole-paper audit", "full manuscript audit",
+        "cross-section consistency", "consistency check", "pre-submission",
+        "claim drift", "terminology drift", "全文检查", "完整检查", "全面检查",
+        "投稿前", "通篇检查", "前后一致", "前后矛盾", "术语漂移", "数字核对",
+        "claim漂移",
+    }):
+        scores["audit"] += 4
+        scores["manuscript"] += 1
     if any(term in lower for term in {"paper是咋做", "paper怎么做", "paper怎么写", "paper咋写", "论文怎么写", "论文咋写", "别人怎么写", "别人咋写", "full-text", "close reading"}):
         scores["manuscript"] += 3
         scores["paragraph"] += 1
@@ -193,7 +216,7 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
     positives = [mode for mode, score in scores.items() if score > 0]
     if not positives:
         return ["sentence", "paragraph"]
-    priority = ["sentence", "impact", "manuscript", "math", "placement", "reviewer", "paragraph"]
+    priority = ["sentence", "impact", "audit", "manuscript", "math", "placement", "reviewer", "paragraph"]
     ordered = [mode for mode in priority if mode in positives]
     if "paragraph" in ordered and "sentence" in ordered and scores["paragraph"] >= scores["sentence"]:
         ordered = ["paragraph", "sentence"] + [mode for mode in ordered if mode not in {"paragraph", "sentence"}]
@@ -216,6 +239,8 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
         and scores["impact"] > scores.get("reviewer", 0)
     ):
         ordered = ["impact"] + [mode for mode in ordered if mode != "impact"]
+    if "audit" in ordered and scores["audit"] >= 4:
+        ordered = ["audit"] + [mode for mode in ordered if mode != "audit"]
     return ordered[:4]
 
 
@@ -263,6 +288,8 @@ def main() -> int:
         print("- Do not polish all results equally; identify the spine result before writing section prose.")
     elif sequence[0] == "impact":
         print("- Do not imitate a classic paper's surface voice; extract its durable object, benchmark, support, and boundary.")
+    elif sequence[0] == "audit":
+        print("- Compare the paper contract across sections before local rewriting; treat script flags as prompts for close reading, not automatic errors.")
     elif sequence[0] == "math":
         print("- Do not hide proof or derivation gaps in smooth prose; name the mathematical move or flag the gap.")
     elif sequence[0] == "placement":

@@ -14,6 +14,12 @@ These notes draw especially on model/proof sections from:
 - Recent open INFORMS examples with body/appendix pairings: model-theory papers that keep theorem meaning in the body and proofs in labeled appendix subsections; applied optimization papers that keep the reformulation in the body and notation/proof details in online appendices; ML/empirical papers that keep the primary model and comparison in the body and auxiliary baselines in appendices.
 - Recent full-text close readings of dynamic pricing/matching, matching queues with incentives, policy-gradient guarantees, recommendation-based demand estimation, and GAI-screening papers. These papers are useful because they show how the body moves from an operating object to notation, then from a theorem to interpretation and appendix verification.
 - Additional full-text checks from AI calibration experiments, competitor-information field experiments, automation field evidence, bargaining/information acquisition theory, optimal learning/control, and energy DP papers. These show that model writing includes construct measurement, empirical frameworks, potential outcomes, short mechanism models, and applied optimization formulations, not only theorem-first analytical models.
+- Bertsimas and Kallus, "From Predictive to Prescriptive Analytics," which defines its conditional optimization object early, uses an illustrative example before the general theory, and translates its prescriptiveness metric in the application.
+- Ban and Rudin, "The Big Data Newsvendor," which organizes the introduction around substantive questions, states section conclusions before appendix handoffs, and reserves the electronic companion for full proofs and dependencies.
+- Elmachtoub and Grigas, "Smart Predict, then Optimize," which moves from a decision loss to computational difficulty, a convex surrogate, consistency, algorithms, and experiments.
+- Besbes and Zeevi, "Dynamic Pricing Without Knowing the Demand Function," which makes the full-information benchmark and regret metric do both mathematical and economic work.
+- Ferreira, Lee, and Simchi-Levi, "Analytics for an Online Retailer," which earns the model through the operating workflow, explains a theorem's bound and proof mechanism in the body, and places implementation details in the appendix.
+- Cachon and Swinney, "The Value of Fast Fashion," which uses a one-line `Proof.` pointer directly below lemmas and then gives the economic interpretation. This is evidence against treating complete body proofs as the only legitimate use of the label.
 
 ## What Main-Text Equations Do
 
@@ -168,7 +174,7 @@ Some papers place the key derivation before the proposition rather than after it
 
 ## Proof Placement After A Theorem Or Proposition
 
-There is no single MS/OR rule that every proposition must be followed by a formal proof in the body. Choose among four patterns.
+There is no single MS/OR rule that every proposition must be followed by a formal proof in the body. Follow the target journal and the paper's established convention consistently. Five patterns occur in full texts.
 
 ### Pattern 1: Proposition, Complete Short Proof, Interpretation
 
@@ -186,9 +192,26 @@ Proof.
 
 This pattern is common in compact theory sections and simple analytical models. The proof under `Proof.` must be a real proof, not only intuition. It should not rely on long hidden lemmas, repeated cases, or constants that belong in an appendix.
 
-Observed MS papers do use `Proof.` directly below propositions, but only when the proof is short enough to be read as part of the body and actually proves the statement. A proof that begins with "the intuition is" or immediately says the complete proof is in the appendix should not be labeled `Proof.` in the body.
+This is one legitimate use of `Proof.`, but it is not the only one.
 
-### Pattern 2: Proposition, Interpretation, Appendix Pointer
+### Pattern 2: Proposition, One-Line Formal Proof Pointer, Interpretation
+
+Some MS papers use the proof environment only to record where verification appears.
+
+```text
+Lemma 1.
+[Formal statement.]
+
+Proof. All proofs appear in the appendix.
+
+[Interpretation paragraph that explains the economic or operational content.]
+```
+
+This convention is legitimate when it matches the journal or manuscript format and is used consistently. The pointer is not a proof sketch and does not explain the result. Nearby ordinary prose must still tell the reader what the lemma changes and why it matters.
+
+Do not "correct" a source-faithful one-line proof pointer into a complete body proof merely because the label says `Proof.`. Also do not invent this convention in an otherwise unlabeled manuscript without checking the target format.
+
+### Pattern 3: Proposition, Interpretation, Appendix Pointer
 
 Use this when the theorem is important but the proof is routine, algebraic, or long.
 
@@ -203,7 +226,7 @@ This is often the cleanest Management Science style because the body keeps resul
 
 If all proofs are in the appendix, say that once in the model or analysis section only when helpful. Still give each proposition enough body interpretation that the reader can evaluate its role without opening the appendix.
 
-### Pattern 3: Proposition, One Proof Move, Appendix Proof
+### Pattern 4: Proposition, One Proof Move, Appendix Proof
 
 Use this when the proof technique is part of the contribution or the result would otherwise feel like a black box.
 
@@ -214,11 +237,11 @@ Proposition 1.
 [One short paragraph explaining the constructed object, hard term, and proof move.] Appendix A gives the complete proof.
 ```
 
-Do not label this paragraph `Proof.` unless it is complete. Usually do not label it `Proof idea` either; write it as normal prose after the result.
+Do not label this paragraph `Proof.` when the paper uses that label for complete proofs. Usually do not label it `Proof idea` either; write it as normal prose after the result. If the paper uses the one-line pointer convention in Pattern 2, keep the proof move outside that formal pointer so the reader can distinguish location from explanation.
 
 This pattern is especially common when the body needs only the credibility bridge. For example, a lower-bound theorem may state the rate, then give one paragraph explaining the trade-off between expected queue length and revenue loss before sending the detailed coupling, Taylor expansion, and tail-probability work to the appendix.
 
-### Pattern 4: Technical OR Body Proof
+### Pattern 5: Technical OR Body Proof
 
 Use this in focused OR theory or algorithm papers when proof logic is the paper's main contribution and the journal expects technical development in the body.
 
@@ -237,10 +260,11 @@ Even here, auxiliary algebra, constants, and repeated cases can move to a regula
 Proof placement often feels wrong when the label and content do not match.
 
 - `Proof.` followed by intuition only: rename it as ordinary explanatory prose or complete the proof.
-- Proposition followed immediately by appendix pointer with no interpretation: add a result paragraph before the pointer.
+- One-line `Proof.` pointer treated as if it explained the result: keep the venue-style pointer if appropriate, but add a nearby interpretation paragraph.
+- Proposition followed by an appendix pointer and then no interpretation before the section moves on: add a local result paragraph.
 - Long appendix proof copied into the body: keep the theorem, one proof move, and interpretation; move verification out.
 - Body proof idea after every proposition: use it only when reviewer trust needs it.
-- Interpretation appears only after the appendix pointer: move the interpretation before the reader is sent away.
+- Inconsistent local convention: do not alternate among full body proofs, one-line proof pointers, and unlabeled sketches without a reason the reader can infer.
 
 ## Body Proof Sketch Layout
 

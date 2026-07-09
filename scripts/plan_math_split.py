@@ -103,7 +103,13 @@ def classify(note: str) -> tuple[str, str, str]:
             "Body or appendix, after repair",
             "Do not hide a step behind generic proof language. Name the exact mathematical move or mark a proof gap.",
         )
-    if any(term in lower for term in {"kkt verification", "case split", "case splits", "complete proof", "proof details"}):
+    if lower.startswith(("appendix", "online appendix", "e-companion", "supplement")) or any(
+        term in lower
+        for term in {
+            "kkt verification", "case split", "case splits", "repeated cases",
+            "complete proof", "proof details", "concentration constants", "constant tracking",
+        }
+    ):
         return (
             "Verification detail",
             "Appendix",
@@ -119,7 +125,7 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Proof idea",
             "Main text summary plus appendix",
-            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Do not label it Proof unless it is complete. Put formal details in the appendix.",
+            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Use ordinary prose unless the manuscript has an established formal proof-pointer convention. Put verification details in the appendix.",
         )
     if any(term in lower for term in {"theorem", "proposition", "corollary"}):
         return (
@@ -137,7 +143,7 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Proof idea",
             "Main text summary plus appendix",
-            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Do not label it Proof unless it is complete. Put formal details in the appendix.",
+            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Use ordinary prose unless the manuscript has an established formal proof-pointer convention. Put verification details in the appendix.",
         )
     if has_any(lower, INTERPRETATION):
         return (
@@ -227,7 +233,7 @@ def main() -> int:
         ("Formal result", "State the theorem or proposition that carries the contribution."),
         ("Derivation checkpoint", "Show start point, key move, and resulting object if the result depends on a transformation."),
         ("Interpretation", "Translate the result into the decision, benchmark, mechanism, and condition."),
-        ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it; keep routine proof ideas to one precise sentence and reserve the label Proof for complete proofs."),
+        ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it; keep routine proof ideas to one precise sentence and distinguish this prose from a complete proof or a formal one-line proof pointer."),
         ("Validity support", "Summarize only validity-critical robustness or feasibility checks."),
     ]
     print("Select only the modules needed for first-pass trust; do not treat this as paragraph order.")
@@ -241,8 +247,8 @@ def main() -> int:
     print("- Sentence after display: translate the central variables and say why the display is used next.")
     print("- Appendix displays: use for algebra, constants, KKT checks, concentration steps, case splits, and auxiliary lemma proofs.")
     print("\nProof label rule")
-    print("- Use `Proof.` under a theorem or proposition only for a complete short proof in the body.")
-    print("- For a proof idea, use ordinary prose after the result and point to the appendix for the complete proof.")
+    print("- Follow one manuscript convention: a complete short `Proof.`, a formal one-line `Proof.` appendix pointer, or ordinary proof-sketch prose with a cross-reference.")
+    print("- A one-line pointer records proof location; a proof idea explains the mathematical move. Neither replaces the nearby result interpretation.")
     print("- Keep theorem/proposition captions short; put the meaning in the prose before and after the statement.")
 
     print("\nAppendix modules")
@@ -254,7 +260,7 @@ def main() -> int:
         print("- No obvious appendix items detected. Check whether proof details, cases, constants, or robustness are missing.")
 
     print("\nAppendix section jobs")
-    print("- Each appendix section should have one job, and the body cross-reference should state the conclusion before pointing to the appendix.")
+    print("- Each appendix section should have one job, and its local body result package should state the conclusion and interpretation around the cross-reference.")
     for job, roles, description in APPENDIX_JOBS:
         matching = [note for note, role, _, _ in rows if role in roles]
         status = "candidate" if matching else "check if needed"

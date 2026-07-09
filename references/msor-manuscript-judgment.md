@@ -18,6 +18,19 @@ Before writing, identify:
 
 If these five objects are unclear, do not start by improving language. First narrow the paper.
 
+## The Manuscript Contract
+
+Once the spine is chosen, write down the paper's contract: central object, headline claim, comparator, metric or estimand, credibility source, boundary, and decision relevance. Carry that contract across the manuscript without forcing identical wording.
+
+- The abstract compresses it.
+- The introduction motivates why it is needed.
+- The model or design defines its objects and support.
+- The results discharge the claim at the stated metric and comparator.
+- The conclusion interprets it without broadening the evidence or boundary.
+- The appendix verifies it without becoming the first intelligible statement of the object or result.
+
+Check for object, comparator, metric, evidence, magnitude, mechanism, and boundary drift before polishing sentences. For a detailed audit procedure, use `manuscript-contract-and-consistency.md`.
+
 ## Whole-Manuscript Optimization Pass
 
 Use this pass when the user says the paper, section package, or writing system still feels "weird" after local polishing.
@@ -28,6 +41,8 @@ Use this pass when the user says the paper, section package, or writing system s
 4. **Order support by reviewer trust**: model/design first when it creates credibility, mechanism next when it changes interpretation, robustness only where it protects validity.
 5. **Assign placement**: body for first-pass trust and interpretation; appendix for verification, repeated robustness, implementation, and data dictionaries.
 6. **Only then polish sentences**: repair subject-verb-object, collocations, relation words, and read-aloud rhythm.
+
+For a whole manuscript, add one final pass after sentence polish: read the abstract, headline result passage, and conclusion together and verify that they still make the same claim at the same strength.
 
 This prevents a common failure mode: a section with good sentences but no persuasion order.
 
@@ -161,5 +176,6 @@ The final text should not expose this scaffold. It should read as if the paper n
 - **Under-calibrated implication**: the prose jumps from a local result to a broad recommendation.
 - **Appendix-dependent body**: the reader cannot understand the formal object, theorem, or primary comparison without opening the appendix.
 - **Reviewer mismatch**: the passage speaks to one subfield but leaves another likely reviewer without the bridge sentence they need.
+- **Contract drift**: the abstract, model or design, results, and conclusion change the object, comparator, metric, evidence type, magnitude, or boundary.
 
 Repair these by changing the manuscript architecture before rewriting sentences.

@@ -762,11 +762,16 @@ def noun_pile_warnings(text: str) -> list[str]:
         "constructs", "construct", "estimates", "estimate", "characterizes",
         "characterize", "proves", "prove", "derives", "derive", "reduces", "reduce",
         "improves", "improve", "interprets", "interpret", "identifies", "identify",
+        "means", "mean", "implies", "imply", "suggests", "suggest", "states", "state",
+        "finds", "find", "holds", "hold", "applies", "apply", "is", "are", "was", "were",
     }
+    noun_pile_clause_markers = {"that", "which", "who", "when", "because", "while", "although", "if"}
     hits = []
     for match in pile_pattern.finditer(lower):
         hit = match.group(0)
         if any(re.search(rf"\b{verb}\b", hit) for verb in noun_pile_false_verbs):
+            continue
+        if any(re.search(rf"\b{marker}\b", hit) for marker in noun_pile_clause_markers):
             continue
         hits.append(hit)
     hits = sorted(set(hits))
@@ -1272,8 +1277,12 @@ def appendix_placement_warnings(text: str, section: str) -> list[str]:
     has_formal_result = any(term in lower for term in {"theorem", "proposition", "lemma", "result", "estimate", "table", "figure"})
     if has_formal_result and not any(marker in lower for marker in INTERPRETATION_MARKERS):
         warnings.append("appendix reference cannot replace interpretation; keep the result's meaning, benchmark, or decision consequence in the body.")
-    if "proof" in lower and "appendix" in lower and not contains_any(text, MATH_MOVES):
-        warnings.append("before sending the proof to the appendix, give the main proof idea or load-bearing mathematical move in the body.")
+    promises_proof_explanation = any(
+        term in lower
+        for term in {"proof idea", "proof sketch", "proof argument", "key proof step", "the proof hinges", "the argument hinges"}
+    )
+    if "proof" in lower and "appendix" in lower and promises_proof_explanation and not contains_any(text, MATH_MOVES):
+        warnings.append("the passage promises a proof explanation but names no mathematical move; state the reduction, construction, comparison, or bound before the appendix reference.")
     if any(term in lower for term in {"identification", "causal", "validity", "endogeneity", "robustness"}) and "appendix" in lower:
         if not any(term in lower for term in {"main text", "body", "section", "summarize", "report"}):
             warnings.append("validity-critical robustness or identification checks should be summarized in the body, with full tables in the appendix.")
@@ -1339,7 +1348,7 @@ def citation_discipline_warnings(text: str, section: str) -> list[str]:
         )
     if citations:
         warnings.append(
-            "citation content is not verified by this writing check; read the cited paper's relevant abstract, introduction, model/data/result/proof section, and appendix when needed. Use citation-tools or browsing for author-year, DOI, BibTeX, cited-by, and exact-paper claim verification."
+            "citation content is not verified by this writing check; read the cited paper's relevant abstract, introduction, model/data/result/proof section, and appendix when needed. Use an available citation lookup or browsing tool for author-year, DOI, BibTeX, cited-by, and exact-paper claim verification."
         )
     return warnings
 

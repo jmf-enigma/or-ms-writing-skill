@@ -175,6 +175,8 @@ Use a subsection when the reader should recognize a new object or credibility ta
 
 Recent full texts use subheadings this way. A Management Science DID/construct paper breaks robustness into `Alternative Specifications`, `Alternative Measurement`, and `Alternative Explanations` because each answers a different reviewer threat. An Operations Research applied DP paper separates `The System Model`, `Lagrangian Relaxations`, unit-level model properties, policies, and numerical experiments because each changes the mathematical object the reader must track.
 
+Contribution subsections can also expose dependency rather than author workflow. For example, `Novel Family of Lower Bounds`, `Intuitive Class of Base-Stock Policies`, and `Performance Guarantees` tell the reader that the bound supports the policy comparison and the comparison supports the guarantee. Question-led subsections are useful only when each question receives a visible answer later; otherwise state the research problem directly.
+
 ### Use A Subsubsection Sparingly
 
 Use a third-level heading only when the subsection contains parallel pieces that a reviewer may need to locate independently.
@@ -208,10 +210,10 @@ Around formal results, headings should be even plainer than section headings.
 - If a descriptor is useful, keep it short and object-like: `Proposition 1 (Threshold Policy)`, `Theorem 2 (Regret Bound)`, or `Lemma 1 (Monotonicity)`. Avoid full-sentence labels such as `Proposition 1: Our Policy Is Better When Demand Is High`.
 - Use the paragraph before the result to say what the result does. This is more natural than turning the proposition label into a mini-abstract.
 - After the result, interpret in ordinary prose. Do not create tiny headings such as `Intuition`, `Key Insight`, `Takeaway`, `Proof Idea`, or `Managerial Meaning` unless the paper has several long parallel blocks that require navigation.
-- Use `Proof.` only for a complete proof. If the paragraph only explains the proof move and points to an appendix, leave it unheaded.
+- Use `Proof.` for a complete short proof or for a formal one-line appendix pointer when the paper follows that convention. If the paragraph explains only the proof move, normally leave it unheaded and keep it distinct from the location pointer.
 - Appendix and e-companion headings can be functional and direct: `A.1. Proof of Theorem 1`, `Proof of Proposition 2`, `Auxiliary Lemmas`, `Additional Robustness Checks`, `Data Construction`.
 
-Observed MS/OR papers use these local headings sparingly. A Management Science field-theory paper can put `Proof.` directly under a proposition when the proof is short and then continue with interpretation. A Management Science decision-theory paper can state lemmas, give short body explanations, and reserve `Proof of Lemma 5` for the appendix. A technical Operations Research paper can use headings such as `Proof of Theorem 1`, `Matrix Notation and Bellman Equations`, and `Analysis: Conservative Model-Based Planning` because these labels name proof objects rather than rhetorical moves.
+Observed MS/OR papers use these local headings sparingly. A Management Science field-theory paper can put `Proof.` directly under a proposition when the proof is short and then continue with interpretation. Another Management Science paper can use a one-line `Proof.` pointer under each lemma while placing all verification in the appendix. A decision-theory paper can state lemmas, give short body explanations, and reserve `Proof of Lemma 5` for the appendix. A technical Operations Research paper can use headings such as `Proof of Theorem 1`, `Matrix Notation and Bellman Equations`, and `Analysis: Conservative Model-Based Planning` because these labels name proof objects rather than rhetorical moves.
 
 ### Subheading Rhythm By Section
 

@@ -64,7 +64,7 @@ If the main paper only says "see Appendix" after naming a theorem, the placement
 - A general model belongs in the appendix if the baseline model in the body already carries the main mechanism and the appendix generalization only verifies scope. If the general model changes the main mechanism, keep its takeaway in the body.
 - A partner-specific calibration belongs in the body only when it is needed to trust the headline comparison. Detailed demand estimation, lead-time fitting, decensoring, extra disruption scenarios, and parameter grids usually move.
 - A stronger technical result belongs in the body if it is conceptually useful and the stated theorem is only a corollary or specialization. The proof can still move.
-- A theorem with regions or thresholds needs a body interpretation of the regions. The display alone should not be the last word before the appendix pointer.
+- A theorem with regions or thresholds needs a nearby body interpretation of the regions. A formal one-line proof pointer may intervene, but the local result package cannot end with the display and pointer alone.
 - A robustness check belongs in the body if it addresses the most obvious alternative explanation, endogeneity concern, feasibility concern, or implementation failure mode.
 - An extension belongs in the body if it changes how the reader interprets the main result. If it only shows that the result survives a variant, summarize it in the body and put details in the appendix.
 - An additional empirical table belongs in the body if it is the first evidence for a mechanism or heterogeneity result claimed in the introduction. If it repeats the same conclusion across extra cuts, move it.

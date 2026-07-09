@@ -14,13 +14,23 @@ Use this split:
 
 Management Science-style papers often rely on online appendices, but the body still needs the evaluative spine. Operations Research-style technical papers often keep essential proof material in a regular appendix rather than hiding it only in an e-companion.
 
+Full-text pairings show useful variation.
+
+- A predictive-prescriptive paper can move a cumbersome non-iid generalization to the supplement after the body defines the decision object and states what the extension preserves.
+- A newsvendor paper can place all proofs in a technical appendix while each body section first states the substantive answer and benchmark.
+- An implementation paper can give the theorem's bound and the mechanism behind it in the body, then place the iterative verification in a labeled proof appendix.
+- A field-experiment paper can keep assignment constraints and inferential limitations in the body while moving consistency checks, replications, and full condition wording to the online appendix.
+- A theory paper can use one-line formal proof pointers under lemmas, followed by economic interpretation, with complete proofs collected by dependency in the appendix.
+
+The placement test is what the first-pass reviewer needs to understand and evaluate, not whether the material is mathematical or how many lines it occupies.
+
 ## Body Handoff
 
-An appendix pointer should usually be conclusion-first. Before sending the reader away, the body states what has been shown, why it matters, or what the appendix check preserves.
+At the local result-package level, an appendix pointer should be conclusion-first: nearby body prose states what has been shown, why it matters, or what the appendix check preserves. A journal-style one-line `Proof.` pointer may appear immediately below the formal result and before the interpretation; this is acceptable when the interpretation follows nearby and the convention is consistent.
 
 Natural handoffs vary by job:
 
-- For a theorem, state the result type, condition, benchmark, and interpretation before the proof pointer.
+- For a theorem, keep the result type, condition, benchmark, and interpretation in the same local passage as the proof pointer.
 - For a proof idea, name the constructed object, difficult term, and mathematical move before sending the formal details out.
 - For a derivation, show the start object, key transformation, and resulting object used later.
 - For robustness, state the threat and the conclusion, then put the full table or variant in the appendix.
@@ -33,7 +43,7 @@ The handoff should not become a visible template. Write it as ordinary prose nea
 
 A body proof idea is not a miniature appendix and not a dramatic story. It is a credibility bridge.
 
-Do not put the label `Proof.` above a credibility bridge. Reserve `Proof.` for a complete proof. If the body gives only the move and sends details to an appendix, write an unheaded paragraph after the theorem or proposition.
+Do not put the label `Proof.` above a credibility bridge when the manuscript uses that label for complete proofs. A separate formal `Proof.` line may contain an appendix pointer if that is the established convention. If the body gives only the mathematical move, write an unheaded paragraph after the theorem or proposition and distinguish it from the location pointer.
 
 Use one to four plain sentences unless the proof technique is itself the contribution:
 

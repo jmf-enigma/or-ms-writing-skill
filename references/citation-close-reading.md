@@ -55,4 +55,4 @@ Avoid:
 
 ## Verification Boundary
 
-Use `citation-tools` for metadata, BibTeX, DOI, author-year, and cited-by checks. Use browsing or supplied PDFs/full text to verify what the cited paper actually says. When exact wording matters, quote only short compliant excerpts and otherwise paraphrase.
+Use an available citation lookup tool for metadata, BibTeX, DOI, author-year, and cited-by checks. Use browsing or supplied PDFs/full text to verify what the cited paper actually says. When exact wording matters, quote only short compliant excerpts and otherwise paraphrase.

@@ -6,6 +6,20 @@ Use this for cross-field OR/MS writing, referee-facing revisions, and passages w
 
 Assume one reviewer is an expert in the closest technical field and another is an expert in the application or empirical setting. Each may be unfamiliar with the other field's conventions. The prose must let both reviewers understand the object, claim, evidence, and boundary of the claim.
 
+## Knowledge Boundary
+
+Classify each consequential object before deciding how much to explain.
+
+- **Expected knowledge**: use the canonical field term without teaching background that the likely reviewer pool already knows.
+- **One local bridge**: at first consequential use, say what the object represents, what role it plays, and how it connects to the paper's decision or estimand.
+- **Deferred verification**: keep the body-level definition and role, then place the technical construction, derivation, implementation, or repeated checks in an appendix.
+
+Explain a cross-field object once and preserve its canonical term afterward. Do not cycle among synonyms for variety. The goal is not to make every reviewer an expert in every method; it is to preserve a visible trust chain:
+
+`object -> role in the argument -> supporting evidence -> boundary`
+
+An OM reviewer reading econometrics needs the treatment contrast, source of variation, and estimand. An empirical reviewer reading a model needs the primitive's real-world meaning, decision lever, and benchmark. A theory reviewer reading an institutional setting needs enough process detail to see why the timing and information assumptions are credible.
+
 ## Source Of Credibility
 
 For MS-style papers, identify the source of credibility before drafting a persuasive section. This is the part of the paper that makes a skeptical reviewer willing to believe the main claim.
@@ -79,3 +93,5 @@ Before finalizing, ask:
 3. Is the model's objective or empirical estimand explicit?
 4. Is the benchmark clear?
 5. Is any cross-field object translated once into the reviewer's likely vocabulary?
+6. Does the manuscript use one canonical term after that translation rather than decorative synonyms?
+7. Can the reviewer trace the main claim from object to evidence to boundary without opening the appendix?

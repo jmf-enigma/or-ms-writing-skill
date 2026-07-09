@@ -63,7 +63,13 @@ DATA_TERMS = {
 
 def has_any(text: str, terms: set[str]) -> bool:
     lower = text.lower()
-    return any(term in lower for term in terms)
+    for term in terms:
+        if any(ord(char) > 127 for char in term) or " " in term or "-" in term:
+            if term in lower:
+                return True
+        elif re.search(r"\b" + re.escape(term) + r"\b", lower):
+            return True
+    return False
 
 
 def clean_notes(raw: str) -> list[str]:
@@ -185,9 +191,12 @@ def main() -> int:
         "What is the central object the reader should remember?",
         "What belief or benchmark does the spine result change?",
         "Which one result must appear in the abstract and introduction?",
+        "What exact comparator and metric or estimand does that result use?",
+        "What theorem, design, identification argument, validation, or implementation evidence owns the claim?",
         "Which support item is needed for first-pass trust?",
         "If this is empirical, which construct or measurement choice must stay in the body?",
         "Which condition or setting keeps the claim from becoming too broad?",
+        "Will the abstract, introduction, model or design, results, and conclusion preserve the same object, claim strength, comparator, metric, evidence type, and boundary?",
         "Which correct but secondary items should move to the appendix?",
     ]
     for question in questions:
