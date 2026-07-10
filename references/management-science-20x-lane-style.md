@@ -4,14 +4,14 @@ Use this for deep Management Science calibration. It expands the compact `manage
 
 Do not copy sentence-level wording from these papers. The purpose is to learn MS-level field language: what information comes first, what verbs carry evidence, how results are turned into management claims, and how the same data/model can be written better.
 
-## Cross-Lane MS Language Laws
+## Cross-Lane MS Language Heuristics
 
-1. Put the management decision before the method. A model enters because it resolves a decision, not because it is technically interesting by itself.
+1. Make the method's object and role legible. A management decision may precede the method in practice-led work; a portable formal object or method can lead in technical work.
 2. Use the strongest local metric. Replace "performance" with profit, surplus, match rate, purchase incidence, adoption, queue length, waiting time, regret, forecast error, readmission, overtime, stockout risk, or intervention effectiveness.
-3. State what the same data/model changes about belief. MS prose is strongest when a sentence says which prior intuition, managerial practice, or research convention is revised.
+3. State what the same data or model lets the paper establish. Name a revised intuition, practice, or convention only when the evidence genuinely revises one.
 4. Make mechanisms grammatical. Use active verbs such as "raises," "reduces," "disciplines," "erodes," "induces," "shifts," "attenuates," "separates," and "reverses" with named objects.
-5. Keep methods subordinate to evidence order. Data, field experiment, equilibrium, RL, or optimization should appear after the reader knows what question it answers.
-6. End result paragraphs conditionally. MS papers often close with a regime, boundary, heterogeneity pattern, or implementation condition.
+5. Place methods by evidential dependency. Data, field experiments, equilibrium analysis, RL, or optimization may appear early when their object and role are already clear.
+6. Keep regimes, boundaries, heterogeneity, and implementation conditions near the claims they qualify. Do not force them into the final sentence of every result paragraph.
 7. Avoid free-standing novelty. Do not write "novel framework" or "important implications" unless the sentence immediately names the exact decision, mechanism, and metric.
 
 ## Lane 1. Field Experiment With A Firm Or Platform
@@ -41,13 +41,13 @@ Do not copy sentence-level wording from these papers. The purpose is to learn MS
 
 ### Language Summary
 
-Field-experiment MS papers sound best when they begin with the managerial practice being tested, not with the randomization. The first paragraph should say what a firm, platform, manager, seller, worker, customer, or supplier already does and why causal evidence is missing.
+Field-experiment MS papers often begin with the managerial practice being tested rather than the randomization. This works when the practice is needed to interpret treatment and outcome. A concise design-first opening can also work when the setting and causal contrast are already clear; do not manufacture missing causal evidence as a separate first paragraph.
 
 Use treatment language sparingly. Good MS prose names the treatment once, then moves quickly to the business metric. Prefer "we report results from a field experiment at [firm/platform]" when the setting itself matters, and "we exploit randomized variation in [treatment]" when identification is the contribution. Avoid a long catalogue of treatment arms unless the arms map to a clean theory contrast.
 
-The results should separate main effect, mechanism, and heterogeneity. A natural order is: treatment changes metric, effect is concentrated among group, mechanism is consistent with behavior, implementation condition follows. Do not bury the headline behind robustness.
+Separate the main effect, mechanism, and heterogeneity when the paper makes all three claims. Their order should follow evidential dependency and emphasis: a headline estimate may lead, a mechanism result may define the relevant subgroup, or a boundary may need to precede interpretation. Do not bury the headline behind secondary robustness.
 
-Field-experiment endings should not say only "this has managerial implications." They should say which practice should be adopted, scaled, targeted, or avoided. The strongest endings tell managers when the treatment is worth using and when it is likely to fail.
+Field-experiment endings should not say only "this has managerial implications." When the evidence supports action, name the practice, user, condition, and metric. A descriptive or mechanism result may instead end with a bounded empirical conclusion rather than an adoption recommendation.
 
 Better MS wording given the same experiment:
 
@@ -176,7 +176,7 @@ Platform MS prose starts from control without ownership. The platform often does
 
 The most native sentences separate stakeholder objectives. Do not merge platform profit, seller revenue, buyer surplus, consumer welfare, and fairness into one "welfare" claim unless the model truly does so. Say which stakeholder gains or loses and why.
 
-The model section should make private responses visible before the platform optimizes. Buyers search, sellers learn, users adopt, participants sort, agents search, borrowers respond, and strategic users game. MS readers need the response mechanism before the platform rule.
+The model section should make private responses and the platform rule jointly interpretable. Buyers search, sellers learn, users adopt, participants sort, agents search, borrowers respond, and strategic users game. Explain a response before relying on it in the platform's optimization; the formal rule itself may still be stated first when it defines the environment.
 
 Results usually turn on a tradeoff: facilitating trade vs leakage, disclosure vs manipulation, promotion vs seller learning, convenience vs disintermediation, privacy vs personalization, reputation discipline vs competitive erosion, fairness vs efficiency.
 
@@ -216,9 +216,9 @@ Better MS wording:
 
 Service operations MS papers have concrete physical and behavioral nouns. Use access channel, appointment delay, in-clinic waiting, queue length, abandonment, balking, reneging, service capacity, staffing, bed assignment, off-service placement, discharge, boarding delay, length of stay, no-show, overtime, and throughput.
 
-The best openings place an operational constraint in front of the reader. A hospital has beds, services, admission streams, and discharge decisions. A call center has servers, arrivals, waiting-time information, and abandonment. A retailer has a visible queue and purchase behavior. The model should then explain how customers, patients, or providers respond.
+Many effective openings place an operational constraint in front of the reader. A hospital has beds, services, admission streams, and discharge decisions. A call center has servers, arrivals, waiting-time information, and abandonment. A retailer has a visible queue and purchase behavior. A canonical queueing formulation may instead lead, provided the operational meaning of its states and responses is clear nearby.
 
-Native result language compares systems that intuition ranks too quickly. Pooling may backfire when customers are delay-sensitive. Real-time scheduling may be worse than asynchronous scheduling in some regimes. Capacity pooling may create hidden clinical costs. More multitasking may reduce service performance. This lane benefits from "appears beneficial, but..." sentences, followed by the exact mechanism.
+Native result language often compares systems that intuition ranks too quickly. Pooling may backfire when customers are delay-sensitive. Real-time scheduling may be worse than asynchronous scheduling in some regimes. Capacity pooling may create hidden clinical costs. More multitasking may reduce service performance. Use an "appears beneficial, but..." relation only when the paper establishes a genuine reversal, and place the mechanism wherever its evidence becomes interpretable.
 
 Endings should translate model conditions into observable environment features: demand-capacity relationship, willingness to wait, acuity mix, service heterogeneity, no-show pattern, admission variability, staffing cost, or delay tolerance.
 
@@ -257,13 +257,13 @@ Better MS wording:
 
 ### Language Summary
 
-Behavioral MS papers should not sound like psychology detached from management. Start from the decision setting: forecasting, ordering, hiring, delegation, route choice, information acquisition, investment, pricing objective, workplace equity, or algorithm use.
+Behavioral MS papers should not sound like psychology detached from management. Keep the relevant decision setting visible, whether the passage begins with forecasting, ordering, hiring, delegation, route choice, information acquisition, investment, workplace equity, a construct, or an experimental contrast.
 
-The experiment description should identify the role participants occupy and the decision they make. "Participants are in the role of..." is often useful, but do not overuse it. Then state the treatment contrast in one sentence. If the paper has multiple experiments, the language should explain what each experiment rules out rather than simply numbering them.
+The experiment description should make participant role, decision, and treatment contrast recoverable when they determine interpretation. "Participants are in the role of..." is often useful, but do not overuse it. If the paper has multiple experiments, state each experiment's evidential role, which may be replication, triangulation, mechanism separation, validation, or extension rather than only ruling something out.
 
-Results should distinguish behavior, belief, and performance. A behavioral effect matters for MS when it changes operational costs, efficiency, fairness, decision quality, welfare, or policy adoption. Mechanism words should be concrete: limited attention, overconfidence, self-confidence, loss aversion, betrayal aversion, projection bias, motivated beliefs, fairness concern, information avoidance, strategic behavior, and learning.
+Distinguish behavior, belief, and performance when the paper measures them separately. A behavioral effect matters for MS when it changes an operational or theoretical object such as costs, efficiency, fairness, decision quality, welfare, or adoption. Mechanism words should be concrete: limited attention, overconfidence, self-confidence, loss aversion, betrayal aversion, projection bias, motivated beliefs, fairness concern, information avoidance, strategic behavior, and learning.
 
-When the same data could be written better, foreground the managerial belief being tested. Do not say only "we run an online experiment." Say what practical belief the experiment isolates and what behavior it separates from an alternative explanation.
+When the same data could be written better, state the exact construct, decision, comparison, or belief being tested. Do not say only "we run an online experiment." Name what the design estimates or separates, without inventing a prior managerial belief or alternative explanation.
 
 Better MS wording:
 
@@ -319,10 +319,9 @@ Better MS wording:
 
 1. Pick the nearest lane before drafting.
 2. Use the lane's sample set as calibration only, not as source text.
-3. Write the first sentence around the actor and decision.
-4. Name the friction before the method.
-5. Make the method answer the friction.
-6. State the best result in a local metric.
-7. Add the condition, mechanism, or stakeholder tradeoff that makes the result MS-worthy.
+3. Identify the passage's primary burden, central object, and evidence owner.
+4. Order definitions, comparisons, methods, and results by prerequisite and emphasis.
+5. State the best result in its actual metric and comparator.
+6. Add a friction, mechanism, condition, implication, or stakeholder tradeoff only when it is part of the supported argument.
 
-If a user's paper combines lanes, use the empirical or managerial lane for the abstract opening and the theory or algorithm lane for the contribution paragraph.
+If a user's paper combines lanes, choose the opening by the paper's central object and strongest source of credibility rather than automatically privileging the empirical or managerial lane.

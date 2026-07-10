@@ -25,11 +25,11 @@ Use this reference when a passage still sounds generic after applying the core O
 
 ## What Full Text Adds Beyond Abstracts
 
-- Abstracts compress the contract, but the body teaches the order of persuasion. Full texts move from decision environment to modeling or identification obstacle, then to the exact object the paper constructs.
-- Introductions do not stay in broad motivation. They quickly name the canonical problem, the practical limitation, the technical gap, and the paper's object.
-- Model sections earn notation. They first identify agents, timing, information, actions, objective, and benchmark in words, then introduce symbols.
+- Abstracts compress the contract, while the body makes dependencies, warrants, and scope explicit. Full texts vary: a decision environment can precede a model, a counterexample can precede a theorem, a result can precede its evidence summary, and a formal object can open a technical paper.
+- Introductions do not stay in broad motivation. They make the central object, relevant departure or question, and source of credibility legible, but these burdens need not occupy separate paragraphs or appear in a fixed order.
+- Model sections earn notation by making its object and role recoverable. Agents or systems, timing, information, actions or states, objective, comparator, and assumptions can appear before or immediately after a display according to mathematical dependency.
 - Assumptions are not decorative. Strong papers explain whether an assumption gives identification, tractability, a benchmark, a standard special case, or a practical approximation.
-- Result sections use a two-step rhythm. State the theorem or proposition precisely, then interpret what the bound, rate, threshold, approximation ratio, or policy structure means for the decision.
+- Result sections keep a theorem or proposition close to the interpretation it needs. The interpretive setup may precede the statement, follow it, or surround it; a self-interpreting result may need only a short comment.
 - Proof sketches name the crux. They say whether the proof constructs a policy, couples sample paths, relaxes the problem, bounds a value function, decomposes the objective, or applies concentration.
 - Empirical sections make the institutional fact do work. They show how a real workflow generates identifying variation, then defend why the variation is plausibly unrelated to the unobserved demand or outcome shock.
 - Model-heavy papers often use examples as mathematical exposition. A toy example, platform screenshot, or feature-based newsvendor instance is not decoration. It explains why the formal object captures a real operational feature.
@@ -63,15 +63,15 @@ Strong introductions draw from these modules. Their order depends on the lane an
 - State the standard model, policy, belief, or literature default when the contrast matters.
 - Explain the practical or technical feature that breaks the default.
 - Name the credibility support: the model feature, institutional variation, algorithmic guarantee, experiment, or construct validation that can answer the friction.
-- State the paper's formal object, method, or empirical design after the reader understands the question it answers.
+- State the paper's formal object, method, or empirical design where its role is legible. It may precede an explicit question when the object itself defines the contribution or prior context supplies the motivation.
 - Group contributions by type rather than chronology.
-- Close each literature stream with the exact departure.
+- State the exact departure where the paragraph positions the current paper. A synthesis paragraph or section need not close every stream with the same move.
 
-Contribution sentences should include object plus result plus difficulty. For example, the sentence should make clear that the paper develops an algorithm and proves a regret rate, constructs a relaxation and obtains an approximation guarantee, or uses behavioral delay in recommendations to identify demand.
+Contribution sentences should name the object and what the paper establishes. Include the technical or empirical difficulty only when it explains the novelty or credibility of the result. For example, a sentence may make clear that the paper develops an algorithm and proves a regret rate, constructs a relaxation and obtains an approximation guarantee, or uses behavioral delay in recommendations to identify demand.
 
 ### Related Work
 
-Related work should not be a citation inventory. Each stream needs three pieces:
+Related work should not be a citation inventory. Across a paragraph or stream, make the relevant subset of these pieces recoverable:
 
 - What the stream studies.
 - Why that stream is close.
@@ -81,7 +81,7 @@ The difference should be substantive. Use setting, information structure, constr
 
 ### Model And Problem Formulation
 
-Before notation becomes dense, give the reader a complete prose version of the decision problem:
+Before the reader must rely on dense notation, make the relevant parts of the decision or formal problem recoverable. Use this as an inventory, not a required prose paragraph:
 
 - Who acts.
 - What arrives over time.

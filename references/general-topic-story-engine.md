@@ -1,34 +1,34 @@
-# General Topic Story Engine
+# General Topic Argument And Story Logic
 
 Use this for any OR/MS, OM, econ, mechanism, empirical, learning, or policy topic when the right story is not obvious. This is the general layer above author-specific or topic-specific references.
 
-## Universal Research Story
+## Diagnostic Inventory
 
-Every strong OR/MS paper can usually be explained through eight questions.
+When the topic is unfamiliar, use these questions to recover the argument. They are not slots for every paper, section, or paragraph.
 
-1. Who makes the decision?
-2. What do they control?
-3. What friction makes the decision hard?
-4. What standard policy, intuition, or literature misses that friction?
-5. What model, data, experiment, or algorithm isolates the friction?
-6. What benchmark makes the result interpretable?
-7. What changes under the result?
-8. Who should act differently, when, and with what caveat?
+1. What burden does this passage carry: define, motivate, establish, compare, interpret, qualify, or connect?
+2. What is its central object: decision, institution, construct, estimand, model, policy class, theorem object, algorithm, or empirical contrast?
+3. Which definitions, timing facts, assumptions, or design facts are prerequisites?
+4. What claim or distinction must the reader leave with?
+5. What theorem, estimate, comparison, citation, proof move, or design feature warrants that claim?
+6. Which comparator, metric, population, regime, or policy class controls its meaning?
+7. What relation connects it to the surrounding passage?
+8. What should receive emphasis, and what is verification or scope detail?
 
-If one of these questions has no answer, the writing should expose that gap rather than hide it.
+Ask only what the evidence lane needs. A practice paper may need an actor and decision; a pure theorem may not. A measurement paper may center a construct rather than a friction. A descriptive empirical result may not support a mechanism or recommendation. Missing support for a claim the paper actually makes is a gap; absence of an unused story beat is not.
 
 ## First-Pass Classifier
 
 Before choosing a topic lens, classify the paragraph or section by what it must prove to the reader.
 
-- Practice paper: a real decision is common, but the usual practice fails under a hidden friction.
-- Theory paper: a benchmark is incomplete, and a characterization, impossibility result, or comparative static changes the logic.
-- Empirical paper: a pattern or managerial belief needs evidence, identification, magnitude, and a decision consequence.
-- Algorithm paper: a decision is hard because of scale, uncertainty, information, or timing, and the method changes the feasible benchmark.
-- Policy paper: a rule affects welfare, distribution, incentives, or implementation, and the result is conditional.
-- Review or positioning paragraph: the goal is not to list papers, but to show which gap each stream leaves open.
+- Practice paper: make the decision or operating object, consequential constraint, comparison, and support legible. A failed incumbent practice is only one possible motivation.
+- Theory paper: make the formal object, assumptions, result type, comparison, and scope legible. The entry point may be a benchmark, definition, counterexample, theorem, or application.
+- Empirical paper: make the construct or estimand, evidence source, identifying or descriptive warrant, metric, and scope legible. A decision consequence is needed only when claimed.
+- Algorithm paper: make the problem object, information and feasibility conditions, comparator, performance criterion, and guarantee or computational evidence legible.
+- Policy paper: separate the rule or intervention, evidence type, welfare or distributional criterion, implementation condition, and supported conclusion.
+- Review or positioning paragraph: synthesize what the cited work establishes and state the exact relation to the current object; a gap narrative is not mandatory.
 
-If the topic is unfamiliar, use the universal fallback. Name the actor, decision, friction, evidence type, benchmark, implication, and caveat. Then draft in the language of that local setting rather than importing words from platform, pricing, or social operations papers.
+If the topic is unfamiliar, first identify the passage's burden and evidence type. Then select only the central object, prerequisite, warrant, comparator, relation, implication, or caveat needed for that burden. Draft in the language of the local setting rather than importing words from platform, pricing, or social operations papers.
 
 ## Topic Lenses
 
@@ -39,7 +39,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: access delays, no-shows, stochastic service times, patient heterogeneity, coordination across stations.
 - Benchmark: independent scheduling, myopic scheduling, deterministic service times, current practice.
 - Evidence: queueing model, stochastic program, simulation, real hospital data, deployment result.
-- Story move: make the operational constraint concrete before introducing the optimization model.
+- Possible relations: operating constraint to formulation, formulation to policy comparison, queueing result to service metric, or deployment evidence to scope.
 
 ### Supply Chain, Inventory, And Sustainability
 
@@ -48,7 +48,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: lead time, disruption, demand uncertainty, capacity, emissions, cost-service tradeoff.
 - Benchmark: lean supply chain, efficient supply chain, offshore sourcing, fixed-price or base-stock policy.
 - Evidence: structural result, numerical study, counterfactual, field data, lifecycle or emissions model.
-- Story move: show how a familiar efficiency policy changes when resilience or sustainability enters the objective.
+- Possible relations: objective to tradeoff, information timing to inventory policy, disruption regime to sourcing comparison, or model result to emissions or service metric.
 
 ### Platforms, Marketplaces, And Digital Operations
 
@@ -57,7 +57,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: two-sided choice, incentives, fairness, churn, information, herding, congestion, trust.
 - Benchmark: status quo platform rule, no regulation, myopic matching, standard assortment, uniform pricing.
 - Evidence: mechanism model, matching model, experiment, field data, counterfactual, simulation.
-- Story move: start from a product or policy readers recognize, then reveal the hidden state or incentive.
+- Possible relations: platform rule to user response, incentive to equilibrium, ranking objective to distributional outcome, or experiment to mechanism. A recognizable product need not precede a formal object.
 
 ### Empirical And Behavioral OM
 
@@ -66,7 +66,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: behavioral bias, information asymmetry, incentives, limited attention, trust, transparency.
 - Benchmark: rational benchmark, no-treatment group, prior theory, existing policy.
 - Evidence: field experiment, lab experiment, observational design, replication, structural estimate.
-- Story move: state the behavioral or empirical puzzle before the identification or estimation design.
+- Possible relations: construct to measure, institutional variation to estimand, estimate to magnitude, mechanism evidence to alternative explanation, or boundary to interpretation. The design may appear first when its object is already active.
 
 ### Algorithms, Optimization, And Stochastic Systems
 
@@ -75,7 +75,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: online arrival, uncertainty, combinatorial complexity, limited information, coupling, nonconvexity.
 - Benchmark: LP relaxation, myopic policy, batching, greedy heuristic, clairvoyant optimum, known bound.
 - Evidence: approximation guarantee, regret bound, lower bound, computational study, real-data simulation.
-- Story move: make the algorithmic bottleneck managerial by naming the operational decision and benchmark.
+- Possible relations: formal problem to hardness, relaxation to guarantee, state structure to policy, algorithm to benchmark, or computation to operating scale. A canonical problem need not be given an artificial managerial wrapper.
 
 ### Mechanism Design, Econ Theory, And Policy
 
@@ -84,7 +84,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: incentives, private information, participation, collusion, fairness, welfare tradeoff.
 - Benchmark: first-best, no regulation, standard auction, posted price, Myerson, efficient allocation.
 - Evidence: theorem, impossibility result, characterization, comparative statics, counterexample.
-- Story move: translate the theorem into what the rule can and cannot achieve.
+- Possible relations: definition to implementability, incentive constraint to characterization, counterexample to impossibility, theorem to welfare comparison, or information regime to boundary.
 
 ### Learning, Bandits, And Data-Driven Decisions
 
@@ -93,7 +93,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: uncertainty, adaptive data, regret, customer attrition, delayed feedback, fairness or safety.
 - Benchmark: oracle, classical UCB/Thompson, static policy, unconstrained learner, no-learning policy.
 - Evidence: regret bound, confidence event, simulation, field deployment, counterfactual.
-- Story move: connect the learning objective to the cost of bad decisions during learning.
+- Possible relations: feedback structure to regret, confidence event to guarantee, exploration rule to operating cost, data regime to policy comparison, or safety constraint to feasible learning.
 
 ### Finance, Marketing, Accounting, And Information Systems
 
@@ -102,7 +102,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: information asymmetry, agency, attention, privacy, bias, strategic reporting, network effects.
 - Benchmark: rational benchmark, no disclosure, uniform targeting, standard risk model, status quo policy.
 - Evidence: empirical design, structural model, experiment, theory, counterfactual.
-- Story move: translate the business object into the belief, incentive, or constraint that changes the decision.
+- Possible relations: disclosure to belief, contract to incentive, information system to workflow, empirical variation to estimate, or estimate to bounded business interpretation.
 
 ### Energy, Transportation, Environment, And Public Infrastructure
 
@@ -111,7 +111,7 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: congestion, reliability, intermittency, emissions, equity, resilience, spatial spillovers.
 - Benchmark: deterministic planning, current operations, no policy, shortest path, least-cost dispatch.
 - Evidence: optimization model, simulation, field data, counterfactual, policy evaluation.
-- Story move: keep the physical constraint visible so the social or environmental implication does not float free.
+- Possible relations: physical constraint to feasible policy, dispatch or routing decision to metric, model comparison to emissions or reliability, or policy result to distributional boundary.
 
 ### Education, Labor, Public Policy, And Organizations
 
@@ -120,32 +120,32 @@ If the topic is unfamiliar, use the universal fallback. Name the actor, decision
 - Friction: selection, incentives, fairness, capacity, incomplete information, behavior, compliance.
 - Benchmark: current rule, random assignment, no treatment, first-best, equal allocation.
 - Evidence: causal estimate, field experiment, mechanism model, administrative data, theorem.
-- Story move: separate what the result shows about behavior from what it recommends as policy.
+- Possible relations: assignment rule to behavior, design to causal contrast, estimate to policy scope, incentive to compliance, or capacity constraint to distributional outcome.
 
 ## Transfer Rules
 
-- Do not force platform language onto non-platform topics. Change the actor and friction first.
+- Do not force platform language or its favored causal story onto non-platform topics. Replace the central objects, evidence relations, comparators, and scope with those of the actual setting.
 - Do not force Xiao Lei paper patterns onto topics where the core object is healthcare, infrastructure, finance, education, or policy. Transfer the structure, not the vocabulary.
 - Do not force managerial implications onto a pure theorem. If the result is methodological, the implication may be for modelers or algorithm designers.
-- If the paper is empirical, the story lives in the puzzle, identification, and decision consequence.
-- If the paper is theoretical, the story lives in the benchmark, mechanism, and boundary condition.
-- If the paper is algorithmic, the story lives in the operational bottleneck, guarantee, and implementability.
+- Empirical papers are often organized around a pattern or question, the support for the estimate, and its interpretation; identification and decision consequences enter only when claimed.
+- Theoretical papers are often organized around a formal departure, characterization, comparison, or boundary; a managerial mechanism is not mandatory.
+- Algorithmic papers are often organized around a decision object, computational obstacle, guarantee, and validation; the operating context can be brief when the formal problem is canonical.
 - If the paper is policy-facing, keep the implication conditional and name the welfare or distributional tradeoff.
 
-## Paragraph Generator Map
+## Possible Dependency Paths
 
-Use this as an internal map, not visible labels.
+Use these only to diagnose a missing dependency. Do not fill every slot and do not use them to generate uniform paragraphs.
 
-Practice. Decision. Default. Friction. Lens. Result. Consequence. Caveat.
+Practice may move from a decision to a constraint, comparison, or observed consequence.
 
 For method-heavy papers:
 
-Bottleneck. Existing method. Missing feature. New formulation. Guarantee or estimate. Where it matters.
+A method-heavy passage may need the exact object before the bottleneck, or it may state the new formulation first and explain which bottleneck it resolves.
 
 For empirical papers:
 
-Puzzle. Setting. Data. Identification. Estimate. Mechanism. Decision consequence. External-validity caveat.
+An empirical passage may move from design to estimate, estimate to interpretation, or an observed pattern to the design that can distinguish explanations.
 
 For theory papers:
 
-Question. Benchmark. Assumptions. Characterization. Mechanism. Boundary case. Implication.
+A theory passage may move from a benchmark to a formal departure, from a counterexample to sufficient conditions, or from a characterization to the comparison it enables.

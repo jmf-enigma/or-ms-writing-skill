@@ -30,59 +30,45 @@ This file extends the MS corpus with additional whole-paper readings across fiel
 - "Collaborative Work Management Technologies and Managerial Intensity in U.S. Corporations," Management Science, 2026.
 - Guasoni, Huberman, and Shikhelman, "Lightning Network Economics: Topology," Management Science, 2024.
 
-## The MS Story Is A Flexible Reader Path
+## The MS Story Is Argument Architecture
 
-MS storytelling is not flourish. It is the reader path by which a broad management audience comes to trust a precise claim. Use the path as a diagnostic map, not as a fixed outline.
+MS storytelling is not flourish and not a sequence of required beats. It is the architecture by which a broad management audience can recover what the paper establishes, what supports that claim, how its objects relate, and where it stops applying.
 
-Common modules:
+A manuscript may need some of the following burdens:
 
-- Existing practice, institution, decision, or belief.
-- Hidden friction that makes the standard belief incomplete.
-- Design object that isolates the friction: experiment, model, estimator, algorithm, or optimization problem.
-- Main evidence in the decision metric.
-- Mechanism that explains why the evidence has that sign.
-- Boundary condition, heterogeneity, benchmark, or regime.
-- Implication for management practice, theory, policy, or method.
+- establish a practice, institution, decision, formal object, or received belief;
+- expose a friction, counterexample, identification obstacle, or computational limit;
+- define the experiment, model, estimator, algorithm, or benchmark used to study it;
+- establish the main formal or empirical result;
+- explain a mechanism, decomposition, or comparison;
+- delimit the result by regime, population, policy class, or implementation condition;
+- interpret the contribution for practice, theory, policy, or method.
 
-The beats can be reordered, compressed, repeated, or omitted depending on the paper type. A field experiment may foreground the institution before theory. A theory paper may start from a standard model before the managerial setting. A methods paper may need the formal object early. The important test is whether the reader can recover the decision, friction, evidence, mechanism, and boundary where they matter.
+These are an inventory, not an arc. A theorem paper may open with a counterexample or formal object. An empirical paper may open with an institution or an unexplained pattern. An implementation paper may need the operating workflow before the model. Some papers do not need a mechanism claim, managerial recommendation, or dramatic friction at all.
 
-The path should be visible across the manuscript, not crammed into every sentence. A local paragraph usually performs only one or two of these jobs, and some paragraphs only define notation, report a robustness check, or bridge literatures.
+The stable requirement is dependency: later claims must have the definitions, comparisons, evidence, and boundaries they need. A local paragraph may only define notation, state a theorem, document a design choice, report a check, or connect two literatures.
 
 ## Story Logic Within And Across Paragraphs
 
-Story logic is the order in which the reader is allowed to learn things. It is not a checklist of content and it is not the same as formal inference validity.
+Story logic includes several different problems that should not be collapsed into "flow."
 
-For each paragraph, decide five private states:
+1. **Referential logic**: the reader can track the paper's nouns, symbols, labels, and pronouns.
+2. **Prerequisite logic**: definitions, assumptions, timing, comparators, and design facts appear before later claims depend on them.
+3. **Inferential logic**: the theorem, estimate, comparison, citation, or proof move warrants the stated inference.
+4. **Scope logic**: metric, population, policy class, evidence type, and boundary remain stable or change explicitly.
+5. **Attention logic**: paragraph and section order gives the spine result more emphasis than supporting verification.
 
-1. **Entry state**: what object, belief, result, or concern the reader already has.
-2. **Paragraph job**: what this paragraph must change in the reader's understanding.
-3. **Development path**: the sequence of objects inside the paragraph.
-4. **Exit state**: what the reader should now believe, understand, or be ready to evaluate.
-5. **Handoff**: why the next paragraph is the natural next move.
+When diagnosing a paragraph, record only what is useful: its primary burden, active object, warrant, scope, and relation to adjacent passages. A forward handoff is optional. A paragraph may end by completing a definition or reporting a result, and the next heading or opening sentence may supply the transition.
 
-Common within-paragraph paths:
+Relations between passages include definition, elaboration, evidence, inference, contrast, mechanism, condition, consequence, decomposition, generalization, and change of evidence type. The reader does not need an explicit rhetorical question before every move. The relation only needs to be recoverable.
 
-- **Setting -> decision -> friction**: use when the reader must first understand the operating problem.
-- **Standard view -> missing feature -> paper object**: use for introductions, related work, and model motivation.
-- **Design -> comparison -> credibility**: use when the paragraph earns trust in an empirical design.
-- **Result -> benchmark -> mechanism -> boundary**: use for result interpretation.
-- **Formal object -> condition -> interpretation -> next theorem**: use for theory sections.
-- **Claim -> threat -> check -> conclusion**: use for robustness and appendix handoffs.
+Common sequences remain useful as examples. A friction can motivate a method; a result can activate a mechanism test; a theorem can create the need for a benchmark; a design limitation can motivate a follow-up experiment. The reverse orders can also be legitimate when context is already active or when a result-first opening gives the right emphasis.
 
-Common paragraph-to-paragraph paths:
-
-- **Context paragraph to friction paragraph**: the first paragraph gives the decision; the second explains why the current view fails.
-- **Friction paragraph to method paragraph**: the friction creates the need for the experiment, model, estimator, or theorem.
-- **Method paragraph to result paragraph**: the method has made a comparison credible, so the reader is ready for the evidence.
-- **Result paragraph to mechanism paragraph**: the result has a sign or magnitude, so the reader asks why.
-- **Mechanism paragraph to boundary paragraph**: the mechanism implies where the result should weaken, reverse, or stop applying.
-- **Main result paragraph to appendix handoff**: the body has stated the result and proof checkpoint; the appendix verifies routine details.
-
-If the draft feels illogical, do not first change words. Write a one-line job for each paragraph and reorder those jobs until each paragraph answers the question raised by the previous one.
+If the draft feels illogical, reverse-outline each paragraph by burden and warrant. Reorder only when the existing order uses an object before defining it, draws an inference before its support is available, hides the main result, repeats the same burden, or changes scope without notice.
 
 ## Recent MS Persuasion Patterns
 
-Recent full-text MS papers reinforce that storytelling is reviewer persuasion, not decoration. The paper first turns a broad topic into a reviewable object, then makes the source of credibility visible.
+Recent full-text MS papers reinforce that storytelling is reviewer persuasion, not decoration. Across the relevant passages, the paper turns a broad topic into a reviewable object and makes the source of credibility visible; the order and amount of setup vary by lane.
 
 - **Human-AI and algorithmic-advice papers** separate tool quality from human reliance. They introduce the managerial decision, the behavioral friction, the experimental manipulation, and then interpret reliance, performance, incentives, or framing as distinct outcomes.
 - **Revenue management and empirical pricing papers** move from the canonical pricing problem to an identification obstacle. They explain why ordinary demand estimation is hard, then show how an institutional behavior, such as delayed responses to recommendations, creates usable variation.
@@ -91,39 +77,45 @@ Recent full-text MS papers reinforce that storytelling is reviewer persuasion, n
 - **Organization and strategy papers** often start with two competing mechanisms. The empirical design is persuasive because the chosen setting is expected to activate one mechanism more than the other.
 - **Theory and network papers** use examples, local-improvement arguments, and algorithms to move the reader from a real constraint to a formal result. The theorem is followed by the intuition, complexity implication, or algorithmic consequence.
 
-Across these lanes, the introduction usually answers three reviewer questions before listing results: why this setting matters, why the standard view or method is insufficient, and what feature of the model, data, or design makes the claim credible.
+Across these lanes, by the time the introduction asks the reader to accept the findings, it usually has made three things legible: the focal object, the departure from the relevant benchmark or evidence, and the source of credibility. These need not occupy separate paragraphs or appear in that order.
 
 ## Close-Reading Story Paths
 
-Recent full-text papers show that the right order is usually a chain of reader questions, not a universal section skeleton.
+Recent full-text papers show that the right order follows analytical dependencies and active reviewer concerns, not a universal section skeleton.
 
 - **Field experiment and algorithmic-advice papers** first separate the tool from the human decision around it. The story often moves from a broad belief about AI or decision aids, to a behavioral or organizational friction, to the manipulated design, to the main effect, and then to usage, qualitative evidence, learning, or sensitivity analyses that explain why the effect has that sign. The estimating equation appears after randomization, treatment, outcome, and unit of analysis are already clear.
 - **Platform and data-capability experiments** often use a primary experiment to establish the effect, then use mechanism sections to rule out nearby explanations. The mechanism paragraph starts with the threat or alternative channel, introduces the finer-grained data or interaction, and ends by saying what that check does and does not establish.
-- **Multimethod behavioral operations papers** use each method to answer the previous method's limitation. A field study establishes effect size and external relevance. An analytical benchmark then says what a rational decision maker should do. Experiments test whether observed behavior follows or deviates from that benchmark. The paper feels coherent because each method is introduced by a missing reader question, not by author chronology.
+- **Multimethod behavioral operations papers** give each method a distinct evidential role. A field study may establish effect size and external relevance, an analytical benchmark may define normative behavior, and an experiment may separate competing explanations. The relation need not be remedial: a later method can replicate, triangulate, decompose, validate, or extend an earlier result. Coherence comes from making that relation explicit, not from forcing each method to answer a rhetorical question left by the previous one.
 - **Analytical platform and supply-chain papers** build the story around a comparison. The model gives the actors, timing, information, and objective; a proposition characterizes equilibrium; the interpretation explains the regions or strategic channels; the next theorem compares equilibrium with a benchmark or design alternative. The body often repeats `recall Proposition 1` only when the previous result is the object being compared.
 - **Optimal control, learning, and applied OR papers** often proceed from formulation to approximation to guarantee to structure. The approximation is introduced only after the optimal object is shown to be costly or intractable. A performance-bound theorem earns computational credibility; structural theorems then interpret policy regions, stopping rules, or sample paths. Numerical examples usually enter after the theorem has told the reader what they should verify.
-- **Technical theory papers** sometimes place a short complete proof in the body, but more often keep the result and interpretation in the body and send verification to an appendix or online companion. The body should still say what the theorem changes relative to the benchmark before asking the reader to leave the main text.
+- **Technical theory papers** sometimes place a short complete proof in the body, but more often keep the result and needed interpretation in the body and send verification to an appendix or online companion. Before asking the reader to leave the main text, make the theorem's object, relation, and scope clear; a benchmark is needed only for a comparative result.
 
-Use these paths as a diagnostic. If a draft says `we next conduct a robustness test`, ask what concern the robustness test answers. If a model appears after results, ask what result made the formal object necessary. If a proof or formula appears in the body, ask whether it creates the comparison the reader needs or merely verifies it.
+Use these paths as a diagnostic. If a draft says `we next conduct a robustness test`, identify the claim or threat the test bears on. If a model appears after descriptive results, identify whether it explains, measures, extrapolates, or merely restates them. If a proof or formula appears in the body, ask whether it supplies a definition, warrant, comparison, or interpretation needed on the first pass, or only routine verification.
 
-## Elegance As Reader Turns
+## Elegance As Recoverable Movement
 
-Recent MS papers that read well do not simply list problem, method, result, and implication. They create small turns that let the next object feel necessary.
+Recent MS papers that read well do not simply list problem, method, result, and implication. They make it clear why an object appears at that point and what changes once it is introduced.
 
 - A platform-algorithm paper can move from the platform's original efficiency objective to the distributional harm that objective creates, and then to a ranking redesign that preserves total connections while changing access.
 - A workplace field-experiment paper can move from the general puzzle of slow practice adoption to the specific collaboration failure between managers and workers, and then to an intervention that separates coordination from cooperation.
 - A limited-data ODA paper can move from transfer learning and pooling as natural statistical defaults to the decision problem those defaults fail to protect, and then to co-learning as a decision-aligned alternative.
 - A technical inventory paper can move from known single-product guarantees to the unresolved backlog-assignment problem in networks, and then to a lower-bound construction that makes a simple policy provably credible.
 
-This is the kind of elegance to imitate at the field level. The paragraph should not sound dramatic; it should make the reader feel that the next sentence is the natural answer to the previous one.
+This is one kind of movement to learn at the field level, not a required plot. The paragraph should not sound dramatic; it should make the relation between objects easy to recover without announcing the relation as a writing device.
 
-Useful turns:
+Useful relations include:
 
 - **Old object -> missing feature**: what the standard model, policy, or literature assumes away.
 - **Objective -> unintended consequence**: what the current algorithm, contract, or practice optimizes and what it distorts.
 - **Method default -> decision mismatch**: why a familiar statistical or optimization tool is not enough for this decision.
 - **Formal result -> operating condition**: when the theorem, estimate, or algorithm matters and when a simpler benchmark is enough.
 - **Mechanism -> alternative mechanism**: why the result is attributed to one channel rather than a nearby explanation.
+- **Definition -> use**: what a newly defined construct, state, or policy class lets the paper state precisely.
+- **Evidence -> claim**: which estimate, theorem, comparison, or design fact warrants the inference.
+- **Whole -> decomposition**: which components account for an aggregate result and which do not.
+- **Claim -> qualification**: where the population, policy class, regime, or evidence type narrows the conclusion.
+
+Use a contrastive relation only when the paper contains a real contrast. A definition, procedural step, replication, or direct result can advance the argument without a missing-feature or reversal narrative.
 
 Do not overuse contrast markers. A single well-placed `but`, `whereas`, `when`, `because`, or `relative to` can do more than a paragraph of polished transitions.
 
@@ -142,16 +134,19 @@ The writer should therefore ask what makes the paper's main claim credible. It m
 
 ## First-Page Logic
 
-Strong MS introductions often spend the first page doing some version of four things.
+The first page has limited attention. Choose the burdens needed to make the paper's main claim legible.
 
-- Establish that the decision already matters in practice or theory.
-- Name the standard explanation, policy, or modeling approach.
-- Show why that standard view misses a friction in the focal setting.
-- State the paper's question only after the friction is concrete.
+- identify the focal decision, formal object, institution, or empirical pattern;
+- establish the relevant benchmark, received view, or unresolved comparison;
+- show the obstacle, counterexample, missing evidence, or new feature when one motivates the paper;
+- state the question, contribution object, or headline claim at the point where the reader can interpret it;
+- make the source of credibility visible before asking the reader to accept a strong conclusion.
+
+No single order is required. A technical paper may begin with a counterexample, an impossibility, or a canonical formulation. A field paper may begin with an institution or treatment. A direct research question can appear early when its objects are already clear; it need not wait for a manufactured friction paragraph.
 
 Field-experiment papers can begin with a broad managerial puzzle, but they quickly define the treated practice, the decision maker, the outcome metric, and the missing causal evidence. Theory papers can begin with a known theoretical view, but they quickly introduce the new strategic complementarity, information loss, fairness definition, or design constraint.
 
-Avoid beginning a full MS introduction with "We develop a model" when the reader does not yet know the decision or friction. If the model itself is the contribution, introduce the canonical object and the new feature before the full application story.
+A method-first opening is weak only when the reader cannot tell what the method studies, why that object matters, or what limitation it addresses. If the model, estimator, or algorithm is itself the portable contribution, introduce it early and make its object and departure explicit.
 
 For technical papers, a first page can legitimately use examples, figures, or a small network before the main theorem. In that case the example is not decoration; it explains the state variable, policy class, or operational ambiguity that makes the theorem necessary.
 
@@ -162,16 +157,16 @@ Use these as internal jobs, not visible labels.
 - **Practice paragraph**: who chooses what, in what organization or market, with what stakes.
 - **Belief paragraph**: what the literature, firm, platform, or regulator would normally expect.
 - **Friction paragraph**: why that belief may fail in this setting.
-- **Question paragraph**: the precise question after the friction is established.
+- **Question paragraph**: the precise question once its objects and comparison are interpretable.
 - **Design paragraph**: data, experiment, model, or algorithm, with just enough detail to identify the causal or formal object.
-- **Findings paragraph**: headline effect first, then mechanism, heterogeneity, or boundary.
+- **Findings paragraph**: make the headline effect and its support legible; place mechanism, heterogeneity, or boundary before or after it according to the local evidential dependency.
 - **Contribution paragraph**: what each audience learns that it could not learn from prior work.
 
-If a paragraph tries to perform all seven jobs, split it. MS prose often sounds native because each paragraph has a narrow job. The job can be expository, empirical, theoretical, or connective; it does not always need an immediate implication.
+If a paragraph tries to perform all seven jobs, it is probably overloaded. Split when the burdens compete, but allow linked work such as result plus interpretation or definition plus role. The burden can be expository, empirical, theoretical, or connective; it does not always need a friction or immediate implication.
 
-## Methods Enter After The Tension
+## Methods Enter When Their Role Is Legible
 
-Across MS field-experiment and empirical papers, the method paragraph usually comes after the paper has explained why the managerial question is not already answered.
+Across MS field-experiment and empirical papers, the method becomes persuasive once the reader knows what comparison or inferential problem it addresses. This explanation may precede the method, appear in the same paragraph, or follow a concise method-first statement when prior context already supplies it.
 
 Common modules:
 
@@ -179,7 +174,7 @@ Common modules:
 - The decision or treatment being varied.
 - The randomization, quasi-experimental variation, or identification contrast.
 - The outcome metric.
-- Why the design addresses the earlier friction.
+- Which comparison, estimand, mechanism, or validity concern the design addresses, if that role is not already clear.
 
 Avoid a methods paragraph that is only a sample-size announcement. Sample size matters when it identifies scale, power, external relevance, or operational realism.
 
@@ -230,29 +225,24 @@ Avoid making the first contribution "we are the first." If novelty matters, atta
 
 ## Related Work
 
-A native MS related-work paragraph usually has this structure:
+A native MS related-work paragraph makes two things recoverable: what the cited stream establishes and the exact dimension on which the current paper relates to or departs from it. A stream-first paragraph can synthesize prior work before positioning the paper. A paper-first paragraph can state the paper's object and then identify the nearest streams. Choose the order that avoids citation-by-citation listing and keeps each citation attached to the claim it supports.
 
-1. What the stream studies.
-2. What it has established.
-3. What object, mechanism, design, or setting it leaves unresolved.
-4. What the current paper adds.
-
-Do not end with "our paper is different." End with the exact difference: treatment assignment, reward side, information structure, two-dimensional targeting space, decision timing, policy class, formal definition, data access, or performance metric.
+When a related-work paragraph positions the paper, replace "our paper is different" with the exact relation: treatment assignment, reward side, information structure, targeting space, decision timing, policy class, formal definition, data access, or performance metric. The paragraph may end elsewhere if its primary burden is synthesis rather than positioning.
 
 ## Model And Theory Sections
 
-Theory papers often start from a standard setup and add one new feature. The prose should show both parts.
+Theory papers often start from a standard setup and add one new feature. When that is the paper's departure, the prose should show both parts.
 
-- Name the standard setup first, then the new feature.
+- Make the standard setup and new feature distinguishable; either may appear first when the local context makes the comparison clear.
 - Explain why the new feature changes the managerial or economic logic.
 - Define the base model before extensions.
 - Use "base model" only when the base model carries the main mechanism.
 - State simplifications honestly and say where generalizations appear.
-- After a proposition, give an interpretation paragraph before moving to proof or the next result.
+- Keep enough interpretation near a proposition for the reader to understand its object, comparison, or regime. A complete short proof may follow immediately when that is the manuscript's convention; interpretation may precede or follow it according to what the reader needs to understand first.
 
-For formal definitions, explain what the definition rules in and rules out. For new measures, state the decision problem the measure supports before giving the formula.
+For formal definitions, explain what the definition rules in and rules out when that distinction is consequential. For new measures, make the construct and analytical role legible before or immediately after the formula; the formula may come first when the notation itself is the cleanest definition.
 
-For MS model writing, the model is persuasive when it is introduced as the answer to a reviewer concern:
+For MS model writing, the model is persuasive when the reader can see how the abstraction supports the paper's claim. A live reviewer concern can organize that explanation:
 
 - If the concern is **tractability**, explain which state, action, or equilibrium object creates the difficulty and which reformulation controls it.
 - If the concern is **identification**, explain what is observed, what is latent, and which institutional feature or excluded variation supports the estimand.
@@ -260,21 +250,21 @@ For MS model writing, the model is persuasive when it is introduced as the answe
 - If the concern is **behavioral interpretation**, separate the model's mechanical prediction from the behavioral mechanism that the data can test.
 - If the concern is **implementation**, say what the algorithm, policy, or estimator takes as input, what it outputs, and what benchmark makes its performance meaningful.
 
-Do not make the model paragraph a list of primitives. A strong MS model paragraph says why these primitives are the right abstraction for the paper's source of credibility.
+Do not let the model section become only a list of primitives. A local definition paragraph can be brief or enumerative, but the surrounding prose should make clear why the consequential primitives are the right abstraction for the claim.
 
 ## Empirical And Field-Experiment Sections
 
 MS empirical sections feel grounded because they keep the institution and outcome metric visible.
 
-- Describe the partner, platform, firm, market, or data source before the estimating equation.
+- Make the relevant setting, unit, treatment or variation, and outcome recoverable before asking the reader to interpret the estimating equation. They may be established in prior paragraphs rather than repeated immediately before the display.
 - Say what is randomized or otherwise shifted, and what remains observational.
-- Define business metrics before reporting coefficients.
+- Make the business metric interpretable before asking the reader to interpret a coefficient in that metric.
 - Interpret heterogeneity as a boundary condition, not as a list of extra tables.
 - Put treatment implementation, survey instruments, long balance tables, and secondary checks in the appendix after the body gives enough information to trust the design.
 
 Do not let "causal evidence" float. State the causal contrast and the metric: treatment versus control, policy versus benchmark, ads versus public service announcements, uncertain sender reward versus certain sender reward, or collaboration treatment versus pure control.
 
-For reviewer persuasion, pair each empirical object with its threat:
+For reviewer persuasion, audit each consequential empirical object against the live threat it must bear. Do not manufacture one threat per paragraph:
 
 - Measurement: show how the construct is observed, validated, and bounded.
 - Treatment or adoption: explain timing and why it is plausibly separated from the outcome shock.
@@ -325,18 +315,8 @@ Distrust:
 
 ## Whole-Paper Continuity
 
-Before drafting a full section, it can help to keep a private continuity line:
+Use the manuscript contract rather than a fill-in-the-blank story sentence. Record the central object, belief change, comparator, metric, evidence owner, and boundary in plain notes. A mechanism belongs in this record only if the paper actually establishes one.
 
-`This paper changes how [audience] thinks about [decision] because [method/evidence] shows [result] through [mechanism] under [condition].`
+Different sections transform the same contract differently. The abstract compresses it; the introduction makes the object and departure legible; the model or design defines what the claim means; the results supply support; the conclusion interprets the supported claim. Related work and appendices have their own burdens and need not restate the whole contract.
 
-Use that line to test what belongs in each section, but do not force every section to restate every part:
-
-- Abstract: the whole continuity line, compressed.
-- Introduction: why the continuity line matters and why prior work could not show it.
-- Related work: which parts of the continuity line each literature covers or misses.
-- Model/data: how the design makes the continuity line verifiable.
-- Results: the result and mechanism pieces.
-- Proof/appendix: why the formal or empirical support is valid.
-- Discussion: what the continuity line does and does not imply.
-
-Do not expose the continuity line in the final unless the user asks for a logic map.
+Continuity does not require repeated wording. It requires stable objects and explicit relations. Use the canonical term after definition, signal any change in comparator or evidence type, and do not let the conclusion become a stronger paper than the results.

@@ -57,8 +57,8 @@ The best MS/OR sentences often put the formal novelty after the practical object
 
 Field-style MS/OR prose is compact, but it is not maximally compressed. A polished passage should feel like a reader is being led through the decision, not like every diagnostic item has been inserted.
 
-- Use one sentence for setup and one for force. Example structure: `[Actor] faces [decision/friction]. [Method/result] shows [conditioned consequence].`
-- Keep the old object near the front of the sentence and place the new contribution, condition, or contrast near the end.
+- When setup and the consequential relation compete in one sentence, split them. One possible pair is `[Actor] faces [decision/friction]. [Method/result] shows [conditioned consequence].` A definition, theorem, or result-first passage may use a different pair or a single sentence.
+- Keep the old object near the front when that reduces tracking effort. A new theorem, result, subsection object, or deliberate contrast may occupy the opening stress position.
 - Do not add a benchmark to every sentence. Add it where a result, guarantee, comparison, or contribution would otherwise be ambiguous.
 - Do not add managerial implications to every paragraph. Some paragraphs only need to define the model, state a result, or explain a proof move.
 - Avoid long prepositional chains such as "in the context of the optimization of the management of..." Replace them with an actor and a verb.
@@ -80,18 +80,9 @@ When text has been drafted from Chinese logic, rewrite the sentence rather than 
 
 ## Model Narration
 
-A model paragraph should read like a decision environment before it reads like a symbol list.
+A model paragraph should make the decision environment or formal object legible rather than read like a detached symbol list. Depending on the model, relevant objects include the decision maker or system, timing, information, action or policy, remaining uncertainty, payoff or feasibility criterion, benchmark, and solution concept. Select only what the local passage needs and order it by mathematical or temporal dependency.
 
-1. Name the decision maker.
-2. Name the timing.
-3. Name what is observed before the action.
-4. Name the action or policy.
-5. Name the uncertainty that remains.
-6. Name the payoff, cost, revenue, welfare, regret, or feasibility criterion.
-7. Name the benchmark or solution concept.
-8. Introduce notation in the same order.
-
-For example, a contextual optimization model should first say that the decision maker observes covariates before choosing an action and then faces random problem parameters. Only after that should it define the decision rule, distribution, loss function, and uncertainty set.
+For example, a contextual optimization passage must make clear that covariates are observed before the action and that problem parameters are realized afterward. It may state that timing in prose before the display, encode it in a compact formulation and explain it immediately afterward, or divide the explanation across both sides of the display.
 
 For assortment, pricing, queueing, search, and inventory models, translate each primitive into an operational object. A utility parameter, stockout probability, opening cost, Lagrangian multiplier, change point, regret benchmark, and replacement option each need one plain-language interpretation.
 
@@ -99,8 +90,8 @@ For assortment, pricing, queueing, search, and inventory models, translate each 
 
 Do not drop an equation into prose without a job.
 
-- The sentence before a display should say whether the display defines an objective, gives a benchmark, states a relaxation, describes a policy, or decomposes a proof term.
-- The sentence after a display should identify the central variables and explain the modeling choice.
+- Nearby prose should say whether a display defines an objective, gives a benchmark, states a relaxation, describes a policy, or decomposes a proof term. The display may open a technical subsection when its role is already clear.
+- Identify the central variables and explain consequential modeling choices before or after the display according to dependency; do not require symmetrical framing sentences around every equation.
 - If a display uses a conditional expectation, say what information is conditioned on and why that is the decision maker's information.
 - If a display is a max-min or minimax problem, say what the outer decision maker chooses and what the inner adversary or worst-case distribution changes.
 - If a display is a relaxation, say what constraint or dynamic feature it drops and why it provides an upper or lower bound.

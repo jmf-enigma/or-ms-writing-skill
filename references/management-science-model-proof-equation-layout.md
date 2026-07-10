@@ -37,11 +37,11 @@ Empirical equations have analogous jobs. A display may define a construct, an el
 
 ## Body Formula Choreography
 
-A body display should usually have three parts.
+A body display needs a recoverable role, not a mandatory prose sentence on each side.
 
-1. **Before the display**: say what the display is for. Examples: it defines the state evolution, states the firm problem, gives the lower-bound program, or decomposes regret.
-2. **The display**: show only the object needed for later results. Number it if it is referenced later.
-3. **After the display**: translate the central variables and explain why the display matters for the next theorem, policy, or proof step.
+- Make clear whether the display defines state evolution, states the firm problem, gives a lower-bound program, records an estimand, or decomposes a proof term. That role may be established by the preceding paragraph or subsection heading.
+- Show only the object needed for later results. Number it if it is referenced later.
+- Translate central variables and consequential modeling choices before or after the display according to dependency. A display can open a technical subsection when its role is already active.
 
 Good MS body writing often looks like this:
 
@@ -82,53 +82,48 @@ If the body has three or more displays in a row, add prose that tells the reader
 
 ## Model Section Layout
 
-MS model narration usually proceeds in this order, but the exact order can vary by paper type:
+Use a dependency inventory rather than a universal order:
 
-1. Explain the operational or economic setting in prose.
-2. Define agents, timing, state, information, and actions in the order they occur.
-3. Introduce notation only after the corresponding object has been named in words.
-4. Display system evolution or budget/utility only when it anchors later results.
-5. Display the objective or decision problem after feasibility and information are clear.
-6. State the benchmark, solution concept, or optimal value.
-7. Interpret why the model is difficult or why the abstraction isolates the mechanism.
+- operational, economic, empirical, or formal object;
+- agents or system, timing, state, information, and actions;
+- notation used by later statements;
+- system evolution, payoff, budget, utility, estimand, or feasibility;
+- objective, decision problem, comparator, solution concept, or optimal value;
+- analytical role, difficulty, or abstraction boundary.
 
-For technical algorithm papers, the model may start earlier, but it should still tell the reader what each state and control represents before the theorem.
+Select only what the model needs. A practice-led paper may explain the operating process before notation. A technical algorithm paper may begin with a canonical formulation, state, or policy class. In either case, explain each consequential state, control, construct, and comparator by the time a theorem or estimate relies on it.
 
-Close-reading update: recent MS/OR model sections often open with the real operating process, not with the mathematical formulation. A two-sided queueing paper first says customers and servers arrive, wait, are matched, and generate profit; only then does it introduce the bipartite graph, arrival processes, actions, objective, and assumptions. A screening paper first identifies sender, receiver, signal, effort, and expertise; only then does it show the signal equation and posterior object. This order makes notation feel necessary rather than dumped.
+Close-reading update: many practice-led MS/OR model sections open with the real operating process. A two-sided queueing paper says customers and servers arrive, wait, are matched, and generate profit before introducing the bipartite graph and arrival processes. A screening paper identifies sender, receiver, signal, effort, and expertise before showing the signal equation. These are examples of environment-first exposition, not evidence that every technical paper should use it.
 
-Construct-heavy empirical papers use the same climb. First define what the construct means in the paper, then say how it is observed or elicited, then display the measure, and only then interpret coefficients or predictions. For example, an AI-human decision paper may define ability, beliefs, and calibration before writing the empirical framework; the measurement section is part of the model because it tells the reviewer what the variables mean.
+Construct-heavy empirical papers must connect construct meaning, observation or elicitation, the displayed measure, and coefficient or prediction interpretation. Definition-first is often clearest, but a compact formal definition may precede ordinary-language explanation. The hard dependency is that validation and construct meaning are available before later claims rely on the measure.
 
-Potential-outcome and regression passages should be written as design prose, not just formulas. Before the display, identify treatment, control, outcome, unit, sample, and comparison. After the display, say which coefficient maps to the paper's prediction and what variation supports that interpretation. If the paper cannot fully separate nearby channels, say so and use `suggestive`, `consistent with`, or `difficult to cleanly disentangle`.
+Potential-outcome and regression passages should be written as design prose, not just formulas. Make treatment, control, outcome, unit, sample, comparison, coefficient interpretation, and identifying variation recoverable across the local passage. A display may come first when prior context has activated those objects. If the paper cannot fully separate nearby channels, say so and use `suggestive`, `consistent with`, or `difficult to cleanly disentangle`.
 
 ## Observed Main-Text Math Paths
 
-Recent MS/OR full texts show several repeatable ways that formulas become readable in the body.
+Recent MS/OR full texts show several ways that formulas become readable in the body. These paths are examples, not required sequences.
 
 - **Equilibrium model path**: prose names the actors, timing, information, and objective; displays define the demand, payoff, or expected sales object; the proposition characterizes equilibrium; the following paragraph explains each regime or strategic channel. Verification, long cases, and repeated inequalities move to the appendix.
-- **Benchmark comparison path**: first state the decentralized or baseline result, then define the first-best, centralized, relaxed, or complete-information benchmark, then compare the two in prose. The comparison paragraph should tell the reader which distortion, constraint, or information channel creates the gap.
-- **Approximation path**: show why the optimal dynamic object is computationally expensive, define the approximation or surrogate value function, state the theorem that bounds performance loss, then use numerical results to check whether the bound or policy is useful. Do not introduce an approximation before the exact object is visible.
-- **Potential-outcome path**: define units, treatment, control, outcomes, and potential outcomes before the regression display. After the display, identify the coefficient of interest and what assumption or randomization justifies reading it as the paper's treatment effect.
-- **Mechanism-regression path**: use the main design to establish the effect first. A mechanism regression should then begin with the possible channel, define the interaction or fine-grained measure, and conclude what the sign or magnitude says about the channel.
+- **Benchmark comparison path**: make both the baseline and first-best, centralized, relaxed, or complete-information object recoverable before interpreting their comparison. Either result may appear first. Explain the distortion, constraint, or information channel only when the analysis establishes it.
+- **Approximation path**: connect the exact object, computational difficulty, approximation or surrogate, performance theorem, and numerical evidence. An approximation can be stated early when its target and role are already clear.
+- **Potential-outcome path**: connect units, treatment, control, outcomes, potential outcomes, coefficient of interest, and the assumption or randomization supporting the treatment-effect interpretation. Their prose/display order can follow the active design context.
+- **Mechanism-regression path**: connect a possible channel, interaction or fine-grained measure, estimate, and permitted mechanism claim. The channel or estimate may lead; do not require a mechanism section to mimic the main-effect section's order.
 - **Appendix-proof path**: the appendix can begin directly with binding constraints, first-order conditions, HJB verification, coupling details, or case analysis because the body has already explained the object and meaning. The body should not make the appendix carry the first explanation of why the result matters.
 
 When deciding whether a mathematical step belongs in the body, ask whether it creates an object the reader will use later. A virtual surplus, threshold, Bellman objective, potential outcome, or value-function approximation may belong in the body. A derivative check, repeated case split, constant definition, or table of alternative codings usually belongs in the appendix.
 
 ## Theorem And Result Layout
 
-A theorem in the body should be surrounded by prose.
+A theorem in the body belongs to a local result package. The setup and conditions must be available by the statement; the exact assumption, policy class, comparator, and conclusion belong in the statement when they define its scope; and needed interpretation should remain nearby. Interpretation may precede a short proof, follow it, or bracket the result according to the manuscript's convention.
 
-- Before the theorem: remind the reader of the local setup and conditions.
-- Theorem statement: include the exact assumption, policy class, benchmark, and conclusion.
-- After the theorem: interpret the result in words before moving to proof or the next theorem.
-
-For approximation and regret results, the post-theorem paragraph should say:
+For approximation and regret results, nearby prose may need to say:
 
 - what the comparator is;
 - what parameter makes the problem hard;
 - when the factor or rate is useful;
 - how the result differs from the standard model.
 
-For structural results, the post-theorem paragraph should say:
+For structural results, nearby prose may need to say:
 
 - what the policy/equilibrium/threshold looks like;
 - which parameter or state determines the regime;

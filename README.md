@@ -34,9 +34,10 @@ This repository contains a Codex skill. It is designed to help draft, rewrite, d
 The latest update adds full-text signals from predictive-prescriptive analytics, data-driven newsvendor models, decision-focused prediction, dynamic pricing with unknown demand, online-retail implementation, operational-transparency experiments, fast-fashion theory, policy-gradient guarantees, network inventory algorithms, and their appendices. It strengthens guidance on:
 
 - whole-task dispatch: unit, lane, reader job, and output shape before drafting;
-- logic-before-style repair: premise, evidence object, inference, boundary, and next reader question;
-- story-order repair: entry state, paragraph job, within-paragraph sequence, paragraph handoff, and exit state;
-- full-paper close-reading paths: how field experiments, platform models, multimethod studies, optimal-control papers, and appendix-heavy theory papers make one section necessary from the previous section's reader question;
+- logic-before-style repair: prerequisites and definitions, claim and warrant, scope continuity, evidence-register shifts, and attention hierarchy;
+- a hard-dependency versus presentation-choice distinction: definitions and warrants must be available when used, while claims, evidence, formulas, examples, and interpretations can be ordered in several legitimate ways;
+- story-order repair without a fixed arc: claim-first, evidence-first, definition-first, contrast-first, and result-first orders are all available when their relations are clear;
+- full-paper close-reading paths: how field experiments, platform models, multimethod studies, optimal-control papers, and appendix-heavy theory papers organize analytical dependencies without forcing every section into a question-and-answer handoff;
 - workflow cleanup: a shorter control-loop procedure, tighter request triage for paper-close-reading prompts, and less noisy topic lenses in section planning;
 - AI-scent list detection: catches decorative `A, B, and C` adjective/noun triplets and asks whether the items are real constructs or just filler;
 - citation close reading: checks citation dumping, unsourced literature claims, and novelty claims, and requires reading the cited paper's actual model/data/result/proof content before judging whether a citation supports the sentence;
@@ -69,18 +70,18 @@ The skill is built around a few nonnegotiable writing principles:
 - Do the right pass first: language-only requests should not be inflated into paper redesign, and manuscript-level requests should not be reduced to sentence polishing.
 - Natural prose starts with natural word pairings: a theorem establishes a bound, a policy improves a metric, data record behavior, robustness checks preserve an interpretation, and effects are on outcomes.
 - Every major claim needs nearby evidence and a clear boundary.
-- A strong paper needs a spine: the central object and the result that changes the reader's belief.
+- A strong paper needs a spine: the central object and the result that carries the contribution.
 - A high-impact paper usually gives later readers a portable object: a model, benchmark, contract, measure, theorem object, policy class, empirical contrast, or tradeoff that can be cited and extended.
 - Results should not receive equal emphasis; distinguish spine result, load-bearing support, mechanism, boundary, robustness, extension, and appendix-only verification.
 - Stronger prose should not mean stronger unsupported claims.
-- A model should be introduced as a decision environment, not as a collection of symbols.
+- A model should be introduced through its formal or decision object and analytical role, not as a collection of symbols.
 - Theorem and proposition captions should stay spare; the paper should explain the result in the surrounding prose.
 - Proof ideas should name the load-bearing mathematical move, not hide behind "by algebra."
 - A proof idea is often ordinary prose, not a visible `Proof idea:` label. A formal `Proof.` may contain a complete short proof or, when the paper uses that convention, a one-line appendix pointer; the pointer never replaces interpretation.
 - Proof ideas should be proportional: a routine proof may need one precise sentence; a surprising result may need a short proof checkpoint.
 - Polished prose should avoid colon-led roadmaps such as "Key insight:", "Result:", or "Managerial implication:" unless the mark is required by a formal label, table, definition, theorem condition, or venue format.
 - Avoid itinerary prose such as "we first..., we then..., finally..." and weak links such as "This enables..." or ", which allows..." unless the antecedent is precise.
-- Elegant OR/MS storytelling comes from a real reader turn: old belief to missing friction, current objective to unintended consequence, method default to decision mismatch, benchmark to result, or result to boundary.
+- Elegant OR/MS storytelling comes from recoverable analytical relations, warranted claims, and controlled changes in scope or emphasis, not a required sequence of tension, method, result, and implication.
 - The main text must let a reviewer understand and trust the contribution without opening the appendix. At the local result-package level, an appendix pointer needs nearby prose saying what is established, why it matters, or what the appendix verifies.
 - References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
 - When prose sounds stiff, the skill now prioritizes sentence craft: ordinary subject-verb-object movement, fewer noun piles, shorter preposition chains, and one-step paragraph progression before adding more OR/MS markers.
@@ -177,7 +178,7 @@ MIT License. See [LICENSE](LICENSE).
 
 `or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
 
-最新版本把“用词搭配”和“句子英文”放得更靠前，也补上了对全文正文和 appendix 的 close reading：先看 verb-object fit、preposition、evidence verb、OR/MS collocation，再让每句话有清楚的 subject、verb、object、condition、benchmark 和 emphasis；遇到 model、theorem、proof idea、appendix handoff 时，会按真实 MS/OR 正文的写法判断深度，而不是套一个固定模板。它会尽量避免把诊断标签直接写进成稿。
+最新版本把“用词搭配”和“句子英文”放得更靠前，也补上了对全文正文和 appendix 的 close reading：先看 verb-object fit、preposition、evidence verb、OR/MS collocation，再让每句话围绕清楚的 local object 和 relation 展开，只在论证需要时加入 condition、benchmark 或 scope；遇到 model、theorem、proof idea、appendix handoff 时，会按真实 MS/OR 正文的写法判断深度，而不是套一个固定模板。它会尽量避免把诊断标签直接写进成稿。
 
 它也加入了一个前置 triage：先判断当前任务到底是语言问题、段落问题、整篇文章主线问题、跨章节一致性问题、数学/证明问题、正文/附录分工问题，还是 reviewer calibration 问题。这样不会把一个简单的句子改写膨胀成整篇 paper redesign，也不会在整篇文章问题上只做表面润色。
 
@@ -192,8 +193,8 @@ MIT License. See [LICENSE](LICENSE).
 - 判断一篇文章真正要讲什么：哪个 result 是 spine，哪些是 support，哪些只是 robustness 或 appendix verification；
 - 检查摘要、引言、模型或研究设计、结果和结论是不是在讲同一篇 paper：central object、comparator、metric、evidence type、claim strength、boundary 和关键数字有没有漂移；
 - section architecture、headings/subheadings、paragraph order；
-- 段落之间和段落内的故事顺序：每段进入时读者知道什么、这一段改变什么、句子如何推进、段尾怎样自然交给下一段；
-- 真实 paper 的 section 推进：main effect 后为什么进 mechanism，equilibrium 后为什么进 benchmark，exact model 后为什么进 approximation，正文解释之后为什么再去 appendix；
+- 段落之间和段落内的逻辑：定义是否在使用前可得、claim 是否有 warrant、comparator 和 scope 是否稳定、证据类型变化是否明确；区分硬依赖和展示顺序，不再强制每段段尾都交给下一段；
+- 真实 paper 的 section 推进：mechanism、benchmark、approximation、replication、decomposition 和 appendix 各自承担什么分析或证据作用，而不是强行让上一节先提出一个问题；
 - 更干净的内部流程：少一点 checklist，多一点 scope、reader path、evidence/placement、language polish 的控制循环；
 - 新的 AI 味检测：抓 `A, B, and C` 这种三连抽象形容词/名词，尤其是接 framework、insights、implications 这类词的时候；
 - 引用 close reading：检查 citation dumping、没有 citation 的 literature claim、没有文献边界的 novelty claim；判断引用是否合适时必须看被引文章的具体 model/data/result/proof 内容，DOI/BibTeX/作者年份核验交给 citation tools；
@@ -222,19 +223,19 @@ MIT License. See [LICENSE](LICENSE).
 - 先修自然搭配，再修句子结构；不要把奇怪的词组用更华丽的词包装起来。
 - 一个大 claim 附近必须有 evidence。
 - 一个强 claim 附近必须有 boundary。
-- 一篇强文章必须有 spine：读者应记住的 central object，以及真正改变信念的 result。
+- 一篇强文章必须有 spine：读者应记住的 central object，以及真正承载贡献的 result。
 - 高质量 MS/OR 文章通常还有一个 durable object：后续论文会引用的 model、benchmark、measure、contract、policy class、theorem object、empirical contrast 或 tradeoff。
 - 一句强英文要先有清楚的 subject、verb、object；不要用 abstract noun pile 和空泛主语去遮住真正的 actor、policy、model、estimate 或 proof move。
 - 不是所有 result 都应该同等展开；正文要围绕 spine result 组织，附录负责验证、重复检查和二级扩展。
 - 语言可以更地道，但结论不能被偷偷加强。
-- model 要先让读者知道谁在什么信息下做什么决定，再进入符号。
+- model 要让读者在依赖符号之前理解 central formal/decision object 和 display 的作用；实践导向论文可以先讲 operating process，技术论文也可以先给 canonical formulation，再紧接着解释变量和关系。
 - theorem/proposition 的标题要克制，通常只用编号或很短的 object label；真正的意思放在前后正文里讲清楚。
 - `Proof idea:` 通常不要作为正文里的可见标签。`Proof.` 可以承载完整短证明，也可以按期刊或全文惯例只承载附录指针；但附录指针不是 proof idea，也不能替代 proposition 后面的结果解释。
 - proof idea 要说清楚真正承重的数学动作，比如 relaxation、coupling、decomposition、KKT、concentration、fixed point、exchange argument。
 - proof idea 要按难度写：routine proof 可以一句话说清楚；surprising theorem 才需要更明确的 proof checkpoint。
 - 少用冒号式的 AI 节奏，比如 `Key insight:`、`Result:`、`Managerial implication:`。除非是 definition、assumption、table、theorem condition 或期刊格式需要，成稿里应改成自然句子。
 - 避免 `we first..., we then..., finally...` 这种流水账，也避免没有明确 antecedent 的 `This enables...` 或 `which allows...`。
-- 优雅的 OR/MS 叙事来自真实转弯：旧观点到新 friction，现有目标到意外后果，默认方法到 decision mismatch，benchmark 到 result，或者 result 到 boundary。
+- 优雅的 OR/MS 叙事来自可恢复的分析关系、有根据的 claim，以及受控的 scope 和 emphasis 变化，而不是固定的 friction–method–result–implication 顺序；claim-first、evidence-first、definition-first 和 result-first 都可以成立。
 - 正文要让审稿人第一遍就理解贡献和可信度；附录负责完整验证、长证明、重复 robustness、implementation details。附录指针前后必须有邻近正文说清结果意义和附录验证什么，但形式化的 `Proof.` 指针可以按全文惯例直接放在命题下面。
 - 全文允许不同章节使用不同压缩程度，但不能偷换 central object、comparator、metric、evidence、magnitude 或 boundary；结论可以解释结果，不能把结果升级成一篇更强的 paper。
 

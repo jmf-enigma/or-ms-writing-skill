@@ -28,7 +28,7 @@ The body-to-appendix handoff should carry a conclusion. A cross-reference that d
 
 For mathematical models and proofs, placement is not only about length. It is about the reader's ability to evaluate the formal contribution before opening the appendix.
 
-- The body should establish the model object: decision maker, timing, information, action or policy class, objective, core constraints, assumptions, benchmark, and solution concept or estimand.
+- The body should establish the model or empirical object and the relevant subset of timing, information, action or policy class, state, objective or estimand, core constraints, assumptions, comparator, and solution concept needed to interpret the headline claim.
 - The body should include the main displayed formulation when that formulation defines the paper's decision problem, estimator, policy, relaxation, or benchmark.
 - The body should show a derivation checkpoint when a transformation creates the object used later. Examples include primal to dual, Bellman equation to policy structure, original problem to relaxation, regret definition to decomposition, equilibrium constraints to reduced form, or identifying assumptions to an estimand.
 - The body should not include the full algebra unless the algebra is short or the proof technique is the contribution.

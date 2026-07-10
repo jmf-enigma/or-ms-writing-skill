@@ -17,17 +17,17 @@ MS prose is usually plain, exact, and relation-heavy. It does not need ornate ve
 
 - the verb governs an exact object;
 - the sentence states how two objects relate;
-- the result is bounded by a condition, benchmark, or regime.
+- a condition, benchmark, or regime bounds the result when its interpretation depends on one.
 
 The most useful connecting words are ordinary: `where`, `whereas`, `when`, `otherwise`, `relative to`, `compared with`, `under`, `because`, `allowing`, `which`, and `thereby`. Use them to express mathematical, empirical, or managerial relations. Do not use them to decorate a sentence that lacks a clear object.
 
-Elegant MS prose often has one quiet hinge. The hinge tells the reader why the next object enters: a benchmark fails, a standard intuition misses a friction, an algorithm optimizes the wrong metric, a theorem applies only in a regime, or a design separates one mechanism from another. If a paragraph has no hinge, it may sound clean but inert.
+Elegant MS prose makes the relation between consequential objects recoverable. That relation can be contrastive, but it can also be definitional, evidential, procedural, decompositional, or scope-setting. A connective may mark the relation; sentence order, a repeated canonical noun, a display, or a heading may carry it without a visible hinge. Do not add a benchmark failure or missing friction merely to animate a paragraph.
 
 ## Native Story Wording
 
 In MS, the story is usually carried by local nouns and exact relations, not by words such as "story," "narrative," or "insight." A paragraph sounds native when the reader can follow the decision logic without being told that the paper is telling a compelling story.
 
-Prefer story moves like these:
+The corpus contains relations like these; use them only when the paper supports them:
 
 - Standard object -> missing feature: `Classic newsvendor models fix the demand distribution before ordering. Here, the mean demand is updated between the two sourcing decisions.`
 - Policy -> consequence -> condition: `The adjusted critical-fractile heuristic matters when the signal is noisy; otherwise, the classic newsvendor rule is close to optimal.`
@@ -39,7 +39,7 @@ Distrust story-like words unless the sentence immediately names the object:
 
 - `compelling story`, `rich narrative`, `sheds light`, `reveals important insights`, `uncovers complex dynamics`, `paints a picture`, `highlights the importance`, `offers managerial enlightenment`.
 
-Repair them by naming the actor, decision, mechanism, metric, and condition:
+Repair them by naming the exact local object and relation. Add an actor, decision, mechanism, metric, or condition only when it bears on the claim:
 
 - Weak: `The model tells a compelling story about uncertainty.`
 - Better: `The model shows how a noisy demand signal changes the first-stage sourcing decision.`
@@ -66,22 +66,11 @@ Avoid `explore`, `delve into`, `shed light on`, `leverage`, `enhance`, and `faci
 
 ## Abstract Sentence Rhythm
 
-A native MS abstract often moves by relation, not by hype.
-
-Useful rhythm:
-
-1. `We study [decision/model/setting] where [information, timing, constraint, or behavior changes].`
-2. `[This setting] is relevant to [managerial or operational context] because [decision consequence].`
-3. `We introduce/develop [formal object] that [captures/generalizes/separates] [missing feature].`
-4. `We show/characterize/derive/propose [main result or method].`
-5. `We apply/evaluate/compare [method or policy] using [data, implementation, simulation, or benchmark].`
-6. `When [condition], [policy/result] changes [metric]; otherwise, [benchmark or simpler policy] performs well.`
-
-Do not use this as a six-sentence template. The important language habit is that each sentence changes the reader's object: setting, relevance, formal object, result, evidence, condition.
+A native MS abstract often moves by relation, not by hype. Select from the central object, relevant departure or question, evidence owner, headline result, metric or comparator, minimum boundary, and supported interpretation. No item has a fixed sentence position. A technical abstract can begin with a formal object or result; an empirical abstract can begin with a setting, design, or estimate; a practice-led abstract can begin with a decision. The important language habit is that each sentence has a clear burden and that changes in object or evidence type are recoverable.
 
 ## Result Language
 
-Result sentences should say what is being compared and what changes.
+Comparative result sentences should say what is being compared and what changes. A definition, existence result, identification statement, or direct characterization may instead need an object, warrant, and condition without a policy comparison.
 
 Prefer:
 
@@ -101,7 +90,7 @@ If the user's material lacks a metric, comparator, or condition, write a narrowe
 
 ## Contribution Language
 
-A contribution sentence should identify the object and the departure from prior work.
+A contribution sentence should identify the object and what the paper establishes. Name the departure from prior work when the sentence is also doing literature positioning.
 
 Useful shapes:
 

@@ -29,13 +29,14 @@ Article signals used for language calibration:
 
 ## What Native OR/MS Prose Sounds Like
 
-Native OR/MS prose is concrete before it is technical. It names the decision maker, the decision, the friction, and the benchmark before asking the reader to care about a model or estimator.
+Native OR/MS prose makes the technical object concrete. A practice-led passage may name the decision maker, decision, relevant friction, and comparator before the model. A technical passage may begin with a formal object, definition, theorem, estimator, or counterexample and explain its role immediately.
 
-Good openings usually do one of four jobs.
+Common openings include:
 
 - Name a practice and the decision it creates.
 - Name a standard policy and the force it misses.
 - Name an operational bottleneck and the benchmark that fails.
+- State a portable formal object, definition, counterexample, or result whose role is already interpretable.
 - Name an empirical pattern and the managerial belief it challenges.
 
 Avoid opening with importance alone. A sentence such as "X is increasingly important" feels unfinished unless it immediately says who must decide what and why the standard decision rule is strained.
@@ -83,17 +84,17 @@ Management Science abstracts often read naturally when magnitudes are concrete, 
 
 Use decision-centered structure and operational nouns. Structured abstracts often make the prose clearer even when the final target is not M&SOM.
 
-Typical modules:
+Typical venue modules when a structured abstract is required:
 
-1. Problem definition. Name the operational decision and the choice set.
-2. Methodology/results. Name the model or empirical design and the two or three results that matter.
-3. Managerial implications. State who should act differently and under what condition.
+1. Problem definition. Make the operational system, decision, construct, or formal problem and relevant choice set legible.
+2. Methodology/results. Name the evidence owner and the smallest set of results, metrics, comparators, and boundaries needed for accurate compression; no fixed result count is required.
+3. Managerial implications. When the venue requires this label, state the bounded practical or methodological relevance the evidence earns. Do not invent actionable advice for a theorem or descriptive result that does not support it.
 
 Useful verbs:
 
 - consider, investigate, study, model, formulate, solve, characterize, delineate, validate, implement, operationalize.
 
-M&SOM style is comfortable with concrete managerial stakes. It should still avoid generic advice. A good implication says when a policy is valuable, when it backfires, and which observable condition separates the two.
+M&SOM style is comfortable with concrete managerial stakes. It should still avoid generic advice. When a result compares policy regimes, a useful implication can say when a policy is valuable, when it backfires, and which observable condition separates the two; other results may need a different interpretation.
 
 ## Sentence Moves To Reuse
 
@@ -173,27 +174,21 @@ Do not use a generic noun if the paper has a better local noun. "Performance" is
 
 ### Compact OR Or Management Science Abstract
 
-Write one paragraph with five beats.
+Write one paragraph that preserves the paper contract. Select from the operational or formal object, relevant departure, model/data/experiment/algorithm, headline result, comparator or metric, and boundary. A mechanism or implication belongs only when supported, and the abstract need not contain a fixed number of results or beats.
 
-1. The operational decision.
-2. The friction or missing force.
-3. The model, data, experiment, or algorithm.
-4. Two or three results in mechanism language.
-5. The implication for the actor or literature.
-
-Keep the first sentence readable without equations. If a method is technical, introduce the practical object before the notation.
+Keep the opening interpretable without requiring the reader to decode an equation. A technical paper may name a canonical formal object immediately; add the practical object before notation only when the application is needed to understand the contribution.
 
 ### M&SOM Structured Abstract
 
 Use the required labels only when the user asks for M&SOM or a structured abstract. Otherwise, borrow the order without labels.
 
-- Problem definition. The first sentence should name the decision and choice set.
+- Problem definition. Make the decision, system, or formal problem and its choice set legible; this often fits in the first sentence but need not be forced there when a construct or institutional object must be defined first.
 - Methodology/results. Combine method and findings. Do not let the method paragraph become a tool list.
 - Managerial implications. State an action, a condition, and a caveat.
 
 ## Result-Interpretation Patterns
 
-A polished OR/MS result paragraph usually follows this order.
+A polished OR/MS result paragraph keeps the formal claim, support, comparator, and necessary interpretation close. The following is one possible order, not a default.
 
 1. State the formal result in words.
 2. Name the benchmark intuition.
@@ -242,10 +237,10 @@ Do not write "Our paper is the first to..." unless the claim is defensible. Pref
 
 Before returning polished prose, check five things.
 
-1. Does the first sentence name a real actor, decision, or tension?
+1. Does the passage make its central object or claim recoverable at the point where it is needed?
 2. Does each "we" verb have a specific object?
-3. Does each result identify a mechanism or condition?
-4. Does each implication name who acts and when?
+3. Does each result identify the comparator, condition, mechanism, or other relation needed for its interpretation, without forcing all of them?
+4. Does each implication stay within the action or belief change supported by the result?
 5. Can any generic word be replaced by a local operational metric?
 
-If the prose still sounds translated, simplify the sentence. OR/MS style is usually more native when the sentence is shorter, the actor is visible, and the mechanism is stated with because or when.
+If the prose still sounds translated, simplify the sentence. OR/MS style is usually more native when the sentence is shorter, the local subject and verb are clear, and any mechanism or condition is stated directly rather than added as generic connective tissue.

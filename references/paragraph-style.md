@@ -1,132 +1,141 @@
-# Paragraph Style
+# Paragraph Logic And Flow
 
-Use this when the user wants a fixed-quality paragraph, rewrite, or section paragraph.
+Use this when a technically correct paragraph or section feels hard to follow, oddly ordered, or mechanically "story-like." Diagnose the relations that carry the argument before changing sentence style.
 
-## Voice
+## Coherence Is Not A Paragraph Shape
 
-- Precise, restrained, analytical.
-- Human first, technical second: introduce the business or operational decision before the formal object unless the section is already technical.
-- Prefer "we show," "we characterize," "we identify," "we establish," "we find" over inflated novelty language.
-- Use "suggests," "indicates," "is consistent with," or "under our model" when evidence is conditional.
-- Avoid unsupported "significant," "novel," "important," "dramatic," and "surprising."
-- Use quiet punctuation. In polished prose, do not use colons, semicolons, em dashes, en dashes, double hyphens, or spaced hyphens as dash substitutes.
-- If a draft contains one of those marks, first try to rewrite it as two sentences. Use parentheses only for short asides that would otherwise interrupt the sentence.
+A coherent paragraph does not need a prescribed topic sentence, three supporting sentences, and a handoff. It needs a recoverable primary burden and enough support to discharge that burden.
 
-## Paragraph Contract
+Common burdens include:
 
-Every paragraph should have one dominant job. It may contain supporting details, but the reader should be able to say why the paragraph exists.
+- defining an object;
+- motivating a question or modeling choice;
+- establishing a formal or empirical claim;
+- comparing policies, regimes, designs, or literatures;
+- interpreting a result;
+- qualifying scope or addressing a threat;
+- connecting two analytical components.
 
-1. **Context paragraph**: phenomenon -> operational decision -> why it matters.
-2. **Gap paragraph**: literature has X -> misses Y -> this paper studies Y.
-3. **Model paragraph**: decision maker -> primitives -> objective -> why abstraction is useful.
-4. **Result paragraph**: result -> mechanism -> condition -> implication.
-5. **Comparison paragraph**: benchmark -> difference -> source of difference.
-6. **Managerial paragraph**: action -> condition -> mechanism -> caveat.
-7. **Transition paragraph**: summarize what was established -> motivate next analysis.
+A paragraph can carry a secondary function when the functions are genuinely linked. A result paragraph may state an estimate and interpret its magnitude. A model paragraph may define a primitive and explain why it is needed. Split only when the burdens compete for emphasis or require different evidence.
 
-## Within-Paragraph Story Order
+## Four Kinds Of Coherence
 
-The order of sentences should follow the reader's state, not the author's notes.
+Check these separately.
 
-Useful sentence orders:
+1. **Referential coherence**: nouns, symbols, pronouns, and labels point to stable objects. The reader knows what `this result`, `the policy`, or `the benchmark` refers to.
+2. **Prerequisite coherence**: definitions, timing, assumptions, comparators, and design facts appear before a later claim relies on them.
+3. **Inferential coherence**: an estimate, theorem, design feature, decomposition, or citation warrants the inference drawn from it.
+4. **Scope coherence**: the metric, population, policy class, evidence type, and boundary do not change without notice.
 
-- **Context paragraph**: known setting -> decision maker -> decision -> friction.
-- **Gap paragraph**: closest prior view -> maintained assumption -> missing object -> paper question.
-- **Model paragraph**: decision environment -> information/timing -> control -> objective -> why the abstraction is useful.
-- **Empirical design paragraph**: setting -> treatment or variation -> comparison -> outcome metric -> credibility threat addressed.
-- **Result paragraph**: result or estimate -> benchmark or contrast -> mechanism -> boundary or interpretation.
-- **Proof idea paragraph**: result target -> constructed object -> hard term -> proof move -> appendix verification.
-- **Robustness paragraph**: threat -> check -> conclusion -> appendix details if secondary.
+Smooth transitions cannot repair a missing prerequisite or warrant. Conversely, a valid argument can still be hard to read if the reader must hold too many undefined objects before learning their role.
 
-Do not use all elements every time. The point is sequence: each sentence should make the next sentence easier to understand.
+Distinguish hard dependencies from presentation choices. A definition must be available before a later statement relies on it, but the defining sentence need not open the paragraph. A claim must have a warrant, but the claim may precede its evidence. A comparison needs a recoverable benchmark, but the benchmark may be active from the preceding subsection. Logical availability matters; immediate adjacency and one prescribed sentence order do not.
 
-## Between-Paragraph Story Order
+## Legitimate Ordering Choices
 
-A section feels coherent when the last sentence of one paragraph prepares the first sentence of the next.
+Choose order from the local burden. None of these is the universal default.
 
-Good handoffs:
+- **Definition-first**: define an object before a formulation or theorem uses it.
+- **Claim-first**: state the result, then give the estimate, theorem, or comparison that supports and interprets it.
+- **Evidence-first**: present the observed pattern or formal fact, then draw the inference.
+- **Contrast-first**: establish the benchmark or received view, then state the departure.
+- **Result-first**: open a results paragraph with the headline estimate or theorem when the setup is already active.
+- **Exception-first**: state a boundary or failed case before explaining why the main result does not extend.
+- **Procedure-first**: describe timing or an algorithm in execution order when later steps depend on earlier ones.
 
-- A setting paragraph ends with a friction; the next paragraph explains why existing work or current practice does not resolve it.
-- A gap paragraph ends with a question; the next paragraph introduces the model, data, or design that answers it.
-- A design paragraph ends with the comparison it makes credible; the next paragraph reports the main result.
-- A result paragraph ends with an unresolved mechanism; the next paragraph tests, models, or explains that mechanism.
-- A theorem paragraph ends with a condition; the next paragraph explores comparative statics, boundary cases, or implementation.
+Claim-first prose is not illogical merely because evidence follows. Evidence-first prose is not weak merely because the conclusion comes last. The test is whether the relation and support are easy to recover.
 
-Weak handoffs:
+## Relations Between Sentences
 
-- A paragraph ends with a broad implication and the next begins with notation.
-- A result appears before the reader knows the benchmark.
-- A robustness paragraph appears before the main estimate has been interpreted.
-- A proof detail appears before the theorem's economic or operational meaning is clear.
+For each adjacent pair, identify the real relation privately.
 
-## Reader-Question Chains From Full Papers
+- definition or restatement;
+- elaboration or example;
+- evidence or proof support;
+- inference or consequence;
+- contrast or benchmark comparison;
+- mechanism or causal explanation;
+- condition, exception, or boundary;
+- decomposition into components;
+- generalization or specialization;
+- temporal or procedural succession;
+- transition to a new object or evidence type.
 
-Use these when a paragraph has the right content but still feels oddly ordered.
+If the relation is not recoverable, add the missing noun, premise, or qualifier, or reorder the sentences. Do not add `however`, `therefore`, `moreover`, or `this suggests` merely to create surface flow. A connective is useful only when it names the actual relation.
 
-- **Empirical result chain**: remind the reader of the outcome and comparison, state the estimate or sign, translate the magnitude into the paper's metric, then say whether the pattern is primary evidence, mechanism evidence, or a boundary. Move secondary specifications to the appendix after stating their conclusion in the body.
-- **Mechanism chain**: start with the unresolved alternative explanation, introduce the finer-grained data, interaction, qualitative evidence, or subgroup comparison, then state how much the check supports the proposed mechanism. Do not begin with the table number.
-- **Model chain**: begin with the operating action or strategic friction, then introduce the primitives that capture it, then define the objective or equilibrium object. End by saying what the first lemma, proposition, or benchmark will resolve.
-- **Proposition chain**: before the proposition, create the comparison or threshold it characterizes. After the proposition, explain the region, benchmark, or strategic channel that changed. Only then move to the next result or appendix proof.
-- **Approximation or algorithm chain**: show why the exact object is costly or intractable, introduce the approximation as the response to that obstacle, state the guarantee, then use numerical results to verify performance or operating relevance.
-- **Robustness chain**: name the threat, state the check, summarize the conclusion, and send repeated tables or alternative codings to the appendix. Robustness paragraphs should not interrupt before the main result has been interpreted.
+Old-before-new information is a useful default when introducing unfamiliar objects, not a law. A theorem statement, result summary, subsection opening, or contrast can deliberately lead with new information and explain it immediately afterward.
 
-The paragraph should usually move from the reader's last question to the paper's next object. It should not move by the order in which the author ran regressions, solved lemmas, or drafted notes.
+## Paragraph Boundaries
 
-## Clarity And Concision Pass
+Start a new paragraph when the primary burden, evidence object, analytical level, or scope changes enough that the reader benefits from a reset.
 
-Use this pass after the paragraph has the right logic.
+Do not require every paragraph to foreshadow the next. Continuity can be carried by:
 
-- Make the actor grammatical subject when possible.
-- Prefer active voice unless the object or result matters more than the actor.
-- Use positive form. Say what the model does, not only what it does not do.
-- Choose concrete nouns and specific verbs. Replace "provides insights into" with the actual action, condition, or comparison.
-- Omit needless words. Remove "in order to," "it is important to note," "the fact that," "various," "several," and unsupported intensifiers.
-- Keep related words together. Do not separate a subject from its verb with a long methodological aside.
-- Put emphasis at the end of the sentence. End on the decision, mechanism, condition, or result rather than a filler phrase.
-- Vary sentence openings. Do not start three consecutive sentences with "This," "We," or "Our."
+- the final sentence of the previous paragraph;
+- the opening sentence of the new paragraph;
+- a repeated canonical term or benchmark;
+- a section or subsection heading;
+- a theorem, proposition, figure, or table label;
+- an explicit scope change.
 
-## Paragraph Repair Patterns
+A clean paragraph ending may simply complete a definition, report a result, or state a boundary. Adding a teaser sentence can weaken the prose when the next heading already supplies the transition.
 
-Use these only when a paragraph is missing a local job. They describe movement, not final paragraph templates. After choosing a movement, write ordinary sentences in the paper's own nouns.
+## Lane-Specific Dependencies
 
-### Motivation Pattern
+These are dependency checks, not paragraph templates.
 
-Move from phenomenon to decision maker, then to the tradeoff that makes the decision nontrivial. If a method enters, name the exact mechanism it isolates rather than writing a `which allows` clause.
+- **Empirical work**: treatment, outcome, unit, comparison, and identifying variation must be available before a causal interpretation depends on them. A results paragraph may still begin with the estimate once that design is active.
+- **Construct or measurement work**: define what the construct means before using a proxy or coefficient as evidence about it. Validation must precede the claims that require validation.
+- **Theory**: define primitives and solution concept before the theorem uses them; establish the benchmark before interpreting a comparison. A proposition can appear before intuition when the formal object is already clear.
+- **Algorithms and applied OR**: make the exact decision object and comparator visible before claiming tractability or performance. The obstacle may precede the method, but a technical section can also state the algorithm first and explain a component immediately afterward.
+- **Multimethod work**: state the relation among methods, such as replication, triangulation, decomposition, validation, mechanism separation, or extension. A later method need not be framed as repairing a deficiency in the earlier one.
+- **Related work**: synthesize what a stream establishes and identify the exact dimension on which the current paper departs. Stream-first and paper-first comparisons can both work.
 
-### Gap Pattern
+## Reverse-Outline Audit
 
-Move from the closest stream to the assumption it holds fixed. Then state the paper's departure and why that departure changes the decision or outcome.
+Use a reverse outline only for diagnosis or when the user asks for a logic map. For each paragraph, record:
 
-### Contribution Pattern
+- primary burden;
+- central object or claim;
+- warrant or evidence owner;
+- scope or boundary;
+- relation to the previous paragraph;
+- relation to the next paragraph, if one is needed.
 
-Group contributions by what the reader learns. A contribution paragraph usually needs the result object, the evidence type, and the precise departure from prior work; it does not need a perfectly parallel numbered list.
+Then look for substantive defects:
 
-### Result Interpretation Pattern
+- a term used before definition;
+- a comparison before its benchmark is clear;
+- an implication stronger than its warrant;
+- a method introduced before its role is legible;
+- two paragraphs repeating the same burden;
+- a change from theorem to simulation or estimate to mechanism without a register signal;
+- a robustness check before the threat it addresses is visible;
+- a paragraph retained only because it was part of the author's workflow.
 
-State the proposition in words, then explain the mechanism or comparison that makes it true. Put the condition close to the action or interpretation it supports.
+Do not reorder paragraphs merely so every paragraph appears to answer the previous paragraph's last sentence. Reorder only when the current order hides a dependency, weakens emphasis, or causes scope to drift.
 
-### Managerial Implication Pattern
+## Natural Transition Language
 
-Name the decision maker, observable condition, action, and metric. If the action can fail, give the failure condition before the recommendation starts to sound universal.
+Prefer the lightest wording that expresses the relation.
 
-## Revision Checklist
+- Use `because` for an actual reason, not as a generic bridge.
+- Use `when` or `under` for a condition or regime.
+- Use `relative to` or `compared with` for a named comparator.
+- Use `consistent with` when evidence supports but does not isolate a mechanism.
+- Use a repeated noun instead of `this` when the antecedent could be ambiguous.
+- Use no connector when sentence order alone makes the relation clear.
 
-- First sentence tells the reader what the paragraph is for.
-- No sentence makes a claim that the paragraph cannot support.
-- Sentences appear in the order the reader needs: known object, new relation, evidence, interpretation, handoff.
-- The paragraph handoff is visible: the last sentence prepares the next paragraph's object or question.
-- Technical terms are defined before being used.
-- The last sentence either interprets the result or moves the reader forward.
-- Citations are used to position the paper, not to replace explanation.
-- Punctuation is quiet. If the paragraph contains any colon, semicolon, dash pivot, or "X, which ..." chain, rewrite before finalizing unless the mark is required by a venue or mathematical notation.
-- The paragraph does not rely on puffery, repeated sentence openers, empty "-ing" phrases, or a generic "This enables/allows/highlights" sentence.
+Avoid transition sentences whose only job is to announce movement, such as `We next turn to...`, unless the new section is long or the object changes sharply enough that navigation helps.
 
-## Story Check
+## Revision Check
 
-Before finalizing, verify that the paragraph has:
-
-- a decision maker or actor,
-- a decision,
-- a friction or tradeoff,
-- a result or evidence,
-- a consequence for action, theory, or interpretation.
+- The paragraph's primary burden is recoverable without a planning label.
+- Every consequential term is defined before the claim that needs it.
+- Every inference has a visible warrant in the paragraph or an identifiable preceding passage.
+- Comparator, metric, evidence type, and scope remain stable or change explicitly.
+- Sentence order reflects the local burden rather than a generic story arc.
+- Paragraph boundaries mark real changes in burden, evidence, or scope.
+- A first sentence may orient, define, claim, contrast, or report; a last sentence may conclude, qualify, interpret, or transition.
+- No connective word is doing the work of a missing premise.
+- The paragraph does not need to contain an actor, decision, friction, method, result, and implication all at once.

@@ -155,7 +155,7 @@ def classify_item(item: str, target: str, paper_type: str) -> tuple[str, str, st
     if has_any(lower, BASE_MODEL_SIGNALS) and not has_any(lower, CALIBRATION_SIGNALS | GENERAL_MODEL_SIGNALS):
         return (
             "Main text",
-            "The base model establishes the decision environment, state, action, objective, and benchmark that readers need before evaluating results.",
+            "The base model establishes the formal or decision environment and the states, actions, objective, assumptions, or comparator that the headline results actually use.",
             crossref("Main text", item),
         )
 

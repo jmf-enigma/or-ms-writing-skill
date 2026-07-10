@@ -2,26 +2,26 @@
 
 Use this when the user says the writing should be readable, logical, "say it like a human," or tell a story.
 
-## The OR/MS Story Spine
+## The OR/MS Story Core
 
-Good OR/MS writing is not decorative storytelling. It is a disciplined causal path:
+Good OR/MS writing is not decorative storytelling. It makes the paper's central relation and support easy to recover. Depending on the passage, the active objects may include:
 
 1. **Actor**: platform, seller, regulator, manager, customer, patient, driver, worker, algorithm.
 2. **Decision**: price, match, allocate, recommend, inspect, disclose, regulate, learn, wait.
 3. **Friction**: limited information, strategic behavior, fairness, churn, capacity, ambiguity, externality, delay.
-4. **Model/Method**: formalizes the friction in the smallest useful way.
-5. **Result**: identifies a threshold, ranking, impossibility, policy structure, or comparative static.
-6. **Consequence**: tells the reader when to act differently.
+4. **Model/Method**: defines, estimates, tests, or computes the relevant object.
+5. **Result**: identifies a threshold, ranking, impossibility, policy structure, estimate, comparison, or bound.
+6. **Consequence or boundary**: changes a decision or belief, or marks where the result stops.
 
-If a paragraph lacks actor + decision + friction, it will read abstract and lifeless.
+Do not require all six. A definition paragraph may need only the formal object and its role. A theorem paragraph may need the result, condition, and benchmark. A transition may need only a stable noun and a clear change of scope. Abstractness is a problem when the reader cannot identify the object or relation, not merely because an actor or friction is absent.
 
 ## Plain-English Discipline
 
-- Start paragraphs with a concrete decision or tension before naming the technique.
+- In motivation passages, make the decision, formal object, or tension legible before asking the technique to carry the argument. In method and result sections, a direct formulation or result-first opening can be natural.
 - Prefer verbs with actors: "a platform learns," "a seller chooses," "a regulator restricts," "customers leave."
 - Translate every formal object once: "the fairness parameter controls how similar prices must be across groups."
-- Use "because" sentences for mechanism. Use "when" sentences for conditions.
-- Give the paragraph one live turn when the local job needs story: old belief to missing friction, current objective to unintended consequence, method default to decision mismatch, result to boundary, or mechanism to alternative mechanism.
+- Use `because` only for a reason or mechanism and `when` only for a condition or regime. Neither word is required when the relation is already clear.
+- When the local job needs movement, make one consequential relation clear: definition to use, evidence to claim, benchmark to comparison, mechanism to outcome, whole to decomposition, result to boundary, or one scope to another. Do not add a reversal merely to make the paragraph feel like a story.
 - Keep one technical noun stack per sentence at most. If a sentence has three stacked concepts, split it.
 - Avoid empty connective tissue: "In today's fast-paced world," "plays a crucial role," "is of great importance."
 - Replace vague "insight" with the actual implication.
@@ -36,10 +36,10 @@ If a paragraph lacks actor + decision + friction, it will read abstract and life
 
 Use these as reasoning moves, then rewrite them in the paper's own nouns.
 
-- Move from the obvious difficulty to the deeper operational tension.
+- Move from one object to the next only through the relation the paper actually establishes.
 - Explain why a distinction matters by naming the mechanism it changes.
 - Let the model isolate one force through a clear abstraction.
-- State conditional results in two sentences when one sentence feels crowded: first the regime where the policy helps, then the regime where it can fail.
+- State conditional results in two sentences when one sentence feels crowded. The favorable regime, failed regime, or general claim may come first according to emphasis and setup.
 - Recast managerial implications as a changed decision, not as a slogan.
 - Use the benchmark to show what is captured and what is missing.
 - Let the design separate one mechanism from a nearby alternative; do not call the design "useful" without saying what it separates.
@@ -66,7 +66,7 @@ Use these as reasoning moves, then rewrite them in the paper's own nouns.
 - Do not claim a model "solves" an industry problem; say what decision it clarifies.
 - Do not turn every result into advice. Some results are warnings, impossibility statements, or boundary conditions.
 - Do not hide assumptions. Use them to tell the reader what the model isolates.
-- If the result is counterintuitive, first state the intuition the reader likely has, then explain the force that overturns it.
+- If the result is counterintuitive, make both the relevant intuition and the force that overturns it visible. Either may come first when the comparison remains clear.
 
 ## Before / After Logic
 
@@ -83,6 +83,6 @@ Better structure: "The model implies that regulators should first choose the fai
 After drafting, ask:
 
 - Can a domain expert explain the paragraph to a manager after reading it once?
-- Does the paragraph say who makes the decision and what changes?
+- Does the paragraph make its central object, relation, and support recoverable?
 - Does every technical term earn its place?
-- Does the last sentence teach the reader something, or merely restate the first sentence?
+- Does the ending complete the paragraph's burden, qualify it, or move the argument forward without a forced teaser?

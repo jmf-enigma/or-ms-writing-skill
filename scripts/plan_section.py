@@ -10,15 +10,15 @@ import textwrap
 
 BLUEPRINTS = {
     "abstract": [
-        "Decision: name the actor, choice, and operational stakes.",
-        "Friction: name uncertainty, information, capacity, incentives, behavior, or constraints.",
-        "Method: state analytical model, empirical design, algorithm, simulation, or hybrid approach.",
-        "Result: give mechanisms and conditions, not theorem numbers alone.",
-        "Implication: say who can act on the result and under what condition.",
+        "Central object: decision, system, construct, estimator, policy class, theorem object, or empirical contrast.",
+        "Departure or question: include the friction, counterexample, missing evidence, or new feature only when it is needed to interpret the contribution.",
+        "Evidence owner: analytical model, empirical design, algorithm, theorem, simulation, field implementation, or hybrid support.",
+        "Headline result: preserve its actual metric, comparator, evidence strength, and minimum boundary.",
+        "Interpretation or implication: include only when supported and more informative than another result or boundary.",
     ],
     "manuscript": [
         "Central object: name the decision, system, policy class, estimator, theorem object, or mechanism the paper is about.",
-        "Reader belief shift: state what a reviewer believed before reading and what the paper changes.",
+        "Paper-level claim: state what the manuscript lets a knowledgeable reviewer assert; include a prior belief only when the paper genuinely changes one.",
         "Spine result: choose the theorem, estimate, guarantee, field comparison, or mechanism result that carries the paper.",
         "Credibility path: identify the proof, design, benchmark, validation, or implementation evidence needed for first-pass trust.",
         "Result hierarchy: separate spine, load-bearing support, mechanism, boundary, robustness, extension, and appendix-only verification.",
@@ -27,51 +27,46 @@ BLUEPRINTS = {
         "Deletion/demotion: mark correct but secondary items that should move to appendix or disappear.",
     ],
     "story": [
-        "Entry state: what the reader knows before the paragraph or section starts.",
-        "Paragraph jobs: assign one dominant job to each paragraph before editing sentences.",
-        "Within-paragraph order: known object, new relation, evidence or formal object, interpretation, handoff.",
-        "Between-paragraph handoff: make the last sentence prepare the next paragraph's object or question.",
-        "Reader question: each paragraph should answer the question raised by the previous paragraph.",
-        "Lane discipline: empirical, theory, algorithmic, and hybrid papers use different story orders.",
-        "Exit state: what the reader should believe, understand, or be ready to evaluate at the end.",
+        "Primary burden: define, motivate, establish, compare, interpret, qualify, or connect.",
+        "Prerequisites: definitions, timing, assumptions, benchmark, and design facts needed before later claims rely on them.",
+        "Warrant: theorem, estimate, comparison, citation, proof move, or design feature that supports the inference.",
+        "Relation: definition, elaboration, evidence, inference, contrast, mechanism, condition, consequence, decomposition, or scope change.",
+        "Scope continuity: metric, population, policy class, evidence type, and boundary remain stable or change explicitly.",
+        "Attention: central claims receive more space and stronger placement than supporting verification.",
+        "Paragraph boundary: start a new paragraph only when burden, evidence object, analytical level, or scope changes enough to justify a reset.",
     ],
     "introduction": [
-        "Entry point: decision setting, standard model, institutional puzzle, technical obstacle, or empirical construct.",
-        "Contrast object: current practice, canonical model, prior evidence, or literature default when it matters.",
-        "Friction: why the contrast object cannot answer this version of the question.",
-        "Credibility support: experiment, institutional variation, theorem, model feature, construct validation, algorithmic guarantee, or benchmark.",
-        "Study object: model, data, design, estimator, algorithm, policy, or formal problem after the question is legible.",
+        "Entry object: decision setting, institution, standard model, construct, counterexample, theorem object, technical obstacle, or empirical pattern.",
+        "Relevant departure: current practice, canonical model, prior evidence, missing comparison, or new feature only when it is needed to interpret the claim.",
+        "Question, contribution object, or headline claim at the point where its terms and comparison are legible.",
+        "Credibility role: what the experiment, variation, theorem, model feature, validation, guarantee, or benchmark lets the paper establish.",
+        "Study object: enough model, data, design, estimator, algorithm, policy, or formal-problem detail to make the evidence relation clear.",
         "Findings in the right evidence register: estimate, theorem, guarantee, characterization, validation, or counterfactual.",
         "Contributions by audience or literature stream, grouped by what the reader learns.",
         "Implications and roadmap only when they help the lane and target journal.",
     ],
     "related": [
-        "Stream 1: what it studies and the precise gap.",
-        "Stream 2: contrast method or mechanism.",
-        "Stream 3: position contribution without overclaiming.",
-        "End with one sentence stating this paper's distinct angle.",
+        "Synthesize what each relevant stream establishes rather than listing papers one by one.",
+        "Identify the exact dimension of relation or departure: setting, information, timing, design, mechanism, policy class, or metric.",
+        "Choose stream-first or paper-first order according to emphasis; do not force every paragraph to end with the current paper.",
+        "Keep each citation attached to the claim it actually supports.",
     ],
     "model": [
-        "Lane choice: theory/problem formulation, empirical model, structural measurement device, or applied system model.",
-        "Agents, timing, information, decisions.",
-        "For empirical lanes: construct meaning, measurement or elicitation, treatment/control contrast, estimand, and coefficient interpretation.",
-        "State/action, demand/payoff/transition primitives.",
-        "Objective and constraints.",
-        "Assumptions with short rationale.",
-        "Reviewer concern the model answers: tractability, identification, mechanism isolation, implementation, or external validity.",
-        "Benchmark, solution concept, and what the abstraction isolates.",
-        "Main formulation display and one sentence translating the objective, constraints, and benchmark.",
+        "Central object and lane: theory problem, empirical model, structural measurement device, applied system model, estimator, or algorithm.",
+        "Relevant primitives: agents or system, timing, information, state, action, demand, payoff, transition, feasible set, objective, and constraints.",
+        "For empirical lanes: construct meaning, observation or elicitation, identifying contrast, target estimand, and permitted coefficient interpretation.",
+        "Assumptions and their role in definition, tractability, identification, mechanism isolation, implementation, or scope.",
+        "Benchmark or solution concept needed by the paper's comparison.",
+        "What the abstraction, formulation, or estimator lets the paper establish and what it deliberately leaves out.",
+        "Main display with enough nearby prose to translate the variables, objective or estimand, constraints, and comparator that later claims use.",
     ],
     "results": [
-        "Reminder of local setup.",
-        "Formal proposition/theorem or empirical estimand.",
-        "For empirical lanes: outcome, treatment contrast, magnitude, uncertainty, mechanism evidence, heterogeneity, spillovers, and placebo or robustness checks.",
-        "Benchmark or standard intuition.",
-        "Credibility checkpoint: identification contrast, proof move, validation, placebo, approximation benchmark, or robustness conclusion when needed.",
-        "Derivation checkpoint when the result depends on a relaxation, dual, Bellman equation, regret decomposition, or identifying expression.",
-        "Intuition paragraph.",
-        "Comparative static, regime, threshold, or mechanism.",
-        "Managerial or policy implication.",
+        "Formal result, estimate, comparison, or estimand at the point where its setup is active.",
+        "Evidence owner or credibility checkpoint: theorem, proof move, identifying variation, validation, benchmark, simulation, placebo, or robustness check when needed.",
+        "Metric, comparator, magnitude, uncertainty, condition, or policy class needed to read the claim accurately.",
+        "Interpretation through the relation the result establishes: characterization, comparison, mechanism, decomposition, regime, or boundary.",
+        "Mechanism, heterogeneity, spillovers, robustness, or implication only when it answers a live claim or threat.",
+        "Explicit register signal when moving among theorem, estimate, simulation, counterfactual, and managerial interpretation.",
     ],
     "proof": [
         "If the input is rough proof notes, run plan_math_split.py before drafting.",
@@ -101,23 +96,24 @@ BLUEPRINTS = {
         "Name objects, not scaffolding: Measures, Empirical Framework, Data Sources, Variable Construction, Alternative Measurement, Benchmark Policies, Numerical Experiments.",
     ],
     "managerial": [
-        "Decision maker and observable condition.",
-        "Recommended action.",
-        "Mechanism from the result.",
-        "Boundary condition or caveat.",
-        "Implementation metric.",
+        "Supported decision consequence or warning; omit a recommendation when the evidence does not earn one.",
+        "Decision maker, policy designer, or methodological user only when the implication has one.",
+        "Observable condition, comparator, and metric needed to act on or interpret the result.",
+        "Mechanism only when established; otherwise state the pattern or formal relation at the available evidence strength.",
+        "Boundary, implementation constraint, or caveat that prevents overreading.",
     ],
     "discussion": [
-        "What the paper establishes.",
-        "What the result does not imply.",
-        "Robustness or external validity.",
-        "Next research question.",
+        "Primary burden: synthesis, interpretation, scope, theory relation, practice relation, or limitation.",
+        "What the paper establishes at the same evidence strength, metric, comparator, and population or model class used in the results.",
+        "Relation to theory, practice, policy, or method only where the body supplies the warrant.",
+        "Boundary, external-validity issue, unresolved alternative, or robustness qualification when it changes interpretation.",
+        "Future question only when it follows from a real limit or new object rather than genre convention.",
     ],
     "conclusion": [
-        "Restate problem and approach.",
-        "Two main takeaways.",
-        "Conditional managerial/policy implication.",
-        "One restrained future direction.",
+        "Return to the central object and supported paper-level claim without replaying the introduction.",
+        "Interpret the headline result at the same metric, comparator, evidence strength, and boundary used in the results.",
+        "Include an implication, limitation, or future direction only when it adds something the body has earned.",
+        "End on the paper's most consequential supported point rather than a mandatory future-research sentence.",
     ],
 }
 
@@ -138,19 +134,19 @@ REFS = {
 }
 
 TOPIC_LENSES = {
-    "healthcare": "Actor: hospital or clinic. Decision: schedule, triage, route, or allocate capacity. Friction: access delay, no-shows, stochastic service times, and coordination across stations. Benchmark: current practice or myopic scheduling.",
-    "supply": "Actor: manufacturer, retailer, supplier, or logistics planner. Decision: source, stock, replenish, expedite, recover, or emit. Friction: lead time, disruption, demand uncertainty, emissions, and cost-service tradeoffs. Benchmark: lean, efficient, offshore, fixed-price, or base-stock policy.",
-    "platform": "Actor: platform, seller, buyer, worker, creator, user, or regulator. Decision: price, rank, match, recommend, disclose, subsidize, moderate, or rotate content. Friction: two-sided choice, incentives, fairness, churn, information, herding, congestion, or trust. Benchmark: status quo platform rule or no regulation.",
-    "empirical": "Actor: manager, employee, consumer, supplier, platform, or experimental subject. Decision: order, forecast, disclose, price, comply, adopt, or exert effort. Friction: behavioral bias, information asymmetry, incentives, attention, trust, or transparency. Benchmark: rational model, no-treatment group, prior theory, or existing policy.",
-    "algorithm": "Actor: planner, algorithm, or platform operator. Decision: allocate, match, schedule, route, learn, stop, accept, reject, or price. Friction: online arrival, uncertainty, combinatorial complexity, limited information, coupling, or nonconvexity. Benchmark: LP relaxation, myopic policy, batching, greedy heuristic, or clairvoyant optimum.",
-    "mechanism": "Actor: designer, regulator, platform, seller, bidder, or agent. Decision: choose rules, payments, allocation, disclosure, regulation, or information design. Friction: incentives, private information, participation, collusion, fairness, or welfare tradeoff. Benchmark: first-best, no regulation, standard auction, posted price, Myerson, or efficient allocation.",
-    "learning": "Actor: algorithm, platform, seller, physician, recommender, or experimenter. Decision: explore, exploit, recommend, price, treat, allocate samples, or stop learning. Friction: uncertainty, adaptive data, regret, attrition, delayed feedback, fairness, or safety. Benchmark: oracle, classical learner, static policy, unconstrained learner, or no-learning policy.",
-    "human_ai": "Actor: manager, worker, expert, user, or human decision maker. Decision: accept, reject, rely on, override, frame, or incentivize algorithmic advice. Friction: trust, algorithm aversion, incentives, framing, accountability, workflow fit, or expertise. Benchmark: unaided human judgment, expert advice, algorithmic advice, or hybrid human-algorithm decision making.",
-    "data_driven_rm": "Actor: firm, seller, retailer, platform, or operations manager. Decision: price, stock, assort, recommend, procure, or allocate capacity. Friction: limited, censored, contextual, nonstationary, or misspecified data. Benchmark: oracle, sample-average approximation, model-based policy, model-free policy, static policy, or simple heuristic.",
-    "robust_optimization": "Actor: decision maker, planner, firm, or algorithm. Decision: choose a policy, action, decision rule, or uncertainty set before the realized distribution or parameters are known. Friction: distributional ambiguity, misspecification, side information, ambiguity radius, or limited samples. Benchmark: nominal policy, oracle policy, sample-average approximation, worst-case optimum, or out-of-sample performance.",
-    "business": "Actor: investor, lender, consumer, advertiser, auditor, analyst, firm, or regulator. Decision: disclose, target, lend, report, audit, adopt technology, or allocate capital. Friction: information asymmetry, agency, attention, privacy, bias, strategic reporting, or network effects. Benchmark: rational benchmark, no disclosure, uniform targeting, or status quo policy.",
-    "infrastructure": "Actor: grid operator, utility, transit agency, city, logistics planner, community, or regulator. Decision: dispatch, route, price, invest, locate capacity, ration, repair, or decarbonize. Friction: congestion, reliability, intermittency, emissions, equity, resilience, or spatial spillovers. Benchmark: deterministic planning, current operations, no policy, shortest path, or least-cost dispatch.",
-    "policy": "Actor: school, worker, employer, agency, household, regulator, nonprofit, or platform. Decision: admit, assign, incentivize, train, monitor, disclose, target, or comply. Friction: selection, incentives, fairness, capacity, incomplete information, behavior, or compliance. Benchmark: current rule, random assignment, no treatment, first-best, or equal allocation.",
+    "healthcare": "Possible objects: patient flow, appointment system, queue, staffing rule, capacity policy, or care network. Relevant relations may involve delay, no-shows, service uncertainty, coordination, current practice, or a policy comparison. Select only what the passage establishes.",
+    "supply": "Possible objects: inventory policy, sourcing portfolio, replenishment rule, disruption regime, emissions objective, or service metric. Relevant relations may involve lead time, demand uncertainty, resilience, cost-service tradeoffs, or benchmark policies. Select only what the passage establishes.",
+    "platform": "Possible objects: ranking rule, matching policy, price, disclosure design, user response, seller behavior, or welfare criterion. Relevant relations may involve incentives, information, congestion, fairness, trust, or a status quo comparison. Select only what the passage establishes.",
+    "empirical": "Possible objects: construct, treatment, outcome, behavioral pattern, estimand, coefficient, or institutional comparison. Make the observation, design warrant, metric, and scope recoverable; include a decision or mechanism only when claimed.",
+    "algorithm": "Possible objects: formal problem, state, information set, feasible action, relaxation, policy, guarantee, or runtime. Make the comparator and performance criterion recoverable; an operational actor or friction is optional for a canonical problem.",
+    "mechanism": "Possible objects: allocation rule, payment, information structure, incentive constraint, equilibrium, welfare criterion, or implementability result. Make the formal relation, comparator, and regime recoverable without forcing a first-best narrative.",
+    "learning": "Possible objects: feedback process, policy, confidence event, regret, sample allocation, stopping rule, or safety constraint. Make the information structure, comparator, performance criterion, and horizon or data regime recoverable.",
+    "human_ai": "Possible objects: advice, reliance, override, performance, confidence, calibration, workflow, or incentive treatment. Keep tool quality, human response, outcome, and mechanism evidence distinct; include only the relations the design identifies.",
+    "data_driven_rm": "Possible objects: demand data, estimator, policy, censoring process, model class, price or inventory decision, and out-of-sample metric. Make the data limitation, comparator, and decision criterion explicit only where they bear on the claim.",
+    "robust_optimization": "Possible objects: uncertainty or ambiguity set, decision rule, nominal model, side information, worst-case objective, and out-of-sample guarantee. Make the perturbation class, comparator, and protected metric recoverable.",
+    "business": "Possible objects: disclosure, audit, lending rule, targeting policy, technology adoption, investor belief, consumer response, or capital allocation. Make the evidence relation, incentive or information channel, metric, and scope recoverable.",
+    "infrastructure": "Possible objects: dispatch, routing, investment, capacity, reliability, emissions, resilience, or spatial distribution. Keep the physical feasibility relation and the relevant social, environmental, or operating metric connected.",
+    "policy": "Possible objects: assignment rule, intervention, compliance behavior, capacity constraint, welfare criterion, causal contrast, or distributional outcome. Separate what the evidence establishes from any recommendation.",
 }
 
 
@@ -217,7 +213,7 @@ def topic_lens(topic: str) -> str:
         if strong_hit or weak_hits >= 2:
             matches.append((name, TOPIC_LENSES[name]))
     if not matches:
-        return "Use the general lens. First classify the job as practice, theory, empirical, algorithm, policy, or review. Then identify the actor, decision, hidden friction, benchmark, evidence type, consequence, and caveat before drafting."
+        return "Use the general lens. First classify the passage's burden and evidence type. Then identify only the central object, prerequisite, warrant, comparator, relation, scope, or consequence needed for that burden."
     matched_names = {name for name, _ in matches}
     if {"human_ai", "data_driven_rm"} & matched_names:
         matches = [(name, lens) for name, lens in matches if name != "algorithm"]
@@ -233,19 +229,19 @@ def topic_lens(topic: str) -> str:
     )
 
 QUALITY = {
-    "abstract": "decision, friction, method, result, implication, boundary; avoid jargon before the problem is clear",
-    "manuscript": "central object, reader belief shift, spine result, credibility path, result hierarchy, model necessity, reviewer objections, deletion/demotion",
-    "story": "entry state, paragraph job, within-paragraph order, paragraph handoff, reader question, lane-specific sequence, exit state",
-    "introduction": "lane-specific entry point, decision or formal object, contrast, friction, credibility support, findings, boundary, contribution; roadmap only if useful",
-    "related": "stream, limitation, this paper's difference; no citation dumping",
-    "model": "agents, timing, information, actions, primitives, objective, constraints, assumptions, benchmark, solution concept, translated formulation display; for empirical work, construct meaning, measure, treatment contrast, estimand, and coefficient interpretation",
-    "results": "formal result or empirical estimand, benchmark intuition, derivation checkpoint when needed, magnitude, mechanism, condition, implication",
+    "abstract": "central object, departure or question when needed, evidence type, headline result, comparator or metric, and the minimum boundary needed for accurate compression",
+    "manuscript": "central object, paper-level claim, spine result, credibility path, result hierarchy, model necessity, reviewer objections, deletion/demotion",
+    "story": "primary burden, prerequisites, warrant, relation between adjacent units, scope continuity, evidence-register shifts, and attention hierarchy; no fixed first-middle-last shape",
+    "introduction": "lane-specific entry object, relevant departure when needed, question or claim, credibility role, findings, boundary, contribution; no mandatory friction or roadmap",
+    "related": "what the stream establishes, exact relation to the current paper, and claim-citation fit; no mandatory gap ending or citation dumping",
+    "model": "central formal or empirical object, prerequisites, relevant primitives, assumption roles, target claim or estimand, comparator, and enough display translation for later use",
+    "results": "formal result or empirical estimand, visible warrant, metric and comparator, magnitude or condition when relevant, evidence-register signal, and only supported interpretation",
     "proof": "setup, plain proof idea, constructed object, hard term, mathematical move, key lemma or inequality, validity condition, conclusion mapped back; avoid stylized proof language",
     "placement": "body for first-pass contribution, model object, theorem statement, interpretation, and central derivation checkpoint; appendix for verification, robustness, implementation, and replication",
     "headings": "section depth follows reader task; subheadings mark new objects, result families, model components, or validity threats; theorem/proposition captions stay short",
-    "managerial": "decision maker, observable condition, action, mechanism, caveat, metric",
-    "discussion": "established claim, limitation, robustness, next question",
-    "conclusion": "two takeaways and one restrained future direction",
+    "managerial": "supported decision consequence or warning, user when relevant, observable condition, metric, evidence strength, and boundary; no mandatory recommendation or mechanism",
+    "discussion": "primary burden, established claim, warranted relation, scope or limitation when consequential, and no mandatory future question",
+    "conclusion": "central object, supported paper-level claim, stable metric/comparator/boundary, and only earned implications or limitations",
 }
 
 
@@ -320,25 +316,25 @@ def main() -> int:
         print(f"- {ref}")
     if target == "management science":
         print("\nManagement Science comparable-design lane:")
-        print(textwrap.fill("Apply the always-on MS core first as a diagnostic, not a template: decision, belief, friction, method, result, mechanism, condition, consequence. Then match the paper to field experiment, human-algorithm, data-driven revenue management, analytical platform model, hybrid algorithm-field implementation, operational-data transfer/cross-learning, service queueing, behavioral experiment, or theory/algorithm with management applications.", width=88))
+        print(textwrap.fill("Apply the MS core as a dependency audit, not a story template: central object, relevant departure, support, comparator, and boundary. Add decision, friction, mechanism, or consequence only when the paper actually relies on them. Then match the evidence lane.", width=88))
     print("\nArchitecture note:")
     print(textwrap.fill("MS/OR papers do not share one universal skeleton. Choose headings that name the paper object, such as Research Setting, Data and Methods, The Model, Empirical Strategy, Main Results, Algorithm, Numerical Experiments, Robustness Tests, or Discussion and Conclusion. Add subheadings only when the reader job, evidence object, model component, theorem family, or validity threat changes.", width=88))
     print("\nDiagnostic signals:")
-    print(textwrap.fill(QUALITY.get(section, "actor, decision, friction, method, result, consequence"), width=88))
+    print(textwrap.fill(QUALITY.get(section, "primary burden, central object, warrant, relation, scope, and evidence register"), width=88))
     print("\nOR/MS spine:")
     print(textwrap.fill("Use as an internal diagnostic, not a sentence template: central object, spine result, credibility support, benchmark, mechanism, validity condition, and decision consequence. Include only the pieces the section needs.", width=88))
     print("\nNaturalness rule:")
-    print(textwrap.fill("Do not force every diagnostic item into one sentence or paragraph. Use ordinary setup-result and result-interpretation pairs, split overloaded sentences before polishing, keep the subject close to the verb, and rebuild translated-English order around the paper's local subject, verb, object, condition, benchmark, and natural verb-object collocation.", width=88))
+    print(textwrap.fill("Do not force every diagnostic item into one sentence or paragraph. Use ordinary sentence relations that fit the local burden, split overloaded sentences before polishing, keep the subject close to the verb, and rebuild translated-English order around the paper's local object and action, with any needed condition or benchmark expressed through a natural verb-object collocation.", width=88))
     print("\nEvidence preservation rule:")
     print(textwrap.fill("Do not strengthen the evidence while improving the prose. Keep the evidence type, comparator, metric, magnitude, policy class, and validity condition no stronger than the user's material supports.", width=88))
     print("\nArgument-evidence-boundary rule:")
     print(textwrap.fill("Before drafting forward, reason backward from what the paper proves, estimates, or demonstrates. Keep each major claim close to its theorem, estimate, simulation, benchmark, proof idea, or table, and keep the assumption, setting, policy class, population, or data regime close enough to prevent overreading.", width=88))
     print("\nPlacement rule:")
-    print(textwrap.fill("The body must contain what a reviewer needs for first-pass understanding and trust: headline result, object, assumptions, benchmark, primary evidence, and interpretation. Appendices carry verification, long proofs, repeated robustness, implementation details, and replication materials.", width=88))
+    print(textwrap.fill("The body must contain what a reviewer needs for first-pass understanding and trust: the central object, headline result, primary support, needed interpretation, and any assumption or comparator on which the claim depends. Appendices carry verification, long proofs, repeated robustness, implementation details, and replication materials.", width=88))
     print("\nParagraph rule:")
-    print(textwrap.fill("Each paragraph should have one dominant job, with support, interpretation, and bridge sentences serving that job. If a claim lacks evidence, mark it as a gap instead of polishing around it.", width=88))
+    print(textwrap.fill("Each paragraph should have a recoverable primary burden, with linked support or interpretation where needed. Split only when burdens compete. If a claim lacks evidence, mark it as a gap instead of polishing around it.", width=88))
     print("\nReader-flow reminder:")
-    print(textwrap.fill("Let each paragraph answer the reader's next question. Start from the local object the reader already understands, add only one new friction, method, result, or caveat at a time, and omit anything the local paragraph does not need. If the prose sounds like a filled-in template, write the next sentence as the simplest answer to the reader's next question.", width=88))
+    print(textwrap.fill("Make a claim's prerequisites and warrant available by the point the reader must rely on them, without forcing a question-and-answer rhythm. Claim-first, evidence-first, definition-first, contrast-first, exception-first, procedure-first, and result-first orders are all legitimate. A heading, repeated canonical term, or direct scope signal may carry the transition. Omit anything the local burden does not need.", width=88))
     return 0
 
 

@@ -2,17 +2,17 @@
 
 Use this when the target is Management Science, when the user says "MS," or when the user wants prose that sounds closer to Management Science articles rather than generic OR/MS writing. The goal is to learn the journal's contribution logic and sentence rhythm from comparable papers. Do not copy a source sentence or mimic one living author's distinctive voice. Borrow the field pattern, the evidence order, and the management framing.
 
-## What Management Science Wants The Writing To Prove
+## What Management Science Writing Must Make Recoverable
 
-Management Science is broad, but the common thread is analytical insight into management. A strong paragraph makes the reader see:
+Management Science is broad, but the common thread is a rigorous claim relevant to management research or practice. Across a passage or section, make the necessary subset of these objects recoverable:
 
-1. the managerial, organizational, market, or individual decision;
-2. the friction that makes the usual decision rule incomplete;
-3. the model, data, experiment, or algorithm that isolates the friction;
-4. the mechanism or magnitude that changes the reader's belief;
-5. the condition under which a manager, platform, firm, regulator, or researcher should think differently.
+- the managerial, organizational, market, behavioral, methodological, or formal object;
+- the claim, question, distinction, or comparison;
+- the model, data, experiment, theorem, algorithm, or design feature that supports it;
+- the metric, mechanism, decomposition, or formal relation when the evidence establishes one;
+- the population, regime, policy class, assumption, or implementation condition that bounds it.
 
-The prose should therefore sound less like "we solve a model" and more like "this model changes how a decision is understood."
+This is not a five-sentence story. A definition paragraph may only establish an object; a theorem paragraph may state a formal relation; a results paragraph may begin with an estimate; and a technical paper need not manufacture a managerial actor or failed incumbent rule. The prose should make clear what the formal or empirical object lets the paper establish.
 
 ## Source Set
 
@@ -129,7 +129,7 @@ Language tendencies:
 
 - Use "map data to decisions," "limited data," "historical transactions," "out-of-sample performance," "model misspecification," "oracle," "worst-case regret," and "finite-sample."
 - Avoid "data-driven" as a free-standing virtue. Say what the data allow the decision maker to infer or what they cannot infer.
-- If the result is counterintuitive, state the usual data intuition first, then the regime where more data or a richer model can fail.
+- If the result is counterintuitive, make both the usual data intuition and the regime where it fails recoverable. Either may come first when the contrast remains clear.
 
 Native MS move:
 
@@ -288,13 +288,11 @@ Examples of stronger framing:
 
 ## Whole-Paper Story Logic
 
-When writing more than a local paragraph, use the MS story as a diagnostic map:
+When writing more than a local paragraph, use analytical dependency rather than an MS story arrow. Record the central object, paper-level claim, comparator, metric, evidence owner, and boundary. Add practice, friction, mechanism, or implication only when the paper actually relies on them.
 
-`existing practice or belief -> hidden friction -> design object -> result -> mechanism -> boundary -> implication`
+The method should appear where its role is legible. The result should use the metric and comparator its evidence supports. A mechanism should explain the sign or condition only when the paper establishes that mechanism. An implication should not exceed the formal or empirical support.
 
-These beats are not a required outline. The method should appear where it resolves the friction. The result should appear in a metric that matters for the decision. The mechanism should explain why the result has the observed sign or condition when the mechanism is part of the claim. The implication should change a managerial, policy, methodological, or theoretical belief without overstating the evidence.
-
-Do not make every paragraph tell the whole story. Let each paragraph do one job: establish the practice, expose the friction, introduce the design, report the result, explain the mechanism, state the boundary, or position the contribution.
+Do not make every paragraph tell the whole story. Give each paragraph a recoverable primary burden, and allow linked burdens such as result plus interpretation or definition plus role.
 
 ## Management Science Model, Result, And Appendix Craft
 
@@ -302,7 +300,7 @@ Use this section when the target is Management Science and the passage involves 
 
 ### Model Setup
 
-MS model sections usually do not begin with a raw symbol list. They first name the managerial or experimental environment, then introduce notation in the order the reader experiences the problem.
+MS model sections should not leave symbols detached from their role. Many practice-led papers name the managerial or experimental environment before notation; technical papers can begin with a canonical formulation or definition and explain its components immediately afterward. Introduce objects in mathematical, temporal, or inferential dependency order rather than a universal environment-first order.
 
 - In algorithmic pricing and recommendation papers, the body first names the teams, their information, their decisions, the sequence of decisions, and why the other team's process is a black box. Only after that does it formulate the contextual bandit object.
 - In empirical identification papers, the body first defines the experimenter's decision problem, observed periods, future periods, treatment assignment, outcomes, and missing future outcome. Tables and figures are used to make notation concrete before the theorem.
@@ -320,13 +318,9 @@ MS papers tend to earn assumptions immediately.
 
 ### Result Paragraphs
 
-MS result paragraphs usually have a three-part body rhythm.
+Keep the formal result, its conditions, support, and needed interpretation close enough that the relation is clear. The result may be stated before or after a short interpretive setup. Add a benchmark, special case, mechanism, or practical implication only when it changes how the result should be understood.
 
-1. State the result with conditions and object.
-2. Explain what the object means for the decision, estimator, policy, or benchmark.
-3. Compare to a standard intuition, benchmark, special case, or practical implication.
-
-Do not stop after the theorem display. In MS, the sentence after a theorem often tells the reader why the rate, bound, identification expression, threshold, or welfare comparison matters. If the theorem is technical, the interpretation can be more important than the proof pointer.
+Do not let a theorem display become the only intelligible account of a consequential result. Nearby prose often tells the reader what a rate, bound, identification expression, threshold, or welfare comparison means. A self-interpreting result may need only one sentence, and that sentence may appear before a short proof or appendix pointer according to the local convention.
 
 ### Proof Ideas In The Body
 
@@ -339,11 +333,11 @@ MS papers often keep proof ideas in the body when the idea explains why the resu
 
 MS proof-idea prose is plain and functional. It should not have a distinctive "voice." Use ordinary proof verbs and exact mathematical objects.
 
-- Start by saying what the sketch proves or why it is included.
+- Make the sketch's object and role recoverable; this may be established by the theorem statement or preceding prose rather than repeated in its first sentence.
 - If the sketch uses an extra simplifying assumption, state it immediately and say where the complete proof appears.
 - Name the first constructed object or reduction. Common starts are "We construct an upper bound," "We decompose the regret," "We first show," "It suffices to bound," or "The argument has two steps."
 - After a displayed equation, say what the display removes, bounds, or transforms. Do not add rhetorical flourish.
-- End by saying how the bound, decomposition, or lemma yields the theorem.
+- Make the step from the bound, decomposition, or lemma to the theorem recoverable somewhere in the sketch; it need not be reserved for a formulaic final sentence.
 
 Bad proof-idea voice for MS:
 

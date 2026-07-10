@@ -78,7 +78,7 @@ Use these as transferable sentence logic. Do not copy the wording.
 - **Quick-commerce assortment planning** makes the physical linkage do the conceptual work: online assortments depend on local-store inventory, so online personalization and store assortment cannot be optimized separately.
 - **M&SOM tariff and supply-chain-network papers** often close the body with a managerial or policy reading before the appendix. The appendix then begins directly with `Proof of Proposition 1` and verifies concavity, sign, or case conditions.
 
-The recurring movement is one-step progression: a visible operating object, then the friction, then the formal or empirical object that resolves it. Use that movement when it fits; do not reproduce it as an arrow list in final prose.
+One recurring movement in the practice-led subset is operating object, friction, and formal or empirical response. Other papers move from definition to use, result to support, benchmark to comparison, counterexample to condition, or whole to decomposition. Choose the relation the paper actually establishes; do not reproduce any of these as an arrow list in final prose.
 
 ## Model And Formula Narration From Original Pages
 
@@ -109,7 +109,7 @@ Original papers use fewer proof labels than AI drafts tend to use.
 - Appendix headings are literal: `Proof of Theorem 1`, `Proof of Proposition 3`, `Proof of Lemma I.4`, `Additional Results`, `Model Extensions`, or `Robustness Checks`. They do not need elegant titles.
 - Appendix proof openings fix objects before manipulating them: the policy, reports, distribution, event, queue state, or parameter regime is specified first.
 - Long appendix proofs move through small obligations: establish form, verify feasibility, prove monotonicity or concavity, split cases, combine inequalities, then map back to the stated result.
-- The body should not say only "see Appendix." It should first state what the theorem, estimate, or robustness check means for the decision, benchmark, or mechanism.
+- The body should not make "see Appendix" carry the claim. Nearby prose must state what the theorem, estimate, or robustness check establishes and any needed interpretation; a consistent one-line `Proof.` pointer may still appear immediately below the result before that prose.
 
 Useful proof-idea sentence moves:
 

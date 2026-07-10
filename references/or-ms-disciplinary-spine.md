@@ -2,9 +2,9 @@
 
 Use this reference when a passage needs to sound more like OR/MS in language, structure, model narration, or mathematical exposition. The core rules are already embedded in `SKILL.md`; this file gives more detailed patterns. Use these patterns diagnostically. Do not copy them as templates unless the user asks for a template.
 
-## Five-Part OR/MS Test
+## OR/MS Object Test
 
-A full paragraph or section should usually answer the questions that are relevant to its job.
+A full paragraph or section should answer only the questions relevant to its burden.
 
 1. Who makes the decision?
 2. What friction makes the decision nontrivial?
@@ -12,7 +12,7 @@ A full paragraph or section should usually answer the questions that are relevan
 4. What benchmark makes the result meaningful?
 5. What mechanism or condition changes the decision?
 
-The goal is not to mention all five items in every sentence. The goal is to avoid prose that could fit any paper because it never names the decision, friction, or mechanism.
+The goal is not to recover all five items. The goal is to avoid prose that could fit any paper because it never names the central object, asserted relation, support, or relevant comparator. A theorem or measurement paragraph may need no decision maker, friction, or mechanism.
 
 ## Language
 
@@ -36,32 +36,23 @@ Avoid generic shells.
 
 ### Abstract
 
-Use four moves: decision, friction, method, result. End with a conditional implication.
+Select the minimum burdens needed to compress the paper accurately. Common burdens include the central object, relevant departure or question, evidence type, headline result, comparator or metric, and boundary. No fixed four-move order or final implication is required.
 
-- Decision: name the actor and choice.
-- Friction: name uncertainty, information, capacity, incentives, or behavior.
-- Method: model, empirical design, algorithm, simulation, or hybrid design.
-- Result: mechanism and condition, not only effect direction.
-- Implication: who should do what, when.
+- Decision or formal object, when needed for orientation.
+- Friction, counterexample, or missing evidence, when it motivates the contribution.
+- Model, empirical design, algorithm, simulation, or hybrid evidence.
+- Headline result with the metric, comparator, and condition needed for accuracy.
+- Implication only when the result changes an action or belief the paper supports.
 
 ### Introduction
 
-Use an OR/MS arc.
+Choose an entry point that fits the evidence lane: operational setting, standard model, empirical pattern, counterexample, technical obstacle, construct, or portable formal object. Then order the remaining passages by prerequisite, warrant, and emphasis. The introduction should make the focal object, paper-level claim, source of credibility, and any consequential departure or boundary legible by the point each is needed; it need not follow an eight-step arc.
 
-1. Operational setting and decision.
-2. Standard intuition or current practice.
-3. Hidden friction.
-4. Why existing models, data, or policies miss the friction.
-5. Formal approach.
-6. Main findings by mechanism.
-7. Contributions by literature stream.
-8. Managerial or policy consequence.
-
-The gap should be a problem in decision logic, not a statement that no one has studied the topic.
+If the introduction uses a gap, state the exact unresolved comparison, evidence limit, formal obstacle, construct problem, or decision issue rather than saying only that no one has studied the topic. A gap paragraph is not mandatory.
 
 ### Model Section
 
-The reader should understand the decision environment before the notation becomes dense.
+The reader should understand the formal or empirical environment before relying on dense notation. Use the following as an inventory and introduce objects in the order imposed by timing or mathematical dependency; not every model needs every item.
 
 1. Agents and institutional setting.
 2. Timing.
@@ -75,14 +66,7 @@ The reader should understand the decision environment before the notation become
 
 ### Results Section
 
-Use a stable result unit.
-
-1. Local setup reminder.
-2. Formal proposition, theorem, or result claim.
-3. Benchmark intuition.
-4. Mechanism.
-5. Comparative static, condition, or regime.
-6. Managerial, algorithmic, or theoretical implication.
+Keep the formal or empirical result close to the support and interpretation it needs. A result unit may be claim-first or evidence-first. Add benchmark intuition, mechanism, comparative statics, condition, or implication only when they change how the result should be understood.
 
 ### Proof Exposition
 
@@ -97,21 +81,20 @@ Name the proof architecture.
 
 ## Model Narration
 
-Good OR/MS model narration is not "we consider a model." It is a compressed explanation of why the abstraction is useful.
+Good OR/MS model narration does more than announce "we consider a model." It lets the reader recover the abstraction's role in the paper's claim.
 
-Useful internal pattern:
+Use a flexible content inventory:
 
-`Actor + decision + friction. To isolate this friction, model [agents] who observe [information] and choose [actions] over [timing]. The objective is [objective] subject to [constraints]. The benchmark is [benchmark], which makes [metric or mechanism] interpretable.`
+- decision maker, system, construct, or formal object;
+- timing, information, state, or observations;
+- control, action, estimator, or feasible set;
+- objective, payoff, transition, or constraints;
+- comparator, benchmark, solution concept, or target estimand;
+- abstraction, identification, computation, or mechanism role.
 
-Do not write the pattern verbatim if it makes the prose stiff. It is a completeness check for model paragraphs, not a required sentence shape.
+Select only the items the local passage needs and order them by dependency. An actor and friction are not mandatory. A queueing or control model may begin with the state; a theorem-driven subsection may begin with the policy class; an empirical model may begin with what is observed and latent.
 
-For empirical or structural models:
-
-`The data reveal [observed object] but not [latent object]. The design/model uses [variation, instrument, moment, or structure] to recover [primitive or effect]. This supports [descriptive, causal, structural, or counterfactual] claims, but not [unsupported stronger claim].`
-
-For algorithmic models:
-
-`The algorithm uses [information] to choose [action] under [constraint]. Its performance is measured against [oracle, relaxation, offline optimum, or myopic benchmark]. The key difficulty is [coupling, adaptivity, nonconvexity, online arrivals, delayed feedback, or limited samples].`
+For empirical or structural models, make the relation among observed data, latent object, identifying variation or structure, target estimand, and permitted claim strength recoverable. For algorithmic models, make the input or information, action or output, feasibility conditions, comparator, and performance criterion recoverable. These are content checks, not sentence molds.
 
 ## Mathematical Result Language
 
@@ -145,11 +128,11 @@ Avoid intuition that only repeats the theorem.
 
 ## Revision Checklist
 
-- For ordinary paragraph rewrites, does the first sentence name a decision, tension, or claim?
+- For ordinary paragraph rewrites, does the passage make its primary object or claim recoverable at the point where it is needed?
 - For model paragraphs, is the model described as an environment rather than a list of symbols?
 - For technical terms, is each loaded term tied to a definition, benchmark, or role?
 - For result paragraphs, is the result paired with a benchmark intuition when a comparison matters?
 - For managerial implications, is the action conditional?
 - For theorem claims, are the assumptions or regimes close enough to the claim?
 - For proof narratives, does the text name the mathematical move?
-- For closing sentences, does the sentence change a decision, policy, or belief rather than summarize generically?
+- For closing sentences, does the ending complete, qualify, interpret, or advance the paragraph's actual burden rather than summarize generically?

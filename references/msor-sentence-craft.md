@@ -308,7 +308,7 @@ Avoid:
 
 ## Paragraph Flow From Sentences
 
-A paragraph usually reads well when each sentence inherits one object and adds one new relation.
+A paragraph often reads well when important objects remain stable and each sentence has one clear relation. This is a continuity heuristic, not a generation rule: a result-first sentence, theorem statement, subsection opening, or deliberate topic shift may introduce a new object directly.
 
 Possible chain:
 
@@ -317,7 +317,7 @@ Possible chain:
 3. `The model compares the resulting equilibrium with a benchmark in which sellers observe only a coarse signal.`
 4. `The comparison shows that more information is not always valuable to the platform.`
 
-Notice that the paragraph does not name every element in every sentence. The objects accumulate gradually.
+Notice that the objects accumulate gradually in this example. Other paragraphs may state the result first and explain the comparison afterward when prior context already supplies the setup.
 
 ## Final Sentence Pass
 

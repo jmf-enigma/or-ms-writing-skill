@@ -138,7 +138,7 @@ MODE_SCRIPTS = {
 
 MODE_RULES = {
     "sentence": "Repair English before adding structure: word choice, collocation, subject, verb, object, condition, benchmark.",
-    "paragraph": "Give each paragraph one dominant job and move by reader questions, not by checklist order.",
+    "paragraph": "Give each paragraph a recoverable primary burden; order definitions, claims, warrants, comparisons, and scope changes by dependency rather than a fixed story chain.",
     "impact": "Identify the durable object, benchmark, support, and boundary that make the paper reusable.",
     "manuscript": "Choose the central object, spine result, support hierarchy, and section architecture before polishing.",
     "audit": "Verify one paper contract across sections before local polish: object, claim, comparator, metric, evidence, boundary, terms, and numbers.",

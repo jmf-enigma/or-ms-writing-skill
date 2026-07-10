@@ -2,7 +2,7 @@
 
 Use this when the task is larger than a local polish: full paper sections, introductions, abstracts, result architecture, model narration, proof/body split, or any request where the same data/model/results should be turned into a stronger Management Science, Operations Research, or M&SOM manuscript. This reference is about author judgment before prose.
 
-The goal is to decide what the paper is really about, what the reader must believe first, which result carries the contribution, and what should be demoted, moved, or deleted. Do this before sentence-level polishing.
+The goal is to decide what the paper is really about, which prerequisites the argument needs, which result carries the contribution, and what should be demoted, moved, or deleted. Do this before sentence-level polishing.
 
 ## The Core Judgment
 
@@ -11,7 +11,7 @@ A strong OR/MS manuscript has a spine. The spine is not the method, the dataset,
 Before writing, identify:
 
 - **Central object**: the decision, system, market, policy class, estimator, theorem object, or mechanism the paper is actually about.
-- **Reader belief shift**: what a knowledgeable reviewer would believe before reading the paper and what the paper changes.
+- **Paper-level claim**: what the manuscript lets a knowledgeable reviewer assert after seeing the evidence. Record a prior belief only when the paper genuinely overturns or qualifies one.
 - **Spine result**: the theorem, estimate, algorithmic guarantee, mechanism evidence, or field comparison that carries the paper.
 - **Credibility path**: the model, design, identification, proof, validation, or implementation evidence that makes the spine result believable.
 - **Boundary**: the assumption, regime, data setting, policy class, population, or benchmark that prevents the claim from becoming too broad.
@@ -73,7 +73,7 @@ If a result is technically impressive but cannot organize the manuscript, it may
 
 ## Model Necessity
 
-A model section should feel inevitable. Each modeling choice must answer a reader question.
+A model section should have a recoverable role in the paper's claim. Consequential modeling choices need a load-bearing role; routine notation and standard primitives need not be dramatized as answers to separate reader questions.
 
 Ask:
 
@@ -83,13 +83,13 @@ Ask:
 - Which benchmark is needed to interpret the result?
 - Which feature is realistic but not load-bearing and can move to an extension or appendix?
 
-A model passage is weak when it says all primitives accurately but does not explain why the model has this structure. A strong model passage makes timing, information, action, objective, and benchmark appear in the order the decision maker or proof needs them.
+A model passage is weak when it says all primitives accurately but does not explain why the model has this structure. A strong model passage makes the relevant timing, information, action or state, objective, and comparator available in the order the formulation, estimator, or proof needs them.
 
 ## Data And Result Architecture
 
 For empirical, field, or hybrid papers, do not report tables in the order they were run. Put them in the order a skeptical reviewer needs.
 
-Common order:
+Common reviewer burdens, not a required order:
 
 - What is observed, measured, or randomized?
 - What comparison identifies or supports the main claim?
@@ -155,23 +155,22 @@ When unsure, ask whether a reader would miss the item if it disappeared from the
 
 ## Writing After Judgment
 
-Only after the spine is chosen should prose begin.
+Only after the spine is chosen should prose begin. Use the following as a drafting inventory, not an order:
 
-Good drafting order:
+- central object;
+- paper-level claim or precise question;
+- prerequisite definitions, comparison, or setting;
+- evidence object that makes the claim credible;
+- spine result in the strongest accurate form;
+- boundary needed to prevent overreading;
+- supporting results placed according to dependency and emphasis.
 
-1. Write one sentence for the central object.
-2. Write one sentence for the friction or belief shift.
-3. Write one sentence for the evidence object that makes the claim credible.
-4. Write the spine result in the strongest accurate form.
-5. Add only the boundary needed to prevent overreading.
-6. Place supporting results around the spine, not before it.
-
-The final text should not expose this scaffold. It should read as if the paper naturally moves from object to friction to evidence to result.
+The final text should not expose this inventory. Choose claim-first, evidence-first, definition-first, contrast-first, result-first, or procedural order according to the local burden. A friction or prior belief is optional. Supporting evidence may precede the spine result when the result would otherwise be uninterpretable, and it may follow when a result-first opening gives the right emphasis.
 
 ## Failure Modes
 
 - **Result catalog**: every result is described, but no result carries the paper.
-- **Method-first manuscript**: the model or estimator appears before the reader knows why it is needed.
+- **Method without a legible role**: the model or estimator appears without a recoverable object, target claim, or evidential role. Early method exposition is legitimate when the method itself is the contribution or prior context supplies the role.
 - **Over-calibrated prose**: every claim has a caveat, making the contribution feel smaller than the evidence supports.
 - **Under-calibrated implication**: the prose jumps from a local result to a broad recommendation.
 - **Appendix-dependent body**: the reader cannot understand the formal object, theorem, or primary comparison without opening the appendix.

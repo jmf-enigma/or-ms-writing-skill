@@ -4,7 +4,7 @@ Use this reference when a passage needs deeper diagnosis for academic style, rea
 
 ## Source Backbone
 
-- Gopen and Swan, "The Science of Scientific Writing." Core lesson: readers use structure to infer meaning. Put context before new information, keep subjects near verbs, give each discourse unit one job, and place emphasis at syntactic closure.
+- Gopen and Swan, "The Science of Scientific Writing." Core lesson: readers use structure to infer meaning. Context-before-new and emphasis-at-closure are useful defaults, not laws; keep subjects near verbs and make each discourse unit's primary burden recoverable.
 - Purdue OWL summary of Swales' CARS model. Core lesson: introductions typically establish a territory, establish a niche, and occupy the niche. Use this as logic, not as a visible template.
 - University of Leeds academic language guide. Core lesson: academic writing should be clear, concise, formal, accurate, and precise. Formal prose does not require obscure vocabulary or needless complexity.
 - Kobak et al., "Delving into LLM-assisted writing in biomedical publications through excess vocabulary." Core lesson: post-ChatGPT academic prose shows abrupt increases in certain style words. Avoid words that substitute polish for local mechanism.
@@ -13,12 +13,12 @@ Use this reference when a passage needs deeper diagnosis for academic style, rea
 
 ## Reader-Expectation Rules
 
-- Start with what the reader already knows or what the prior sentence established.
-- End with the claim, mechanism, condition, or contrast that should carry emphasis.
+- Start from established context when it reduces tracking effort. A theorem, result, definition, subsection reset, or deliberate contrast may lead with new information and explain it immediately.
+- Put the intended emphasis where the syntax naturally carries stress; it may be a claim, object, condition, contrast, or qualification.
 - If a sentence has a long subject before the verb, split or move the modifier.
 - If two clauses compete for the stress position, give each its own sentence.
-- If a paragraph changes objects, start a new paragraph or add a bridge sentence.
-- If a paragraph starts with method, ask whether the reader first needs the decision, tension, or question.
+- If a paragraph changes objects, decide whether the change also alters burden, evidence, analytical level, or scope. Use a new paragraph or bridge only when that reset helps.
+- If a paragraph starts with method, check whether its object and role are already legible. A method-first opening is otherwise legitimate.
 
 ## Logic Before Academic Register
 
@@ -28,7 +28,7 @@ A sentence that has not thought through its logic cannot be repaired by making i
 2. **Evidence**: what theorem, estimate, model comparison, design feature, table, or proof move supports the next claim?
 3. **Inference**: what exactly follows from that evidence?
 4. **Boundary**: under what condition, sample, benchmark, information structure, or policy class does it follow?
-5. **Next reader question**: what must the next sentence answer?
+5. **Local relation**: what relation, if any, must the next sentence make recoverable? A paragraph may also end cleanly without posing another question.
 
 Common logic jumps:
 
@@ -58,12 +58,14 @@ Casual words to repair in paper prose include `a lot`, `big`, `huge`, `things`, 
 
 ## CARS Without Template Prose
 
-For introductions and related motivation:
+For introductions and related motivation, CARS offers an optional diagnostic:
 
 1. Territory: name the operational, market, empirical, or theoretical setting.
 2. Niche: state the unresolved decision, identification problem, model limitation, behavioral mechanism, or policy tension.
 3. Occupy: state what this paper does and what it finds.
-4. Consequence: say what changes for theory, method, or managerial decision making.
+4. Consequence: say what changes for theory, method, or managerial decision making when the paper supports one.
+
+Do not require all four moves or preserve this order. A technical introduction can begin with the paper's object, theorem, or counterexample; a direct empirical paper can begin with a setting, design, or finding.
 
 Do not write generic gaps:
 
@@ -100,13 +102,13 @@ Treat the following as diagnostic, not as a banned-word list. A word may stay if
 Replacement rule:
 
 - Replace the style word with a local noun, verb, metric, assumption, or condition.
-- Replace "this underscores" with the specific object that changes the reader's belief.
+- Replace "this underscores" with the specific object, result, or relation the sentence needs to state.
 - Replace "valuable insights" with the action and condition.
 - Replace "comprehensive framework" with the model primitives or data design.
 - Replace colon-led labels with direct syntax. For example, write "This comparison shows when the threshold policy improves profit relative to the myopic benchmark" rather than "Key implication: the threshold policy improves profit."
 - Replace itinerary prose with research-object prose. "We first model the platform, then analyze equilibrium, and finally discuss implications" usually becomes a sentence about the platform's decision, the equilibrium object, and the condition that changes the implication.
 - Replace decorative triplets with one precise object or with separate claims. `robust, scalable, and efficient framework` usually becomes the policy class, guarantee, runtime, or benchmark that the paper actually establishes.
-- If removing AI-scent makes the paragraph flat, add a real hinge rather than a style word. The hinge should name a contrast, condition, mechanism, benchmark, or boundary.
+- If removing AI-scent makes the paragraph flat, restore the missing relation rather than a style word. The relation may be definition, evidence, inference, contrast, condition, mechanism, decomposition, procedure, or boundary; no visible hinge is required when order already makes it clear.
 
 ## Reviewer-Readable Anti-AI Pass
 
@@ -120,8 +122,8 @@ Before finalizing, ask:
 - Does the paragraph move like a table of contents rather than an argument?
 - Does a `This` or `which` clause have a precise antecedent?
 - Does the paragraph have a reason for moving from one object to the next?
-- Does the last sentence teach a mechanism, boundary condition, or implication?
-- Can a reviewer identify the actor, decision, friction, evidence, and validity condition without searching elsewhere?
+- Does the ending complete, qualify, or advance the paragraph's actual burden without a generic restatement or forced teaser?
+- Can a reviewer identify the central object, asserted relation, support, and relevant boundary at the point where the claim is evaluated?
 
 ## Source URLs
 

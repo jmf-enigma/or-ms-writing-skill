@@ -4,8 +4,8 @@ Use this when drafting full sections, choosing headings, reorganizing a manuscri
 
 ## Journal Signals
 
-- **Management Science**: broad management audience. The structure should keep the management object, evidence, mechanism, and boundary visible even when the paper is technical.
-- **Operations Research**: methodological and analytical depth. The structure can foreground model, theorem, algorithm, and performance criterion earlier, but it should still identify the decision problem and benchmark before dense mathematics.
+- **Management Science**: broad management audience. The structure should keep the management or formal object, source of evidence, relevant boundary, and any claimed mechanism visible even when the paper is technical.
+- **Operations Research**: methodological and analytical depth. The structure can foreground a model, theorem, algorithm, or performance criterion early. Make the formal problem, metric, and any needed comparator recoverable before later mathematics relies on them; a practical decision narrative is not mandatory for a canonical problem.
 - **M&SOM**: operations-management audience. The abstract is often structured around problem definition, methodology/results, and managerial implications. The body normally keeps problem setting, methodology, and managerial interpretation close together.
 
 ## What Recent Full Texts Show
@@ -42,7 +42,7 @@ Common body architecture:
 
 Typical heading language: `Research Setting`, `Experiment Design`, `Data`, `Measures`, `Results`, `Mechanism`, `Robustness Check`, `Discussion`.
 
-Paragraph rhythm: setting or treatment first, design credibility second, table or figure third, interpretation and mechanism after the estimate. Do not begin a results paragraph with a coefficient if the reader has not been reminded of the outcome and contrast.
+Paragraph logic: keep the treatment or comparison, outcome, and source of credibility active when the estimate is interpreted. A paragraph may begin with the estimate, design fact, treatment, or outcome; do not lead with a coefficient whose metric and contrast the reader cannot recover.
 
 Recent AI and human-decision experiments often need construct headings such as `Measures`, `Empirical Framework`, and `Measurement Challenges`. Use them when the reader must understand how ability, belief, confidence, calibration, or performance is measured before the treatment result is meaningful. Do not hide these choices in an appendix if they are what makes the experiment credible.
 
@@ -61,7 +61,7 @@ Common body architecture:
 
 Typical heading language: `Theoretical Background`, `Data and Methods`, `Sample Construction`, `Dependent Variables`, `Estimation Strategy`, `Robustness Tests`, `Alternative Measurement`, `Alternative Explanations`, `Supplementary Analyses`, `Limitations`.
 
-Paragraph rhythm: each measure is introduced by what it is meant to capture, how it is observed, why the proxy is credible, and where validation or examples appear. Robustness is part of persuasion, not an appendix afterthought.
+Paragraph logic: connect each consequential measure to the construct it represents, the way it is observed, and the validation needed by later claims. These elements can be split across paragraphs or ordered around a display. Robustness is part of persuasion, not an appendix afterthought.
 
 ### Structural, ML, Or Empirical Revenue-Management Paper
 
@@ -78,7 +78,7 @@ Common body architecture:
 
 Typical heading language: `Data`, `Empirical Strategy`, `Identification`, `Model`, `Estimation`, `Validation`, `Counterfactuals`, `Managerial Implications`.
 
-Paragraph rhythm: the institutional behavior that creates variation appears before the estimating equation. The model section distinguishes observed actions, latent demand or utility, exogenous variation, and the target estimand.
+Paragraph logic: the institutional behavior that creates variation must be recoverable before the equation is used as evidence. A technical subsection may display the equation first and explain its pieces immediately afterward when the setting is already active. The model section distinguishes observed actions, latent demand or utility, exogenous variation, and the target estimand.
 
 If the paper is about managers using available information, a `Conceptual Motivation` section can be more natural than a generic `Theory` section. It should define the assumed knowledge, the channel the experiment can move, and the alternative explanations the results later revisit.
 
@@ -96,7 +96,7 @@ Common body architecture:
 
 Typical heading language: `The Model`, `Benchmark`, `Equilibrium Analysis`, `Main Results`, `Extensions`, `General Model`, `Numerical Analysis`.
 
-Paragraph rhythm: define the standard setup and the new feature before notation becomes dense. After each proposition, interpret the region, threshold, or comparison before moving to the next result.
+Paragraph logic: make the standard setup, departure, and role of notation recoverable before later claims rely on them. Keep interpretation of a consequential region, threshold, or comparison near the proposition; it may precede or follow a complete short proof according to the local convention and dependency.
 
 For information, contracting, or bargaining theory, headings can name information regimes or variants: `Base Model`, `Observable Opportunities`, `Concealable Opportunities`, `Stochastic Cost`, `Seller Information Acquisition`, `Joint Information Acquisition`, or `Organizational Implications`. These are often better than `Model 1`, `Model 2`, or `Robustness` because they tell the reader which economic object changed.
 
@@ -114,7 +114,7 @@ Common body architecture:
 
 Typical heading language: `Problem Description`, `The Model`, `Main Results`, `Algorithm`, `Analysis`, `Performance Bounds`, `Numerical Experiments`, `Computational Study`, `Appendix`.
 
-Paragraph rhythm: the body may place model and theorem earlier than a Management Science empirical paper. The introduction still explains why the old formulation or standard policy is insufficient and what benchmark makes the new method meaningful.
+Paragraph logic: the body may place the model and theorem earlier than a Management Science empirical paper. The introduction makes the formal departure and benchmark meaningful; it need not portray the old formulation as deficient when the contribution is a direct characterization, bound, or extension.
 
 ### Applied OR With Industry Or Field Data
 
@@ -130,7 +130,7 @@ Common body architecture:
 
 Typical heading language: `System Model`, `Lagrangian Relaxation`, `Unit Model`, `Implementation`, `Numerical Experiments`, `Computational Results`, `Industrial-Scale Case Study`.
 
-Paragraph rhythm: explain the current operating workflow before the model. Then say which current-practice constraint the model relaxes, retains, or replaces.
+Paragraph logic: explain the current operating workflow before the model when that workflow is needed to interpret variables or constraints. A canonical formulation or portable method may appear first, provided its operational object and relation to current practice are made clear nearby.
 
 ## Heading Practice
 
@@ -208,8 +208,8 @@ Around formal results, headings should be even plainer than section headings.
 
 - Main-text theorem/proposition labels are usually bare: `Proposition 1.`, `Theorem 2.`, `Lemma 3.`, or `Corollary 1.`.
 - If a descriptor is useful, keep it short and object-like: `Proposition 1 (Threshold Policy)`, `Theorem 2 (Regret Bound)`, or `Lemma 1 (Monotonicity)`. Avoid full-sentence labels such as `Proposition 1: Our Policy Is Better When Demand Is High`.
-- Use the paragraph before the result to say what the result does. This is more natural than turning the proposition label into a mini-abstract.
-- After the result, interpret in ordinary prose. Do not create tiny headings such as `Intuition`, `Key Insight`, `Takeaway`, `Proof Idea`, or `Managerial Meaning` unless the paper has several long parallel blocks that require navigation.
+- Use the prose surrounding the result to say what it does. That explanation may precede the statement, follow it, or be split across both sides; do not turn the proposition label into a mini-abstract.
+- Keep needed interpretation near the result in ordinary prose. Do not create tiny headings such as `Intuition`, `Key Insight`, `Takeaway`, `Proof Idea`, or `Managerial Meaning` unless the paper has several long parallel blocks that require navigation.
 - Use `Proof.` for a complete short proof or for a formal one-line appendix pointer when the paper follows that convention. If the paragraph explains only the proof move, normally leave it unheaded and keep it distinct from the location pointer.
 - Appendix and e-companion headings can be functional and direct: `A.1. Proof of Theorem 1`, `Proof of Proposition 2`, `Auxiliary Lemmas`, `Additional Robustness Checks`, `Data Construction`.
 
@@ -224,23 +224,23 @@ Observed MS/OR papers use these local headings sparingly. A Management Science f
 - **Results**: subheadings should follow evidence jobs, not table order. Use them for main effect, mechanism, heterogeneity, validation, robustness, and alternative explanations.
 - **Appendix/e-companion**: subheadings should follow proof dependency, table family, data documentation, robustness family, or implementation component.
 
-## Paragraph Jobs
+## Paragraph Burdens
 
-Each paragraph should usually perform one job. Choose the job that fits the section.
+Give a paragraph one recoverable primary burden. It may carry linked work, such as definition plus role, result plus interpretation, or threat plus robustness evidence. Split only when the burdens compete for emphasis, use different evidence objects, or change scope.
 
-- **Opening paragraph**: establish the setting, decision, standard view, or formal object.
-- **Friction paragraph**: explain what the standard view misses.
-- **Design paragraph**: explain data, experiment, model, algorithm, or identification at the level needed for trust.
-- **Measure paragraph**: say what the construct captures, how it is observed, and why the proxy is credible.
-- **Model paragraph**: translate agents, timing, information, actions, objective, constraints, and benchmark into prose before notation.
-- **Result paragraph**: state estimate, theorem, guarantee, or comparison; then interpret metric, benchmark, and condition.
-- **Mechanism paragraph**: separate the channel that explains the result from nearby alternative channels.
-- **Robustness paragraph**: name the threat, state the check, summarize whether the conclusion changes, and move full details to appendix if secondary.
-- **Limitations paragraph**: narrow the claim without undermining the paper; say which limitation matters for interpretation.
+- **Orientation**: establish a setting, decision, received view, formal object, or result that the section will use.
+- **Departure or motivation**: explain a consequential difference, obstacle, counterexample, or missing evidence when the paper actually relies on one.
+- **Design or method**: make the role of data, experiment, model, algorithm, or identification strategy clear at the level needed for trust.
+- **Measurement**: connect a construct to its observation and to the validation later claims require.
+- **Model definition**: define the relevant agents or system, timing, information, actions or states, objective, constraints, and benchmark in the order imposed by the formulation.
+- **Result**: state and support an estimate, theorem, guarantee, or comparison, with the metric, benchmark, condition, or interpretation it needs. Claim-first and evidence-first orders are both available.
+- **Mechanism or decomposition**: distinguish the channel or components only when the evidence supports that burden.
+- **Robustness or qualification**: identify the claim or threat at issue, state what the check changes or preserves, and move repeated details to the appendix when secondary.
+- **Limitation or scope**: narrow the population, policy class, regime, evidence type, or interpretation without adding a generic limitations paragraph.
 
 ## Introduction Architecture
 
-An introduction is not a fixed sequence. Select the modules the paper needs and order them so that the next module answers the reviewer's next question.
+An introduction is not a fixed sequence. Select the modules the paper needs and order them by prerequisite, warrant, and emphasis. A question-and-answer progression is one option, not a requirement.
 
 Common modules:
 
@@ -269,7 +269,7 @@ Do not use a heading called `Model / Setting / Data` in final prose unless the p
 
 ## Result Section Architecture
 
-Result sections are organized by the evidence job, not by the order in which the analysis was run.
+Result sections are organized by evidential and analytical dependency, not by the order in which the analysis was run. The lists below are common units, not required sequences.
 
 - Empirical experiment: main treatment effects, mechanism, heterogeneity, robustness.
 - Archival/DID: main estimate, measurement validation if not earlier, robustness, alternative explanations, supplementary analyses.

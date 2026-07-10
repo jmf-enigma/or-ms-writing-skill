@@ -55,16 +55,17 @@ Use this corpus as style evidence, not as a topic cage.
 - M&SOM and related OM papers often make the abstract readable by separating problem definition, method and results, and managerial implications. The learning recommendations paper is a useful model for learning and bandit topics because it explains the business friction before the bandit formulation.
 - Public writing skills and university writing guides converge on the same practical edits: active voice when it clarifies agency, concrete nouns, one job per paragraph, no needless words, and removal of generic AI filler.
 
-## Repeated Story Pattern
+## Recurring But Conditional Relations
 
-- Open with a decision that already exists in practice.
-- Explain why standard intuition or standard modeling is incomplete.
-- Introduce a tractable formal object that captures the missing friction.
-- State results in terms of conditional action: what changes when a parameter, constraint, or market condition changes.
-- End implication paragraphs by naming the decision maker and the condition under which the advice applies.
-- Use the model as a lens, not as the opening hook. Readers should know the decision problem before seeing the formal machinery.
-- Make the benchmark memorable. The benchmark can be the status quo, no regulation, a traditional design, a myopic policy, or a standard algorithm.
-- Treat social consequences as tradeoffs. Avoid one-sided "good for society" language unless the result is truly monotone and robust.
+Many papers in this corpus are practice-led analytical papers, so several relations recur. They are observations about that subset, not a universal story pattern.
+
+- A practice decision can provide an accessible opening when the application is needed to interpret the model.
+- A standard intuition or model matters only when the paper actually qualifies, extends, or contradicts it.
+- A tractable formal object can follow an operational constraint, or it can open a technical paper and receive its application immediately afterward.
+- Conditional results should name the parameter, constraint, market condition, or policy class that controls the conclusion.
+- An implication needs a decision maker and observable condition only when the paper supports actionable advice.
+- A benchmark should be memorable when the contribution is comparative. It may be the status quo, no regulation, a traditional design, a myopic policy, or a standard algorithm.
+- Social consequences should be represented at the evidence's actual strength. Use tradeoffs when outcomes conflict; do not invent one when the result is monotone.
 
 ## Paper Cards
 
@@ -489,24 +490,24 @@ Style lessons:
 
 - The abstract is compressed because the model's object is clear: interaction between front-line manager and worker.
 - The theoretical contribution is a characterization of managerial style as a function of patience and information, not a long list of managerial advice.
-- This is a reminder that theory papers can be short and spare. They need the received view, missing channel, model object, and characterization, not a full empirical-style motivation sequence.
+- This is a reminder that theory papers can be short and spare. They need enough context to interpret the formal departure and characterization, not a full empirical-style motivation sequence or a mandatory missing-channel paragraph.
 
 ## Cross-Corpus Language Rules
 
-- Use a concrete industry noun in the first paragraph: sellers, platforms, players, customers, regulators, resources, recommendations.
-- Use a tension noun in the second beat: fairness, ambiguity, churn, herding, losing streaks, overexploration, capacity.
-- Put methods after the reader understands the tension.
-- Convert theorem results into "condition -> mechanism -> implication."
+- Make the first-page object concrete enough to identify, whether it is an actor, institution, formal problem, construct, counterexample, or theorem object.
+- Introduce a tension only when the paper has a real competing force, missing feature, or unresolved comparison; do not manufacture a second-beat friction.
+- Put methods where their object and role are legible. Prior context may justify a concise method-first statement.
+- Interpret theorem results through the relation they establish: characterization, comparison, condition, bound, impossibility, or mechanism. No fixed condition-mechanism-implication order is required.
 - Use numbers only when they anchor a memorable benchmark; otherwise, keep the result qualitative until the formal statement.
 - In empirical/field-experiment papers, say what was estimated, how the estimate changes the decision, and how the policy was validated.
-- When the result overturns an intuition, name the intuition and then name the state variable, constraint, or incentive that overturns it.
+- When the result overturns an intuition, make both the intuition and the state variable, constraint, or incentive that overturns it clear; either may come first.
 - When several stakeholders matter, give each one a sentence-level role. Do not merge firm profit, consumer welfare, and regulator goals into a single vague implication.
-- For full MS papers, keep a flexible continuity line from abstract to discussion: decision, friction, method, result, mechanism, condition. Each section should advance the part of that line it needs rather than restarting or mechanically restating the whole story.
+- For full MS papers, keep a stable manuscript contract from abstract to discussion: central object, paper-level claim, comparator, metric, evidence owner, and boundary. Decision, friction, and mechanism belong only when the paper actually relies on them. Sections need stable relations, not a repeated story sentence.
 
 ## Red Flags
 
-- Starting with "We consider a model..." before explaining the decision problem.
+- Starting with "We consider a model..." when neither the sentence nor nearby context identifies the model's object or role.
 - Calling a result "surprising" without explaining which intuition it overturns.
 - Presenting managerial implications that do not follow from a theorem, estimate, or simulation.
-- Letting related work become a citation list instead of a gap map.
-- Treating proof exposition as separate from the paper story; a proof should still tell the reader why the result is true.
+- Letting related work become a citation list instead of a synthesis and relation map.
+- Treating proof exposition as detached verification when first-pass trust requires the load-bearing reason the result is true.

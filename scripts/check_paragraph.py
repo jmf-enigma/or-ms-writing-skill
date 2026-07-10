@@ -52,12 +52,6 @@ FRICTIONS = {
     "calibration", "coordination cost", "coordination costs",
     "information acquisition", "false negatives", "skill disparity",
 }
-MECHANISM_MARKERS = {"because", "therefore", "thus", "when", "whereas", "while", "however"}
-ELEGANCE_HINGES = {
-    "although", "but", "because", "despite", "however", "instead", "otherwise",
-    "rather than", "relative to", "compared with", "consistent with", "whereas",
-    "while", "when", "yet",
-}
 EVIDENCE = {
     "theorem", "proposition", "lemma", "model", "simulation", "experiment", "data",
     "estimate", "result", "proof", "benchmark", "case study", "numerical",
@@ -169,16 +163,6 @@ MODEL_TERMS = {
     "model", "framework", "algorithm", "policy", "theorem", "proposition",
     "equilibrium", "optimization", "regret", "bound", "estimator",
 }
-STRICT_MATH_TERMS = {
-    "theorem", "proposition", "lemma", "optimal", "optimality", "equilibrium",
-    "regret", "approximation", "bound", "convergence", "identification",
-}
-MODEL_NARRATION_MARKERS = {
-    "agent", "seller", "buyer", "firm", "platform", "manager", "customer", "patient",
-    "timing", "information", "observe", "observes", "choose", "chooses", "control",
-    "objective", "constraint", "benchmark", "friction", "trade-off", "tradeoff",
-    "mechanism", "when", "because", "under", "condition",
-}
 OVERLOADED_TERMS = {
     "causal": {"random", "instrument", "identification", "exogenous", "difference", "experiment", "estimate", "transport"},
     "optimal": {"objective", "constraint", "benchmark", "policy", "first-best", "proof", "theorem"},
@@ -190,10 +174,6 @@ OVERLOADED_TERMS = {
     "learning": {"belief", "demand", "feedback", "regret", "sample", "algorithm", "posterior"},
     "platform": {"seller", "buyer", "customer", "consumer", "user", "worker", "volunteer", "opportunity", "two-sided", "marketplace", "intermediary", "ranking", "display", "algorithm"},
     "data-driven": {"sample", "transaction", "censored", "limited data", "historical", "contextual", "out-of-sample", "misspecification"},
-}
-IMPLICATIONS = {
-    "should", "implies", "suggests", "therefore", "manager", "policy", "regulator",
-    "platform", "seller", "condition", "when", "if",
 }
 METRICS = {
     "profit", "revenue", "cost", "welfare", "consumer surplus", "producer surplus",
@@ -420,11 +400,6 @@ GENERIC_GAP_PATTERNS = {
     "has not been studied",
 }
 
-METHOD_FIRST_OPENERS = {
-    "using", "by using", "by leveraging", "leveraging", "utilizing", "through",
-    "based on", "drawing on", "with a",
-}
-
 CLAIM_VERB_SUPPORTS = {
     "establish": {"theorem", "proof", "proposition", "lemma", "bound", "show"},
     "establishes": {"theorem", "proof", "proposition", "lemma", "bound", "show"},
@@ -581,7 +556,12 @@ STRONG_CLAIM_TRIGGERS = {
     "demonstrate", "demonstrates", "demonstrated", "identify", "identifies",
     "identified", "characterize", "characterizes", "characterized",
     "outperform", "outperforms", "dominate", "dominates", "optimal",
-    "robust", "causal", "significant", "contribution", "contributes",
+    "robust", "causal", "significant",
+}
+
+BOUNDARY_SENSITIVE_CLAIMS = {
+    "outperform", "outperforms", "dominate", "dominates", "optimal", "robust",
+    "causal", "significant", "universally", "always", "never",
 }
 
 BOUNDARY_MARKERS = {
@@ -626,32 +606,27 @@ def normalize_section(section: str) -> str:
 def core_checks_for_section(section: str) -> list[tuple[str, set[str], str]]:
     normalized = normalize_section(section)
     common = {
-        "actor": (ACTORS, "Name the actor: hospital, platform, firm, agency, regulator, customer, etc."),
-        "decision": (DECISIONS, "Name the decision: schedule, price, match, allocate, disclose, regulate, etc."),
-        "friction": (FRICTIONS, "Name the friction: uncertainty, capacity, incentives, fairness, learning, delay, etc."),
-        "mechanism": (MECHANISM_MARKERS, "Add a because/when/therefore sentence to show mechanism or condition."),
-        "evidence": (EVIDENCE, "Tie the claim to a theorem, model, simulation, estimate, benchmark, or case study."),
-        "implication": (IMPLICATIONS, "Say what follows for the actor, decision, or interpretation."),
-        "formal object": (FORMAL_OBJECTS, "Name the policy, threshold, equilibrium, constraint, bound, estimator, or counterfactual."),
-        "benchmark": (BENCHMARKS, "Name the comparator: oracle, first-best, current practice, relaxation, baseline, etc."),
+        "central object": (ACTORS | DECISIONS | FORMAL_OBJECTS | METRICS, "Name the decision, construct, policy, theorem object, metric, institution, or system this passage is about."),
+        "warrant": (EVIDENCE | RESULT_TYPES | MATH_MOVES, "Make the theorem, estimate, comparison, design feature, proof move, or other support recoverable if the paragraph draws an inference."),
+        "comparator": (BENCHMARKS, "Name the comparator only when the claim is comparative."),
         "proof move": (MATH_MOVES, "Name the load-bearing proof move: coupling, convexity, duality, relaxation, concentration, etc."),
     }
     if normalized in {"phrase", "sentence", "title", "micro", "micro-rewrite"}:
         return []
     if normalized in {"model", "modeling", "formulation"}:
-        names = ["actor", "decision", "friction", "formal object"]
+        names = ["central object"]
     elif normalized in {"result", "results", "theorem", "proposition"}:
-        names = ["evidence", "formal object", "benchmark", "mechanism"]
+        names = ["central object", "warrant"]
     elif normalized in {"proof", "proof-exposition", "appendix-proof"}:
-        names = ["evidence", "formal object", "proof move"]
+        names = []
     elif normalized in {"placement", "appendix", "online-appendix", "e-companion", "supplement"}:
-        names = ["evidence", "formal object", "benchmark"]
+        names = ["central object", "warrant"]
     elif normalized in {"related", "related-work", "literature"}:
-        names = ["decision", "friction", "evidence"]
+        names = ["central object"]
     elif normalized in {"managerial", "managerial-implications", "implications"}:
-        names = ["actor", "decision", "mechanism", "implication"]
+        names = ["central object"]
     else:
-        names = ["actor", "decision", "friction", "mechanism", "evidence", "implication"]
+        names = ["central object"]
     return [(name, *common[name]) for name in names]
 
 
@@ -764,6 +739,8 @@ def noun_pile_warnings(text: str) -> list[str]:
         "improves", "improve", "interprets", "interpret", "identifies", "identify",
         "means", "mean", "implies", "imply", "suggests", "suggest", "states", "state",
         "finds", "find", "holds", "hold", "applies", "apply", "is", "are", "was", "were",
+        "adopts", "adopt", "chooses", "choose", "recommends", "recommend",
+        "should", "may", "might", "can", "could", "must", "will", "would",
     }
     noun_pile_clause_markers = {"that", "which", "who", "when", "because", "while", "although", "if"}
     hits = []
@@ -779,7 +756,7 @@ def noun_pile_warnings(text: str) -> list[str]:
         warnings.append(
             "noun pile detected: "
             + ", ".join(f"`{hit}`" for hit in hits[:3])
-            + ". Rewrite as actor + verb + object, then add the condition or benchmark."
+            + ". Turn one modifier into a working verb or clause, and keep only the relation the sentence needs."
         )
     sentences = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence.strip()]
     for sentence in sentences:
@@ -842,7 +819,7 @@ def template_residue_warnings(text: str, section: str) -> list[str]:
         warnings.append(
             "stiff sentence openings: "
             + ", ".join(f"`{hit}`" for hit in object_openers)
-            + ". Vary the flow by letting one sentence inherit the prior object and the next add the new action, condition, or evidence."
+            + ". Check whether the repetition is accidental. Keep a repeated subject when it preserves the paper's canonical object; otherwise vary the grammatical focus."
         )
 
     return warnings
@@ -991,15 +968,13 @@ def argument_evidence_boundary_warnings(text: str, section: str) -> list[str]:
     )
 
     if not has_support:
-        warnings.append("argument-evidence-boundary: strong claim lacks a nearby support signal; name the theorem, estimate, simulation, table, benchmark, proof idea, or comparison that carries it.")
-    if not has_boundary:
-        warnings.append("argument-evidence-boundary: strong claim lacks a boundary; keep the assumption, benchmark, sample, setting, information structure, regime, or policy class near the claim.")
-
-    sentences = [sentence for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence]
-    if len(sentences) >= 4:
-        evidence_sentences = [sentence for sentence in sentences if contains_any(sentence, EVIDENCE | RESULT_TYPES | BENCHMARKS) or has_number(sentence)]
-        if evidence_sentences and not any(contains_any(sentences[i], EVIDENCE | RESULT_TYPES | BENCHMARKS) or has_number(sentences[i]) for i in range(min(2, len(sentences)))):
-            warnings.append("argument-evidence-boundary: evidence arrives late; consider moving the theorem, estimate, comparison, or benchmark closer to the claim it supports.")
+        warnings.append("argument-evidence-boundary: no support signal appears in the supplied passage; verify that nearby context supplies the theorem, estimate, simulation, table, benchmark, proof move, or comparison that carries the strong claim, or name it locally.")
+    needs_boundary = any(
+        re.search(rf"\b{re.escape(term)}\b", lower)
+        for term in BOUNDARY_SENSITIVE_CLAIMS
+    )
+    if needs_boundary and not has_boundary:
+        warnings.append("argument-evidence-boundary: no boundary appears in the supplied passage; verify that nearby context supplies the assumption, benchmark, sample, setting, information structure, regime, or policy class needed to prevent overreading, or name it locally.")
 
     return warnings
 
@@ -1026,7 +1001,7 @@ def weak_phrase_warnings(text: str) -> list[str]:
                 f"anchor-sensitive phrase `{phrase}`; keep only if it is attached to a precise data source, theorem, mechanism, metric, or action."
             )
         else:
-            warnings.append(f"replace `{phrase}` with the actual decision or implication.")
+            warnings.append(f"replace `{phrase}` with the actual object, relation, evidence, metric, or condition.")
     return warnings
 
 
@@ -1068,7 +1043,7 @@ def overloaded_sentence_warnings(text: str) -> list[str]:
         hits = [name for name, items in categories if contains_any(sentence, items)]
         if len(hits) >= 5 or (len(words) > 46 and len(hits) >= 4):
             warnings.append(
-                "overloaded MS/OR sentence; split it into setup, result, and interpretation instead of packing "
+                "overloaded MS/OR sentence; separate the relations that carry the local burden instead of packing "
                 + ", ".join(hits)
                 + " into one sentence."
             )
@@ -1086,38 +1061,40 @@ def model_narration_warnings(text: str, section: str = "paragraph") -> list[str]
     if not contains_term(text, MODEL_TERMS):
         return []
     warnings = []
-    marker_hits = [marker for marker in MODEL_NARRATION_MARKERS if marker in lower]
-    if len(marker_hits) < 3:
-        warnings.append("model narration is thin; name agents, timing/information, controls, objective, benchmark, or the friction the model isolates.")
     if re.search(r"\bwe (?:consider|develop|propose|study) (?:a|an|the)?\s*(?:stylized )?(?:model|framework|algorithm)\b", lower):
-        first_sentence = re.split(r"(?<=[.!?])\s+", text.strip())[0].lower()
-        if "decision" not in first_sentence and not contains_any(first_sentence, ACTORS):
-            warnings.append("method-first opening; introduce the management decision and friction before `we consider/develop/propose a model`.")
+        if not contains_term(text, ACTORS | DECISIONS | METRICS | FORMAL_OBJECTS):
+            warnings.append("the method has no recoverable object in the supplied passage; name what the model or algorithm studies, controls, estimates, or compares. A method-first sentence is otherwise acceptable when prior context supplies the motivation.")
     if "data-driven" in lower and not any(word in lower for word in {"sample", "transaction", "censored", "limited data", "historical", "contextual", "out-of-sample", "misspecification"}):
         warnings.append("data-driven claim is generic; say what the data reveal, what they miss, or how data quality/quantity changes the decision.")
     return warnings
 
 
-def or_ms_spine_warnings(text: str) -> list[str]:
+def or_ms_spine_warnings(text: str, section: str) -> list[str]:
+    if normalize_section(section) in {"phrase", "title", "micro", "micro-rewrite"}:
+        return []
     lower = text.lower()
     warnings = []
-    has_strict_math = any(term in lower for term in STRICT_MATH_TERMS)
     has_algorithm = re.search(r"\balgorithm\b", lower) is not None
     has_model_intro = re.search(r"\bwe (?:consider|develop|propose|study|model)\b", lower) is not None or has_algorithm
-    if (has_strict_math or has_model_intro) and not contains_any(text, FORMAL_OBJECTS):
-        warnings.append("formal object is missing; name the policy, threshold, equilibrium, constraint, bound, estimator, or counterfactual being studied.")
-    if (has_strict_math or has_algorithm) and not contains_any(text, BENCHMARKS):
-        warnings.append("benchmark is missing; compare against first-best, oracle, myopic, current practice, relaxation, baseline, or another explicit reference point.")
-    if has_strict_math and not any(term in lower for term in {"under", "if", "when", "condition", "assumption", "benchmark", "asymptotic", "relative to"}):
-        warnings.append("mathematical claim lacks a validity condition; state the assumption, regime, information structure, or benchmark near the claim.")
-    if any(term in lower for term in {"theorem", "proposition", "lemma"}) and not contains_any(text, RESULT_TYPES):
-        warnings.append("result type is implicit; say whether the result proves existence, uniqueness, a threshold, monotonicity, a bound, convergence, or a characterization.")
-    if has_algorithm and not (
-        any(term in lower for term in BENCHMARKS | {"performance", "regret", "approximation", "runtime", "complexity", "optimality gap"})
-        or contains_any(text, METRICS)
-    ):
-        warnings.append("algorithm narration is thin; state the benchmark and performance metric.")
-    if "proof" in lower and not contains_any(text, MATH_MOVES):
+    if has_model_intro and not contains_term(text, ACTORS | DECISIONS | METRICS | FORMAL_OBJECTS):
+        warnings.append("formal or study object is missing from the supplied passage; name what the model or algorithm defines, estimates, controls, or compares, unless the preceding context already makes that object unmistakable.")
+    has_performance_claim = has_algorithm and any(
+        term in lower
+        for term in {
+            "performance", "guarantee", "regret", "approximation ratio",
+            "runtime", "complexity", "optimality gap", "outperform", "dominates",
+        }
+    )
+    if has_performance_claim and not (contains_any(text, BENCHMARKS) or contains_any(text, METRICS)):
+        warnings.append("algorithm performance claim has no recoverable metric or comparator in the supplied passage; verify that nearby context supplies one or name it locally.")
+    promises_proof_explanation = any(
+        term in lower
+        for term in {
+            "proof idea", "proof sketch", "proof argument", "proof hinges",
+            "proof proceeds", "proof uses", "proof relies", "we prove by",
+        }
+    )
+    if promises_proof_explanation and not contains_any(text, MATH_MOVES):
         warnings.append("proof narration is generic; name the mathematical move such as coupling, convexity, relaxation, concentration, fixed point, induction, or exchange argument.")
     return warnings
 
@@ -1126,12 +1103,6 @@ def msor_paper_craft_warnings(text: str, section: str) -> list[str]:
     lower = text.lower()
     normalized_section = section.lower().replace("_", "-")
     warnings = []
-    is_result_context = normalized_section in {"result", "results", "proof"} or any(
-        term in lower for term in {"theorem", "proposition", "lemma"}
-    )
-    has_formal_claim = any(term in lower for term in STRICT_MATH_TERMS | RESULT_TYPES)
-    if is_result_context and has_formal_claim and not any(marker in lower for marker in INTERPRETATION_MARKERS):
-        warnings.append("full-text craft issue; add a short comment sentence that translates the formal result into the decision, benchmark, or operational condition.")
     if normalized_section in {"model", "results", "paragraph"} and re.search(r"\bassum(?:e|es|ption|ptions)\b", lower):
         if not any(word in lower for word in ASSUMPTION_ROLE_WORDS):
             warnings.append("assumption is stated but not earned; say whether it identifies, simplifies, preserves tractability, bounds, isolates a mechanism, or matches standard examples.")
@@ -1148,49 +1119,19 @@ def ms_storycraft_warnings(text: str, section: str) -> list[str]:
     if normalized_section in {"phrase", "sentence", "title", "micro", "micro-rewrite"}:
         return warnings
     if any(shell in lower for shell in STORYCRAFT_SHELLS):
-        if not contains_term(text, ACTORS | DECISIONS | METRICS | FRICTIONS):
-            warnings.append("MS story shell is generic; replace insight/implication language with the actor, decision, metric, friction, or condition that changes.")
-    if normalized_section in {"abstract", "introduction", "intro", "paragraph"}:
+        if not contains_term(text, ACTORS | DECISIONS | METRICS | FRICTIONS | FORMAL_OBJECTS | EVIDENCE | BENCHMARKS | MATH_MOVES):
+            warnings.append("MS story shell is generic; replace insight/implication language with the local object, result, relation, metric, condition, or proof move.")
+    if normalized_section == "abstract":
         has_method = contains_any(text, EVIDENCE) or re.search(r"\bwe (?:use|conduct|run|develop|formulate|estimate|propose)\b", lower)
-        has_decision_or_actor = contains_term(text, ACTORS | DECISIONS)
-        has_friction = contains_term(text, FRICTIONS) or any(word in lower for word in {"however", "although", "whereas", "yet", "despite", "but"})
-        if has_method and not has_decision_or_actor:
-            warnings.append("MS story starts from method; first name the management decision, institution, actor, or metric the method is meant to explain.")
-        if has_method and not has_friction:
-            warnings.append("MS story lacks tension; say what standard practice, belief, model, or evidence cannot explain before presenting the method.")
+        has_recoverable_object = contains_term(text, ACTORS | DECISIONS | METRICS | FORMAL_OBJECTS | BENCHMARKS)
+        if has_method and not has_recoverable_object:
+            warnings.append("abstract names a method without a recoverable study object, decision, estimand, metric, or comparator; specify what the method is used to establish.")
     if normalized_section in {"abstract", "introduction", "intro", "contribution", "paragraph"}:
-        if any(term in lower for term in {"we contribute", "contributes to", "contribution"}) and not any(
-            marker in lower for marker in {"relative to", "whereas", "unlike", "prior", "existing", "standard", "benchmark", "literature", "stream"}
+        if any(term in lower for term in {"we contribute", "contributes to", "contribution"}) and not contains_term(
+            text, DECISIONS | METRICS | FORMAL_OBJECTS | EVIDENCE | BENCHMARKS | MATH_MOVES
         ):
-            warnings.append("contribution is unpositioned; state the prior stream, benchmark, design, or mechanism the paper departs from.")
+            warnings.append("contribution language has no recoverable object in the supplied passage; name the theorem, estimate, design, construct, policy class, comparison, or other object that changes. Prior-work positioning may remain in the surrounding paragraph.")
     return warnings
-
-
-def elegance_warnings(text: str, section: str) -> list[str]:
-    normalized_section = normalize_section(section)
-    if normalized_section in {
-        "phrase", "sentence", "title", "micro", "micro-rewrite",
-        "proof", "proof-exposition", "appendix-proof", "placement",
-    }:
-        return []
-    lower = text.lower()
-    sentences = [sentence for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence]
-    if len(sentences) < 2:
-        return []
-    has_research_object = (
-        contains_term(text, ACTORS | DECISIONS | FRICTIONS | FORMAL_OBJECTS | BENCHMARKS)
-        or contains_any(text, EVIDENCE | RESULT_TYPES)
-    )
-    has_method_or_result = (
-        contains_any(text, EVIDENCE | RESULT_TYPES)
-        or re.search(r"\bwe (?:study|develop|introduce|estimate|show|find|characterize|derive|propose|evaluate|compare)\b", lower)
-    )
-    has_hinge = any(marker in lower for marker in ELEGANCE_HINGES)
-    if has_research_object and has_method_or_result and not has_hinge:
-        return [
-            "story feels flat; add one real hinge that explains the turn from old object to friction, method to result, benchmark to comparison, or result to boundary."
-        ]
-    return []
 
 
 def language_model_math_warnings(text: str, section: str) -> list[str]:
@@ -1372,17 +1313,10 @@ def logical_inference_warnings(text: str, section: str) -> list[str]:
         or any(term in lower for term in {"in the model", "in the experiment", "in our sample"})
     )
     if not has_premise:
-        warnings.append("logic jump: inference marker appears without a visible premise or evidence object; name the estimate, theorem, comparison, design feature, or proof move that supports it.")
+        warnings.append("inference marker has no premise or evidence object in the supplied text; verify that the preceding passage supplies the estimate, theorem, comparison, design feature, or proof move, or name it locally.")
     if any(term in lower for term in {"should", "recommend", "managerial implication", "policy implication"}) and not has_boundary:
         warnings.append("logic jump: recommendation lacks a condition; state when, for whom, or relative to which benchmark the implication follows.")
 
-    sentences = [sentence.strip() for sentence in re.split(r"(?<=[.!?])\s+", text.strip()) if sentence.strip()]
-    if sentences:
-        first = sentences[0].lower()
-        first_has_inference = any(re.search(rf"\b{re.escape(marker)}\b", first) for marker in INFERENCE_MARKERS)
-        first_has_support = contains_any(first, EVIDENCE | RESULT_TYPES | MATH_MOVES | BENCHMARKS) or has_number(first)
-        if first_has_inference and not first_has_support and len(sentences) > 1:
-            warnings.append("logic order: the paragraph opens with an inference before giving the evidence; consider moving the theorem, estimate, comparison, or premise first.")
     return warnings
 
 
@@ -1392,9 +1326,7 @@ def academic_style_warnings(text: str) -> list[str]:
     sentences = re.split(r"(?<=[.!?])\s+", text.strip())
     first_sentence = sentences[0].strip().lower() if sentences else ""
     if re.match(r"^(in recent years|with the rapid|in today's|in the modern era)\b", first_sentence):
-        warnings.append("generic opener; start with the local decision, tension, setting, or claim.")
-    if any(first_sentence.startswith(opener) for opener in METHOD_FIRST_OPENERS):
-        warnings.append("method-first opener; consider naming the decision or friction before the method.")
+        warnings.append("generic opener; start with the local object, setting, definition, contrast, or claim.")
     if any(pattern in lower for pattern in GENERIC_GAP_PATTERNS) and not contains_any(text, DECISIONS | FRICTIONS | EVIDENCE):
         warnings.append("generic gap; turn the gap into a decision problem, evidence limit, model limit, or unresolved mechanism.")
     if lower.count(" this ") + lower.startswith("this ") > 2:
@@ -1475,7 +1407,7 @@ def main() -> int:
     print(f"OR/MS paragraph diagnostic: section={args.section}")
     checks = core_checks_for_section(args.section)
     if not checks:
-        print("- diagnostic signals: skipped for micro-level wording; inspect object, verb, and rhythm instead.")
+        print("- diagnostic signals: no slot-presence checks for this unit; inspect its object, relation, warrant, scope, and language instead.")
     else:
         print(f"- diagnostic signals: adapted for {normalize_section(args.section)}; absence is a prompt, not a hard requirement.")
     for name, items, advice in checks:
@@ -1526,7 +1458,7 @@ def main() -> int:
     this_hits = weak_this_sentences(text)
     if this_hits:
         verbs = ", ".join(sorted(set(this_hits)))
-        print(f"- weak `This` opener: `{verbs}`. Name the actor, mechanism, or result instead.")
+        print(f"- weak `This` opener: `{verbs}`. Name the local object or relation instead.")
 
     sentence_craft_scent = (
         weak_subject_warnings(text)
@@ -1539,7 +1471,7 @@ def main() -> int:
     for warning in model_narration_warnings(text, args.section):
         print(f"- MS model/data narration: {warning}")
 
-    for warning in or_ms_spine_warnings(text):
+    for warning in or_ms_spine_warnings(text, args.section):
         print(f"- OR/MS spine: {warning}")
 
     for warning in msor_paper_craft_warnings(text, args.section):
@@ -1547,9 +1479,6 @@ def main() -> int:
 
     for warning in ms_storycraft_warnings(text, args.section):
         print(f"- MS whole-paper storycraft: {warning}")
-
-    for warning in elegance_warnings(text, args.section):
-        print(f"- MS elegance: {warning}")
 
     for warning in language_model_math_warnings(text, args.section):
         print(f"- MS/OR language-model-math: {warning}")

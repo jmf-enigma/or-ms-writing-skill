@@ -36,13 +36,7 @@ When drafting, ask what later readers would cite. If the answer is only "we stud
 
 The best introductions do not begin with grandeur. They turn a familiar stream into a specific unresolved tension.
 
-Useful motion:
-
-1. Name the canonical decision, model, practice, or belief.
-2. Identify the friction that prevents the standard object from answering the current question.
-3. Introduce the paper's portable object as the response to that friction.
-4. State the main result with its benchmark or boundary nearby.
-5. Explain what becomes reusable: model, estimator, theorem, empirical contrast, policy class, or design lesson.
+An introduction may need to name the canonical decision, model, practice, or belief; identify the departure or missing evidence; introduce the portable object; state the main result with its benchmark or boundary; and explain what becomes reusable. These are possible burdens, not a five-step order. A paper can lead with the portable object, a counterexample, a field setting, or the headline comparison when that entry point makes the departure immediately legible.
 
 This is compatible with Swales' territory-niche-occupy logic, but the surface should not sound like a template. In MS/OR, the "niche" is often a decision mismatch, tractability problem, missing information structure, untested mechanism, or benchmark that prior work cannot supply.
 
@@ -85,13 +79,7 @@ Use `Proof.` under a proposition for a complete short proof or, when the manuscr
 
 ## Empirical And Field Pattern
 
-Persuasive empirical MS writing makes the setting carry credibility.
-
-- The setting paragraph names the actor, decision, treatment or variation, and outcome.
-- The design paragraph explains why the comparison is credible.
-- The result paragraph reports the estimate in the decision metric and states the benchmark.
-- The mechanism paragraph addresses the nearest alternative explanation.
-- The boundary paragraph says where the effect should weaken, fail, or change interpretation.
+Persuasive empirical MS writing makes the setting and design carry credibility. The manuscript must make the treatment or variation, outcome, comparison, and inferential boundary recoverable before relying on the estimate. These objects may be distributed across setting, design, and result passages rather than assigned to one paragraph each. Mechanism and boundary passages enter only when the paper makes those claims or when they materially change interpretation.
 
 Robustness enters because a reviewer concern has become active, not because the authors have another table. If a check protects the main identification, feasibility, or measurement claim, keep its conclusion in the body. Move only repeated specifications, variable dictionaries, and secondary checks to the appendix.
 

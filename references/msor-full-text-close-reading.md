@@ -42,9 +42,9 @@ Strong MS/OR body prose is plain but not flat. It gives the reader the next obje
 - Result paragraphs keep the comparator and metric close: profit loss from the fluid benchmark, screening error relative to true expertise, throughput relative to random assignment, elasticity estimates relative to a preferred demand model.
 - Boundaries are not apologies. They tell the reviewer what the claim is conditional on: a policy class, information structure, scaling regime, experiment, sample, or maintained behavioral assumption.
 
-Full papers also show a useful discipline: a new section should usually be justified by the previous section's unresolved reader question. A mechanism section follows because the main effect leaves an alternative explanation. A benchmark section follows because the equilibrium result needs a welfare or first-best comparison. An approximation section follows because the exact dynamic program is too costly. A behavioral experiment follows because field data identify an effect but not optimality or mechanism. This is the paper's logic of motion.
+Full papers also show a useful discipline: a new section has a recoverable analytical or evidential role. A mechanism section may address an alternative explanation, a benchmark section may create a welfare comparison, an approximation section may replace an intractable object, and a behavioral experiment may distinguish channels left open by field data. Other sections define, replicate, validate, decompose, or extend. The prior section need not pose an explicit unresolved question.
 
-The expanded close reading also shows that strong papers often create a durable object before they make a broad contribution claim. That object may be a decision loss, a coefficient, regret against a named benchmark, a lower bound, a policy class, or a sequence of experiments that separates mechanisms. Contribution order then follows logical dependency rather than a generic list: define the object, expose the obstacle, construct the method or policy, establish support, and test relevance. This order is useful only when it matches the paper's actual argument.
+The expanded close reading also shows that strong papers often make a durable object legible before asking a broad contribution claim to carry much weight. That object may be a decision loss, a coefficient, regret against a named benchmark, a lower bound, a policy class, or a sequence of experiments that separates mechanisms. Contribution order should follow actual dependency and emphasis; definition, obstacle, method, support, and relevance have no universal linear order.
 
 Model notation is often earned by the setting. An implementation paper can describe the operating workflow, aggregation choice, and active managerial constraint before writing the optimization problem. A technical paper can formalize earlier when the new mathematical object itself is the contribution. The common test is whether the reader knows why each primitive or display is needed when it appears.
 
@@ -54,7 +54,7 @@ The newer full-text comparisons add several finer-grained moves.
 
 - **Question-led introductions** work when each question names a real unresolved decision and maps to a later analytical or empirical section. A list of rhetorical questions with no one-to-one payoff is weaker than a direct problem statement.
 - **Contribution order** often mirrors dependency. A paper may define a loss or benchmark, show why direct optimization is difficult, derive a tractable object, establish its properties, and then evaluate it. Preserve that order only when each result uses the previous object.
-- **Theorem progression** should state why the next result is needed. If one theorem gives asymptotic optimality and the next gives a rate, say what the first theorem leaves unresolved before presenting the second.
+- **Theorem progression** should make the relation among results recoverable. A later theorem may strengthen, specialize, generalize, decompose, contrast with, or run in parallel to an earlier result. If one theorem gives asymptotic optimality and the next gives a rate, the unresolved convergence speed is a useful relation; do not invent such a gap when the results are parallel.
 - **Workflow-to-model transitions** explain the modeling unit, aggregation level, or implementation constraint before notation. This makes an abstraction look chosen rather than convenient.
 - **Design limitations** belong near the design decision they qualify. If ideal randomization, measurement, or assignment was infeasible, state the operational reason and the remaining inferential limit before reporting the estimate.
 - **Mechanism language** stays one step below the design. Use `consistent with` or `suggests` when a follow-up analysis narrows a channel without isolating it.
@@ -177,10 +177,10 @@ When the design departs from ideal randomization, explain the operational constr
 
 Theory prose is strongest when the formal object carries the story.
 
-- State the primitives before naming the equilibrium or optimization object.
+- Make the needed primitives available before relying on the equilibrium or optimization object. They may be defined in prior prose or immediately around the formulation.
 - Place assumptions near the object they restrict, and say whether they rule out degeneracy, isolate a mechanism, preserve tractability, or match the setting.
-- Before a proposition, create the comparison the proposition will resolve.
-- After a proposition, say what changed relative to the benchmark, which parameter drives the regime, and why the condition matters.
+- Create a comparison before a proposition only when the proposition is comparative. A definition, existence result, characterization, or impossibility result may have a different burden.
+- Keep the interpretation needed to understand a proposition nearby. Use the benchmark, regime parameter, or condition only when it governs the result; interpretation may precede or follow a short proof or pointer.
 - Use extensions to vary one economic object at a time: stochastic cost, seller information acquisition, joint information acquisition, imperfect protection, network constraints, or generalized price functions.
 
 Avoid making the theory paragraph sound like suspense. The reader wants the object, condition, comparison, and implication.
@@ -213,4 +213,4 @@ Use richer words only when the object supports them. Published papers may use `l
 - Model paragraphs that open with `we propose a framework` before naming the decision.
 - Contribution paragraphs that are only a list of `we first`, `we second`, `we third`.
 - Punctuation-driven prose such as `Result:`, `Implication:`, or `Proof idea:`.
-- "Story" language. Let the story come from the setting, friction, method, result, and boundary.
+- "Story" language. Let coherence come from stable objects, analytical dependencies, evidence, comparison, and scope. Use setting, friction, mechanism, or implication only when the paper needs them.

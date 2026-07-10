@@ -2,20 +2,20 @@
 
 Use this for theorem statements, result sections, proof sketches, and appendix proofs.
 
-## Model Setup Before Theorem
+## Model Setup And Theorem Prerequisites
 
-- Establish the decision environment before formal claims: agents, timing, information, action, uncertainty, objective, constraints, benchmark, and solution concept.
-- Introduce primitives in the order the decision maker sees them. Do not define a symbol before the reader knows what operational object it represents.
+- Make the formal or decision environment recoverable by the point a claim relies on it. Relevant objects may include agents or system, timing, information, action or state, uncertainty, objective, constraints, comparator, and solution concept; not every model needs all of them.
+- Introduce primitives in temporal or mathematical dependency order. A technical subsection may define a symbol first and explain its operational meaning immediately afterward when that is the cleanest definition.
 - Put the main formulation in the body when later results depend on the objective, feasible set, benchmark, or information structure.
 - State assumptions with their analytic role. A useful assumption identifies, bounds, simplifies, preserves tractability, isolates a mechanism, or matches a standard setting.
-- After a formulation display, explain what the central variables mean and why the formulation captures the managerial or operational friction.
+- Explain the central variables and the formulation's analytical role near the display. A managerial or operational friction is needed only when the model actually isolates one.
 
 ## Result Statement
 
-- State conditions before conclusions.
-- Use meaningful proposition titles when allowed: "Threshold Structure of the Optimal Policy" is better than "Main Result."
+- Make conditions available by the point the conclusion is interpreted. Standing assumptions may precede the statement, appear in it, or be recalled immediately afterward when scope could be missed.
+- Prefer bare result labels or short object-like descriptors when allowed: `Proposition 1`, `Theorem 2 (Regret Bound)`, or `Lemma 3 (Monotonicity)`. Put the full claim in the statement and surrounding prose.
 - Keep theorem statements complete: primitives, parameter ranges, equilibrium/optimality concept, conclusion, uniqueness or boundary cases if needed.
-- After the statement, add one interpretation paragraph before moving to proof or next result.
+- Keep needed interpretation in the local result package. It may precede a complete short proof, follow it, or surround a one-line appendix pointer according to the manuscript's convention; a self-interpreting result may need only one sentence.
 
 ## Main Text vs Appendix
 

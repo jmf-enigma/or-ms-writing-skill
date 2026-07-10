@@ -21,25 +21,25 @@ These notes come from recent INFORMS original pages and abstracts, with attentio
 
 Smooth paragraphs are usually simpler than our drafts.
 
-- They start from a recognizable object, not from a label. The object may be a manager, platform, queue, recommendation system, voting procedure, algorithm, or worker.
+- They start from a recognizable object, not from a writing label. The object may be a manager, platform, queue, theorem, estimate, recommendation system, voting procedure, algorithm, or construct.
 - They move one step at a time. A sentence rarely tries to introduce the setting, model, benchmark, theorem, mechanism, and implication all at once.
-- They make the reader's question change gradually. First the reader sees why the question matters, then why the usual answer is incomplete, then why the paper's object is the right one.
+- They make changes in object, evidence, and scope legible. A paragraph may motivate a question gradually, state a result first, or define an object directly; the relation matters more than the sequence.
 - They use ordinary verbs. `Use`, `show`, `find`, `compare`, `estimate`, `choose`, `allow`, and `depend on` often read better than ornate verbs.
 - They let specifics do the work. A concrete variable, metric, comparison, or field setting is smoother than a polished abstract noun.
 - They include caveats without sounding defensive. A limitation is placed near the claim and written in the same calm register as the result.
 
-The prose should feel almost spoken at the level of logic: "Here is the object. Here is why the usual approach is not enough. Here is what we observe or prove. Here is what changes." The final sentence can still be formal, but the path to it should not feel mechanical.
+The prose should feel almost spoken at the level of logic: the reader can tell what the object is, what relation is being asserted, what supports it, and what follows. Not every passage needs a failure of the usual approach or an explicit implication.
 
 ## Overall Repair Order
 
 When a whole passage or section feels wrong, do not fix everything at once. Work in this order:
 
-1. **Local object**: what noun should the reader carry from one sentence to the next?
-2. **Reader turn**: what new question does the next sentence answer?
-3. **Evidence verb**: does the verb match the support: estimate, show, characterize, establish, suggest, validate?
-4. **Boundary**: is the assumption, sample, benchmark, policy class, or regime close enough to the claim?
-5. **Inference chain**: can the reader see how the sentence follows from the previous one?
-6. **Sentence rhythm**: split long sentences, remove noun piles, and put the subject near the verb.
+1. **Primary burden**: is the passage defining, motivating, establishing, comparing, interpreting, qualifying, or connecting?
+2. **Prerequisites**: are definitions, comparators, timing, and design facts available before they are used?
+3. **Warrant**: does the evidence verb match the theorem, estimate, comparison, or other support?
+4. **Scope**: is the assumption, sample, benchmark, policy class, or regime close enough to the claim?
+5. **Relation**: can the reader recover how each sentence relates to the adjacent sentence without relying on decorative transitions?
+6. **Sentence rhythm**: split overloaded sentences, remove noun piles, and put the subject near the verb.
 7. **Academic register**: replace casual evaluation with constructs, metrics, assumptions, benchmarks, or calibrated inference verbs.
 8. **Field texture**: add only the OR/MS collocation that the object needs.
 
@@ -52,15 +52,15 @@ Academic register should not make the paragraph heavier than its logic. A paragr
 Before finalizing a paragraph, silently ask:
 
 1. Could a researcher say the paragraph out loud in a seminar without sounding like they are reading a checklist?
-2. Does each sentence inherit one object from the previous sentence?
-3. Does each sentence add one new thing, not three?
+2. Can the reader track recurring objects and recognize deliberate topic changes?
+3. Does each sentence carry a recoverable relation without taking on several competing burdens?
 4. Is the main verb close to the subject?
 5. Does the paragraph use the paper's nouns instead of generic labels such as insight, implication, framework, mechanism, and contribution?
 6. If a sentence uses `when`, `whereas`, `relative to`, `without`, or `consistent with`, is that relation the reason the sentence exists?
 7. Could one clause be moved to the next sentence and make the paragraph easier to read?
 8. Does any `A, B, and C` list merely decorate a noun? If yes, keep only the item that carries the claim, or split the items into separate evidence-backed claims.
 
-If the answer to any of these is no, simplify before polishing.
+Use negative answers as diagnostic prompts, not automatic rewrite commands. A theorem statement, direct result, or subsection opening may deliberately break local subject continuity.
 
 ## Common Source-Like Movements
 
@@ -131,9 +131,9 @@ Movement:
 
 ## Sentence-Level Smoothness
 
-### Prefer Inherited Subjects
+### Preserve Referential Continuity
 
-Let the subject of a sentence come from the prior sentence when possible.
+Let a subject or canonical object carry across sentences when that continuity helps. Do not vary terminology merely for style, but do not force every sentence to inherit the previous grammatical subject.
 
 Stiff:
 
@@ -223,15 +223,17 @@ Repair by removing one layer. A simple supported claim should remain simple: sta
 
 ## Natural Model Prose
 
-A model paragraph is smoother when it tells the reader what the model is for before listing all primitives.
+A model paragraph is smoother when it makes the role of the model clear before the reader must hold many primitives. If the role is already active, the paragraph can begin with a formulation, state variable, assumption, or departure.
 
-Good order:
+One common dependency order is:
 
 - who makes the decision;
 - what information arrives before the decision;
 - what control is chosen;
 - what outcome or objective follows;
 - which feature is abstracted from or added relative to the benchmark.
+
+This is an inventory, not a sentence or paragraph template. A nonagent model may begin with a system state or feasible set; a technical subsection may define symbols first; a result-driven model extension may begin with the new feature. Order only the elements that later statements depend on.
 
 Natural prose does not need to define every symbol before the reader knows why the symbol matters.
 
@@ -259,9 +261,9 @@ Use a labeled `Proof.` for a complete short proof or for a one-line appendix poi
 
 ## Natural Result Prose
 
-The result should usually be stated before its implication, but the implication should not wait until the end of the section.
+Keep the result, support, and interpretation close enough that their relation is clear. A result paragraph can be claim-first or evidence-first, and a brief implication can precede supporting detail when the prior context already owns the evidence.
 
-Movement:
+Possible burdens:
 
 - state the estimate, theorem, or comparison;
 - say how it differs from the benchmark;
