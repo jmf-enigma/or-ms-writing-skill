@@ -42,7 +42,7 @@ Select the minimum burdens needed to compress the paper accurately. Common burde
 - Friction, counterexample, or missing evidence, when it motivates the contribution.
 - Model, empirical design, algorithm, simulation, or hybrid evidence.
 - Headline result with the metric, comparator, and condition needed for accuracy.
-- Implication only when the result changes an action or belief the paper supports.
+- Implication only when the result changes a supported action, comparison, interpretation, or later analytical choice.
 
 ### Introduction
 

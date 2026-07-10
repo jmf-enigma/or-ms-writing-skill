@@ -83,19 +83,19 @@ def clean_notes(raw: str) -> list[str]:
 
 def classify(note: str) -> str:
     lower = note.lower()
-    explicit_appendix = any(
-        term in lower
-        for term in {
+    explicit_appendix = has_any(
+        lower,
+        {
             "appendix", "online appendix", "e-companion", "proof detail",
             "kkt verification", "case split", "case splits", "data dictionary",
             "implementation detail", "robustness table", "robustness tables",
-        }
+        },
     )
-    if explicit_appendix and not any(term in lower for term in {"main", "primary", "headline", "spine"}):
+    if explicit_appendix and not has_any(lower, {"main", "primary", "headline", "spine"}):
         return "Appendix or verification"
     if has_any(lower, SPINE_TERMS):
         return "Spine candidate"
-    if has_any(lower, DURABLE_TERMS) and any(term in lower for term in DURABLE_INTENT_TERMS):
+    if has_any(lower, DURABLE_TERMS) and has_any(lower, DURABLE_INTENT_TERMS):
         return "Durable object"
     if has_any(lower, CONSTRUCT_TERMS):
         return "Construct or measure"
@@ -124,7 +124,7 @@ def choose_spine(notes: list[str]) -> str:
         score -= 2 if has_any(lower, APPENDIX_TERMS) else 0
         scored.append((score, -index, note))
     scored.sort(reverse=True)
-    return scored[0][2] if scored and scored[0][0] > 0 else "Not clear from notes. Choose the claim that changes the main decision, benchmark, or belief."
+    return scored[0][2] if scored and scored[0][0] > 0 else "Not clear from notes. Choose the claim the manuscript most strongly establishes and that the abstract should make memorable."
 
 
 def choose_durable_object(notes: list[str]) -> str:
@@ -133,7 +133,7 @@ def choose_durable_object(notes: list[str]) -> str:
         lower = note.lower()
         score = 0
         score += 3 if has_any(lower, DURABLE_TERMS) else 0
-        score += 2 if any(term in lower for term in DURABLE_INTENT_TERMS | {"benchmark", "relative to", "compared with", "generalizes", "基准", "相对于", "相比"}) else 0
+        score += 2 if has_any(lower, DURABLE_INTENT_TERMS | {"benchmark", "relative to", "compared with", "generalizes", "基准", "相对于", "相比"}) else 0
         score += 1 if has_any(lower, MODEL_TERMS | CONSTRUCT_TERMS | DATA_TERMS) else 0
         score -= 2 if has_any(lower, APPENDIX_TERMS) else 0
         scored.append((score, -index, note))
@@ -189,8 +189,8 @@ def main() -> int:
     questions = [
         "What model, benchmark, measure, treatment contrast, policy class, theorem object, or tradeoff would a later paper cite?",
         "What is the central object the reader should remember?",
-        "What belief or benchmark does the spine result change?",
-        "Which one result must appear in the abstract and introduction?",
+        "What paper-level claim does the spine result let a knowledgeable reviewer make?",
+        "Which result earns inclusion in both the abstract and introduction?",
         "What exact comparator and metric or estimand does that result use?",
         "What theorem, design, identification argument, validation, or implementation evidence owns the claim?",
         "Which support item is needed for first-pass trust?",

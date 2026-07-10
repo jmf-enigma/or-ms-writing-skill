@@ -91,7 +91,14 @@ def clean(line: str) -> str:
 
 def has_any(text: str, terms: set[str]) -> bool:
     lower = text.lower()
-    return any(term in lower for term in terms)
+    for term in terms:
+        if any(ord(char) > 127 for char in term) or " " in term or "-" in term:
+            if term in lower:
+                return True
+            continue
+        if re.search(r"\b" + re.escape(term) + r"(?:s|es|ed|ing)?\b", lower):
+            return True
+    return False
 
 
 def classify(note: str) -> tuple[str, str, str]:
@@ -119,19 +126,25 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Model object",
             "Main text",
-            "Use to establish agents, timing, information, actions, objective, constraints, assumptions, and benchmark.",
+            "Make the relevant system or decision object and the primitives used by later claims recoverable. Include timing, information, actions, objective, constraints, assumptions, or a benchmark only when consequential.",
         )
     if any(term in lower for term in {"proof idea", "proof sketch", "proof roadmap", "roadmap"}):
         return (
             "Proof idea",
             "Main text summary plus appendix",
-            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Use ordinary prose unless the manuscript has an established formal proof-pointer convention. Put verification details in the appendix.",
+            "Keep only the load-bearing route in the body, such as a reduction, construction, comparison, key inequality, or theorem application. One sentence is enough if the proof is routine. Use ordinary prose unless the manuscript has an established formal proof-pointer convention. Put verification details in the appendix.",
+        )
+    if re.search(r"\b(?:apply|applies|applying|invoke|invokes|invoking)\b.*\b(?:theorem|proposition|lemma|corollary)\b", lower):
+        return (
+            "Proof idea",
+            "Main text summary plus appendix",
+            "Name the result being applied and verify the condition that makes the application valid. Keep routine verification in the appendix.",
         )
     if any(term in lower for term in {"theorem", "proposition", "corollary"}):
         return (
             "Formal result",
             "Main text",
-            "State the theorem, proposition, bound, policy structure, or estimand and add an interpretation paragraph.",
+            "State the theorem, proposition, bound, policy structure, or estimand and keep any interpretation needed to read it accurately nearby.",
         )
     if has_any(lower, CENTRAL_DERIVATION):
         return (
@@ -143,13 +156,13 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Proof idea",
             "Main text summary plus appendix",
-            "Keep only the constructed object, hard term, and load-bearing move in the body; one sentence is enough if the proof is routine. Use ordinary prose unless the manuscript has an established formal proof-pointer convention. Put verification details in the appendix.",
+            "Keep only the load-bearing route in the body, such as a reduction, construction, comparison, key inequality, or theorem application. One sentence is enough if the proof is routine. Use ordinary prose unless the manuscript has an established formal proof-pointer convention. Put verification details in the appendix.",
         )
     if has_any(lower, INTERPRETATION):
         return (
             "Interpretation",
             "Main text",
-            "Use after the formal result to map symbols to the decision, benchmark, mechanism, or condition.",
+            "Place near the formal result to map symbols to the relevant object, comparison, mechanism, or condition. It may precede or follow the statement.",
         )
     if "proof" in lower and ("appendix" in lower or "complete proof" in lower):
         return (
@@ -161,13 +174,13 @@ def classify(note: str) -> tuple[str, str, str]:
         return (
             "Model object",
             "Main text",
-            "Use to establish agents, timing, information, actions, objective, constraints, assumptions, and benchmark.",
+            "Make the relevant system or decision object and the primitives used by later claims recoverable. Include timing, information, actions, objective, constraints, assumptions, or a benchmark only when consequential.",
         )
     if has_any(lower, RESULT):
         return (
             "Formal result",
             "Main text",
-            "State the theorem, proposition, bound, policy structure, or estimand and add an interpretation paragraph.",
+            "State the theorem, proposition, bound, policy structure, or estimand and keep any interpretation needed to read it accurately nearby.",
         )
     if has_any(lower, VALIDITY):
         return (
@@ -229,11 +242,11 @@ def main() -> int:
 
     print("\nMain-text modules")
     modules = [
-        ("Model object", "Open with the decision environment and the formal object."),
+        ("Model object", "Make the relevant formal, empirical, or decision object recoverable before later claims rely on it; a formulation may come first when its role is already active."),
         ("Formal result", "State the theorem or proposition that carries the contribution."),
         ("Derivation checkpoint", "Show start point, key move, and resulting object if the result depends on a transformation."),
-        ("Interpretation", "Translate the result into the decision, benchmark, mechanism, and condition."),
-        ("Proof idea", "Add only the constructed object, hard term, and proof move when reviewer trust needs it; keep routine proof ideas to one precise sentence and distinguish this prose from a complete proof or a formal one-line proof pointer."),
+        ("Interpretation", "Translate the result into the relevant object, comparison, mechanism, or condition at the depth the reader needs."),
+        ("Proof idea", "Add only the reduction, comparison, inequality, theorem application, or other proof move needed for reviewer trust. Keep routine proof ideas to one precise sentence and distinguish this prose from a complete proof or a formal one-line proof pointer."),
         ("Validity support", "Summarize only validity-critical robustness or feasibility checks."),
     ]
     print("Select only the modules needed for first-pass trust; do not treat this as paragraph order.")
@@ -243,13 +256,13 @@ def main() -> int:
 
     print("\nDisplay layout hints")
     print("- Body displays: use for the model object, objective, benchmark, theorem statement, key decomposition, or one proof-sketch inequality.")
-    print("- Sentence before display: tell the reader what the display defines, relaxes, decomposes, or bounds.")
-    print("- Sentence after display: translate the central variables and say why the display is used next.")
+    print("- Nearby prose: make the display's role and consequential notation recoverable. Put that prose before, after, or on both sides according to dependency.")
+    print("- A display may open a technical subsection when prior context already supplies its role; avoid requiring symmetrical framing sentences.")
     print("- Appendix displays: use for algebra, constants, KKT checks, concentration steps, case splits, and auxiliary lemma proofs.")
     print("\nProof label rule")
     print("- Follow one manuscript convention: a complete short `Proof.`, a formal one-line `Proof.` appendix pointer, or ordinary proof-sketch prose with a cross-reference.")
     print("- A one-line pointer records proof location; a proof idea explains the mathematical move. Neither replaces the nearby result interpretation.")
-    print("- Keep theorem/proposition captions short; put the meaning in the prose before and after the statement.")
+    print("- Keep theorem/proposition captions short; put any needed meaning in the surrounding local result package.")
 
     print("\nAppendix modules")
     appendix_items = [note for note, role, _, _ in rows if has_appendix_hint(note, role)]

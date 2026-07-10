@@ -133,14 +133,13 @@ For a proposed new paragraph, the useful test is still whether it could stand as
 
 Main-text displays do one job. They define the model, create the benchmark, state the result, or expose the key proof move.
 
-- Before a display, say what the display defines or why it is needed.
-- After a display, translate the important variables and tell the reader what the display will be used for.
+- Make the display's role and consequential variables recoverable in nearby prose. A display may lead when the preceding passage has already made its role clear; avoid requiring identical framing around every equation.
 - Keep a sequence of displays only when they form one object, such as a formulation with constraints or a short Bellman equation block.
 - Move repeated algebra, constants, case splits, KKT verification, induction details, and concentration calculations to the appendix.
 
 For derivations, show three levels in the body: starting object, load-bearing move, resulting object. The appendix fills in the algebra.
 
-For empirical equations, do not let the display arrive before the design. Name the sample, treatment or contrast, outcome, fixed effects or controls, and identifying comparison in prose first. After the equation, explain the coefficient or estimand that corresponds to the prediction, and state what variation supports the interpretation.
+For empirical equations, make the sample, treatment or contrast, outcome, identifying comparison, and coefficient meaning available by the point the display is used as evidence. They may be established in prior prose, introduced immediately before the equation, or explained just after a compact specification when the design is already active.
 
 For theory equations, main text usually contains the system definition, objective, benchmark, and one characterization equation. The appendix contains integration by parts, KKT verification, repeated casework, constants, and proofs of auxiliary lemmas.
 

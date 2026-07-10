@@ -119,20 +119,28 @@ def contains_term(text: str, term: str) -> bool:
     return bool(re.search(r"\b" + re.escape(term) + r"\b", lower))
 
 
+def contains_heading_term(text: str, term: str) -> bool:
+    """Allow ordinary inflections in headings without matching inside larger words."""
+    lower = text.lower()
+    if any(ord(char) > 127 for char in term) or " " in term or "-" in term:
+        return term in lower
+    return bool(re.search(r"\b" + re.escape(term) + r"(?:s|es|ed|ing)?\b", lower))
+
+
 def canonical_section(title: str) -> str | None:
     clean = re.sub(r"[{}*_:#]", " ", title).strip().lower()
     clean = re.sub(r"^\s*(?:\d+(?:\.\d+)*[.)]?|[ivxlcdm]+[.)]|[一二三四五六七八九十]+[、.])\s*", "", clean)
-    if any(term in clean for term in {"appendix", "supplement", "electronic companion", "online companion", "附录", "补充材料"}):
+    if any(contains_heading_term(clean, term) for term in {"appendix", "supplement", "electronic companion", "online companion", "附录", "补充材料"}):
         return "appendix"
     if clean in {"abstract", "summary", "摘要"} or clean.startswith("abstract "):
         return "abstract"
-    if any(term in clean for term in {"conclusion", "concluding", "discussion", "结论", "讨论"}):
+    if any(contains_heading_term(clean, term) for term in {"conclusion", "concluding", "discussion", "结论", "讨论"}):
         return "discussion_or_conclusion"
-    if any(term in clean for term in {"result", "findings", "analysis", "numerical experiment", "computational experiment", "empirical evidence", "实证结果", "研究结果", "数值实验", "计算实验", "结果与分析"}):
+    if any(contains_heading_term(clean, term) for term in {"result", "findings", "analysis", "numerical experiment", "computational experiment", "empirical evidence", "实证结果", "研究结果", "数值实验", "计算实验", "结果与分析"}):
         return "results"
-    if any(term in clean for term in {"introduction", "motivation", "overview", "引言", "绪论", "研究背景"}):
+    if any(contains_heading_term(clean, term) for term in {"introduction", "motivation", "overview", "引言", "绪论", "研究背景"}):
         return "introduction"
-    if any(term in clean for term in {
+    if any(contains_heading_term(clean, term) for term in {
         "model", "problem formulation", "research setting", "institutional setting",
         "empirical strategy", "research design", "experimental design", "data and method",
         "data", "methods", "methodology", "framework", "measure", "measurement", "identification strategy",

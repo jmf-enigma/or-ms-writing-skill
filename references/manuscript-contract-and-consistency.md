@@ -6,25 +6,25 @@ This is not a fixed outline. Theory, empirical, structural, algorithmic, field-i
 
 ## The Paper Contract
 
-Extract seven fields before rewriting the manuscript.
+Audit seven fields before rewriting the manuscript. Mark a field as not applicable rather than inventing a comparator, mechanism, or decision consequence the paper does not claim.
 
 1. **Central object**: the decision, market, system, construct, estimator, loss, benchmark, policy class, or theorem object the paper studies.
-2. **Headline claim**: the one result that should change a knowledgeable reader's belief.
+2. **Headline claim**: the most consequential result the evidence lets a knowledgeable reviewer state accurately.
 3. **Comparator**: current practice, a standard model, an oracle, first-best, full information, a baseline policy, treatment control, or another explicit reference point.
 4. **Metric or estimand**: profit, cost, welfare, regret, approximation ratio, treatment effect, conversion, error, or another precisely defined outcome.
 5. **Credibility source**: theorem and proof, identification argument, randomized variation, construct validation, out-of-sample comparison, simulation benchmark, or field implementation.
 6. **Boundary**: the assumption, policy class, sample, regime, information structure, parameter range, or implementation condition under which the claim is supported.
-7. **Decision relevance**: whose decision changes, which lever changes, and why the result matters for that decision.
+7. **Consequence or use, when supported**: whose decision changes, what later analysis becomes possible, or which accepted comparison the result revises.
 
-The contract is not a slogan. Each field must be recoverable from the paper's formal or empirical content. If the evidence supports only a local result, the contract must remain local.
+The contract is not a slogan. Each applicable field must be recoverable from the paper's formal or empirical content. If the evidence supports only a local result, the contract must remain local.
 
 ## How Sections Transport The Contract
 
 Sections should not repeat identical sentences. They perform different operations on the same objects.
 
 - **Abstract** compresses the contract. It names the object, method or evidence, headline result, metric or comparator, and the boundary needed to prevent overreading.
-- **Introduction** makes the contract necessary. It establishes the decision or standard benchmark, identifies the friction, and explains why the paper's evidence can resolve the resulting question.
-- **Model or empirical design** operationalizes the contract. It defines the actors, timing, information, action, objective, comparator, estimand, or identifying variation that the headline claim requires.
+- **Introduction** makes the contract legible and worth examining. It establishes whichever setting, standard benchmark, construct, counterexample, technical obstacle, or prior evidence is needed to interpret the paper's claim and credibility source.
+- **Model or empirical design** operationalizes the contract. It defines the relevant subset of actors or system, timing, information, action, objective, comparator, estimand, construct, or identifying variation that the headline claim requires.
 - **Results** discharge the contract. They state the formal or empirical support, preserve the exact comparator and metric, and separate the headline result from mechanism, robustness, and scope.
 - **Conclusion** interprets the contract. It may broaden the relevance, but it cannot silently broaden the population, policy class, evidence type, or claim strength.
 - **Appendix** verifies the contract. It supplies proof, construction, robustness, measurement, or implementation details without becoming the first place where the central object or support is intelligible.

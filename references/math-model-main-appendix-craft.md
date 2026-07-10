@@ -10,7 +10,7 @@ For Management Science-specific details about how body displays, theorem stateme
 - Operations Research separates regular appendices needed for understanding from electronic companions that are optional supplemental material. In focused technical papers, proofs belong in the published paper rather than only in an EC.
 - Recent MS/OR papers commonly put the decision environment, main model primitives, key assumptions, theorem statements, and result interpretation in the body. Long proofs, routine lemmas, repeated algebra, KKT checks, finite-sample demonstrations, and extra robustness usually move to an appendix or EC.
 - Full-text close readings confirm that proof placement is contextual. Some technical OR papers carry complete proofs in the main paper; many MS/M&SOM papers state the theorem or proposition, interpret it, give one proof move if trust requires it, and then put complete proof verification in the appendix or online supplement.
-- Model-heavy papers often give one body-level proof idea or derivation checkpoint before pointing to an appendix. The body tells the reader why the formal step works; the appendix verifies every inequality, case, and constant.
+- Model-heavy papers often keep one body-level proof idea or derivation checkpoint near an appendix pointer. The body tells the reader why the formal step works; the appendix supplies the formal details, cases, and constants the proof actually uses.
 - Applied OM papers often introduce a parsimonious base model in the body and put partner-specific calibration, data estimation, extra operational features, and scenario grids in appendices. The body still states how the real system maps onto the base model.
 - Baseline-plus-general-model theory papers often analyze the baseline model in the body and place the general model in an appendix. This works only when the body explains why the baseline carries the main mechanism and what the generalization preserves.
 - Mechanism and market-design papers often state theorem regions, then immediately interpret the regions and visualize the comparison. Proofs move to appendices, but the body explains which parameter or uncertainty source favors which mechanism.
@@ -28,19 +28,19 @@ Recent MS/OR papers tend to pair the body and appendix through a visible checkpo
 
 The common pattern is conclusion-first at the local result-package level. The body does not say only "see Appendix." It tells the reader what has been proved, estimated, checked, or preserved in nearby prose. A formal one-line proof pointer may precede that interpretation when the manuscript uses that convention.
 
-## Main-Text Model Ladder
+## Main-Text Model Inventory
 
-Write the model section so a reviewer can reconstruct the decision environment before parsing notation.
+By the point the reviewer must rely on dense notation, make the relevant formal, empirical, or decision object recoverable. A canonical formulation may come first when its role is already active. Use only the inventory items the paper needs, and order them by mathematical or temporal dependency.
 
-1. **Decision environment**: who chooses what, for whom, and why the decision is hard.
-2. **Timing and information**: what is observed before each action, what remains uncertain, and whether decisions are static, dynamic, sequential, simultaneous, or adaptive.
-3. **Actions and feasible set**: the control, policy class, allocation, price, threshold, estimator, recommendation, or mechanism being optimized or analyzed.
-4. **Objective and constraint**: profit, welfare, cost, regret, service level, feasibility, identification target, or risk measure. State the constraint that actually drives the result.
-5. **Benchmark or solution concept**: oracle, myopic policy, current practice, first-best, LP/fluid relaxation, clairvoyant benchmark, equilibrium, estimator target, or status quo.
-6. **Primitives and notation**: introduce symbols in the same order as the decision environment. Translate every important symbol once.
-7. **Assumption role**: say whether an assumption identifies, bounds, simplifies, preserves tractability, isolates a mechanism, matches practice, or rules out degeneracy.
+1. **Formal, empirical, or decision object**: the system, optimization problem, construct, estimator, policy class, or comparison the section establishes.
+2. **Timing and information, when consequential**: what is observed before each action or realization and which uncertainty drives later claims.
+3. **Actions, states, or feasible set**: the controls, policy class, allocation, threshold, estimator, recommendation, or mechanism being analyzed.
+4. **Objective, estimand, and binding constraints**: the metric or target and the constraint that actually drives the result.
+5. **Benchmark or solution concept, when used**: the oracle, current practice, relaxation, equilibrium concept, estimator target, or other reference point.
+6. **Primitives and notation**: introduce symbols in an order the reader can track and translate consequential notation once.
+7. **Assumption role**: explain an assumption when its role in identification, tractability, bounding, mechanism isolation, practice, or regularity matters.
 
-If the body cannot answer these seven points, the model is not established. If it answers them through a notation dump without operational translation, it is not readable.
+The model is established when the items later claims depend on are available and their roles are intelligible. Absence of an unused inventory item is not a defect.
 
 ## How Much Mathematics Belongs In The Body
 
@@ -50,7 +50,7 @@ Keep a mathematical step in the main text when it changes how the reader underst
 - Keep the main theorem, proposition, estimator, policy rule, or algorithm statement if it is used in the abstract, introduction, contribution paragraph, or headline result.
 - Keep one derivation checkpoint when a transformation creates the object used in the theorem, such as original problem to relaxation, Bellman equation to threshold structure, primal to dual, regret to decomposed terms, estimator to plug-in form, or equilibrium constraints to reduced form.
 - Keep a short proof idea when the proof technique is part of the methodological contribution, the result would otherwise look like a black box, or a skeptical reviewer needs to see why the key assumption matters.
-- Keep the interpretation after a theorem. A theorem without a body-level interpretation forces the appendix to carry the paper's meaning.
+- Keep any interpretation needed to evaluate a theorem in the local body passage. It may precede or follow the statement according to the manuscript's result convention.
 
 Move mathematics out of the body when it only verifies the step the body has already motivated.
 
@@ -81,24 +81,22 @@ The appendix gives the missing algebra between these levels. Do not write five p
 
 ## Main-Text Proof Sketch
 
-A main-text proof sketch should not be a miniature appendix. It should contain the proof's job.
+A main-text proof sketch should not be a miniature appendix. It should expose the part of the argument that explains why the result is credible.
 
 Before writing a proof paragraph, distinguish three jobs. A complete short proof may appear directly under the theorem or proposition with `Proof.`. A venue-style one-line `Proof.` may only record that proof verification appears in the appendix. A credibility bridge explains the proof move in ordinary prose and points to the appendix. Do not confuse the pointer with the bridge, and do not label an incomplete sketch as a complete proof when the manuscript's convention would imply otherwise.
 
-- Name the object constructed or reduced to.
-- Name the hard term, constraint, or error source.
-- State why the mathematical move controls it.
-- Explain how this yields the theorem's policy, bound, characterization, or estimator.
-- Point to the appendix for formal verification.
+Depending on the proof, the bridge may name a reduction or constructed object, isolate a difficult term, show the key inequality or comparison, or identify the external result being applied and verify its consequential condition. Include only the pieces needed to connect the statement to the conclusion. Point to the appendix for formal verification when details move there.
 
 Good body-level proof prose says, for example, that the proof takes the dual because the dual prices the scarce capacity, uses a coupling because it holds arrivals fixed across policies, or decomposes regret because only one term depends on learning error.
 
-For Management Science, keep the proof-idea voice especially plain. It is not a place for authorial style. A good MS proof idea usually has four sentences or fewer:
+For Management Science, keep the proof-idea voice especially plain. It is not a place for authorial style. A useful bridge is usually four sentences or fewer and may include:
 
 1. The sketch scope or simplifying assumption, if any.
-2. The constructed object, decomposition, relaxation, or reduction.
-3. The lemma, inequality, or comparison that controls the hard term.
+2. A constructed object, decomposition, relaxation, reduction, or theorem application.
+3. The lemma, inequality, comparison, or condition that carries the argument.
 4. The connection back to the theorem and the appendix pointer.
+
+Do not force all four sentences. A direct application may need only the cited result and verification of its condition; a simple monotonicity argument may need only the consequential derivative sign.
 
 Use ordinary verbs: construct, decompose, bound, compare, apply, combine, show, imply. Avoid rhetorical verbs such as reveal, illuminate, uncover, or hinge on unless the sentence names the exact mathematical object.
 
@@ -112,7 +110,7 @@ For a theorem that gives a rate or bound, include the rate driver in the body. F
 
 An appendix proof can be denser, but it still needs reader signposts.
 
-- Start each proof by restating the fixed objects, assumptions, and theorem target.
+- Begin by fixing any objects or assumptions that are not already active and make the theorem target clear.
 - Before long algebra, state what the algebra is proving.
 - Use lemma names by function, such as upper-bound lemma, threshold lemma, concentration lemma, feasibility lemma, or reduction lemma.
 - Keep notation consistent with the body. If a new object is local to the proof, say so.
@@ -131,7 +129,7 @@ Assume the reviewer knows one nearby field deeply and the rest only well enough 
 - An OM or MS reviewer should not have to infer whether a model is normative, descriptive, structural, equilibrium, learning, robust, or policy-evaluation.
 - A domain expert should not see a familiar word used with a different technical meaning unless the local definition appears first.
 
-When crossing fields, add one bridge sentence before the formal object. It should map the unfamiliar construct into the reviewer's vocabulary, not apologize for the mathematics.
+When crossing fields, add a concise bridge near the formal object's first consequential use. It should map the unfamiliar construct into the reviewer's vocabulary, not apologize for the mathematics; it may precede or follow a compact definition according to dependency.
 
 ## Main Text And Appendix Map
 
@@ -139,7 +137,7 @@ Before writing from a proof or derivation, build this map internally.
 
 | Object | Body role | Appendix role |
 |---|---|---|
-| Model primitives | decision environment, timing, information, action, objective, benchmark | notation table, secondary variants |
+| Model primitives | the relevant environment, timing, information, action, objective, or benchmark | notation table, secondary variants |
 | Assumptions | statement and analytic role | examples, boundary cases, weaker/stronger variants |
 | Main theorem | formal statement and interpretation | complete proof |
 | Central derivation | start point, key move, resulting object | algebra, constants, cases, lemmas |
@@ -154,8 +152,8 @@ For a mechanical first pass from rough notes, run `scripts/plan_math_split.py`. 
 When the user gives a proof process rather than polished text, do not start drafting immediately.
 
 1. **Inventory** the notes into model object, formal result, central derivation, proof idea, appendix verification, interpretation, and gap notes.
-2. **Recover the body spine**: the body needs the mathematical object, theorem or proposition, one derivation checkpoint if the result depends on a transformation, and an interpretation paragraph.
-3. **Recover the appendix spine**: the appendix needs complete proof order, fixed objects and assumptions, lemma functions, case splits, constants, and verification details.
+2. **Recover the body spine**: keep the mathematical object, theorem or proposition, any derivation checkpoint on which the result depends, and the interpretation needed for first-pass reading.
+3. **Recover the appendix spine**: supply the complete proof with the relevant fixed objects, assumptions, lemma dependencies, cases, constants, and verification details. Do not invent categories the proof does not use.
 4. **Check for missing reader objects**: if the notes prove a theorem but never state the benchmark, policy class, information structure, or result type, mark the gap before writing.
 5. **Draft in two registers**: body prose should be explanatory and selective; appendix prose should be precise, complete, and signposted.
 

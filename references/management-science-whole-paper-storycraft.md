@@ -150,19 +150,19 @@ A method-first opening is weak only when the reader cannot tell what the method 
 
 For technical papers, a first page can legitimately use examples, figures, or a small network before the main theorem. In that case the example is not decoration; it explains the state variable, policy class, or operational ambiguity that makes the theorem necessary.
 
-## Paragraph Jobs In The Introduction
+## Possible Paragraph Jobs In The Introduction
 
 Use these as internal jobs, not visible labels.
 
-- **Practice paragraph**: who chooses what, in what organization or market, with what stakes.
-- **Belief paragraph**: what the literature, firm, platform, or regulator would normally expect.
-- **Friction paragraph**: why that belief may fail in this setting.
-- **Question paragraph**: the precise question once its objects and comparison are interpretable.
+- **Setting or object paragraph**: the institution, decision, construct, formal problem, or empirical pattern the paper studies.
+- **Prior-work or benchmark paragraph**: the standard view, accepted comparison, or existing evidence when the contribution depends on it.
+- **Obstacle or counterexample paragraph**: the friction, identification problem, computational limit, or failed prediction when one motivates the paper.
+- **Question or claim paragraph**: the precise question or paper-level claim once its objects and comparison are interpretable.
 - **Design paragraph**: data, experiment, model, or algorithm, with just enough detail to identify the causal or formal object.
 - **Findings paragraph**: make the headline effect and its support legible; place mechanism, heterogeneity, or boundary before or after it according to the local evidential dependency.
 - **Contribution paragraph**: what each audience learns that it could not learn from prior work.
 
-If a paragraph tries to perform all seven jobs, it is probably overloaded. Split when the burdens compete, but allow linked work such as result plus interpretation or definition plus role. The burden can be expository, empirical, theoretical, or connective; it does not always need a friction or immediate implication.
+These jobs are optional and can be combined. Split when burdens compete, but allow linked work such as result plus interpretation or definition plus role. The burden can be expository, empirical, theoretical, or connective; it does not always need a friction, benchmark, or immediate implication.
 
 ## Methods Enter When Their Role Is Legible
 
@@ -286,7 +286,7 @@ Common successful modules, not a required sentence template:
 - Mechanism, heterogeneity, or boundary.
 - Implication.
 
-The sharpest result should get the cleanest sentence. Avoid ending with generic "valuable insights"; end with the action, design condition, or belief that changes.
+The sharpest result should get the cleanest sentence. Let the abstract end on the headline result, boundary, interpretation, or supported consequence that completes its burden. Do not add a generic "valuable insights" sentence merely to create a takeaway.
 
 ## Sentence Rhythm
 
@@ -315,7 +315,7 @@ Distrust:
 
 ## Whole-Paper Continuity
 
-Use the manuscript contract rather than a fill-in-the-blank story sentence. Record the central object, belief change, comparator, metric, evidence owner, and boundary in plain notes. A mechanism belongs in this record only if the paper actually establishes one.
+Use the manuscript contract rather than a fill-in-the-blank story sentence. Record the central object, headline claim, evidence owner, and boundary in plain notes, together with a comparator or metric when the claim depends on one. A mechanism belongs in this record only if the paper actually establishes one.
 
 Different sections transform the same contract differently. The abstract compresses it; the introduction makes the object and departure legible; the model or design defines what the claim means; the results supply support; the conclusion interprets the supported claim. Related work and appendices have their own burdens and need not restate the whole contract.
 

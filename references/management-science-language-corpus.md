@@ -336,7 +336,7 @@ MS proof-idea prose is plain and functional. It should not have a distinctive "v
 - Make the sketch's object and role recoverable; this may be established by the theorem statement or preceding prose rather than repeated in its first sentence.
 - If the sketch uses an extra simplifying assumption, state it immediately and say where the complete proof appears.
 - Name the first constructed object or reduction. Common starts are "We construct an upper bound," "We decompose the regret," "We first show," "It suffices to bound," or "The argument has two steps."
-- After a displayed equation, say what the display removes, bounds, or transforms. Do not add rhetorical flourish.
+- Make clear near a displayed equation what it removes, bounds, or transforms. The explanation may precede or follow the display according to the proof dependency. Do not add rhetorical flourish.
 - Make the step from the bound, decomposition, or lemma to the theorem recoverable somewhere in the sketch; it need not be reserved for a formulaic final sentence.
 
 Bad proof-idea voice for MS:
@@ -395,7 +395,7 @@ First page:
 Middle of introduction:
 
 - Introduce data/model only after the question is clear.
-- Explain identification, equilibrium, or algorithm in one sentence before listing findings.
+- Make the identification strategy, equilibrium concept, or algorithmic role recoverable before the findings rely on it; use as much or as little local explanation as the reader needs.
 - State findings in a sequence that follows the reader's decision problem.
 
 Contribution section:
@@ -439,8 +439,8 @@ The fix is usually to name the exact object. Use profit, consumer surplus, match
 
 Before returning polished prose, ask:
 
-1. Would a Management Science reader know the management question after the first two sentences?
+1. Would a Management Science reader understand the central object and why it matters by the point the argument relies on it?
 2. Does the method appear because it is needed for the question, rather than because the authors want to advertise it?
-3. Is the best result stated in the metric the reader cares about?
-4. Does the mechanism explain why the result occurs?
-5. Does the final sentence say what belief, policy, or research approach should change?
+3. Is the headline result stated in the metric and comparison the paper actually supports?
+4. If the paper makes a mechanism claim, is the mechanism supported rather than merely asserted?
+5. Does the passage close on the result, boundary, or consequence its local burden calls for, without a mandatory takeaway sentence?

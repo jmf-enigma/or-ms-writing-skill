@@ -164,7 +164,7 @@ For industry-partner or field-data applications, write the section in two passes
 
 ## MS Versus OR Feel
 
-- Management Science prose usually keeps the managerial or empirical object visible even when the paper is technical. It explains what the same model, data, or algorithm changes about a management belief or decision.
+- Management Science prose usually keeps the managerial or empirical object visible even when the paper is technical. It explains what the model, data, or algorithm changes about a decision, comparison, mechanism, or interpretation relevant to management.
 - Operations Research prose tolerates denser formal development, but it still names the formal object, benchmark, and performance criterion early.
 - Revenue management papers often use a canonical problem plus operational constraint pattern. The writing makes the business constraint a modeling reason, not just motivation.
 - Learning and algorithm papers introduce regret, benchmark, and information structure early. They state what the algorithm observes and which oracle or optimum it competes against.

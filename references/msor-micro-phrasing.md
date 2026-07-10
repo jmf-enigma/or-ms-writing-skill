@@ -89,7 +89,7 @@ Model prose in MS/OR is usually narrow and cumulative. It rarely dumps all notat
 3. **Name the control.** The operator prices, routes, matches, audits, allocates capacity, selects an assortment, chooses a disclosure policy, or chooses a decision rule.
 4. **State the objective and benchmark close together.** A result is easier to trust when the reader can see whether the comparison is to a deterministic relaxation, open-loop policy, classic revenue-management model, pooled estimator, deterministic mechanism, or current operational procedure.
 5. **Display only the load-bearing object in the body.** The body display should define the optimization problem, transition, decomposition, or sufficient statistic used later. Constants, repeated cases, and verification details move to the appendix.
-6. **Interpret after the display.** The sentence after an equation should tell the reader what the equation makes possible: a state reduction, a decomposition, a monotonicity result, an identification expression, a comparison, or a guarantee.
+6. **Interpret the display where dependency requires it.** Nearby prose should tell the reader what the equation makes possible, such as a state reduction, decomposition, monotonicity result, identification expression, comparison, or guarantee. That explanation need not always follow the display.
 
 Useful body-model sentence moves:
 
@@ -105,7 +105,7 @@ Useful body-model sentence moves:
 Original papers use fewer proof labels than AI drafts tend to use.
 
 - A `Proof.` directly below a proposition is normal when it contains a short complete proof or follows a consistent one-line appendix-pointer convention. It is strange when an incomplete intuitive sketch is presented as if it were the proof.
-- A body proof idea is usually unlabeled prose after the result. It names the constructed object, the hard term, and the move that controls it, then points to the appendix if the proof is long.
+- A body proof idea is usually unlabeled prose near the result. It exposes the reduction, comparison, key inequality, theorem application, or other move that carries the proof, then points to the appendix if the proof is long.
 - Appendix headings are literal: `Proof of Theorem 1`, `Proof of Proposition 3`, `Proof of Lemma I.4`, `Additional Results`, `Model Extensions`, or `Robustness Checks`. They do not need elegant titles.
 - Appendix proof openings fix objects before manipulating them: the policy, reports, distribution, event, queue state, or parameter regime is specified first.
 - Long appendix proofs move through small obligations: establish form, verify feasibility, prove monotonicity or concavity, split cases, combine inequalities, then map back to the stated result.

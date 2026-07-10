@@ -39,6 +39,9 @@ The latest update adds full-text signals from predictive-prescriptive analytics,
 - story-order repair without a fixed arc: claim-first, evidence-first, definition-first, contrast-first, and result-first orders are all available when their relations are clear;
 - full-paper close-reading paths: how field experiments, platform models, multimethod studies, optimal-control papers, and appendix-heavy theory papers organize analytical dependencies without forcing every section into a question-and-answer handoff;
 - workflow cleanup: a shorter control-loop procedure, tighter request triage for paper-close-reading prompts, and less noisy topic lenses in section planning;
+- compact reference routing: mixed requests now receive at most a few primary references instead of the union of every matching corpus archive;
+- dependency-based display narration: equations may lead or follow their explanation when the surrounding context makes their role and consequential notation recoverable;
+- safer script classification: English signal words use word boundaries, so `case` no longer matches `showcase`, `main` no longer matches `remaining`, and valid mathematical punctuation is less likely to be mistaken for AI-style prose;
 - AI-scent list detection: catches decorative `A, B, and C` adjective/noun triplets and asks whether the items are real constructs or just filler;
 - citation close reading: checks citation dumping, unsourced literature claims, and novelty claims, and requires reading the cited paper's actual model/data/result/proof content before judging whether a citation supports the sentence;
 - high-impact paper craft: learns from classic and highly cited MS/OR papers by asking what portable object, benchmark, evidence, and boundary made the paper reusable;
@@ -84,6 +87,7 @@ The skill is built around a few nonnegotiable writing principles:
 - Elegant OR/MS storytelling comes from recoverable analytical relations, warranted claims, and controlled changes in scope or emphasis, not a required sequence of tension, method, result, and implication.
 - The main text must let a reviewer understand and trust the contribution without opening the appendix. At the local result-package level, an appendix pointer needs nearby prose saying what is established, why it matters, or what the appendix verifies.
 - References and scripts are diagnostic tools. The final prose should read naturally, not like a checklist.
+- Reference archives are not cumulative requirements. Start from the smallest relevant route and use a corpus archive only for a specific unresolved diagnosis.
 - When prose sounds stiff, the skill now prioritizes sentence craft: ordinary subject-verb-object movement, fewer noun piles, shorter preposition chains, and one-step paragraph progression before adding more OR/MS markers.
 
 ### Installation
@@ -131,7 +135,8 @@ Use $or-ms-writing to audit this manuscript for claim, terminology, number, and 
 ├── agents/openai.yaml       # Codex UI metadata
 ├── references/              # Detailed OR/MS writing, model, proof, and paper-style references
 ├── scripts/                 # Lightweight planning and diagnostic scripts
-└── templates/               # Reusable planning templates
+├── templates/               # Reusable planning templates
+└── tests/                   # Regression tests for routing and diagnostic false positives
 ```
 
 ### Useful Scripts
@@ -157,6 +162,10 @@ python3 scripts/plan_math_split.py --target "Management Science" < proof_notes.t
 ```
 
 ```bash
+python3 scripts/place_results.py --target "Management Science" < result_items.txt
+```
+
+```bash
 python3 scripts/check_paragraph.py --section results --fail-on-ai-scent < draft.txt
 ```
 
@@ -179,6 +188,8 @@ MIT License. See [LICENSE](LICENSE).
 `or-ms-writing` 是一个面向 OR/MS 论文写作的 Codex skill。它的目标不是写得花，而是写得像真正的 Management Science / Operations Research / M&SOM 论文: 观点清楚，证据贴近，边界不虚，模型和数学叙述能被审稿人顺着读下去。
 
 最新版本把“用词搭配”和“句子英文”放得更靠前，也补上了对全文正文和 appendix 的 close reading：先看 verb-object fit、preposition、evidence verb、OR/MS collocation，再让每句话围绕清楚的 local object 和 relation 展开，只在论证需要时加入 condition、benchmark 或 scope；遇到 model、theorem、proof idea、appendix handoff 时，会按真实 MS/OR 正文的写法判断深度，而不是套一个固定模板。它会尽量避免把诊断标签直接写进成稿。
+
+这一版也收紧了内部路由。混合任务只返回少量 primary references，不再把所有语料库一次性并进上下文；公式说明按数学依赖放在 display 前、后或两侧，不再强制对称句式；分类脚本改用英文词界，避免 `case` 命中 `showcase`、`main` 命中 `remaining` 这类误判。
 
 它也加入了一个前置 triage：先判断当前任务到底是语言问题、段落问题、整篇文章主线问题、跨章节一致性问题、数学/证明问题、正文/附录分工问题，还是 reviewer calibration 问题。这样不会把一个简单的句子改写膨胀成整篇 paper redesign，也不会在整篇文章问题上只做表面润色。
 
@@ -261,7 +272,7 @@ Use $or-ms-writing to polish this proof idea for a Management Science paper.
 ```
 
 ```text
-Use $or-ms-writing to rewrite this model setup so the notation is earned before the display.
+Use $or-ms-writing to rewrite this model setup so the display and nearby prose make the notation's role clear.
 ```
 
 ```text
@@ -284,7 +295,8 @@ Use $or-ms-writing to check whether the abstract, introduction, results, and con
 ├── agents/openai.yaml       # Codex 展示信息
 ├── references/              # MS/OR 语言、结构、模型、证明、附录分工等参考
 ├── scripts/                 # 规划和诊断脚本
-└── templates/               # 可复用的规划模板
+├── templates/               # 可复用的规划模板
+└── tests/                   # 路由和诊断误报的回归测试
 ```
 
 ### 注意边界

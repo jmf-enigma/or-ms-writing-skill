@@ -11,7 +11,7 @@ Good OR/MS writing is not decorative storytelling. It makes the paper's central 
 3. **Friction**: limited information, strategic behavior, fairness, churn, capacity, ambiguity, externality, delay.
 4. **Model/Method**: defines, estimates, tests, or computes the relevant object.
 5. **Result**: identifies a threshold, ranking, impossibility, policy structure, estimate, comparison, or bound.
-6. **Consequence or boundary**: changes a decision or belief, or marks where the result stops.
+6. **Consequence or boundary**: changes a decision, revises an accepted comparison, enables later analysis, or marks where the result stops.
 
 Do not require all six. A definition paragraph may need only the formal object and its role. A theorem paragraph may need the result, condition, and benchmark. A transition may need only a stable noun and a clear change of scope. Abstractness is a problem when the reader cannot identify the object or relation, not merely because an actor or friction is absent.
 

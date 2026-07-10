@@ -1,6 +1,6 @@
 # Management Science Model, Proof, And Equation Layout
 
-Use this when the user asks how to write a model section, mathematical process, derivation, theorem, proof sketch, appendix proof, or body-versus-appendix split in Management Science style. The goal is to decide what equations belong in the body, what formulas move to the appendix, and how prose should surround each display. These are layout and exposition patterns, not templates to copy.
+Use this when the user asks how to write a model section, mathematical process, derivation, theorem, proof sketch, appendix proof, or body-versus-appendix split in Management Science style. The goal is to decide what equations belong in the body, what formulas move to the appendix, and how nearby prose should establish each display's role. These are layout and exposition patterns, not templates to copy.
 
 ## Paper Signals
 
@@ -136,8 +136,8 @@ The result label should not do the work of the result paragraph.
 - Default to bare labels: `Proposition 1.`, `Theorem 1.`, `Lemma 1.`.
 - Use short parenthetical captions only when they help navigation across many results: `Theorem 1 (Approximation Guarantee)`, `Lemma 2 (One-Step Improvement)`, `Proposition 3 (Platform Revenue)`.
 - Keep captions noun-like. They should name a result type, object, or mechanism, not state the whole claim.
-- Do not use long colon titles after propositions. The claim belongs in the formal statement and the interpretation paragraph.
-- Do not add a subheading between a proposition and its interpretation unless the paper has a repeated, long structure that makes the heading necessary.
+- Do not use long colon titles after propositions. The claim belongs in the formal statement and any needed surrounding explanation.
+- Do not insert a small subheading between a proposition and its local explanation or proof unless the paper has a repeated, long structure that makes the heading necessary.
 
 Good local shape:
 
@@ -182,7 +182,7 @@ Proposition 1.
 Proof.
 [Two to four short paragraphs or displays that prove the claim.]
 
-[Interpretation paragraph that explains what the result means for the model, benchmark, or decision.]
+[Needed interpretation, in one sentence or a short paragraph, for the model, comparison, or decision.]
 ```
 
 This pattern is common in compact theory sections and simple analytical models. The proof under `Proof.` must be a real proof, not only intuition. It should not rely on long hidden lemmas, repeated cases, or constants that belong in an appendix.
@@ -199,7 +199,7 @@ Lemma 1.
 
 Proof. All proofs appear in the appendix.
 
-[Interpretation paragraph that explains the economic or operational content.]
+[Needed explanation of the economic, operational, or formal content.]
 ```
 
 This convention is legitimate when it matches the journal or manuscript format and is used consistently. The pointer is not a proof sketch and does not explain the result. Nearby ordinary prose must still tell the reader what the lemma changes and why it matters.
@@ -214,7 +214,7 @@ Use this when the theorem is important but the proof is routine, algebraic, or l
 Proposition 1.
 [Formal statement.]
 
-[Interpretation paragraph: what the proposition characterizes, which condition matters, and how it differs from the benchmark.] The proof is in Appendix A.
+[Needed interpretation of what the proposition characterizes and any consequential condition or comparator.] The proof is in Appendix A.
 ```
 
 This is often the cleanest Management Science style because the body keeps result meaning and the appendix carries verification.
@@ -229,7 +229,7 @@ Use this when the proof technique is part of the contribution or the result woul
 Proposition 1.
 [Formal statement.]
 
-[One short paragraph explaining the constructed object, hard term, and proof move.] Appendix A gives the complete proof.
+[One short paragraph explaining the reduction, comparison, key inequality, theorem application, or other move that carries the proof.] Appendix A gives the complete proof.
 ```
 
 Do not label this paragraph `Proof.` when the paper uses that label for complete proofs. Usually do not label it `Proof idea` either; write it as normal prose after the result. If the paper uses the one-line pointer convention in Pattern 2, keep the proof move outside that formal pointer so the reader can distinguish location from explanation.
@@ -255,8 +255,8 @@ Even here, auxiliary algebra, constants, and repeated cases can move to a regula
 Proof placement often feels wrong when the label and content do not match.
 
 - `Proof.` followed by intuition only: rename it as ordinary explanatory prose or complete the proof.
-- One-line `Proof.` pointer treated as if it explained the result: keep the venue-style pointer if appropriate, but add a nearby interpretation paragraph.
-- Proposition followed by an appendix pointer and then no interpretation before the section moves on: add a local result paragraph.
+- One-line `Proof.` pointer treated as if it explained the result: keep the venue-style pointer if appropriate, but add whatever nearby interpretation the result needs.
+- Proposition followed by an appendix pointer and then no explanation before the section moves on: add a local sentence or paragraph that makes the result's role clear.
 - Long appendix proof copied into the body: keep the theorem, one proof move, and interpretation; move verification out.
 - Body proof idea after every proposition: use it only when reviewer trust needs it.
 - Inconsistent local convention: do not alternate among full body proofs, one-line proof pointers, and unlabeled sketches without a reason the reader can infer.
@@ -265,7 +265,7 @@ Proof placement often feels wrong when the label and content do not match.
 
 A body proof sketch should be short and load-bearing.
 
-Useful moves:
+Useful moves, selected according to the proof:
 
 1. State what object is decomposed, relaxed, coupled, or bounded.
 2. Show one displayed decomposition or inequality if the reader must see it.
@@ -275,7 +275,7 @@ Useful moves:
 
 For Management Science, proof-sketch prose should be literal. Use verbs such as define, decompose, construct, relax, bound, compare, combine, and apply. Do not make the proof sound like a story.
 
-Observed proof-idea rhythm in strong MS/OR papers:
+One observed proof-idea rhythm in strong MS/OR papers, not a required sequence:
 
 1. Fix the object or reduction: a sample path, Bellman objective, coupling, fluid benchmark, dual, or policy-improvement problem.
 2. Name the difficult term: queue length, Bellman error, incentive response, revenue loss, rejection probability, or approximation error.
@@ -284,7 +284,7 @@ Observed proof-idea rhythm in strong MS/OR papers:
 
 Use `we first...` only when the reader is inside a genuine proof roadmap. In polished body prose, a direct sentence is often better: `The proof couples arrivals across policies and bounds the expected queue length by comparing the process with a heavy-traffic M/M/1 queue.`
 
-The body proof idea usually has zero or one display. Use a display only for the decomposition, inequality, or reduced system that the rest of the paper relies on. If a second display merely verifies the first, move it to the appendix.
+A compact body proof idea often has zero or one display. Use more only when the proof technique itself needs a visible chain. If an additional display merely verifies an earlier one, move it to the appendix.
 
 Proof-idea language should be almost invisible. Good body prose says, for example, that the proof reduces the full information history to a hybrid belief state, decomposes regret into estimation and control terms, or compares a relaxed policy with the original policy. It usually does not announce `Proof idea:` unless the surrounding paper has a repeated formal proof-sketch convention.
 

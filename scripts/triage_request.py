@@ -80,10 +80,9 @@ MODE_REFS = {
         "academic-style-and-ai-writing.md",
     ],
     "paragraph": [
-        "msor-natural-prose.md",
-        "management-science-whole-paper-storycraft.md",
         "paragraph-style.md",
-        "msor-micro-phrasing.md",
+        "management-science-whole-paper-storycraft.md",
+        "msor-natural-prose.md",
         "msor-full-text-close-reading.md",
     ],
     "impact": [
@@ -105,12 +104,10 @@ MODE_REFS = {
         "reviewer-calibration.md",
     ],
     "math": [
-        "msor-word-choice-collocations.md",
-        "msor-sentence-craft.md",
         "management-science-model-proof-equation-layout.md",
+        "math-and-proof-style.md",
         "math-model-main-appendix-craft.md",
         "paper-appendix-paired-patterns.md",
-        "msor-full-text-close-reading.md",
     ],
     "placement": [
         "main-text-appendix-placement.md",
@@ -161,6 +158,7 @@ def matches_term(term: str, lower: str) -> bool:
 
 def score_modes(text: str) -> dict[str, int]:
     lower = text.lower()
+    has_terms = lambda terms: any(matches_term(term, lower) for term in terms)
     scores = {mode: 0 for mode in MODE_TERMS}
     for mode, terms in MODE_TERMS.items():
         for term in terms:
@@ -171,9 +169,9 @@ def score_modes(text: str) -> dict[str, int]:
         scores["manuscript"] += 1
     if any(marker in text for marker in {"$", "\\(", "\\[", "≤", "≥", "∑", "="}):
         scores["math"] += 2
-    if any(term in lower for term in {"整体", "全局", "完整优化", "优化一遍", "整体优化"}):
+    if has_terms({"整体", "全局", "完整优化", "优化一遍", "整体优化"}):
         scores["manuscript"] += 2
-    if any(term in lower for term in {
+    if has_terms({
         "manuscript audit", "whole-paper audit", "full manuscript audit",
         "cross-section consistency", "consistency check", "pre-submission",
         "claim drift", "terminology drift", "全文检查", "完整检查", "全面检查",
@@ -182,26 +180,26 @@ def score_modes(text: str) -> dict[str, int]:
     }):
         scores["audit"] += 4
         scores["manuscript"] += 1
-    if any(term in lower for term in {"paper是咋做", "paper怎么做", "paper怎么写", "paper咋写", "论文怎么写", "论文咋写", "别人怎么写", "别人咋写", "full-text", "close reading"}):
+    if has_terms({"paper是咋做", "paper怎么做", "paper怎么写", "paper咋写", "论文怎么写", "论文咋写", "别人怎么写", "别人咋写", "full-text", "close reading"}):
         scores["manuscript"] += 3
         scores["paragraph"] += 1
-    if any(term in lower for term in {"high-cited", "highly cited", "classic", "seminal", "exemplary", "best paper", "excellent paper", "influential paper", "high-impact", "durable object", "portable object", "高引", "高被引", "经典", "优秀论文", "代表作", "顶刊", "高影响"}):
+    if has_terms({"high-cited", "highly cited", "classic", "seminal", "exemplary", "best paper", "excellent paper", "influential paper", "high-impact", "durable object", "portable object", "高引", "高被引", "经典", "优秀论文", "代表作", "顶刊", "高影响"}):
         scores["impact"] += 3
         scores["manuscript"] += 1
         scores["reviewer"] += 1
-    if any(term in lower for term in {"逻辑", "推理", "论证", "logic", "inference", "premise"}):
+    if has_terms({"逻辑", "推理", "论证", "logic", "inference", "premise"}):
         scores["paragraph"] += 2
         scores["reviewer"] += 1
-    if any(term in lower for term in {"段落之间", "段落内", "顺序", "推进", "承接", "story order", "reader flow", "paragraph order", "section flow"}):
+    if has_terms({"段落之间", "段落内", "顺序", "推进", "承接", "story order", "reader flow", "paragraph order", "section flow"}):
         scores["paragraph"] += 3
         scores["manuscript"] += 1
-    if any(term in lower for term in {"学术", "更学术", "academic", "scholarly", "formal register"}):
+    if has_terms({"学术", "更学术", "academic", "scholarly", "formal register"}):
         scores["sentence"] += 2
         scores["reviewer"] += 1
-    if any(term in lower for term in {"citation", "citations", "reference", "references", "引用", "文献", "参考文献"}):
+    if has_terms({"citation", "citations", "reference", "references", "引用", "文献", "参考文献"}):
         scores["reviewer"] += 2
         scores["paragraph"] += 1
-    if any(term in lower for term in {"怪怪", "别扭", "不地道", "ai味", "冒号"}):
+    if has_terms({"怪怪", "别扭", "不地道", "ai味", "冒号"}):
         scores["sentence"] += 2
     if "appendix" in lower and any(word in lower for word in {"proof", "derivation", "theorem", "proposition"}):
         scores["math"] += 1
@@ -244,6 +242,42 @@ def choose_sequence(scores: dict[str, int]) -> list[str]:
     return ordered[:4]
 
 
+def recommended_references(sequence: list[str], limit: int = 4) -> list[str]:
+    """Cover active modes without expanding every mode into a reference archive."""
+    selected: list[str] = []
+    seen: set[str] = set()
+
+    for mode in sequence:
+        primary = MODE_REFS[mode][0]
+        if primary not in seen:
+            selected.append(primary)
+            seen.add(primary)
+        if len(selected) >= limit:
+            return selected
+
+    for mode in sequence[:2]:
+        for ref in MODE_REFS[mode][1:2]:
+            if ref not in seen:
+                selected.append(ref)
+                seen.add(ref)
+            if len(selected) >= limit:
+                return selected
+    return selected
+
+
+def recommended_scripts(sequence: list[str], limit: int = 3) -> list[str]:
+    selected: list[str] = []
+    seen: set[str] = set()
+    for mode in sequence:
+        for script in MODE_SCRIPTS[mode]:
+            if script not in seen:
+                selected.append(script)
+                seen.add(script)
+            if len(selected) >= limit:
+                return selected
+    return selected
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--target", default="working paper")
@@ -266,20 +300,13 @@ def main() -> int:
         print(f"- {mode}: {MODE_RULES[mode]}")
 
     print("\nRecommended references")
-    seen = set()
-    for mode in sequence:
-        for ref in MODE_REFS[mode]:
-            if ref not in seen:
-                seen.add(ref)
-                print(f"- {ref}")
+    print("- Start with the first item for each active mode; later items only deepen the highest-priority modes.")
+    for ref in recommended_references(sequence):
+        print(f"- {ref}")
 
     print("\nUseful scripts")
-    seen_scripts = set()
-    for mode in sequence:
-        for script in MODE_SCRIPTS[mode]:
-            if script not in seen_scripts:
-                seen_scripts.add(script)
-                print(f"- {script}")
+    for script in recommended_scripts(sequence):
+        print(f"- {script}")
 
     print("\nDrafting guardrail")
     if sequence[0] == "sentence":

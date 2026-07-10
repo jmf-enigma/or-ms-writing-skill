@@ -91,6 +91,7 @@ MATH_MOVES = {
     "exchange argument", "envelope", "decomposition", "bounding",
     "couple", "couples", "coupled", "compare", "compares", "compared",
     "bound", "bounds", "bounded", "condition", "conditions", "conditioned",
+    "apply", "applies", "applied", "invoke", "invokes", "invoked",
 }
 DERIVATION_TERMS = {
     "derive", "derives", "derivation", "reformulate", "reformulates",
@@ -632,16 +633,18 @@ def core_checks_for_section(section: str) -> list[tuple[str, set[str], str]]:
 
 def contains_any(text: str, items: set[str]) -> bool:
     lower = text.lower()
-    return any(item in lower for item in items)
+    for item in items:
+        if any(ord(char) > 127 for char in item) or " " in item or "-" in item:
+            if item in lower:
+                return True
+            continue
+        if re.search(r"\b" + re.escape(item) + r"(?:s|es|ed|ing)?\b", lower):
+            return True
+    return False
 
 
 def contains_term(text: str, items: set[str]) -> bool:
-    lower = text.lower()
-    for item in items:
-        pattern = r"\b" + re.escape(item).replace(r"\ ", r"\s+") + r"\b"
-        if re.search(pattern, lower):
-            return True
-    return False
+    return contains_any(text, items)
 
 
 def long_sentences(text: str) -> list[str]:
@@ -1147,7 +1150,7 @@ def language_model_math_warnings(text: str, section: str) -> list[str]:
     has_display_like_math = bool(re.search(r"[$=∈≤≥∑\\]|\b(?:min|max|argmin|argmax|inf|sup)\b", text))
     if normalized_section in {"model", "results", "proof", "paragraph"} and has_display_like_math:
         if not any(marker in lower for marker in MODEL_MATH_MARKERS):
-            warnings.append("notation is under-explained; introduce what the display defines and translate the central variable, objective, constraint, or benchmark.")
+            warnings.append("notation is under-explained; make the display's role and any consequential variable, objective, constraint, or benchmark recoverable in nearby prose.")
     if "uncertainty set" in lower and not any(word in lower for word in {"preserve", "capture", "hedge", "conditional", "misspecification", "worst-case", "nominal"}):
         warnings.append("uncertainty set is floating; say what information structure, perturbation, or misspecification it captures.")
     if "it is easy to see" in lower or "it is obvious" in lower:
@@ -1217,7 +1220,7 @@ def appendix_placement_warnings(text: str, section: str) -> list[str]:
         return warnings
     has_formal_result = any(term in lower for term in {"theorem", "proposition", "lemma", "result", "estimate", "table", "figure"})
     if has_formal_result and not any(marker in lower for marker in INTERPRETATION_MARKERS):
-        warnings.append("appendix reference cannot replace interpretation; keep the result's meaning, benchmark, or decision consequence in the body.")
+        warnings.append("appendix reference cannot carry the claim by itself; keep the result's meaning and any needed comparator, condition, or proof checkpoint in the local body passage.")
     promises_proof_explanation = any(
         term in lower
         for term in {"proof idea", "proof sketch", "proof argument", "key proof step", "the proof hinges", "the argument hinges"}
@@ -1289,7 +1292,7 @@ def citation_discipline_warnings(text: str, section: str) -> list[str]:
         )
     if citations:
         warnings.append(
-            "citation content is not verified by this writing check; read the cited paper's relevant abstract, introduction, model/data/result/proof section, and appendix when needed. Use an available citation lookup or browsing tool for author-year, DOI, BibTeX, cited-by, and exact-paper claim verification."
+            "verification reminder: this writing check detects citation form and local fit signals but does not verify source content. Read the cited paper's relevant model, data, result, proof, or appendix passage as needed, and use an available citation tool for metadata."
         )
     return warnings
 
@@ -1355,20 +1358,22 @@ def llm_style_warnings(text: str) -> list[str]:
 
 def punctuation_scent(text: str, allow_structured: bool = False) -> list[str]:
     warnings = []
-    lower = text.lower()
-    text_without_parentheticals = re.sub(r"\([^)]*\)", "", text)
-    colon_count = text.count(":")
-    em_dash_count = text.count("\u2014")
-    en_dash_count = text.count("\u2013")
-    double_dash_count = text.count(" -- ")
-    spaced_hyphen_count = len(re.findall(r"\s-\s", text))
+    prose = re.sub(r"https?://\S+|doi:\s*\S+", "", text, flags=re.I)
+    prose = re.sub(r"\$[^$]*\$|\\\([^)]*\\\)|\\\[[^]]*\\\]", "", prose, flags=re.S)
+    lower = prose.lower()
+    text_without_parentheticals = re.sub(r"\([^)]*\)", "", prose)
+    colon_count = prose.count(":")
+    em_dash_count = prose.count("\u2014")
+    spaced_en_dash_count = len(re.findall(r"\s\u2013\s", prose))
+    double_dash_count = prose.count(" -- ")
+    spaced_hyphen_count = len(re.findall(r"\s-\s", prose))
     semicolon_count = text_without_parentheticals.count(";")
     colon_labels = sorted(
         label for label in COLON_ROADMAP_LABELS
         if re.search(rf"\b{re.escape(label)}\b\s*:", lower)
     )
     formal_colons = len(re.findall(
-        r"\b(?:assumption|definition|lemma|proposition|theorem|corollary|proof|case|step|table|figure|appendix)\s*(?:[A-Z]|\d+(?:\.\d+)*)?\s*:",
+        r"\b(?:assumption|definition|lemma|proposition|theorem|corollary|proof|case|step|table|figure|appendix)\s*(?:[a-z]|\d+(?:\.\d+)*)?\s*:",
         lower,
     ))
     if colon_labels:
@@ -1377,11 +1382,12 @@ def punctuation_scent(text: str, allow_structured: bool = False) -> list[str]:
             + ", ".join(f"`{label}:`" for label in colon_labels)
             + "; rewrite as ordinary prose unless this is an actual section heading."
         )
-    if colon_count and not allow_structured:
-        warnings.append(f"{colon_count} colon(s); rewrite as ordinary manuscript sentences unless the colon marks a definition, assumption, proof label, display, table, or venue-required structure.")
+    nonformal_colons = max(0, colon_count - formal_colons)
+    if nonformal_colons and not allow_structured:
+        warnings.append(f"{nonformal_colons} prose colon(s); rewrite colon-led claims as ordinary manuscript sentences unless the punctuation serves a real definition or venue-required structure.")
     elif colon_count > max(1, formal_colons + 1):
         warnings.append(f"{colon_count} colon(s); keep structured punctuation rare, even when formal material is allowed.")
-    if em_dash_count or en_dash_count or double_dash_count or spaced_hyphen_count:
+    if em_dash_count or spaced_en_dash_count or double_dash_count or spaced_hyphen_count:
         warnings.append("dash pivot detected; replace with a period, comma, parenthesis, or direct causal sentence.")
     if semicolon_count and not allow_structured:
         warnings.append(f"{semicolon_count} semicolon(s); split chained prose claims unless the semicolon clarifies a theorem condition, proof step, or formal list.")

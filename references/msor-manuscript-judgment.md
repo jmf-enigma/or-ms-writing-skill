@@ -37,7 +37,7 @@ Use this pass when the user says the paper, section package, or writing system s
 
 1. **Choose the lane before the outline**: empirical experiment, construct-measurement, structural/estimation, analytical theory, algorithm/OR, applied field implementation, or hybrid.
 2. **Name the central object in ordinary language**: the decision, mechanism, estimator, theorem object, policy class, platform rule, or empirical construct.
-3. **Choose the spine result**: the one theorem, estimate, field comparison, or guarantee that the abstract must remember.
+3. **Choose the spine result**: the theorem, estimate, field comparison, or guarantee that the abstract should make memorable.
 4. **Order support by reviewer trust**: model/design first when it creates credibility, mechanism next when it changes interpretation, robustness only where it protects validity.
 5. **Assign placement**: body for first-pass trust and interpretation; appendix for verification, repeated robustness, implementation, and data dictionaries.
 6. **Only then polish sentences**: repair subject-verb-object, collocations, relation words, and read-aloud rhythm.
@@ -50,7 +50,7 @@ This prevents a common failure mode: a section with good sentences but no persua
 
 Classify results by reader job, not by the order in which they were produced.
 
-- **Spine result**: the result the abstract and introduction must make memorable. It belongs in the body and gets the cleanest prose.
+- **Spine result**: the result that earns the strongest emphasis in the abstract and introduction. It belongs in the body and gets the cleanest prose.
 - **Load-bearing support**: a theorem, identification argument, validation, benchmark, or empirical contrast needed for first-pass trust. It belongs in the body near the claim it supports.
 - **Mechanism result**: explains why the spine result holds. It belongs in the body if the mechanism changes interpretation; otherwise summarize and move details.
 - **Boundary result**: says when the result strengthens, weakens, reverses, or stops applying. It usually belongs in the body when it prevents overclaiming.

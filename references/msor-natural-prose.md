@@ -207,7 +207,7 @@ Delete or simplify before rewriting.
 - Replace `offers important implications` with the action, condition, or metric.
 - Replace `we provide a framework` with the actual formal object unless the paper is genuinely a framework paper.
 - Replace `we leverage data` with what the data record, vary, identify, or fail to observe.
-- Replace a long proposition caption with a short label and a sentence after the result.
+- Replace a long proposition caption with a short label and keep any needed explanation in the surrounding result package; it may precede or follow the statement.
 
 ## Avoid Overcorrection
 

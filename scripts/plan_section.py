@@ -70,7 +70,7 @@ BLUEPRINTS = {
     ],
     "proof": [
         "If the input is rough proof notes, run plan_math_split.py before drafting.",
-        "Plain proof idea with the constructed object, hard term, and load-bearing mathematical move; use one sentence if the proof is routine.",
+        "Plain proof idea that exposes the load-bearing route: reduction, construction, key inequality, comparison, theorem application, or control of a difficult term. Use one sentence if the proof is routine.",
         "Reduction, coupling, relaxation, or key lemma.",
         "Main inequality, optimality, fixed-point, concentration, or exchange argument.",
         "Cases or induction if needed.",
@@ -118,19 +118,19 @@ BLUEPRINTS = {
 }
 
 REFS = {
-    "abstract": ["msor-manuscript-judgment.md", "msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "msor-full-text-close-reading.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
-    "manuscript": ["manuscript-contract-and-consistency.md", "msor-manuscript-judgment.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md", "main-text-appendix-placement.md"],
-    "story": ["management-science-whole-paper-storycraft.md", "paragraph-style.md", "msor-natural-prose.md", "section-architecture.md"],
-    "introduction": ["msor-manuscript-judgment.md", "msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "msor-full-text-close-reading.md", "management-science-whole-paper-storycraft.md", "section-architecture.md", "msor-paper-craft.md"],
-    "related": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "section-architecture.md", "paragraph-style.md", "an available citation lookup or browsing tool when exact citations matter"],
-    "model": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-full-text-close-reading.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
-    "results": ["msor-manuscript-judgment.md", "msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "msor-full-text-close-reading.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "msor-language-model-math.md"],
-    "proof": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-full-text-close-reading.md", "management-science-model-proof-equation-layout.md", "math-model-main-appendix-craft.md", "paper-appendix-paired-patterns.md", "math-and-proof-style.md", "a proof-writing workflow for rough complete proofs", "a proof-discovery workflow for missing proofs"],
-    "placement": ["main-text-appendix-placement.md", "paper-appendix-paired-patterns.md", "math-model-main-appendix-craft.md", "msor-full-text-close-reading.md", "reviewer-calibration.md"],
-    "headings": ["section-architecture.md", "management-science-whole-paper-storycraft.md", "msor-paper-craft.md"],
-    "managerial": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "msor-micro-phrasing.md", "management-science-language-rhythm.md", "msor-paper-craft.md", "storytelling-language.md"],
-    "discussion": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "paragraph-style.md", "storytelling-language.md"],
-    "conclusion": ["msor-word-choice-collocations.md", "msor-sentence-craft.md", "msor-natural-prose.md", "paragraph-style.md", "storytelling-language.md"],
+    "abstract": ["msor-manuscript-judgment.md", "msor-sentence-craft.md", "msor-natural-prose.md"],
+    "manuscript": ["manuscript-contract-and-consistency.md", "msor-manuscript-judgment.md", "section-architecture.md"],
+    "story": ["paragraph-style.md", "management-science-whole-paper-storycraft.md", "section-architecture.md"],
+    "introduction": ["management-science-whole-paper-storycraft.md", "msor-sentence-craft.md", "msor-paper-craft.md"],
+    "related": ["citation-close-reading.md", "paragraph-style.md", "an available citation lookup or browsing tool when exact citations matter"],
+    "model": ["management-science-model-proof-equation-layout.md", "msor-language-model-math.md", "msor-sentence-craft.md"],
+    "results": ["management-science-model-proof-equation-layout.md", "msor-natural-prose.md", "msor-manuscript-judgment.md"],
+    "proof": ["math-and-proof-style.md", "management-science-model-proof-equation-layout.md", "paper-appendix-paired-patterns.md"],
+    "placement": ["main-text-appendix-placement.md", "paper-appendix-paired-patterns.md", "math-model-main-appendix-craft.md"],
+    "headings": ["section-architecture.md", "management-science-whole-paper-storycraft.md"],
+    "managerial": ["msor-natural-prose.md", "storytelling-language.md", "reviewer-calibration.md"],
+    "discussion": ["msor-natural-prose.md", "paragraph-style.md"],
+    "conclusion": ["msor-natural-prose.md", "paragraph-style.md"],
 }
 
 TOPIC_LENSES = {
@@ -236,7 +236,7 @@ QUALITY = {
     "related": "what the stream establishes, exact relation to the current paper, and claim-citation fit; no mandatory gap ending or citation dumping",
     "model": "central formal or empirical object, prerequisites, relevant primitives, assumption roles, target claim or estimand, comparator, and enough display translation for later use",
     "results": "formal result or empirical estimand, visible warrant, metric and comparator, magnitude or condition when relevant, evidence-register signal, and only supported interpretation",
-    "proof": "setup, plain proof idea, constructed object, hard term, mathematical move, key lemma or inequality, validity condition, conclusion mapped back; avoid stylized proof language",
+    "proof": "setup, load-bearing proof route, any key object, condition, lemma, comparison, or inequality the reader needs, and conclusion mapped back; avoid stylized proof language and do not force every item",
     "placement": "body for first-pass contribution, model object, theorem statement, interpretation, and central derivation checkpoint; appendix for verification, robustness, implementation, and replication",
     "headings": "section depth follows reader task; subheadings mark new objects, result families, model components, or validity threats; theorem/proposition captions stay short",
     "managerial": "supported decision consequence or warning, user when relevant, observable condition, metric, evidence strength, and boundary; no mandatory recommendation or mechanism",
@@ -246,9 +246,9 @@ QUALITY = {
 
 
 TARGET_NOTES = {
-    "management science": "Broad management audience; emphasize what the data/model changes about management theory, practice, or decision logic.",
+    "management science": "Broad management-science audience; keep the central formal or empirical object legible across subfields and state management relevance only at the level the evidence supports.",
     "operations research": "Methodological audience; foreground model rigor, proof logic, and benchmark value.",
-    "msom": "OM audience; emphasize problem definition, methodology/results, and managerial implications.",
+    "msom": "OM audience; keep the operating problem, analytical or empirical support, and any supported decision relevance connected.",
     "working paper": "Use journal-neutral OR/MS style; make contribution and evidence explicit.",
 }
 
@@ -306,7 +306,7 @@ def main() -> int:
     for item in BLUEPRINTS[section]:
         print(f"- {item}")
     print("\nRecommended references:")
-    print("- Load one bundle by default; add another only if the draft still has a specific language, story, math, placement, or reviewer problem.")
+    print("- Start with the first two; use a later item only for the specific failure mode it names.")
     seen_refs = set()
     for ref in TARGET_REFS.get(target, []) + REFS.get(section, []):
         ref_key = ref.split(" for ", 1)[0]
@@ -317,24 +317,18 @@ def main() -> int:
     if target == "management science":
         print("\nManagement Science comparable-design lane:")
         print(textwrap.fill("Apply the MS core as a dependency audit, not a story template: central object, relevant departure, support, comparator, and boundary. Add decision, friction, mechanism, or consequence only when the paper actually relies on them. Then match the evidence lane.", width=88))
-    print("\nArchitecture note:")
-    print(textwrap.fill("MS/OR papers do not share one universal skeleton. Choose headings that name the paper object, such as Research Setting, Data and Methods, The Model, Empirical Strategy, Main Results, Algorithm, Numerical Experiments, Robustness Tests, or Discussion and Conclusion. Add subheadings only when the reader job, evidence object, model component, theorem family, or validity threat changes.", width=88))
+    if section in {"manuscript", "introduction", "model", "headings"}:
+        print("\nArchitecture note:")
+        print(textwrap.fill("MS/OR papers do not share one universal skeleton. Choose headings that name the paper object or reader task. Add a subheading only when the object, evidence, model component, result family, or validity threat changes enough to justify a reset.", width=88))
     print("\nDiagnostic signals:")
     print(textwrap.fill(QUALITY.get(section, "primary burden, central object, warrant, relation, scope, and evidence register"), width=88))
-    print("\nOR/MS spine:")
-    print(textwrap.fill("Use as an internal diagnostic, not a sentence template: central object, spine result, credibility support, benchmark, mechanism, validity condition, and decision consequence. Include only the pieces the section needs.", width=88))
+    print("\nDrafting rule:")
+    print(textwrap.fill("Select only the diagnostics this unit needs. Make prerequisites and support available by the point the reader relies on them, preserve the supplied evidence strength and boundary, and split competing burdens before polishing the language. Claim-first, evidence-first, definition-first, and result-first orders are all legitimate when the relation is clear.", width=88))
+    if section in {"model", "results", "proof", "placement", "manuscript"}:
+        print("\nPlacement rule:")
+        print(textwrap.fill("Keep first-pass understanding and trust in the body. Move verification, repeated robustness, implementation detail, and replication material to the appendix or supplement. Keep any comparator or condition on which the claim depends where the reviewer can recover it.", width=88))
     print("\nNaturalness rule:")
-    print(textwrap.fill("Do not force every diagnostic item into one sentence or paragraph. Use ordinary sentence relations that fit the local burden, split overloaded sentences before polishing, keep the subject close to the verb, and rebuild translated-English order around the paper's local object and action, with any needed condition or benchmark expressed through a natural verb-object collocation.", width=88))
-    print("\nEvidence preservation rule:")
-    print(textwrap.fill("Do not strengthen the evidence while improving the prose. Keep the evidence type, comparator, metric, magnitude, policy class, and validity condition no stronger than the user's material supports.", width=88))
-    print("\nArgument-evidence-boundary rule:")
-    print(textwrap.fill("Before drafting forward, reason backward from what the paper proves, estimates, or demonstrates. Keep each major claim close to its theorem, estimate, simulation, benchmark, proof idea, or table, and keep the assumption, setting, policy class, population, or data regime close enough to prevent overreading.", width=88))
-    print("\nPlacement rule:")
-    print(textwrap.fill("The body must contain what a reviewer needs for first-pass understanding and trust: the central object, headline result, primary support, needed interpretation, and any assumption or comparator on which the claim depends. Appendices carry verification, long proofs, repeated robustness, implementation details, and replication materials.", width=88))
-    print("\nParagraph rule:")
-    print(textwrap.fill("Each paragraph should have a recoverable primary burden, with linked support or interpretation where needed. Split only when burdens compete. If a claim lacks evidence, mark it as a gap instead of polishing around it.", width=88))
-    print("\nReader-flow reminder:")
-    print(textwrap.fill("Make a claim's prerequisites and warrant available by the point the reader must rely on them, without forcing a question-and-answer rhythm. Claim-first, evidence-first, definition-first, contrast-first, exception-first, procedure-first, and result-first orders are all legitimate. A heading, repeated canonical term, or direct scope signal may carry the transition. Omit anything the local burden does not need.", width=88))
+    print(textwrap.fill("Use ordinary sentence relations that fit the local burden. Keep the subject close to the verb, rebuild translated-English order around the local object and action, and do not copy planning labels or card punctuation into manuscript prose.", width=88))
     return 0
 
 

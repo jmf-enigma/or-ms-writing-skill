@@ -89,7 +89,15 @@ CALIBRATION_SIGNALS = {
 
 
 def has_any(text: str, signals: set[str]) -> bool:
-    return any(signal in text for signal in signals)
+    lower = text.lower()
+    for signal in signals:
+        if any(ord(char) > 127 for char in signal) or " " in signal or "-" in signal:
+            if signal in lower:
+                return True
+            continue
+        if re.search(r"\b" + re.escape(signal) + r"(?:s|es|ed|ing)?\b", lower):
+            return True
+    return False
 
 
 def clean_item(line: str) -> str:
@@ -111,7 +119,7 @@ def crossref(placement: str, item: str) -> str:
             return "State the robustness conclusion in the body; put full tables and variants in Online Appendix EC.x."
         return "Keep the takeaway in the local body passage around the appendix pointer; put details in Appendix B."
     if placement == "Regular appendix":
-        return "Keep the reference beside the relevant result package, which must also contain interpretation or any needed proof checkpoint."
+        return "Keep the reference beside the relevant result package, with any interpretation or proof checkpoint needed for first-pass trust nearby."
     if placement == "Online appendix or e-companion":
         return "Keep nearby body prose stating what the supplement verifies, preserves, or changes."
     if placement == "Replication package":

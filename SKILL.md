@@ -128,15 +128,15 @@ Use the register that matches the requested unit. These are flexible patterns, n
 
 For model and mathematical writing, the body should establish the object, not merely point to the appendix.
 
-- Before a display, say what the display defines, relaxes, decomposes, bounds, or estimates. After the display, translate the central variables and explain why the display is used next.
-- A main-text model passage usually needs the decision environment, timing, information, action or policy class, objective, key constraints, assumptions, benchmark, and solution concept.
+- Make the display's role and consequential notation recoverable in nearby prose. That prose may come before, after, or on both sides of the display according to dependency; a display may open a technical subsection when its role is already active.
+- A main-text model passage needs only the primitives that later claims rely on. Make the relevant environment, timing, information, action or policy class, objective, constraints, assumptions, benchmark, solution concept, construct, or estimand available by the point it becomes consequential.
 - In empirical papers, the body may instead need construct definitions, measurement logic, treatment/control contrast, identifying variation, outcome definition, estimand, and coefficient interpretation. Do not force theorem vocabulary onto this lane.
 - A main-text derivation usually needs only three levels: starting formal object, load-bearing mathematical move, and resulting object used by the theorem, estimator, policy, or comparison.
 - A theorem paragraph should name the result type: existence, uniqueness, monotonicity, threshold structure, comparative static, approximation ratio, regret bound, convergence rate, welfare comparison, or identification result.
 - Theorem and proposition captions should be spare. Prefer `Proposition 1.` or a short parenthetical/object label when useful; do not attach long claim-like titles. Surround the result with ordinary prose rather than headings such as `Key Insight`, `Proof Idea`, or `Takeaway`.
 - Follow one coherent post-result convention: a complete short `Proof.`; a one-line `Proof.` that sends verification to an appendix; or unlabeled explanatory or proof-sketch prose with an appendix pointer. All three occur in MS/OR papers. A one-line proof pointer is a publication convention, not an interpretation, and a sketch should not be mislabeled as a complete proof. Do not invent a visible `Proof Idea` heading unless the target paper already uses that convention.
-- After a theorem or proposition, keep a reader-facing explanation in the local result package: what object is characterized, what benchmark changes, or why the condition matters. The proof pointer may precede or follow that explanation according to the journal or paper convention, but it must not be the only follow-up. If trust requires a proof sketch, add only the load-bearing move before sending full verification to the appendix.
-- A proof idea in the body should name the constructed object, the hard term, and the mathematical move that controls it. Use plain proof verbs: construct, decompose, bound, compare, apply, combine, show, and imply.
+- Keep any needed reader-facing explanation in the local result package around a theorem or proposition: what object is characterized, what comparison is made, or why a condition matters. The explanation may precede or follow the statement, and the proof pointer may precede or follow it according to the journal or paper convention. A pointer must not carry the result's meaning by itself. If trust requires a proof sketch, add only the load-bearing move before sending full verification to the appendix.
+- A proof idea in the body should make the load-bearing route to the conclusion recoverable. Depending on the proof, this may be a reduction, constructed object, key inequality, comparison, theorem application with verified conditions, or the move that controls a difficult term. Use plain proof verbs: construct, decompose, bound, compare, apply, combine, show, and imply.
 - Keep proof ideas proportional. If the proof is routine, one precise sentence may be enough; if the result looks surprising or methodologically important, give the checkpoint that prevents the theorem from feeling like a black box.
 - Do not write "by some algebra" or "standard arguments" unless the step is genuinely routine. Name the actual move: exchange argument, coupling, convexity, submodularity, KKT conditions, duality, fixed point, martingale concentration, induction, envelope argument, or contradiction.
 - The appendix proof verifies the body; it should not carry the first explanation of what the theorem means. Start with fixed objects and assumptions, signpost long algebra, and map the final technical statement back to the body result.
@@ -156,29 +156,25 @@ Decide placement by reader job, not by length alone.
 
 ## Reference Routing
 
-Load the smallest bundle that can solve the request. One bundle is the default; add another only when the task crosses language, story, math/proof, placement, or reviewer-calibration boundaries.
+Load the smallest route that can solve the request. Start with one or two primary references; add one optional reference only for a specific unresolved failure mode.
 
-For mixed or ambiguous requests, use `triage_request.py` first and then load only the first one or two bundles it recommends.
+For mixed or ambiguous requests, use `triage_request.py` first. Its reference list is capped deliberately; do not expand it into every matching archive.
 
 References are for fixing a specific failure mode, not for decorating the answer with more conventions. If a request asks how papers actually do something, start with the full-text close-reading or lane reference that matches the unit, then add language references only if the resulting prose still sounds unnatural.
 
 When the problem is simply "this sounds strange" or "the wording is not native," load `msor-word-choice-collocations.md` and `msor-sentence-craft.md` first, then `msor-natural-prose.md` only if paragraph flow is also the problem. Too many references can pull the draft back toward checklist prose.
 
-- **Word choice, collocation, and translated-English repair**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/msor-natural-prose.md`.
-- **Natural wording and micro-phrasing**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/msor-natural-prose.md` + `references/msor-micro-phrasing.md` + `references/management-science-language-rhythm.md` + `references/msor-language-model-math.md` + `references/msor-full-text-close-reading.md`.
-- **Manuscript judgment and paper spine**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
-- **Manuscript contract and cross-section audit**: `references/manuscript-contract-and-consistency.md` + `references/msor-manuscript-judgment.md` + `references/reviewer-calibration.md`. Add citation or math references only for a drift that depends on those objects.
-- **Whole-section story**: `references/msor-manuscript-judgment.md` + `references/management-science-whole-paper-storycraft.md` + `references/section-architecture.md` + `references/msor-paper-craft.md`.
-- **Story logic, paragraph order, and section flow**: `references/management-science-whole-paper-storycraft.md` + `references/paragraph-style.md` + `references/msor-natural-prose.md` + `references/section-architecture.md`.
-- **Model, theorem, equation, proof**: `references/msor-word-choice-collocations.md` + `references/msor-sentence-craft.md` + `references/management-science-model-proof-equation-layout.md` + `references/math-model-main-appendix-craft.md` + `references/paper-appendix-paired-patterns.md` + `references/math-and-proof-style.md` + `references/msor-full-text-close-reading.md`.
-- **Body versus appendix**: `references/main-text-appendix-placement.md` + `references/paper-appendix-paired-patterns.md` + `references/math-model-main-appendix-craft.md`.
-- **Reviewer calibration**: `references/reviewer-calibration.md` plus the relevant language, empirical, or math bundle.
-- **Citation discipline and related-work support**: `references/citation-close-reading.md` + `references/msor-paper-craft.md` + `references/academic-style-and-ai-writing.md` + an available citation lookup or browsing tool when exact citation metadata, cited-by counts, BibTeX, DOI, author-year verification, or cited-paper content matters.
-- **Paper-lane flavor**: `references/management-science-20x-lane-style.md` or `references/article-corpus-style-notes.md` only for difficult lane matching, complete sections, or requests to make a passage feel closer to recent MS/OR papers without copying personal style.
-- **Classic or high-impact MS/OR paper pattern**: `references/high-impact-msor-paper-patterns.md` plus the relevant story, model/proof, empirical, or appendix bundle. Use this for "highly cited," "classic," "seminal," "excellent paper," "Nature-style writing core," or requests to learn how strong papers persuade reviewers.
-- **General story or unfamiliar topics**: `references/general-topic-story-engine.md`, `references/storytelling-language.md`, and `references/paragraph-style.md`.
-- **Detailed corpus/style archives**: `references/msor-word-choice-collocations.md`, `references/msor-sentence-craft.md`, `references/msor-natural-prose.md`, `references/msor-micro-phrasing.md`, `references/msor-full-text-close-reading.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, and `references/academic-style-and-ai-writing.md` for difficult diagnosis, corpus-level language calibration, micro-wording, readability, or AI-scent repair.
-- **Xiao Lei / digital platform / pricing / social operations flavor**: `references/xiao-lei-patterns.md` plus a topic/story or language bundle, while avoiding personal-style imitation.
+- **Word choice and translated-English repair**: start with `references/msor-word-choice-collocations.md` and `references/msor-sentence-craft.md`; add `references/msor-natural-prose.md` only for paragraph flow.
+- **Story logic and paragraph order**: start with `references/paragraph-style.md` and `references/management-science-whole-paper-storycraft.md`; add `references/section-architecture.md` only when section boundaries or headings are also at issue.
+- **Manuscript judgment and paper spine**: start with `references/msor-manuscript-judgment.md` and `references/section-architecture.md`; add `references/msor-paper-craft.md` for a complete section package.
+- **Manuscript contract and reviewer calibration**: start with `references/manuscript-contract-and-consistency.md` and `references/reviewer-calibration.md`. Add a citation or math reference only for drift that depends on that object.
+- **Model, theorem, equation, and proof**: start with `references/management-science-model-proof-equation-layout.md` and `references/math-and-proof-style.md`; add `references/math-model-main-appendix-craft.md` only when drafting both body and appendix.
+- **Body versus appendix**: start with `references/main-text-appendix-placement.md` and `references/paper-appendix-paired-patterns.md`; add `references/math-model-main-appendix-craft.md` for rough mathematical notes.
+- **Citation discipline and related work**: start with `references/citation-close-reading.md` and an available citation lookup or browsing tool. Add `references/msor-paper-craft.md` only when literature positioning and paper architecture are intertwined.
+- **Classic or high-impact paper pattern**: use `references/high-impact-msor-paper-patterns.md` with one relevant primary route. Do not load a general archive merely because the paper is highly cited.
+- **Unfamiliar topic or general story**: use `references/general-topic-story-engine.md` with either `references/storytelling-language.md` or `references/paragraph-style.md`, depending on whether the problem is wording or order.
+- **Lane and topical calibration**: use one of `references/management-science-20x-lane-style.md`, `references/article-corpus-style-notes.md`, or `references/xiao-lei-patterns.md` only when the requested lane or topic needs that comparison. Do not imitate personal style.
+- **Detailed language and corpus archives**: load only one matching archive for explicit corpus calibration or a hard unresolved diagnosis: `references/msor-micro-phrasing.md`, `references/management-science-language-rhythm.md`, `references/msor-language-model-math.md`, `references/msor-full-text-close-reading.md`, `references/management-science-language-corpus.md`, `references/expanded-or-ms-language-corpus.md`, `references/or-ms-disciplinary-spine.md`, or `references/academic-style-and-ai-writing.md`.
 
 ## Script Use
 
@@ -202,7 +198,7 @@ Run `triage_request.py` when the task could be language, manuscript structure, c
 
 Use this as a control loop, not a visible outline. Stop when the requested unit is genuinely handled.
 
-1. **Scope**: identify the unit, lane, reader job, and output shape. If unclear, triage once and load at most one or two reference bundles.
+1. **Scope**: identify the unit, lane, reader job, and output shape. If unclear, triage once and start with the capped primary references it returns.
 2. **Logic path**: decide the passage's burden, prerequisites, claim or formal object, warrant, scope, and relation to neighboring passages. A forward handoff is optional, not mandatory.
 3. **Contract, evidence, and placement**: for manuscript-level work, fix the central object, headline claim, comparator, metric, credibility source, and boundary before drafting sections. Identify the theorem, estimate, table, proof move, benchmark, assumption, design feature, or cited-paper content that supports the claim. For model or proof material, decide body versus appendix before writing formulas.
 4. **Draft**: write ordinary OR/MS prose at the requested granularity. Do not expose planning labels, scripts, or reference terminology.
@@ -234,7 +230,7 @@ Repair by simplifying the operating logic, not by adding more genre markers.
 - If it sounds like a grant pitch, replace praise with the decision, metric, theorem, estimate, mechanism, or condition.
 - If it sounds translated, rebuild the sentence around the English subject and verb rather than polishing word by word.
 - If the wording is odd, check collocation before style. Replace `managerial enlightenment`, `optimize strategy`, `has important influence`, `leverage data`, and `provide insights` with the local action, metric, estimate, theorem, or policy.
-- If the proof idea sounds stylized, replace metaphor and suspense with the constructed object, hard term, and proof move.
+- If the proof idea sounds stylized, replace metaphor and suspense with the actual reduction, comparison, inequality, theorem application, or other proof move that carries the argument.
 - If the model passage is symbol-heavy, add or revise nearby prose so the central object, role of the display, and consequential variables are clear. Put that prose before or after the notation according to the local dependency; not every model has an actor or benchmark.
 - If the result paragraph is vague, move the theorem, estimate, simulation comparison, or benchmark closer to the claim.
 - If the appendix is carrying the paper, move the formal object, headline theorem, interpretation, and proof idea back into the body.

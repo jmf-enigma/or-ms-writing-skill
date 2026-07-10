@@ -30,8 +30,8 @@ At the local result-package level, an appendix pointer should be conclusion-firs
 
 Natural handoffs vary by job:
 
-- For a theorem, keep the result type, condition, benchmark, and interpretation in the same local passage as the proof pointer.
-- For a proof idea, name the constructed object, difficult term, and mathematical move before sending the formal details out.
+- For a theorem, keep the result type and any condition, comparator, or interpretation needed to read it accurately in the same local passage as the proof pointer.
+- For a proof idea, expose the load-bearing route before sending formal details out. This may be a reduction, construction, comparison, key inequality, or theorem application.
 - For a derivation, show the start object, key transformation, and resulting object used later.
 - For robustness, state the threat and the conclusion, then put the full table or variant in the appendix.
 - For calibration, map the data to the model primitive in the body; put fitting, grids, and sensitivity outside.
@@ -45,11 +45,11 @@ A body proof idea is not a miniature appendix and not a dramatic story. It is a 
 
 Do not put the label `Proof.` above a credibility bridge when the manuscript uses that label for complete proofs. A separate formal `Proof.` line may contain an appendix pointer if that is the established convention. If the body gives only the mathematical move, write an unheaded paragraph after the theorem or proposition and distinguish it from the location pointer.
 
-Use one to four plain sentences unless the proof technique is itself the contribution:
+Use one to four plain sentences unless the proof technique is itself the contribution. Select only the moves the proof actually uses:
 
-1. Fix the object, reduction, or simplifying comparison.
-2. Name the hard term, constraint, strategic response, stochastic error, or boundary case.
-3. Name the proof move: relaxation, coupling, exchange argument, monotonicity, convexity, submodularity, induction, KKT conditions, concentration, envelope argument, or contradiction.
+1. Fix the relevant object, reduction, or simplifying comparison.
+2. Isolate a difficult term, constraint, strategic response, stochastic error, or boundary case when one carries the proof.
+3. Name the proof move, such as relaxation, coupling, exchange argument, monotonicity, convexity, submodularity, induction, KKT conditions, concentration, envelope argument, contradiction, or application of an earlier result.
 4. State how the move yields the theorem and where the complete verification appears.
 
 If the theorem is intuitive and the proof is routine, one sentence may be enough. If the theorem looks surprising, include the proof checkpoint that prevents the result from feeling like a black box.
@@ -83,7 +83,7 @@ Do not move the only displayed optimization problem, Bellman equation, equilibri
 
 ## Empirical And ML Pairing
 
-For empirical, ML, or industry-data papers, the body should include the preferred design, the model or estimator at the level needed to understand the result, the primary comparison, the main metric, and the decision implication. The appendix can carry notation, architecture or training details, auxiliary baselines, alternate outcomes, extra datasets, hyperparameters, sample construction, and lower-priority robustness.
+For empirical, ML, or industry-data papers, the body should include the preferred design, the model or estimator at the level needed to understand the result, and the main estimand, metric, or comparison. Include a decision implication only when the evidence supports one. The appendix can carry notation, architecture or training details, auxiliary baselines, alternate outcomes, extra datasets, hyperparameters, sample construction, and lower-priority robustness.
 
 The body should say what an appendix baseline or robustness check finds. Do not make the reader open the appendix to learn whether a check passed, failed, or changed the interpretation.
 
@@ -91,6 +91,6 @@ The body should say what an appendix baseline or robustness check finds. Do not 
 
 - If the body only says "see Appendix," add the theorem meaning, benchmark, and proof checkpoint.
 - If the body contains long verification, keep the result and one proof move; move constants, cases, and repeated displays.
-- If the proof idea sounds stylized, replace motivational phrasing with constructed object, hard term, and proof move.
+- If the proof idea sounds stylized, replace motivational phrasing with the actual reduction, comparison, inequality, theorem application, or other load-bearing move.
 - If the appendix organization feels random, regroup by proof dependency, reviewer threat, calibration, robustness, and extension.
 - If appendix material defines a term used in the main result, pull the definition into the body or add a local definition.

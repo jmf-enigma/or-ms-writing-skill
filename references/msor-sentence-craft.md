@@ -267,7 +267,7 @@ Better:
 
 ## Equation Sentences
 
-Before a display, say what the display defines or transforms. After a display, say what the object is used for.
+Make clear in nearby prose what a display defines or transforms and what the resulting object is used for. Put that prose before, after, or on both sides according to dependency; a display may come first when its role is already active.
 
 Before:
 

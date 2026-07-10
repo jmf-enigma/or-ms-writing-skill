@@ -54,11 +54,11 @@ The abstract should not list everything the paper does. It should make the porta
 
 ## Model And Math Pattern
 
-High-impact model writing earns notation by first making the object reusable.
+High-impact model writing earns notation by making the formal object's role recoverable when the reader needs it.
 
-- Before the display, say what the display defines or compares.
+- In nearby prose, say what the display defines, compares, or makes possible. A canonical formulation may come first when prior context has already made its role clear.
 - In the display, keep the objective, constraint, state, action, benchmark, or uncertainty object visible.
-- After the display, translate the object once and say why it matters next.
+- Translate consequential notation once and make the display's later use clear without requiring a sentence on each side.
 - State results as object plus property plus condition plus comparator. For example, a result may characterize a policy, bound a loss, compare contracts, or establish asymptotic optimality relative to a deterministic relaxation.
 - If the paper coins or names an object, define it narrowly. Do not let the name become rhetorical branding.
 

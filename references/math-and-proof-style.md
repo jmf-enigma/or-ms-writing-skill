@@ -28,34 +28,36 @@ Use this for theorem statements, result sections, proof sketches, and appendix p
 - A formal result may use a complete short body proof, a venue-style one-line `Proof.` pointer, or ordinary proof-sketch prose with an appendix reference. Whatever the convention, keep the decision meaning and any necessary credibility bridge in nearby body prose.
 - Put auxiliary lemmas in the appendix unless the lemma is the conceptual object that readers need to understand the main theorem.
 
-## Body-Level Derivation Pattern
+## Body-Level Derivation Checkpoints
 
-Use this pattern when the user gives a mathematical derivation and asks for main text.
+Use the first three checkpoints when a transformation creates an object used later. Add translation or an appendix pointer only when the local reader job requires it.
 
 1. **Original object**: define the optimization problem, Bellman equation, estimator, regret, equilibrium constraint, or benchmark.
 2. **Load-bearing move**: name the relaxation, dual, decomposition, coupling, conditioning step, exchange argument, or monotonicity step.
 3. **Resulting object**: state the bound, threshold, policy class, identifying expression, or simplified program that the theorem uses.
-4. **Reader translation**: say what this object means for the decision or comparison.
-5. **Appendix pointer**: send mechanical details to the appendix only after the body gives the logic.
+4. **Reader translation, when needed**: say what this object means for the formal problem, decision, or comparison.
+5. **Appendix pointer, when details move**: send mechanical verification to the appendix after the body makes the logic recoverable.
 
 ## Management Science Proof-Idea Voice
 
 MS proof ideas are concise, literal, and low-style. They explain why the theorem should be trusted without trying to sound elegant.
 
 - Write in proof verbs: construct, decompose, bound, compare, apply, combine, show, imply.
-- State any simplifying assumption before the sketch and give the complete-proof location.
+- Make any extra simplifying assumption available before the sketch relies on it and give the complete-proof location when details move.
 - Prefer "the key step is to bound..." over "the key intuition is..." when the sentence describes a proof move.
-- Use one displayed inequality or decomposition only when it is the object the reader must understand. Otherwise, summarize the move in prose and point to the appendix.
+- Use a displayed inequality or decomposition only when it is an object the reader must understand. More than one may be appropriate when the proof technique itself requires a visible chain; routine verification still moves to the appendix.
 - Do not call the proof elegant, subtle, delicate, or surprising. Let the theorem interpretation carry surprise if needed.
 - Do not write a generic proof roadmap if the theorem only needs a one-sentence proof idea.
 
-## Proof Paragraph Pattern
+## Full-Proof Paragraph Moves
 
-1. **Setup**: fix parameters and define objects.
-2. **Reduction**: show why it suffices to prove a simpler claim.
-3. **Key inequality/lemma**: isolate the load-bearing step.
-4. **Cases**: split only on economically meaningful thresholds or mathematical regimes.
-5. **Conclusion**: explicitly map the proved statement back to the theorem.
+Select and order only the moves the proof uses.
+
+1. **Setup**: fix parameters or define local objects not already active.
+2. **Reduction**: show why it suffices to prove a simpler claim when the proof uses one.
+3. **Key inequality, lemma, or theorem application**: isolate the load-bearing step.
+4. **Cases**: split only on mathematically consequential thresholds or regimes.
+5. **Conclusion**: map the proved statement back to the theorem when the connection is not immediate.
 
 ## OR/MS Proof Moves
 
@@ -68,10 +70,10 @@ MS proof ideas are concise, literal, and low-style. They explain why the theorem
 ## Polishing Rules
 
 - Do not bury a missing proof step behind "it is easy to see."
-- Prefer connected equations with a sentence before and after each display.
+- Keep connected equations together and explain their role and consequential notation in nearby prose. That prose may come before, after, or on both sides of a display; do not require symmetrical framing.
 - Use notation consistently; never reuse a symbol for a new object in the same proof.
 - Name lemmas by function: "single-crossing lemma," "upper-bound lemma," "threshold lemma."
 - If a key step is not proved, output `Gap Notes` and use an available proof-discovery workflow before polishing exposition.
-- Do not let the appendix provide the first explanation of the theorem's meaning. The body needs a formal statement, a proof idea when needed, and an interpretation paragraph.
+- Do not let the appendix provide the first explanation of the theorem's meaning. The body needs the formal statement and whatever interpretation or proof checkpoint is required for first-pass understanding and trust.
 - Avoid proof prose that sounds generated. Do not use colon-led roadmaps, dash pivots, semicolon chains, "we proceed as follows," or numbered steps when a linear proof reads better.
 - For long proofs, paragraph labels are fine. For short proofs, use ordinary transitions such as "We first show," "It remains to verify," and "Combining these inequalities gives."
